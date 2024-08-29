@@ -1,0 +1,162 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix laderr: <http://www.w3id.org/laderr#> .
+@base <http://www.w3id.org/laderr> .
+
+<http://www.w3id.org/laderr> rdf:type owl:Ontology .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.w3id.org/laderr#description
+laderr:description rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain laderr:Entity ;
+                   rdfs:range rdf:langString .
+
+
+###  http://www.w3id.org/laderr#hasState
+laderr:hasState rdf:type owl:DatatypeProperty ;
+                rdfs:domain laderr:Disposition .
+
+laderr:DispositionState owl:oneOf (
+        laderr:enabled
+        laderr:disabled
+    ) .
+
+###  http://www.w3id.org/laderr#id
+laderr:id rdf:type owl:DatatypeProperty ;
+          rdfs:domain laderr:Entity ;
+          rdfs:range xsd:string .
+
+
+###  http://www.w3id.org/laderr#name
+laderr:name rdf:type owl:DatatypeProperty ;
+            rdfs:domain laderr:Entity ;
+            rdfs:range rdf:langString .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3id.org/laderr#Asset
+laderr:Asset rdf:type owl:Class ;
+             rdfs:subClassOf laderr:Object .
+
+
+###  http://www.w3id.org/laderr#Capability
+laderr:Capability rdf:type owl:Class ;
+                  rdfs:subClassOf laderr:Disposition ;
+                  owl:disjointWith laderr:Vulnerability .
+
+
+###  http://www.w3id.org/laderr#Control
+laderr:Control rdf:type owl:Class ;
+               rdfs:subClassOf laderr:Object .
+
+
+###  http://www.w3id.org/laderr#Disposition
+laderr:Disposition rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:unionOf ( laderr:Capability
+                                                       laderr:Vulnerability
+                                                     )
+                                       ] ;
+                   rdfs:subClassOf laderr:Entity .
+
+
+###  http://www.w3id.org/laderr#DispositionState
+laderr:DispositionState rdf:type owl:Class ;
+                        owl:disjointWith laderr:Entity .
+
+
+###  http://www.w3id.org/laderr#Entity
+laderr:Entity rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( laderr:Disposition
+                                                  laderr:Object
+                                                  laderr:RiskType
+                                                )
+                                  ] .
+
+
+###  http://www.w3id.org/laderr#Incident
+laderr:Incident rdf:type owl:Class ;
+                rdfs:subClassOf laderr:RiskType ;
+                owl:disjointWith laderr:Risk .
+
+
+###  http://www.w3id.org/laderr#LossEvent
+laderr:LossEvent rdf:type owl:Class ;
+                  rdfs:subClassOf laderr:Incident .
+
+
+###  http://www.w3id.org/laderr#Object
+laderr:Object rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( laderr:Asset
+                                                  laderr:Control
+                                                  laderr:Threat
+                                                )
+                                  ] ;
+              rdfs:subClassOf laderr:Entity .
+
+
+###  http://www.w3id.org/laderr#Risk
+laderr:Risk rdf:type owl:Class ;
+            rdfs:subClassOf laderr:RiskType .
+
+
+###  http://www.w3id.org/laderr#RiskType
+laderr:RiskType rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:unionOf ( laderr:Incident
+                                                    laderr:Risk
+                                                  )
+                                    ] ;
+                rdfs:subClassOf laderr:Entity .
+
+
+###  http://www.w3id.org/laderr#Threat
+laderr:Threat rdf:type owl:Class ;
+              rdfs:subClassOf laderr:Object .
+
+
+###  http://www.w3id.org/laderr#Vulnerability
+laderr:Vulnerability rdf:type owl:Class ;
+                     rdfs:subClassOf laderr:Disposition .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.w3id.org/laderr#disabled
+laderr:disabled rdf:type owl:NamedIndividual ,
+                         laderr:DispositionState ;
+                owl:differentFrom laderr:enabled .
+
+
+###  http://www.w3id.org/laderr#enabled
+laderr:enabled rdf:type owl:NamedIndividual ,
+                        laderr:DispositionState .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( laderr:Disposition
+                laderr:Object
+                laderr:RiskType
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
