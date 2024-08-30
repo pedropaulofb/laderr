@@ -1,0 +1,32 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix laderr: <http://www.w3id.org/laderr#> .
+
+# Shape for Entity class
+laderr:EntityShape
+    a sh:NodeShape ;
+    sh:targetClass laderr:Entity ;
+    sh:property [
+        sh:path laderr:id ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path laderr:name ;
+        sh:datatype rdf:langString ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path laderr:description ;
+        sh:datatype rdf:langString ;
+    ] .
+
+# Shape for Disposition class
+laderr:DispositionShape
+    a sh:NodeShape ;
+    sh:targetClass laderr:Disposition ;
+    sh:property [
+        sh:path laderr:hasState ;
+        sh:class laderr:DispositionState ;
+        sh:minCount 1 ;
+    ] .
