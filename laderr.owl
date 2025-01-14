@@ -1,0 +1,142 @@
+@prefix : <https://w3id.org/pedropaulofb/laderr#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix laderr: <https://w3id.org/pedropaulofb/laderr#> .
+@base <https://w3id.org/pedropaulofb/laderr#> .
+
+<https://w3id.org/pedropaulofb/laderr> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/pedropaulofb/laderr#composedOf
+laderr:composedOf rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/pedropaulofb/laderr#baseURI
+laderr:baseURI rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:anyURI .
+
+
+###  https://w3id.org/pedropaulofb/laderr#createdBy
+laderr:createdBy rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#createdOn
+laderr:createdOn rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/pedropaulofb/laderr#description
+laderr:description rdf:type owl:DatatypeProperty ;
+                   rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#id
+laderr:id rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#modifiedOn
+laderr:modifiedOn rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/pedropaulofb/laderr#name
+laderr:name rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#title
+laderr:title rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#version
+laderr:version rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing owl:disjointWith laderr:LaderrSpecification .
+
+
+###  https://w3id.org/pedropaulofb/laderr#LaderrSpecification
+laderr:LaderrSpecification rdf:type owl:Class ;
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:composedOf ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onClass laderr:RiskEntity
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:createdBy ;
+                                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:baseURI ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:anyURI
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:createdOn ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:dateTime
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:title ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:description ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:modifiedOn ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:dateTime
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:version ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#RiskEntity
+laderr:RiskEntity rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty laderr:id ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty laderr:name ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty laderr:description ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
