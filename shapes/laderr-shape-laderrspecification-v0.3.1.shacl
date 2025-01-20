@@ -140,20 +140,20 @@
 
     # BaseURI property constraints
     sh:property [
-        sh:path :baseURI ;
+        sh:path :baseUri ;
         sh:datatype xsd:anyURI ;
         sh:severity sh:Violation ;
-        sh:message "Invalid datatype for metadata 'baseURI'. Expected xsd:anyURI."@en ;
+        sh:message "Invalid datatype for metadata 'baseUri'. Expected xsd:anyURI."@en ;
     ] ;
     sh:property [
-        sh:path :baseURI ;
+        sh:path :baseUri ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
-        sh:message "Necessary metadata 'baseURI' not found. The default value 'https://laderr.laderr#' will be adopted."@en ;
+        sh:message "Necessary metadata 'baseUri' not found. The default value 'https://laderr.laderr#' will be adopted."@en ;
     ] ;
     sh:property [
-        sh:path :baseURI ;
+        sh:path :baseUri ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "Multiple values for metadata 'baseURI' found."@en ;
+        sh:message "Multiple values for metadata 'baseUri' found."@en ;
     ] .
