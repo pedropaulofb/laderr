@@ -13,7 +13,7 @@
     sh:closed true ;
     
     # Specify the allowed properties
-    sh:ignoredProperties ( rdf:type owl:sameAs ) ;
+    sh:ignoredProperties ( rdf:type owl:sameAs rdfs:label ) ;
 
     # Represents the relationship between a LaderrSpecification and one or more RiskEntity instances
     sh:property [

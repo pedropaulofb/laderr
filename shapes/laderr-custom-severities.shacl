@@ -1,9 +1,0 @@
-@prefix : <https://w3id.org/pedropaulofb/laderr#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-:IncompleteInfo rdfs:subClassOf sh:Info ;
-    sh:description "Indicates an optional property that can addressed for completeness."@en .
-
-:IncompleteWarning rdfs:subClassOf sh:Warning ;
-    sh:description "Indicates a mandatory property that can addressed for completeness."@en .

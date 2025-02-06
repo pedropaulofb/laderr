@@ -16,14 +16,20 @@
     # Specify the allowed properties
     sh:ignoredProperties ( rdf:type owl:sameAs rdfs:label ) ;
 
-    # Ensure every instance of RiskEntity is a subclass instance
-    sh:or (
-        [ sh:class :RiskEvent ]
-        [ sh:class :Object ]
-        [ sh:class :Disposition ]
-    ) ;
-    sh:message "Instances of 'RiskEntity' must belong to one of its subclasses: 'RiskEvent', 'Object', or 'Disposition'." ;
-    sh:severity sh:Info ;
+    # Ensure every instance is an instance of a valid subclass of RiskEntity
+    sh:property [
+        sh:path rdf:type ;
+        sh:or (
+            [ sh:hasValue :RiskEvent ]
+            [ sh:hasValue :Object ]
+            [ sh:hasValue :Disposition ]
+            [ sh:hasValue :Vulnerability ]
+            [ sh:hasValue :Capability ]
+            [ sh:hasValue :Resilience ]
+        ) ;
+        sh:message "Instances of 'RiskEntity' must belong to one of its subclasses." ;
+        sh:severity sh:Violation ;
+    ] ;
 
     # NOT WORKING! TO BE SOLVED LATER. VERIFY DEBUG OPTIONS.
     # # Direct instantiation check
