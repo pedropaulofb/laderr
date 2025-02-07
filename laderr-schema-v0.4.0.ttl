@@ -157,10 +157,42 @@ laderr:exposes rdf:type owl:ObjectProperty ;
                rdfs:range laderr:Capability .
 
 
+###  https://w3id.org/pedropaulofb/laderr#inhibits
+laderr:inhibits rdf:type owl:ObjectProperty ;
+                rdfs:domain laderr:Control ;
+                rdfs:range laderr:Threat .
+
+
+###  https://w3id.org/pedropaulofb/laderr#preserves
+laderr:preserves rdf:type owl:ObjectProperty ;
+                 rdfs:domain laderr:Resilience ;
+                 rdfs:range laderr:Capability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#preservesAgainst
+laderr:preservesAgainst rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf owl:topObjectProperty ;
+                        rdfs:domain laderr:Resilience ;
+                        rdfs:range laderr:Capability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#preservesDespite
+laderr:preservesDespite rdf:type owl:ObjectProperty ;
+                        rdfs:domain laderr:Resilience ;
+                        rdfs:range laderr:Vulnerability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#protects
+laderr:protects rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain laderr:Control ;
+                rdfs:range laderr:Asset .
+
+
 ###  https://w3id.org/pedropaulofb/laderr#resiliences
 laderr:resiliences rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf laderr:composedOf ;
-                   rdfs:domain laderr:Object ;
+                   rdfs:domain laderr:Asset ;
                    rdfs:range laderr:Resilience .
 
 
@@ -168,6 +200,18 @@ laderr:resiliences rdf:type owl:ObjectProperty ;
 laderr:state rdf:type owl:ObjectProperty ;
              rdfs:domain laderr:Disposition ;
              rdfs:range laderr:DispositionState .
+
+
+###  https://w3id.org/pedropaulofb/laderr#sustains
+laderr:sustains rdf:type owl:ObjectProperty ;
+                rdfs:domain laderr:Capability ;
+                rdfs:range laderr:Resilience .
+
+
+###  https://w3id.org/pedropaulofb/laderr#threatens
+laderr:threatens rdf:type owl:ObjectProperty ;
+                 rdfs:domain laderr:Threat ;
+                 rdfs:range laderr:Asset .
 
 
 ###  https://w3id.org/pedropaulofb/laderr#vulnerabilities
@@ -236,6 +280,16 @@ laderr:version rdf:type owl:DatatypeProperty ;
 foaf:Organization rdf:type owl:Class .
 
 
+###  https://w3id.org/pedropaulofb/laderr#Asset
+laderr:Asset rdf:type owl:Class ;
+             rdfs:subClassOf laderr:Object ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty laderr:resiliences ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass laderr:Resilience
+                             ] .
+
+
 ###  https://w3id.org/pedropaulofb/laderr#Capability
 laderr:Capability rdf:type owl:Class ;
                   rdfs:subClassOf laderr:Disposition ,
@@ -244,6 +298,19 @@ laderr:Capability rdf:type owl:Class ;
                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
                                     owl:onClass laderr:Disposition
                                   ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Control
+laderr:Control rdf:type owl:Class ;
+               rdfs:subClassOf laderr:Object ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty laderr:inhibits ;
+                                 owl:someValuesFrom laderr:Threat
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty laderr:protects ;
+                                 owl:someValuesFrom laderr:Asset
+                               ] .
 
 
 ###  https://w3id.org/pedropaulofb/laderr#Disposition
@@ -311,15 +378,16 @@ laderr:LaderrSpecification rdf:type owl:Class ;
 
 ###  https://w3id.org/pedropaulofb/laderr#Object
 laderr:Object rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( laderr:Asset
+                                                  laderr:Control
+                                                  laderr:Threat
+                                                )
+                                  ] ;
               rdfs:subClassOf laderr:RiskEntity ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty laderr:capabilities ;
                                 owl:someValuesFrom laderr:Capability
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty laderr:resiliences ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass laderr:Resilience
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty laderr:vulnerabilities ;
@@ -362,6 +430,15 @@ laderr:RiskEntity rdf:type owl:Class ;
 ###  https://w3id.org/pedropaulofb/laderr#RiskEvent
 laderr:RiskEvent rdf:type owl:Class ;
                  rdfs:subClassOf laderr:RiskEntity .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Threat
+laderr:Threat rdf:type owl:Class ;
+              rdfs:subClassOf laderr:Object ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty laderr:threatens ;
+                                owl:someValuesFrom laderr:Asset
+                              ] .
 
 
 ###  https://w3id.org/pedropaulofb/laderr#Vulnerability

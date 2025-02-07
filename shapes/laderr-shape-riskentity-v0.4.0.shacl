@@ -1,0 +1,32 @@
+@prefix : <https://w3id.org/pedropaulofb/laderr#> .
+@prefix laderr: <https://w3id.org/pedropaulofb/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Shape for RiskEntity
+:Shape_RiskEntity a sh:NodeShape ;
+
+    sh:targetClass :RiskEntity ;
+
+    # Description property constraints
+    sh:property [
+        sh:path :description ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for 'description'. Expected xsd:string."@en ;
+    ] ;
+    sh:property [
+        sh:path :description ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Multiple values for 'description' found in RiskEntity instance."@en ;
+    ] ;
+    sh:property [
+        sh:path :description ;
+        sh:minCount 0 ;
+        sh:severity sh:Info ;
+        sh:message "Optional 'description' not found in RiskEntity instance."@en ;
+    ] .
