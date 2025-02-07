@@ -1,0 +1,38 @@
+@prefix : <https://w3id.org/pedropaulofb/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix lader: <http://www.w3.org/pedropaulofb/laderr#> .
+
+### Shape for Disposition
+:Shape_Disposition a sh:NodeShape ;
+
+    sh:targetClass :Disposition ;
+
+    # # Specify that this shape is closed (no additional properties are allowed)
+    # sh:closed true ;
+
+    # # Specify the allowed properties
+    # sh:ignoredProperties (  rdf:type
+    #                         owl:sameAs
+    #                         rdfs:label
+    #                         laderr:state
+    #                         laderr:description
+    #                         laderr:label
+    #                     ) ;
+
+    # State property constraints
+    sh:property [
+        sh:path :state ;
+        sh:in ( lader:StateEnabled lader:StateDisabled ) ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid value for property 'state'. Expected one of lader:StateEnabled or lader:StateDisabled."@en ;
+    ] ;
+    sh:property [
+        sh:path :state ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Mandatory property 'state' is missing."@en ;
+    ] .
