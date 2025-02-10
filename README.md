@@ -22,14 +22,6 @@ This work was developed by researchers from the [Business Informatics Group of G
     </td>
   </tr>
   <tr>
-    <td><strong>Tiago Prince Sales</strong></td>
-    <td>
-      <a href="https://orcid.org/0000-0002-5385-5761"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20"/></a>
-      <a href="https://github.com/tgoprince"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20"/></a>
-      <a href="https://www.linkedin.com/in/tiago-sales/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20"/></a>
-    </td>
-  </tr>
-  <tr>
     <td><strong>Frederik Gailly</strong></td>
     <td>
       <a href="https://orcid.org/0000-0003-0481-9745"><img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="20"/></a>
