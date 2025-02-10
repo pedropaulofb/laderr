@@ -16,13 +16,13 @@
     # Specify the allowed properties
     sh:ignoredProperties ( rdf:type owl:sameAs rdfs:label ) ;
 
-    # Represents the relationship between a LaderrSpecification and one or more RiskEntity instances
+    # Represents the relationship between a LaderrSpecification and one or more LaderrConstruct instances
     sh:property [
         sh:path :composedOf ;
-        sh:class :RiskEntity ;
+        sh:class :LaderrConstruct ;
         sh:minCount 1 ;
         sh:severity sh:Info ;
-        sh:message "Empty LaDeRR declaration. No RiskEntity found."@en ;
+        sh:message "Empty LaDeRR declaration. No LaderrConstruct found."@en ;
     ] ;
 
     # Title property constraints

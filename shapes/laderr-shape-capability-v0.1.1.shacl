@@ -11,12 +11,12 @@
 
     sh:targetClass :Capability ;
 
-    # Ensure each Capability is related to exactly one Object
+    # Ensure each Capability is related to exactly one Entity
     sh:property [
         sh:path [ sh:inversePath :capabilities ] ;
-        sh:class :Object ;
+        sh:class :Entity ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "Each Capability must be related to exactly one Object."@en ;
+        sh:message "Each Capability must be related to exactly one Entity."@en ;
     ] .

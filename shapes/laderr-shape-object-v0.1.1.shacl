@@ -4,10 +4,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-### Shape for Object
-:Shape_Object a sh:NodeShape ;
+### Shape for Entity
+:Shape_Entity a sh:NodeShape ;
 
-    sh:targetClass :Object ;
+    sh:targetClass :Entity ;
 
     # Relationship with Capability
     sh:property [
