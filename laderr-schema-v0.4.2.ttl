@@ -297,16 +297,26 @@ laderr:Capability rdf:type owl:Class ;
                                     owl:onProperty laderr:disables ;
                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
                                     owl:onClass laderr:Disposition
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty laderr:exploits ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass laderr:Vulnerability
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty laderr:sustains ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass laderr:Resilience
                                   ] .
 
 
 ###  https://w3id.org/pedropaulofb/laderr#Control
 laderr:Control rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty laderr:inhibits ;
+                                     owl:someValuesFrom laderr:Threat
+                                   ] ;
                rdfs:subClassOf laderr:Object ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty laderr:inhibits ;
-                                 owl:someValuesFrom laderr:Threat
-                               ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty laderr:protects ;
                                  owl:someValuesFrom laderr:Asset
@@ -398,6 +408,18 @@ laderr:Object rdf:type owl:Class ;
 
 ###  https://w3id.org/pedropaulofb/laderr#Resilience
 laderr:Resilience rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty laderr:preserves ;
+                                        owl:someValuesFrom laderr:Capability
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty laderr:preservesAgainst ;
+                                        owl:someValuesFrom laderr:Capability
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty laderr:preservesDespite ;
+                                        owl:someValuesFrom laderr:Vulnerability
+                                      ] ;
                   rdfs:subClassOf laderr:RiskEntity .
 
 
@@ -422,21 +444,20 @@ laderr:RiskEntity rdf:type owl:Class ;
 
 ###  https://w3id.org/pedropaulofb/laderr#Threat
 laderr:Threat rdf:type owl:Class ;
-              rdfs:subClassOf laderr:Object ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty laderr:threatens ;
-                                owl:someValuesFrom laderr:Asset
-                              ] .
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty laderr:threatens ;
+                                    owl:someValuesFrom laderr:Asset
+                                  ] ;
+              rdfs:subClassOf laderr:Object .
 
 
 ###  https://w3id.org/pedropaulofb/laderr#Vulnerability
 laderr:Vulnerability rdf:type owl:Class ;
-                     rdfs:subClassOf laderr:Disposition ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty laderr:exposes ;
-                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass laderr:Capability
-                                     ] .
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty laderr:exposes ;
+                                           owl:someValuesFrom laderr:Capability
+                                         ] ;
+                     rdfs:subClassOf laderr:Disposition .
 
 
 #################################################################
