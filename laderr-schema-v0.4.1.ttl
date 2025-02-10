@@ -403,13 +403,6 @@ laderr:Resilience rdf:type owl:Class ;
 
 ###  https://w3id.org/pedropaulofb/laderr#RiskEntity
 laderr:RiskEntity rdf:type owl:Class ;
-                  owl:equivalentClass [ rdf:type owl:Class ;
-                                        owl:unionOf ( laderr:Disposition
-                                                      laderr:Object
-                                                      laderr:Resilience
-                                                      laderr:RiskEvent
-                                                    )
-                                      ] ;
                   rdfs:subClassOf [ rdf:type owl:Restriction ;
                                     owl:onProperty laderr:id ;
                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -425,11 +418,6 @@ laderr:RiskEntity rdf:type owl:Class ;
                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onDataRange xsd:string
                                   ] .
-
-
-###  https://w3id.org/pedropaulofb/laderr#RiskEvent
-laderr:RiskEvent rdf:type owl:Class ;
-                 rdfs:subClassOf laderr:RiskEntity .
 
 
 ###  https://w3id.org/pedropaulofb/laderr#Threat
@@ -523,7 +511,6 @@ laderr:enabled rdf:type owl:NamedIndividual ,
   owl:members ( laderr:Disposition
                 laderr:Object
                 laderr:Resilience
-                laderr:RiskEvent
               )
 ] .
 
