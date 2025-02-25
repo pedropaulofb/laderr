@@ -9,10 +9,10 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix laderr: <https://w3id.org/pedropaulofb/laderr#> .
-@base <https://w3id.org/pedropaulofb/laderr#> .
+@base <https://w3id.org/pedropaulofb/laderr> .
 
 <https://w3id.org/pedropaulofb/laderr> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://w3id.org/ontouml/vocabulary/v0.1.0> ;
+                                        owl:versionIRI <https://w3id.org/pedropaulofb/laderr/v0.1.0> ;
                                         dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
                                                         <https://orcid.org/0000-0002-3452-553X> ,
                                                         <https://orcid.org/0000-0003-0481-9745> ;
@@ -196,6 +196,12 @@ laderr:resiliences rdf:type owl:ObjectProperty ;
                    rdfs:range laderr:Resilience .
 
 
+###  https://w3id.org/pedropaulofb/laderr#scenario
+laderr:scenario rdf:type owl:ObjectProperty ;
+                rdfs:domain laderr:LaderrSpecification ;
+                rdfs:range laderr:ScenarioType .
+
+
 ###  https://w3id.org/pedropaulofb/laderr#state
 laderr:state rdf:type owl:ObjectProperty ;
              rdfs:domain laderr:Disposition ;
@@ -309,6 +315,11 @@ laderr:Disposition rdf:type owl:Class ;
                                          owl:unionOf ( laderr:Capability
                                                        laderr:Vulnerability
                                                      )
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty laderr:state ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass laderr:DispositionState
                                        ] ;
                    rdfs:subClassOf laderr:LaderrConstruct .
 
@@ -322,8 +333,47 @@ laderr:DispositionState rdf:type owl:Class ;
                                             ] .
 
 
+###  https://w3id.org/pedropaulofb/laderr#Entity
+laderr:Entity rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( laderr:Asset
+                                                  laderr:Control
+                                                  laderr:Threat
+                                                )
+                                  ] ;
+              rdfs:subClassOf laderr:LaderrConstruct ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty laderr:capabilities ;
+                                owl:someValuesFrom laderr:Capability
+                              ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#LaderrConstruct
+laderr:LaderrConstruct rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:id ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty laderr:name ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty laderr:description ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] .
+
+
 ###  https://w3id.org/pedropaulofb/laderr#LaderrSpecification
 laderr:LaderrSpecification rdf:type owl:Class ;
+                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                 owl:onProperty laderr:scenario ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass laderr:ScenarioType
+                                               ] ;
                            rdfs:subClassOf [ rdf:type owl:Restriction ;
                                              owl:onProperty laderr:createdBy ;
                                              owl:someValuesFrom xsd:string
@@ -360,21 +410,6 @@ laderr:LaderrSpecification rdf:type owl:Class ;
                                            ] .
 
 
-###  https://w3id.org/pedropaulofb/laderr#Entity
-laderr:Entity rdf:type owl:Class ;
-              owl:equivalentClass [ rdf:type owl:Class ;
-                                    owl:unionOf ( laderr:Asset
-                                                  laderr:Control
-                                                  laderr:Threat
-                                                )
-                                  ] ;
-              rdfs:subClassOf laderr:LaderrConstruct ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty laderr:capabilities ;
-                                owl:someValuesFrom laderr:Capability
-                              ] .
-
-
 ###  https://w3id.org/pedropaulofb/laderr#Resilience
 laderr:Resilience rdf:type owl:Class ;
                   owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -392,23 +427,15 @@ laderr:Resilience rdf:type owl:Class ;
                   rdfs:subClassOf laderr:LaderrConstruct .
 
 
-###  https://w3id.org/pedropaulofb/laderr#LaderrConstruct
-laderr:LaderrConstruct rdf:type owl:Class ;
-                  rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                    owl:onProperty laderr:id ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange xsd:string
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty laderr:name ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange xsd:string
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty laderr:description ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange xsd:string
-                                  ] .
+###  https://w3id.org/pedropaulofb/laderr#ScenarioType
+laderr:ScenarioType rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:oneOf ( laderr:incident
+                                                      laderr:not_resilient
+                                                      laderr:operational
+                                                      laderr:resilient
+                                                    )
+                                        ] .
 
 
 ###  https://w3id.org/pedropaulofb/laderr#Threat
@@ -452,6 +479,28 @@ laderr:disabled rdf:type owl:NamedIndividual ,
 ###  https://w3id.org/pedropaulofb/laderr#enabled
 laderr:enabled rdf:type owl:NamedIndividual ,
                         laderr:DispositionState .
+
+
+###  https://w3id.org/pedropaulofb/laderr#incident
+laderr:incident rdf:type owl:NamedIndividual ,
+                         laderr:ScenarioType ;
+                owl:differentFrom laderr:operational .
+
+
+###  https://w3id.org/pedropaulofb/laderr#not_resilient
+laderr:not_resilient rdf:type owl:NamedIndividual ,
+                              laderr:ScenarioType ;
+                     owl:differentFrom laderr:resilient .
+
+
+###  https://w3id.org/pedropaulofb/laderr#operational
+laderr:operational rdf:type owl:NamedIndividual ,
+                            laderr:ScenarioType .
+
+
+###  https://w3id.org/pedropaulofb/laderr#resilient
+laderr:resilient rdf:type owl:NamedIndividual ,
+                          laderr:ScenarioType .
 
 
 ###  https://www.flandersmake.be/
@@ -507,8 +556,9 @@ laderr:enabled rdf:type owl:NamedIndividual ,
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( laderr:DispositionState
-                laderr:LaderrSpecification
                 laderr:LaderrConstruct
+                laderr:LaderrSpecification
+                laderr:ScenarioType
               )
 ] .
 
