@@ -1,0 +1,578 @@
+@prefix : <https://w3id.org/pedropaulofb/laderr#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix laderr: <https://w3id.org/pedropaulofb/laderr#> .
+@base <https://w3id.org/pedropaulofb/laderr#> .
+
+<https://w3id.org/pedropaulofb/laderr> rdf:type owl:Ontology ;
+                                        owl:versionIRI <https://w3id.org/pedropaulofb/laderr/v0.1.0> ;
+                                        dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
+                                                        <https://orcid.org/0000-0002-3452-553X> ,
+                                                        <https://orcid.org/0000-0003-0481-9745> ;
+                                        dct:creator <https://orcid.org/0000-0003-2736-7817> ;
+                                        dct:description "Schema for LaDeRR Language"@en ;
+                                        dct:identifier "https://w3id.org/pedropaulofb/laderr"^^xsd:anyURI ;
+                                        dct:issued "2022-04-03"^^xsd:date ;
+                                        dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+                                        dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+                                        dct:modified "2023-07-27"^^xsd:date ;
+                                        dct:publisher <https://ugent-businessinformatics.github.io/> ,
+                                                      <https://www.flandersmake.be/> ,
+                                                      <https://www.utwente.nl/en/eemcs/scs/> ;
+                                        dct:title "LaDeRR-Schema"@en ;
+                                        vann:preferredNamespacePrefix "laderr" ;
+                                        vann:preferredNamespaceUri "https://w3id.org/pedropaulofb/laderr#"^^xsd:anyURI ;
+                                        owl:priorVersion <https://w3id.org/ontouml/vocabulary/v0.0.0> ;
+                                        owl:versionInfo "Under development."@en ;
+                                        dcat:keyword "laderr"@en ,
+                                                     "resilience"@en ,
+                                                     "risk"@en ;
+                                        dcat:landingPage <https://w3id.org/pedropaulofb/laderr/git> ;
+                                        foaf:homepage <https://w3id.org/pedropaulofb/laderr/docs> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+dct:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dct:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dct:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/identifier
+dct:identifier rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+dct:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/language
+dct:language rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dct:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+dct:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+dct:publisher rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dct:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/dcat#keyword
+dcat:keyword rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/dcat#landingPage
+dcat:landingPage rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+foaf:homepage rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/member
+foaf:member rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/pedropaulofb/laderr#capabilities
+laderr:capabilities rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf laderr:composedOf ;
+                    rdfs:domain laderr:Entity ;
+                    rdfs:range laderr:Capability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#composedOf
+laderr:composedOf rdf:type owl:ObjectProperty ,
+                           owl:AsymmetricProperty ,
+                           owl:IrreflexiveProperty .
+
+
+###  https://w3id.org/pedropaulofb/laderr#damaged
+laderr:damaged rdf:type owl:ObjectProperty ;
+               rdfs:domain laderr:Threat ;
+               rdfs:range laderr:Asset .
+
+
+###  https://w3id.org/pedropaulofb/laderr#disables
+laderr:disables rdf:type owl:ObjectProperty ;
+                rdfs:domain laderr:Capability ;
+                rdfs:range laderr:Disposition .
+
+
+###  https://w3id.org/pedropaulofb/laderr#endangers
+laderr:endangers rdf:type owl:ObjectProperty ;
+                 rdfs:domain laderr:Threat ;
+                 rdfs:range laderr:Asset .
+
+
+###  https://w3id.org/pedropaulofb/laderr#exploits
+laderr:exploits rdf:type owl:ObjectProperty ;
+                rdfs:domain laderr:Capability ;
+                rdfs:range laderr:Vulnerability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#exposes
+laderr:exposes rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain laderr:Vulnerability ;
+               rdfs:range laderr:Capability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#inhibits
+laderr:inhibits rdf:type owl:ObjectProperty ;
+                rdfs:domain laderr:Control ;
+                rdfs:range laderr:Threat .
+
+
+###  https://w3id.org/pedropaulofb/laderr#preserves
+laderr:preserves rdf:type owl:ObjectProperty ;
+                 rdfs:domain laderr:Resilience ;
+                 rdfs:range laderr:Capability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#preservesAgainst
+laderr:preservesAgainst rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf owl:topObjectProperty ;
+                        rdfs:domain laderr:Resilience ;
+                        rdfs:range laderr:Capability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#preservesDespite
+laderr:preservesDespite rdf:type owl:ObjectProperty ;
+                        rdfs:domain laderr:Resilience ;
+                        rdfs:range laderr:Vulnerability .
+
+
+###  https://w3id.org/pedropaulofb/laderr#protects
+laderr:protects rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain laderr:Control ;
+                rdfs:range laderr:Asset .
+
+
+###  https://w3id.org/pedropaulofb/laderr#resiliences
+laderr:resiliences rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf laderr:composedOf ;
+                   rdfs:domain laderr:Asset ;
+                   rdfs:range laderr:Resilience .
+
+
+###  https://w3id.org/pedropaulofb/laderr#scenario
+laderr:scenario rdf:type owl:ObjectProperty ;
+                rdfs:domain laderr:LaderrSpecification ;
+                rdfs:range laderr:ScenarioType .
+
+
+###  https://w3id.org/pedropaulofb/laderr#state
+laderr:state rdf:type owl:ObjectProperty ;
+             rdfs:domain laderr:Disposition ;
+             rdfs:range laderr:DispositionState .
+
+
+###  https://w3id.org/pedropaulofb/laderr#sustains
+laderr:sustains rdf:type owl:ObjectProperty ;
+                rdfs:domain laderr:Capability ;
+                rdfs:range laderr:Resilience .
+
+
+###  https://w3id.org/pedropaulofb/laderr#threatens
+laderr:threatens rdf:type owl:ObjectProperty ;
+                 rdfs:domain laderr:Threat ;
+                 rdfs:range laderr:Asset .
+
+
+###  https://w3id.org/pedropaulofb/laderr#vulnerabilities
+laderr:vulnerabilities rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf laderr:composedOf ;
+                       rdfs:domain laderr:Entity ;
+                       rdfs:range laderr:Vulnerability .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/pedropaulofb/laderr#baseURI
+laderr:baseURI rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:anyURI .
+
+
+###  https://w3id.org/pedropaulofb/laderr#createdBy
+laderr:createdBy rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#createdOn
+laderr:createdOn rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/pedropaulofb/laderr#description
+laderr:description rdf:type owl:DatatypeProperty ;
+                   rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#id
+laderr:id rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#modifiedOn
+laderr:modifiedOn rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/pedropaulofb/laderr#name
+laderr:name rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#title
+laderr:title rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:string .
+
+
+###  https://w3id.org/pedropaulofb/laderr#version
+laderr:version rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Asset
+laderr:Asset rdf:type owl:Class ;
+             rdfs:subClassOf laderr:Entity .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Capability
+laderr:Capability rdf:type owl:Class ;
+                  rdfs:subClassOf laderr:Disposition .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Control
+laderr:Control rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty laderr:inhibits ;
+                                     owl:someValuesFrom laderr:Threat
+                                   ] ;
+               rdfs:subClassOf laderr:Entity ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty laderr:protects ;
+                                 owl:someValuesFrom laderr:Asset
+                               ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Disposition
+laderr:Disposition rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:unionOf ( laderr:Capability
+                                                       laderr:Vulnerability
+                                                     )
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty laderr:state ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass laderr:DispositionState
+                                       ] ;
+                   rdfs:subClassOf laderr:LaderrConstruct .
+
+
+###  https://w3id.org/pedropaulofb/laderr#DispositionState
+laderr:DispositionState rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Class ;
+                                              owl:oneOf ( laderr:disabled
+                                                          laderr:enabled
+                                                        )
+                                            ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Entity
+laderr:Entity rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Class ;
+                                    owl:unionOf ( laderr:Asset
+                                                  laderr:Control
+                                                  laderr:Threat
+                                                )
+                                  ] ;
+              rdfs:subClassOf laderr:LaderrConstruct ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty laderr:capabilities ;
+                                owl:someValuesFrom laderr:Capability
+                              ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#LaderrConstruct
+laderr:LaderrConstruct rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:id ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty laderr:name ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty laderr:description ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:string
+                                       ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#LaderrSpecification
+laderr:LaderrSpecification rdf:type owl:Class ;
+                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                 owl:onProperty laderr:scenario ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass laderr:ScenarioType
+                                               ] ;
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:createdBy ;
+                                             owl:someValuesFrom xsd:string
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:baseURI ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:anyURI
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:createdOn ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:dateTime
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:title ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:description ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:modifiedOn ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:dateTime
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty laderr:version ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:string
+                                           ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Resilience
+laderr:Resilience rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty laderr:preserves ;
+                                        owl:someValuesFrom laderr:Capability
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty laderr:preservesAgainst ;
+                                        owl:someValuesFrom laderr:Capability
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty laderr:preservesDespite ;
+                                        owl:someValuesFrom laderr:Vulnerability
+                                      ] ;
+                  rdfs:subClassOf laderr:LaderrConstruct .
+
+
+###  https://w3id.org/pedropaulofb/laderr#ScenarioType
+laderr:ScenarioType rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:oneOf ( laderr:incident
+                                                      laderr:not_resilient
+                                                      laderr:operational
+                                                      laderr:resilient
+                                                    )
+                                        ] .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Threat
+laderr:Threat rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty laderr:threatens ;
+                                    owl:someValuesFrom laderr:Asset
+                                  ] ;
+              rdfs:subClassOf laderr:Entity .
+
+
+###  https://w3id.org/pedropaulofb/laderr#Vulnerability
+laderr:Vulnerability rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty laderr:exposes ;
+                                           owl:someValuesFrom laderr:Capability
+                                         ] ;
+                     rdfs:subClassOf laderr:Disposition .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://ugent-businessinformatics.github.io/
+<https://ugent-businessinformatics.github.io/> rdf:type owl:NamedIndividual ,
+                                                        foaf:Organization ;
+                                               foaf:homepage "https://ugent-businessinformatics.github.io/"^^xsd:anyURI ;
+                                               foaf:member <https://orcid.org/0000-0001-9247-6150> ,
+                                                           <https://orcid.org/0000-0003-0481-9745> ,
+                                                           <https://orcid.org/0000-0003-2736-7817> ;
+                                               foaf:name "UGent Business Informatics, Ghent University, Belgium" .
+
+
+###  https://w3id.org/pedropaulofb/laderr#disabled
+laderr:disabled rdf:type owl:NamedIndividual ,
+                         laderr:DispositionState ;
+                owl:differentFrom laderr:enabled .
+
+
+###  https://w3id.org/pedropaulofb/laderr#enabled
+laderr:enabled rdf:type owl:NamedIndividual ,
+                        laderr:DispositionState .
+
+
+###  https://w3id.org/pedropaulofb/laderr#incident
+laderr:incident rdf:type owl:NamedIndividual ,
+                         laderr:ScenarioType ;
+                owl:differentFrom laderr:operational .
+
+
+###  https://w3id.org/pedropaulofb/laderr#not_resilient
+laderr:not_resilient rdf:type owl:NamedIndividual ,
+                              laderr:ScenarioType ;
+                     owl:differentFrom laderr:resilient .
+
+
+###  https://w3id.org/pedropaulofb/laderr#operational
+laderr:operational rdf:type owl:NamedIndividual ,
+                            laderr:ScenarioType .
+
+
+###  https://w3id.org/pedropaulofb/laderr#resilient
+laderr:resilient rdf:type owl:NamedIndividual ,
+                          laderr:ScenarioType .
+
+
+###  https://www.flandersmake.be/
+<https://www.flandersmake.be/> rdf:type owl:NamedIndividual ,
+                                        foaf:Organization ;
+                               foaf:homepage "https://www.flandersmake.be/"^^xsd:anyURI ;
+                               foaf:member <https://orcid.org/0000-0001-9247-6150> ,
+                                           <https://orcid.org/0000-0003-0481-9745> ,
+                                           <https://orcid.org/0000-0003-2736-7817> ;
+                               foaf:name "Flanders Make, Belgium" .
+
+
+###  https://www.utwente.nl/en/eemcs/scs/
+<https://www.utwente.nl/en/eemcs/scs/> rdf:type owl:NamedIndividual ,
+                                                foaf:Organization ;
+                                       foaf:homepage "https://www.utwente.nl/en/eemcs/scs/"^^xsd:anyURI ;
+                                       foaf:member <https://orcid.org/0000-0002-3452-553X> ,
+                                                   <https://orcid.org/0000-0003-2736-7817> ;
+                                       foaf:name "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<https://orcid.org/0000-0002-5385-5761> foaf:mbox "t.princesales@utwente.nl" ;
+                                        foaf:name "Tiago Prince Sales" .
+
+
+<https://orcid.org/0000-0003-2528-3118> foaf:mbox "c.moraisfonseca@utwente.nl" ;
+                                        foaf:name "Claudenir M. Fonseca" .
+
+
+<https://orcid.org/0000-0003-2736-7817> foaf:mbox "p.p.favatobarcelos@uwente.nl" ;
+                                        foaf:name "Pedro Paulo Favato Barcelos" .
+
+
+<https://orcid.org/0000-0003-3385-4769> foaf:mbox "mattia.fumagalli@unibz.it" ;
+                                        foaf:name "Mattia Fumagalli" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( laderr:Disposition
+                laderr:Entity
+                laderr:Resilience
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( laderr:DispositionState
+                laderr:LaderrConstruct
+                laderr:LaderrSpecification
+                laderr:ScenarioType
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
