@@ -157,4 +157,21 @@
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         sh:message "Multiple values for metadata 'baseUri' found."@en ;
+    ] ;
+
+    # Scenario property constraints
+    sh:property [
+        sh:path :scenario ;
+        sh:class :ScenarioType ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for metadata 'scenario'. Expected a value of type laderr:ScenarioType."@en ;
+    ] ;
+
+    # Scenario property constraints
+    sh:property [
+        sh:path :scenario ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid number of values for metadata 'scenario'. Expected exactly one value."@en ;
     ] .
