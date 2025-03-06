@@ -1,0 +1,58 @@
+@prefix : <https://w3id.org/laderr#> .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+### Shape for Resilience
+:Shape_Resilience a sh:NodeShape ;
+
+    sh:targetClass :Resilience ;
+
+    # Ensure each Resilience is related to exactly one Asset
+    sh:property [
+        sh:path [ sh:inversePath :resiliences ] ;
+        sh:class :Asset ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each Resilience must be related to exactly one Asset."@en ;
+    ] ;
+
+    # preserves (mandatory relationship to Capability)
+    sh:property [
+        sh:path laderr:preserves ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Property 'preserves' must reference at least one Capability."@en ;
+    ] ;
+
+    # preservesAgainst constraint
+    sh:property [
+        sh:path laderr:preservesAgainst ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Property 'preservesAgainst' must reference at least one Capability."@en ;
+    ] ;
+
+    # preservesDespite constraint
+    sh:property [
+        sh:path laderr:preservesDespite ;
+        sh:class laderr:Vulnerability ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Property 'preservesDespite' must reference at least one Vulnerability."@en ;
+    ] ;
+
+    # sustains (mandatory inverse relationship: Resilience must be sustained by Capability)
+    sh:property [
+        sh:path [ sh:inversePath laderr:sustains ] ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each Resilience instance must be sustained by at least one Capability."@en ;
+    ] .

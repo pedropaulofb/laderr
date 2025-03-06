@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/laderr#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -8,33 +9,33 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix laderr: <https://w3id.org/laderr#> .
-@base <https://w3id.org/laderr#> .
+@base <https://w3id.org/laderr> .
 
-<https://w3id.org/pedropaulofb/laderr> rdf:type owl:Ontology ;
-                                        owl:versionIRI <https://w3id.org/pedropaulofb/laderr/v0.1.0> ;
-                                        dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
-                                                        <https://orcid.org/0000-0002-3452-553X> ,
-                                                        <https://orcid.org/0000-0003-0481-9745> ;
-                                        dct:creator <https://orcid.org/0000-0003-2736-7817> ;
-                                        dct:description "Schema for LaDeRR Language"@en ;
-                                        dct:identifier "https://w3id.org/pedropaulofb/laderr"^^xsd:anyURI ;
-                                        dct:issued "2022-04-03"^^xsd:date ;
-                                        dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
-                                        dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
-                                        dct:modified "2023-07-27"^^xsd:date ;
-                                        dct:publisher <https://ugent-businessinformatics.github.io/> ,
-                                                      <https://www.flandersmake.be/> ,
-                                                      <https://www.utwente.nl/en/eemcs/scs/> ;
-                                        dct:title "LaDeRR-Schema"@en ;
-                                        vann:preferredNamespacePrefix "laderr" ;
-                                        vann:preferredNamespaceUri "https://w3id.org/laderr#"^^xsd:anyURI ;
-                                        owl:priorVersion <https://w3id.org/ontouml/vocabulary/v0.0.0> ;
-                                        owl:versionInfo "Under development."@en ;
-                                        dcat:keyword "laderr"@en ,
-                                                     "resilience"@en ,
-                                                     "risk"@en ;
-                                        dcat:landingPage <https://w3id.org/pedropaulofb/laderr/git> ;
-                                        foaf:homepage <https://w3id.org/pedropaulofb/laderr/docs> .
+<https://w3id.org/laderr> rdf:type owl:Ontology ;
+                           owl:versionIRI <https://w3id.org/laderr/v0.1.0> ;
+                           dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
+                                           <https://orcid.org/0000-0002-3452-553X> ,
+                                           <https://orcid.org/0000-0003-0481-9745> ;
+                           dct:creator <https://orcid.org/0000-0003-2736-7817> ;
+                           dct:description "Schema for LaDeRR Language"@en ;
+                           dct:identifier "https://w3id.org/laderr"^^xsd:anyURI ;
+                           dct:issued "2022-04-03"^^xsd:date ;
+                           dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+                           dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+                           dct:modified "2023-07-27"^^xsd:date ;
+                           dct:publisher <https://ugent-businessinformatics.github.io/> ,
+                                         <https://www.flandersmake.be/> ,
+                                         <https://www.utwente.nl/en/eemcs/scs/> ;
+                           dct:title "LaDeRR-Schema"@en ;
+                           vann:preferredNamespacePrefix "laderr" ;
+                           vann:preferredNamespaceUri "https://w3id.org/laderr#"^^xsd:anyURI ;
+                           owl:priorVersion <https://w3id.org/ontouml/vocabulary/v0.0.0> ;
+                           owl:versionInfo "Under development."@en ;
+                           dcat:keyword "laderr"@en ,
+                                        "resilience"@en ,
+                                        "risk"@en ;
+                           dcat:landingPage <https://w3id.org/laderr/git> ;
+                           foaf:homepage <https://w3id.org/laderr/docs> .
 
 #################################################################
 #    Annotation properties
@@ -136,22 +137,11 @@ laderr:composedOf rdf:type owl:ObjectProperty ,
                            owl:IrreflexiveProperty .
 
 
-###  https://w3id.org/laderr#damaged
-laderr:damaged rdf:type owl:ObjectProperty ;
-               rdfs:domain laderr:Threat ;
-               rdfs:range laderr:Asset .
-
-
 ###  https://w3id.org/laderr#disables
-laderr:disables rdf:type owl:ObjectProperty ;
+laderr:disables rdf:type owl:ObjectProperty ,
+                         owl:IrreflexiveProperty ;
                 rdfs:domain laderr:Capability ;
                 rdfs:range laderr:Disposition .
-
-
-###  https://w3id.org/laderr#endangers
-laderr:endangers rdf:type owl:ObjectProperty ;
-                 rdfs:domain laderr:Threat ;
-                 rdfs:range laderr:Asset .
 
 
 ###  https://w3id.org/laderr#exploits
@@ -165,6 +155,12 @@ laderr:exposes rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain laderr:Vulnerability ;
                rdfs:range laderr:Capability .
+
+
+###  https://w3id.org/laderr#failedToDamage
+laderr:failedToDamage rdf:type owl:ObjectProperty ;
+                      rdfs:domain laderr:Threat ;
+                      rdfs:range laderr:Asset .
 
 
 ###  https://w3id.org/laderr#inhibits
@@ -215,6 +211,12 @@ laderr:scenario rdf:type owl:ObjectProperty ;
 laderr:state rdf:type owl:ObjectProperty ;
              rdfs:domain laderr:Disposition ;
              rdfs:range laderr:DispositionState .
+
+
+###  https://w3id.org/laderr#succeededToDamage
+laderr:succeededToDamage rdf:type owl:ObjectProperty ;
+                         rdfs:domain laderr:Threat ;
+                         rdfs:range laderr:Asset .
 
 
 ###  https://w3id.org/laderr#sustains
@@ -538,16 +540,8 @@ laderr:resilient rdf:type owl:NamedIndividual ,
                                         foaf:name "Tiago Prince Sales" .
 
 
-<https://orcid.org/0000-0003-2528-3118> foaf:mbox "c.moraisfonseca@utwente.nl" ;
-                                        foaf:name "Claudenir M. Fonseca" .
-
-
 <https://orcid.org/0000-0003-2736-7817> foaf:mbox "p.p.favatobarcelos@uwente.nl" ;
                                         foaf:name "Pedro Paulo Favato Barcelos" .
-
-
-<https://orcid.org/0000-0003-3385-4769> foaf:mbox "mattia.fumagalli@unibz.it" ;
-                                        foaf:name "Mattia Fumagalli" .
 
 
 #################################################################
