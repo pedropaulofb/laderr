@@ -1,15 +1,17 @@
-@prefix : <https://w3id.org/laderr#> .
+@prefix laderr: <https://w3id.org/laderr#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix laderr: <https://w3id.org/laderr#> .
 
 ### Shape for Disposition
-:Shape_Disposition a sh:NodeShape ;
+laderr:Shape_Disposition a sh:NodeShape ;
 
-    sh:targetClass :Disposition ;
+    sh:targetClass laderr:Disposition ;
+
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type owl:sameAs rdfs:label owl:topObjectProperty laderr:description laderr:disables laderr:exploits laderr:exposes laderr:sustains ) ;
 
     # State property constraints
     sh:property [

@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/laderr#> .
 @prefix laderr: <https://w3id.org/laderr#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -7,14 +6,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 ### Shape for Capability
-:Shape_Capability a sh:NodeShape ;
+laderr:Shape_Capability a sh:NodeShape ;
 
-    sh:targetClass :Capability ;
+    sh:targetClass laderr:Capability ;
 
     # Ensure each Capability is related to exactly one Entity
     sh:property [
-        sh:path [ sh:inversePath :capabilities ] ;
-        sh:class :Entity ;
+        sh:path [ sh:inversePath laderr:capabilities ] ;
+        sh:class laderr:Entity ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;

@@ -1,18 +1,18 @@
-@prefix : <https://w3id.org/laderr#> .
+@prefix laderr: <https://w3id.org/laderr#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 ### Shape for Entity
-:Shape_Entity a sh:NodeShape ;
+laderr:Shape_Entity a sh:NodeShape ;
 
-    sh:targetClass :Entity ;
+    sh:targetClass laderr:Entity ;
 
     # Relationship with Capability
     sh:property [
-        sh:path :capabilities ;
-        sh:class :Capability ;
+        sh:path laderr:capabilities ;
+        sh:class laderr:Capability ;
         sh:minCount 1 ;
         sh:severity sh:Warning ;
         sh:message "Property 'capabilities' must reference one or more Capability instances."@en ;

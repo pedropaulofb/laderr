@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/laderr#> .
 @prefix laderr: <https://w3id.org/laderr#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -7,56 +6,44 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 ### Shape for LaderrConstruct
-:Shape_LaderrConstruct a sh:NodeShape ;
+laderr:Shape_LaderrConstruct a sh:NodeShape ;
 
-    sh:targetClass :LaderrConstruct ;
+    sh:targetClass laderr:LaderrConstruct ;
+
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type owl:sameAs rdfs:label owl:topObjectProperty laderr:capabilities laderr:vulnerabilities laderr:state laderr:disables laderr:exploits laderr:exposes laderr:failedToDamage laderr:inhibits laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences laderr:sustains laderr:threatens ) ;
 
     # description property constraints
     sh:property [
-        sh:path :description ;
+        sh:path laderr:description ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
         sh:message "Invalid datatype for 'description'. Expected xsd:string."@en ;
     ] ;
     sh:property [
-        sh:path :description ;
+        sh:path laderr:description ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         sh:message "Multiple values for 'description' found in LaderrConstruct instance."@en ;
     ] ;
     # sh:property [
-    #     sh:path :description ;
+    #     sh:path laderr:description ;
     #     sh:minCount 0 ;
     #     sh:severity sh:Info ;
     #     sh:message "Optional 'description' not found in LaderrConstruct instance."@en ;
     # ] ;
-    
-    # id property constraints
-    sh:property [
-        sh:path :id ;
-        sh:datatype xsd:string ;
-        sh:severity sh:Violation ;
-        sh:message "Invalid datatype for 'id'. Expected xsd:string."@en ;
-    ] ;
-    sh:property [
-        sh:path :id ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:severity sh:Violation ;
-        sh:message "Exactly one value for 'id' must be provided for LaderrConstruct."@en ;
-    ] ;
 
-    # name property constraints
+    # label property constraints
     sh:property [
-        sh:path :name ;
+        sh:path rdfs:label ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "Invalid datatype for 'name'. Expected xsd:string."@en ;
+        sh:message "Invalid datatype for 'label'. Expected xsd:string."@en ;
     ] ;
     sh:property [
-        sh:path :name ;
+        sh:path rdfs:label ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "Exactly one value for 'name' must be provided for LaderrConstruct."@en ;
+        sh:message "Exactly one value for 'label' must be provided for LaderrConstruct."@en ;
     ] .

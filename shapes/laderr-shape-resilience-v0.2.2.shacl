@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/laderr#> .
 @prefix laderr: <https://w3id.org/laderr#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -7,14 +6,14 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 ### Shape for Resilience
-:Shape_Resilience a sh:NodeShape ;
+laderr:Shape_Resilience a sh:NodeShape ;
 
-    sh:targetClass :Resilience ;
+    sh:targetClass laderr:Resilience ;
 
     # Ensure each Resilience is related to exactly one Asset
     sh:property [
-        sh:path [ sh:inversePath :resiliences ] ;
-        sh:class :Asset ;
+        sh:path [ sh:inversePath laderr:resiliences ] ;
+        sh:class laderr:Asset ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
