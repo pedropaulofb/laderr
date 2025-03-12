@@ -16,7 +16,7 @@ The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is 
         - [Versioning & Releases](#versioning--releases)
         - [LaDeRR Engine](#laderr-engine)
     - [License](#license)
-    - [How to Contribute?](#how-to-contribute)
+    - [How to Contribute](#how-to-contribute)
     - [Authors](#authors)
 
 <!-- /TOC -->
@@ -93,7 +93,7 @@ By providing permanent URIs, LaDeRR ensures that its resources remain accessible
 ## License
 The **LaDeRR DSL** is released under the **[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)**, a **permissive open-source license** that allows free use, modification, and distribution of the specifications. This ensures that LaDeRR can be adopted, extended, and integrated into both academic and industrial applications, while maintaining intellectual property protections.
 
-## How to Contribute?
+## How to Contribute
 Contributions to LaDeRR are **highly encouraged**! The language is an evolving project, and community input is essential for improving its **expressiveness, usability, and computational support**. You can contribute to this project in the following ways.
 
 1. **Report Issues:**
