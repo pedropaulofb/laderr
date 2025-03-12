@@ -233,7 +233,7 @@
 				</x:List>
 			</data>
 			<data key="d5">
-				<y:RectD X="205.46875" Y="-187.5" Width="251.75" Height="297"/>
+				<y:RectD X="264.125" Y="-193.25" Width="251.75" Height="297"/>
 			</data>
 			<data key="d7">
 				<yjs:ShapeNodeStyle fill="{y:GraphMLReference 6}">
@@ -259,52 +259,7 @@
 			</port>
 		</node>
 		<node id="n2">
-			<data key="d0">44</data>
-			<data key="d5">
-				<y:RectD X="520.125" Y="-66.25" Width="111.125" Height="45.75"/>
-			</data>
-			<data key="d7">
-				<ycns:JavaShapeNodeStyle fill="DARK_ORANGE" stroke="#00663800" shape="FAT_ARROW"/>
-			</data>
-			<data key="d8">
-				<y:ViewState>
-					<y:FolderNodeState x:Key="c|view" Layout="1120.5,322.75,60,25"/>
-				</y:ViewState>
-			</data>
-		</node>
-		<node id="n3">
-			<data key="d0">45</data>
-			<data key="d5">
-				<y:RectD X="483.875" Y="-66.25" Width="111.125" Height="45.75"/>
-			</data>
-			<data key="d7">
-				<ycns:JavaShapeNodeStyle fill="DARK_ORANGE" stroke="#00663800" shape="FAT_ARROW2"/>
-			</data>
-			<data key="d8">
-				<y:ViewState>
-					<y:FolderNodeState x:Key="c|view" Layout="1084.25,322.75,60,25"/>
-				</y:ViewState>
-			</data>
-		</node>
-		<node id="n4">
 			<data key="d0">46</data>
-			<data key="d4">
-				<x:List>
-					<y:Label>
-						<y:Label.Text>&lt;p&gt;&lt;strong&gt;Mapping&lt;/strong&gt;&lt;/p&gt;</y:Label.Text>
-						<y:Label.LayoutParameter>
-							<yx:CompositeLabelModelParameter Model="{y:GraphMLReference 5}">
-								<yx:CompositeLabelModelParameter.Parameter>
-									<yx:ExteriorNodeLabelModelParameter Position="Bottom" Model="{y:GraphMLReference 8}"/>
-								</yx:CompositeLabelModelParameter.Parameter>
-							</yx:CompositeLabelModelParameter>
-						</y:Label.LayoutParameter>
-						<y:Label.Style>
-							<yjs:MarkupLabelStyle verticalTextAlignment="CENTER" horizontalTextAlignment="CENTER" wrapping="CLIP" font="{y:GraphMLReference 4}" textSize="23"/>
-						</y:Label.Style>
-					</y:Label>
-				</x:List>
-			</data>
 			<data key="d5">
 				<y:RectD X="520.125" Y="-126.25" Width="72.234375" Height="60"/>
 			</data>
@@ -334,6 +289,33 @@
 						</y:FolderNodeState.Labels>
 					</y:FolderNodeState>
 				</y:ViewState>
+			</data>
+		</node>
+		<node id="n3">
+			<data key="d0">48</data>
+			<data key="d4">
+				<x:List>
+					<y:Label LayoutParameter="{y:GraphMLReference 3}">
+						<y:Label.Text>&lt;p&gt;&lt;strong&gt;Mapping&lt;/strong&gt;&lt;/p&gt;</y:Label.Text>
+						<y:Label.Style>
+							<yjs:MarkupLabelStyle verticalTextAlignment="CENTER" horizontalTextAlignment="CENTER" wrapping="CLIP" font="{y:GraphMLReference 4}" textSize="23"/>
+						</y:Label.Style>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d5">
+				<y:RectD X="460.875" Y="-66.25" Width="158.25" Height="43"/>
+			</data>
+			<data key="d7">
+				<yjs:RectangleNodeStyle cornerStyle="CUT" cornerSize="1" scaleCornerSize="true" fill="DARK_ORANGE">
+					<yjs:RectangleNodeStyle.stroke>
+						<yjs:Stroke>
+							<yjs:Stroke.fill>
+								<yjs:CssFill cssString="#663800"/>
+							</yjs:Stroke.fill>
+						</yjs:Stroke>
+					</yjs:RectangleNodeStyle.stroke>
+				</yjs:RectangleNodeStyle>
 			</data>
 		</node>
 	</graph>
