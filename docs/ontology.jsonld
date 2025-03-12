@@ -372,6 +372,21 @@
   "@id" : "http://xmlns.com/foaf/0.1/name",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
+  "@id" : "https://orcid.org/0000-0001-9247-6150",
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Geert Poels"
+  } ]
+}, {
+  "@id" : "https://orcid.org/0000-0002-3452-553X",
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Giancarlo Guizzardi"
+  } ]
+}, {
+  "@id" : "https://orcid.org/0000-0003-0481-9745",
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Frederik Gailly"
+  } ]
+}, {
   "@id" : "https://orcid.org/0000-0003-2736-7817",
   "http://xmlns.com/foaf/0.1/mbox" : [ {
     "@value" : "pedropaulofb@gmail.com"
@@ -443,7 +458,7 @@
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
-    "@value" : "LaDeRR-Vocabulary"
+    "@value" : "LaDeRR Vocabulary"
   } ],
   "http://purl.org/vocab/vann/preferredNamespacePrefix" : [ {
     "@value" : "laderr"
@@ -483,6 +498,9 @@
   } ],
   "http://xmlns.com/foaf/0.1/logo" : [ {
     "@id" : "https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png"
+  } ],
+  "https://w3id.org/mod#repository" : [ {
+    "@id" : "https://w3id.org/laderr/git"
   } ]
 }, {
   "@id" : "https://w3id.org/laderr#Asset",
@@ -1331,6 +1349,9 @@
     "@language" : "en",
     "@value" : "TTL serialization of the LaDeRR-Vocabulary."
   } ]
+}, {
+  "@id" : "https://w3id.org/mod#repository",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "https://www.flandersmake.be/",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],

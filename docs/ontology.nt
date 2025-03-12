@@ -12,7 +12,7 @@
 <https://w3id.org/laderr> <http://purl.org/dc/terms/publisher> <https://ugent-businessinformatics.github.io/> .
 <https://w3id.org/laderr> <http://purl.org/dc/terms/publisher> <https://www.flandersmake.be/> .
 <https://w3id.org/laderr> <http://purl.org/dc/terms/publisher> <https://www.utwente.nl/en/eemcs/scs/> .
-<https://w3id.org/laderr> <http://purl.org/dc/terms/title> "LaDeRR-Vocabulary"@en .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/title> "LaDeRR Vocabulary"@en .
 <https://w3id.org/laderr> <http://purl.org/vocab/vann/preferredNamespacePrefix> "laderr" .
 <https://w3id.org/laderr> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/laderr#"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
 <https://w3id.org/laderr> <http://www.w3.org/2002/07/owl#versionInfo> "First complete vocabulary for the LaDeRR DSL."@en .
@@ -25,6 +25,7 @@
 <https://w3id.org/laderr> <http://www.w3.org/ns/dcat#version> "0.6.11" .
 <https://w3id.org/laderr> <http://xmlns.com/foaf/0.1/homepage> <https://w3id.org/laderr> .
 <https://w3id.org/laderr> <http://xmlns.com/foaf/0.1/logo> <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> .
+<https://w3id.org/laderr> <https://w3id.org/mod#repository> <https://w3id.org/laderr/git> .
 # 
 # 
 # #################################################################
@@ -93,6 +94,9 @@
 # 
 # http://xmlns.com/foaf/0.1/name
 <http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# https://w3id.org/mod#repository
+<https://w3id.org/mod#repository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # 
 # 
@@ -629,6 +633,12 @@ _:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 # #
 # #################################################################
 # 
+# 
+<https://orcid.org/0000-0001-9247-6150> <http://xmlns.com/foaf/0.1/name> "Geert Poels" .
+# 
+<https://orcid.org/0000-0002-3452-553X> <http://xmlns.com/foaf/0.1/name> "Giancarlo Guizzardi" .
+# 
+<https://orcid.org/0000-0003-0481-9745> <http://xmlns.com/foaf/0.1/name> "Frederik Gailly" .
 # 
 <https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/mbox> "pedropaulofb@gmail.com" .
 <https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/name> "Pedro Paulo Favato Barcelos" .

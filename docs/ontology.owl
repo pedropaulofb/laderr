@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="https://w3id.org/laderr#"
      xml:base="https://w3id.org/laderr"
+     xmlns:mod="https://w3id.org/mod#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -24,7 +25,7 @@
         <terms:publisher rdf:resource="https://ugent-businessinformatics.github.io/"/>
         <terms:publisher rdf:resource="https://www.flandersmake.be/"/>
         <terms:publisher rdf:resource="https://www.utwente.nl/en/eemcs/scs/"/>
-        <terms:title xml:lang="en">LaDeRR-Vocabulary</terms:title>
+        <terms:title xml:lang="en">LaDeRR Vocabulary</terms:title>
         <vann:preferredNamespacePrefix>laderr</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://w3id.org/laderr#</vann:preferredNamespaceUri>
         <owl:versionInfo xml:lang="en">First complete vocabulary for the LaDeRR DSL.</owl:versionInfo>
@@ -37,6 +38,7 @@
         <dcat:version>0.6.11</dcat:version>
         <foaf:homepage rdf:resource="https://w3id.org/laderr"/>
         <foaf:logo rdf:resource="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png"/>
+        <mod:repository rdf:resource="https://w3id.org/laderr/git"/>
     </owl:Ontology>
     
 
@@ -190,6 +192,13 @@
 
 
     <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- https://w3id.org/mod#repository -->
+
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/mod#repository"/>
     
 
 
@@ -1015,6 +1024,15 @@
      -->
 
 
+    <rdf:Description rdf:about="https://orcid.org/0000-0001-9247-6150">
+        <foaf:name>Geert Poels</foaf:name>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://orcid.org/0000-0002-3452-553X">
+        <foaf:name>Giancarlo Guizzardi</foaf:name>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://orcid.org/0000-0003-0481-9745">
+        <foaf:name>Frederik Gailly</foaf:name>
+    </rdf:Description>
     <rdf:Description rdf:about="https://orcid.org/0000-0003-2736-7817">
         <foaf:mbox>pedropaulofb@gmail.com</foaf:mbox>
         <foaf:name>Pedro Paulo Favato Barcelos</foaf:name>

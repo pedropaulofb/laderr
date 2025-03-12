@@ -2,6 +2,7 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix laderr: <https://w3id.org/laderr#> .
+@prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -24,7 +25,7 @@
                            dct:publisher <https://ugent-businessinformatics.github.io/> ,
                                          <https://www.flandersmake.be/> ,
                                          <https://www.utwente.nl/en/eemcs/scs/> ;
-                           dct:title "LaDeRR-Vocabulary"@en ;
+                           dct:title "LaDeRR Vocabulary"@en ;
                            vann:preferredNamespacePrefix "laderr" ;
                            vann:preferredNamespaceUri "https://w3id.org/laderr#"^^xsd:anyURI ;
                            owl:versionInfo "First complete vocabulary for the LaDeRR DSL."@en ;
@@ -33,7 +34,8 @@
                                         "risk"@en , "incident"@en ;
                            dcat:landingPage <https://w3id.org/laderr/git> ;                           
                            foaf:homepage <https://w3id.org/laderr> ;
-                           foaf:logo <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> .
+                           foaf:logo <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> ;
+                           mod:repository <https://w3id.org/laderr/git> .
 
 <https://w3id.org/laderr/ttl> rdfs:comment "TTL serialization of the LaDeRR-Vocabulary."@en .
 <https://w3id.org/laderr/git> rdfs:comment "Repository for the LaDeRR DSL."@en .
@@ -567,16 +569,6 @@ laderr:Vulnerability rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  https://ugent-businessinformatics.github.io/
-<https://ugent-businessinformatics.github.io/> rdf:type owl:NamedIndividual ,
-                                                        foaf:Organization ;
-                                               foaf:homepage "https://ugent-businessinformatics.github.io/"^^xsd:anyURI ;
-                                               foaf:member <https://orcid.org/0000-0001-9247-6150> ,
-                                                           <https://orcid.org/0000-0003-0481-9745> ,
-                                                           <https://orcid.org/0000-0003-2736-7817> ;
-                                               foaf:name "UGent Business Informatics, Ghent University, Belgium" .
-
-
 ###  https://w3id.org/laderr#disabled
 laderr:disabled rdf:type owl:NamedIndividual ,
                          laderr:DispositionState ;
@@ -626,9 +618,20 @@ laderr:resilient rdf:type owl:NamedIndividual ,
                  rdfs:label "resilient"@en .
 
 
+################################################################
+#    Annotation Individuals
+#################################################################
+
+###  https://ugent-businessinformatics.github.io/
+<https://ugent-businessinformatics.github.io/> rdf:type foaf:Organization ;
+                                               foaf:homepage "https://ugent-businessinformatics.github.io/"^^xsd:anyURI ;
+                                               foaf:member <https://orcid.org/0000-0001-9247-6150> ,
+                                                           <https://orcid.org/0000-0003-0481-9745> ,
+                                                           <https://orcid.org/0000-0003-2736-7817> ;
+                                               foaf:name "UGent Business Informatics, Ghent University, Belgium" .
+
 ###  https://www.flandersmake.be/
-<https://www.flandersmake.be/> rdf:type owl:NamedIndividual ,
-                                        foaf:Organization ;
+<https://www.flandersmake.be/> rdf:type foaf:Organization ;
                                foaf:homepage "https://www.flandersmake.be/"^^xsd:anyURI ;
                                foaf:member <https://orcid.org/0000-0001-9247-6150> ,
                                            <https://orcid.org/0000-0003-0481-9745> ,
@@ -637,21 +640,20 @@ laderr:resilient rdf:type owl:NamedIndividual ,
 
 
 ###  https://www.utwente.nl/en/eemcs/scs/
-<https://www.utwente.nl/en/eemcs/scs/> rdf:type owl:NamedIndividual ,
-                                                foaf:Organization ;
+<https://www.utwente.nl/en/eemcs/scs/> rdf:type foaf:Organization ;
                                        foaf:homepage "https://www.utwente.nl/en/eemcs/scs/"^^xsd:anyURI ;
                                        foaf:member <https://orcid.org/0000-0002-3452-553X> ,
                                                    <https://orcid.org/0000-0003-2736-7817> ;
                                        foaf:name "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" .
 
 
-#################################################################
-#    Annotations
-#################################################################
-
 <https://orcid.org/0000-0003-2736-7817> foaf:mbox "pedropaulofb@gmail.com" ;
                                         foaf:name "Pedro Paulo Favato Barcelos" .
 
+
+<https://orcid.org/0000-0001-9247-6150> foaf:name "Geert Poels" .
+<https://orcid.org/0000-0002-3452-553X> foaf:name "Giancarlo Guizzardi" .
+<https://orcid.org/0000-0003-0481-9745> foaf:name "Frederik Gailly" .
 
 #################################################################
 #    General axioms
