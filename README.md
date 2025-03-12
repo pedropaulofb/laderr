@@ -4,6 +4,7 @@
 
 The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is an ontology-based textual domain-specific description language. It was designed to specify resilience scenarios, in a standardized format, through the specification of the participating entities and the interplay between their capabilities and vulnerabilities.
 
+
 ## Table of Contents
 
 <!-- TOC -->
@@ -15,6 +16,11 @@ The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is 
         - [LaDeRR Main Resources](#laderr-main-resources)
         - [Versioning & Releases](#versioning--releases)
         - [LaDeRR Engine](#laderr-engine)
+    - [Available Artifacts](#available-artifacts)
+        - [LaDeRR Metamodel](#laderr-metamodel)
+        - [LaDeRR Rules](#laderr-rules)
+        - [LaDeRR Vocabulary](#laderr-vocabulary)
+        - [SHACL Shapes for Data Validation](#shacl-shapes-for-data-validation)
     - [License](#license)
     - [How to Contribute](#how-to-contribute)
     - [Authors](#authors)
@@ -63,6 +69,7 @@ By combining **ontological foundations with formal rules and computational synta
 
 Although **LaDeRR currently focuses on resilience scenarios**, future developments will incorporate **broader risk analysis concepts** to create a **more comprehensive risk and resilience modeling language**.
 
+
 ## Permanent URLs for LaDeRR Resources
 
 To ensure **persistent and stable access** to LaDeRR resources, we provide **permanent URLs** using the [W3ID](https://w3id.org/) system. These URLs enable long-term access to the **LaDeRR specification, vocabulary, and engine**, while supporting **content negotiation** for different formats.
@@ -90,8 +97,52 @@ The following **W3ID redirects** provide access to LaDeRR's key components:
 
 By providing permanent URIs, LaDeRR ensures that its resources remain accessible over time.
 
+
+## Available Artifacts
+
+The LaDeRR repository contains several artifacts that support the development, documentation, and computational use of the **Language for Describing Risk and Resilience (LaDeRR)**. These artifacts include the **metamodel, vocabulary, rules, SHACL shapes for validation, and documentation resources**.
+
+### LaDeRR Metamodel
+
+The **metamodel** of LaDeRR is provided in two formats:
+- **Editable Version (VPP File):** The **Visual Paradigm Project File (`laderr-metamodel-v*.vpp`)** allows further modifications and extensions of the metamodel.
+- **Images:** The **metamodel is available as images** in the `metamodel images` folder, which contains individual diagrams for different aspects of LaDeRR, including constructs, specifications, resilience, dispositions, and entities.
+
+### LaDeRR Rules
+
+The **metamodel is complemented by logical rules** that define constraints and derivations that cannot be fully expressed in UML class diagrams. These rules are available in the file:
+- `laderr-rules-0.6.2.xlsx`: This file contains a structured set of logical rules, including derivations, constraints, and formal conditions that enhance the expressiveness of LaDeRR.
+
+### LaDeRR Vocabulary
+
+The **official vocabulary** of LaDeRR is provided as a Turtle file:
+- `laderr-vocabulary-v*.ttl`: This file implements the abstract syntax of LaDeRR in **OWL**, making it available for semantic processing and ontology-based applications.
+
+Additional serializations of the vocabulary are available in the `docs` folder:
+- `laderr-vocabulary.jsonld`
+- `laderr-vocabulary.nt`
+- `laderr-vocabulary.owl`
+- `laderr-vocabulary.ttl` (Turtle format)
+
+### SHACL Shapes for Data Validation
+
+To ensure that LaDeRR models conform to the defined vocabulary, **SHACL (Shapes Constraint Language) shapes** were created for validation. These are available in the `shapes` folder:
+- `laderr-shape-capability-v*.shacl`
+- `laderr-shape-control-v*.shacl`
+- `laderr-shape-disposition-v*.shacl`
+- `laderr-shape-entity-v*.shacl`
+- `laderr-shape-laderrconstruct-v*.shacl`
+- `laderr-shape-laderrspecification-v*.shacl`
+- `laderr-shape-resilience-v*.shacl`
+- `laderr-shape-threat-v*.shacl`
+- `laderr-shape-vulnerability-v*.shacl`
+
+These SHACL files enable validation of LaDeRR models against the vocabulary, ensuring that instances comply with the expected constraints.
+
+
 ## License
 The **LaDeRR DSL** is released under the **[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)**, a **permissive open-source license** that allows free use, modification, and distribution of the specifications. This ensures that LaDeRR can be adopted, extended, and integrated into both academic and industrial applications, while maintaining intellectual property protections.
+
 
 ## How to Contribute
 Contributions to LaDeRR are **highly encouraged**! The language is an evolving project, and community input is essential for improving its **expressiveness, usability, and computational support**. You can contribute to this project in the following ways.
@@ -106,6 +157,7 @@ Contributions to LaDeRR are **highly encouraged**! The language is an evolving p
    - Contributions to the **vocabulary, abstract syntax, or documentation** are welcome via **[pull requests](https://github.com/pedropaulofb/laderr/pulls)**.
 
 Your feedback and contributions will help refine LaDeRR and expand its capabilities to better support risk and resilience specification.
+
 
 ## Authors
 
