@@ -4,16 +4,12 @@ title: "LaDeRR: Language for Describing Risk and Resilience"
 authors:
   - given-names: "Pedro Paulo"
     family-names: "F. Barcelos"
-    email: "p.p.favatobarcelos@utwente.nl"
+    email: "pedropaulofb@gmail.com"
     affiliation: 
       - "University of Twente"
       - "Ghent University"
+      - "Flanders Make"
     orcid: "https://orcid.org/0000-0003-2736-7817"
-  - given-names: "Tiago"
-    family-names: "Prince Sales"
-    email: "t.princesales@utwente.nl"
-    affiliation: "University of Twente"
-    orcid: "https://orcid.org/0000-0002-5385-5761"
   - given-names: "Frederik"
     family-names: "Gailly"
     email: "frederik.gailly@ugent.be"
@@ -29,9 +25,9 @@ authors:
     email: "g.guizzardi@utwente.nl"
     affiliation: "University of Twente"
     orcid: "https://orcid.org/0000-0002-3452-553X"
-date-released: "2024-05-30"
-url: "https://github.com/pedropaulofb/resiliont"
-keywords: ["Resilience", "Risk", "COVeR", "ResiliOnt", "Description Language", "Risk Management"]
+date-released: "2025-01-14"
+url: "https://github.com/pedropaulofb/laderr"
+keywords: ["Resilience", "Risk", "ResiliOnt", "Description Language", "Risk Management"]
 license: "Apache-2.0"
 identifiers:
   - type: url
