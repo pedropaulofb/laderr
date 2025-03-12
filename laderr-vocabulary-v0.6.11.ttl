@@ -17,7 +17,7 @@
                            dct:creator <https://orcid.org/0000-0003-2736-7817> ;
                            dct:description "Implementation of the abstract syntax of the LaDeRR (Language for Describing Risk and Resilience) DSL (Domain Specific Language) in OWL. Used to standardize the language's vocabulary and as schema for software use."@en ;
                            dct:identifier "https://w3id.org/laderr"^^xsd:string ;
-                           dct:issued "2025-01-14"^^xsd:date ;
+                           dct:issued "2025-01-14"^^xsd:date ;                           
                            dct:language "en"^^xsd:language ;
                            dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
                            dct:modified "2025-03-12"^^xsd:date ;
@@ -31,8 +31,9 @@
                            dcat:keyword "laderr"@en , "DSL"@en ,
                                         "resilience"@en ,
                                         "risk"@en , "incident"@en ;
-                           dcat:landingPage <https://w3id.org/laderr/git> ;
-                           foaf:homepage <https://w3id.org/laderr> .
+                           dcat:landingPage <https://w3id.org/laderr/git> ;                           
+                           foaf:homepage <https://w3id.org/laderr> ;
+                           foaf:logo <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> .
 
 <https://w3id.org/laderr/ttl> rdfs:comment "TTL serialization of the LaDeRR-Vocabulary."@en .
 <https://w3id.org/laderr/git> rdfs:comment "Repository for the LaDeRR DSL."@en .

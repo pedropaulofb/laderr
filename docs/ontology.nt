@@ -1,0 +1,700 @@
+<https://w3id.org/laderr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0001-9247-6150> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0002-3452-553X> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0003-0481-9745> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0003-2736-7817> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/description> "Implementation of the abstract syntax of the LaDeRR (Language for Describing Risk and Resilience) DSL (Domain Specific Language) in OWL. Used to standardize the language's vocabulary and as schema for software use."@en .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/identifier> "https://w3id.org/laderr" .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/issued> "2025-01-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/language> "en"^^<http://www.w3.org/2001/XMLSchema#language> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/license> <https://www.apache.org/licenses/LICENSE-2.0> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/modified> "2025-03-12"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/publisher> <https://ugent-businessinformatics.github.io/> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/publisher> <https://www.flandersmake.be/> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/publisher> <https://www.utwente.nl/en/eemcs/scs/> .
+<https://w3id.org/laderr> <http://purl.org/dc/terms/title> "LaDeRR-Vocabulary"@en .
+<https://w3id.org/laderr> <http://purl.org/vocab/vann/preferredNamespacePrefix> "laderr" .
+<https://w3id.org/laderr> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/laderr#"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/laderr> <http://www.w3.org/2002/07/owl#versionInfo> "First complete vocabulary for the LaDeRR DSL."@en .
+<https://w3id.org/laderr> <http://www.w3.org/ns/dcat#keyword> "DSL"@en .
+<https://w3id.org/laderr> <http://www.w3.org/ns/dcat#keyword> "incident"@en .
+<https://w3id.org/laderr> <http://www.w3.org/ns/dcat#keyword> "laderr"@en .
+<https://w3id.org/laderr> <http://www.w3.org/ns/dcat#keyword> "resilience"@en .
+<https://w3id.org/laderr> <http://www.w3.org/ns/dcat#keyword> "risk"@en .
+<https://w3id.org/laderr> <http://www.w3.org/ns/dcat#landingPage> <https://w3id.org/laderr/git> .
+<https://w3id.org/laderr> <http://www.w3.org/ns/dcat#version> "0.6.11" .
+<https://w3id.org/laderr> <http://xmlns.com/foaf/0.1/homepage> <https://w3id.org/laderr> .
+<https://w3id.org/laderr> <http://xmlns.com/foaf/0.1/logo> <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/identifier
+<http://purl.org/dc/terms/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/language
+<http://purl.org/dc/terms/language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/dcat#keyword
+<http://www.w3.org/ns/dcat#keyword> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/dcat#landingPage
+<http://www.w3.org/ns/dcat#landingPage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/dcat#version
+<http://www.w3.org/ns/dcat#version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/homepage
+<http://xmlns.com/foaf/0.1/homepage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/logo
+<http://xmlns.com/foaf/0.1/logo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/mbox
+<http://xmlns.com/foaf/0.1/mbox> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/member
+<http://xmlns.com/foaf/0.1/member> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/laderr#capabilities
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Entity with the Capabilities it possesses."@en .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#label> "capabilities"@en .
+# 
+# https://w3id.org/laderr#constructs
+<https://w3id.org/laderr#constructs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#LaderrSpecification> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#LaderrConstruct> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a LaDeRR Specification to its associated constructs."@en .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#label> "constructs"@en .
+# 
+# https://w3id.org/laderr#disables
+<https://w3id.org/laderr#disables> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#disables> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Capability disables a specific Disposition, preventing it from being realized."@en .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#label> "disables"@en .
+# 
+# https://w3id.org/laderr#exploits
+<https://w3id.org/laderr#exploits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the relationship where a Capability exploits a Vulnerability, meaning that when both are enabled, the Capability can trigger an adverse event through the Vulnerability."@en .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#label> "exploits"@en .
+# 
+# https://w3id.org/laderr#exposes
+<https://w3id.org/laderr#exposes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Vulnerability> .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines that a Vulnerability exposes a Capability, making it susceptible to threats."@en .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#label> "exposes"@en .
+# 
+# https://w3id.org/laderr#failedToDamage
+<https://w3id.org/laderr#failedToDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#failedToDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#failedToDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#failedToDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat entity failed to damage an Asset because the Asset’s Vulnerability was disabled."@en .
+<https://w3id.org/laderr#failedToDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#failedToDamage> <http://www.w3.org/2000/01/rdf-schema#label> "failedToDamage"@en .
+# 
+# https://w3id.org/laderr#inhibits
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Control> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#comment> "An Entity inhibits another if it has a Capability that disables a Vulnerability, while the inhibited Entity has a Capability that exploits the same Vulnerability."@en .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#label> "inhibits"@en .
+# 
+# https://w3id.org/laderr#preserves
+<https://w3id.org/laderr#preserves> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#comment> "A Resilience preserves a Capability by ensuring it remains functional (i.e., it preserves the value of this capability)."@en .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#label> "preserves"@en .
+# 
+# https://w3id.org/laderr#preservesAgainst
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Resilience  preserves an entity despite the presence of a Capability in a Threat that would otherwise exploit a vulnerability."@en .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#label> "preservesAgainst"@en .
+# 
+# https://w3id.org/laderr#preservesDespite
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Resilience capability ensures the preservation of an Asset despite an existing Vulnerability on it."@en .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#label> "preservesDespite"@en .
+# 
+# https://w3id.org/laderr#protects
+<https://w3id.org/laderr#protects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Control> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables the relevant Vulnerability."@en .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#label> "protects"@en .
+# 
+# https://w3id.org/laderr#resiliences
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an Asset to its associated Resiliences."@en .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#label> "resiliences"@en .
+# 
+# https://w3id.org/laderr#scenario
+<https://w3id.org/laderr#scenario> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#scenario> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#LaderrSpecification> .
+<https://w3id.org/laderr#scenario> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#ScenarioType> .
+<https://w3id.org/laderr#scenario> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a LaDeRR Specification with a Scenario Type that describes its operational context."@en .
+<https://w3id.org/laderr#scenario> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#scenario> <http://www.w3.org/2000/01/rdf-schema#label> "scenario"@en .
+# 
+# https://w3id.org/laderr#state
+<https://w3id.org/laderr#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#DispositionState> .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the current state of a Disposition, which can be either enabled or disabled."@en .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#label> "state"@en .
+# 
+# https://w3id.org/laderr#succeededToDamage
+<https://w3id.org/laderr#succeededToDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#succeededToDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#succeededToDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#succeededToDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat entity successfully damaged an Asset by exploiting an enabled vulnerability in the Asset."@en .
+<https://w3id.org/laderr#succeededToDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#succeededToDamage> <http://www.w3.org/2000/01/rdf-schema#label> "succeededToDamage"@en .
+# 
+# https://w3id.org/laderr#sustains
+<https://w3id.org/laderr#sustains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the relationship between a Capability and a Resilience where the Capability enables the conditions necessary for the Resilience to exist."@en .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#label> "sustains"@en .
+# 
+# https://w3id.org/laderr#threatens
+<https://w3id.org/laderr#threatens> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#comment> "A Threat poses a potential risk to an Asset due to the presence of an exploitable Vulnerability in the latter."@en .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#label> "threatens"@en .
+# 
+# https://w3id.org/laderr#vulnerabilities
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Entity with its Vulnerabilities, which may expose it to threats."@en .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#label> "vulnerabilities"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/laderr#baseURI
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the base URI of a LaDeRR Specification."@en .
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#label> "baseURI"@en .
+# 
+# https://w3id.org/laderr#createdBy
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the creator of a LaDeRR Specification."@en .
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#label> "createdBy"@en .
+# 
+# https://w3id.org/laderr#createdOn
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Records the date and time when a LaDeRR Specification was created."@en .
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#label> "createdOn"@en .
+# 
+# https://w3id.org/laderr#description
+<https://w3id.org/laderr#description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual description providing details about a LaDeRR construct or specification."@en .
+<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#label> "description"@en .
+# 
+# https://w3id.org/laderr#modifiedOn
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Records the date and time when a LaDeRR Specification was last modified."@en .
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#label> "modifiedOn"@en .
+# 
+# https://w3id.org/laderr#name
+<https://w3id.org/laderr#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#name> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<https://w3id.org/laderr#name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#name> <http://www.w3.org/2000/01/rdf-schema#comment> "The name assigned to a LaDeRR Construct."@en .
+<https://w3id.org/laderr#name> <http://www.w3.org/2000/01/rdf-schema#label> "name"@en .
+# 
+# https://w3id.org/laderr#title
+<https://w3id.org/laderr#title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#comment> "The title assigned to a LaDeRR Specification."@en .
+<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#label> "title"@en .
+# 
+# https://w3id.org/laderr#version
+<https://w3id.org/laderr#version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the version of a LaDeRR Specification."@en .
+<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#label> "version"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/laderr#Asset
+<https://w3id.org/laderr#Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "An Asset represents an entity that has value and is subject to potential risks and threats."@en .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#label> "Asset"@en .
+# 
+# https://w3id.org/laderr#Capability
+<https://w3id.org/laderr#Capability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#comment> "A Capability is a disposition that enables an Entity to perform specific functions."@en .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#label> "Capability"@en .
+# 
+# https://w3id.org/laderr#Control
+<https://w3id.org/laderr#Control> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Threat> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#inhibits> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Asset> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#protects> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#comment> "A Control is an Entity that mitigates risks by inhibiting Threats and protecting Assets through its Capabilities."@en .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#label> "Control"@en .
+# 
+# https://w3id.org/laderr#Disposition
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid3 .
+_:genid3 <http://www.w3.org/2002/07/owl#unionOf> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Vulnerability> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Capability> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid6 .
+_:genid6 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/laderr#DispositionState> .
+_:genid6 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid6 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#state> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#LaderrConstruct> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#comment> "A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions."@en .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#label> "Disposition"@en .
+# 
+# https://w3id.org/laderr#DispositionState
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid7 .
+_:genid7 <http://www.w3.org/2002/07/owl#oneOf> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#enabled> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#disabled> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the state of a Disposition, which can be either ENABLED or DISABLED, determining whether it can be realized in a given scenario."@en .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#label> "DispositionState"@en .
+# 
+# https://w3id.org/laderr#Entity
+<https://w3id.org/laderr#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid10 .
+_:genid10 <http://www.w3.org/2002/07/owl#unionOf> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Threat> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Control> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Asset> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#LaderrConstruct> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid14 .
+_:genid14 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
+_:genid14 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#capabilities> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#comment> "An Entity is a fundamental concept that encompasses assets, threats, and controls in the resilience domain."@en .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "Entity"@en .
+# 
+# https://w3id.org/laderr#LaderrConstruct
+<https://w3id.org/laderr#LaderrConstruct> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#LaderrConstruct> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid15 .
+_:genid15 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid15 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid15 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#name> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrConstruct> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid16 .
+_:genid16 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid16 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#description> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrConstruct> <http://www.w3.org/2000/01/rdf-schema#comment> "A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts."@en .
+<https://w3id.org/laderr#LaderrConstruct> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#LaderrConstruct> <http://www.w3.org/2000/01/rdf-schema#label> "LaderrConstruct"@en .
+# 
+# https://w3id.org/laderr#LaderrSpecification
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid17 .
+_:genid17 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/laderr#ScenarioType> .
+_:genid17 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid17 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#scenario> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid18 .
+_:genid18 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid18 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#createdBy> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid19 .
+_:genid19 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#anyURI> .
+_:genid19 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid19 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#baseURI> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid20 .
+_:genid20 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
+_:genid20 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid20 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#createdOn> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid21 .
+_:genid21 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid21 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid21 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#title> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid22 .
+_:genid22 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid22 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid22 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#description> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid23 .
+_:genid23 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
+_:genid23 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid23 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#modifiedOn> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid24 .
+_:genid24 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:genid24 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid24 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#version> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#comment> "A specification document that defines a structured resilience model, including assets, threats, and controls."@en .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#LaderrSpecification> <http://www.w3.org/2000/01/rdf-schema#label> "LaderrSpecification"@en .
+# 
+# https://w3id.org/laderr#Resilience
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid25 .
+_:genid25 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
+_:genid25 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preserves> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid26 .
+_:genid26 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
+_:genid26 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preservesAgainst> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid27 .
+_:genid27 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Vulnerability> .
+_:genid27 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preservesDespite> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#LaderrConstruct> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#comment> "Resilience is a capability that preserves an entity's value despite vulnerabilities, preventing threats from causing damage."@en .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#label> "Resilience"@en .
+# 
+# https://w3id.org/laderr#ScenarioType
+<https://w3id.org/laderr#ScenarioType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#ScenarioType> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid28 .
+_:genid28 <http://www.w3.org/2002/07/owl#oneOf> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#resilient> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#operational> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#not_resilient> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#incident> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#ScenarioType> <http://www.w3.org/2000/01/rdf-schema#comment> "An enumeration defining different scenario types, including operational, incident, resilient, and not_resilient."@en .
+<https://w3id.org/laderr#ScenarioType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#ScenarioType> <http://www.w3.org/2000/01/rdf-schema#label> "ScenarioType"@en .
+# 
+# https://w3id.org/laderr#Threat
+<https://w3id.org/laderr#Threat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid33 .
+_:genid33 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Asset> .
+_:genid33 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#threatens> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#comment> "A Threat is an entity that can potentially cause harm to an Asset through its threat capabilities, by potentially exploiting the latter's Vulnerabilities."@en .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#label> "Threat"@en .
+# 
+# https://w3id.org/laderr#Vulnerability
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2002/07/owl#equivalentClass> _:genid34 .
+_:genid34 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
+_:genid34 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#exposes> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#comment> "A disposition of an Entity that may be exploited by Threats, potentially leading to harm."@en .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#label> "Vulnerability"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://ugent-businessinformatics.github.io/
+<https://ugent-businessinformatics.github.io/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://ugent-businessinformatics.github.io/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/homepage> "https://ugent-businessinformatics.github.io/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0001-9247-6150> .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-0481-9745> .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/name> "UGent Business Informatics, Ghent University, Belgium" .
+# 
+# https://w3id.org/laderr#disabled
+<https://w3id.org/laderr#disabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#DispositionState> .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a DispositionState where a Capability or Vulnerability is inactive and cannot influence the system. A disabled Disposition cannot exert its effect until it is re-enabled."@en .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#label> "disabled"@en .
+# 
+# https://w3id.org/laderr#enabled
+<https://w3id.org/laderr#enabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#DispositionState> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a DispositionState where a Capability or Vulnerability is active and can influence the system. An enabled Capability can, e.g., sustain a resilience, while an enabled Vulnerability can be exploited by threats."@en .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#label> "enabled"@en .
+# 
+# https://w3id.org/laderr#incident
+<https://w3id.org/laderr#incident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#incident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioType> .
+<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario type in which a disruptive event has occurred, and its impact is being assessed."@en .
+<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#label> "incident"@en .
+# 
+# https://w3id.org/laderr#not_resilient
+<https://w3id.org/laderr#not_resilient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#not_resilient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioType> .
+<https://w3id.org/laderr#not_resilient> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss."@en .
+<https://w3id.org/laderr#not_resilient> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#not_resilient> <http://www.w3.org/2000/01/rdf-schema#label> "not_resilient"@en .
+# 
+# https://w3id.org/laderr#operational
+<https://w3id.org/laderr#operational> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#operational> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioType> .
+<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario type representing the system's current functioning, with or without threats and resiliences."@en .
+<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#label> "operational"@en .
+# 
+# https://w3id.org/laderr#resilient
+<https://w3id.org/laderr#resilient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioType> .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario type where resiliences are sufficient to prevent threats from causing damage."@en .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#label> "resilient"@en .
+# 
+# https://www.flandersmake.be/
+<https://www.flandersmake.be/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://www.flandersmake.be/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/homepage> "https://www.flandersmake.be/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0001-9247-6150> .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-0481-9745> .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/name> "Flanders Make, Belgium" .
+# 
+# https://www.utwente.nl/en/eemcs/scs/
+<https://www.utwente.nl/en/eemcs/scs/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/homepage> "https://www.utwente.nl/en/eemcs/scs/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0002-3452-553X> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/name> "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+<https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/mbox> "pedropaulofb@gmail.com" .
+<https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/name> "Pedro Paulo Favato Barcelos" .
+# 
+<https://w3id.org/laderr/git> <http://www.w3.org/2000/01/rdf-schema#comment> "Repository for the LaDeRR DSL."@en .
+# 
+<https://w3id.org/laderr/ttl> <http://www.w3.org/2000/01/rdf-schema#comment> "TTL serialization of the LaDeRR-Vocabulary."@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid35 <http://www.w3.org/2002/07/owl#members> _:genid38 .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Resilience> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Entity> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Disposition> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid39 <http://www.w3.org/2002/07/owl#members> _:genid43 .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid42 .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid41 .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid40 .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#ScenarioType> .
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#LaderrSpecification> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#LaderrConstruct> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#DispositionState> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+_:genid44 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid46 .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid45 .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#enabled> .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#disabled> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
+_:genid47 <http://www.w3.org/2002/07/owl#distinctMembers> _:genid51 .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid50 .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid49 .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid48 .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#resilient> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#operational> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#not_resilient> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#incident> .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
