@@ -48,7 +48,7 @@ A third component is planned for a future release:
 
 The following diagram illustrates the **relationship between ResiliOnt and LaDeRR**, highlighting the mapping process and different syntactic representations:
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/images/laderr-visual-schema.png" width="500"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/images/laderr-visual-schema.png" width="750"></p>
 
 To support computational reasoning over LaDeRR models, we have also developed **LaDeRR Engine**, a **Python-based tool** that enables automated processing of resilience scenarios. The engine is available here: **[w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git).**
 
