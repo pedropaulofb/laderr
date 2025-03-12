@@ -12,6 +12,7 @@ The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is 
 - [LaDeRR: **La**nguage for **De**scribing **R**isk and **R**esilience](#laderr-language-for-describing-risk-and-resilience)
     - [Table of Contents](#table-of-contents)
     - [Introduction](#introduction)
+    - [Writing a LaDeRR Specification](#writing-a-laderr-specification)
     - [Permanent URLs for LaDeRR Resources](#permanent-urls-for-laderr-resources)
         - [LaDeRR Main Resources](#laderr-main-resources)
         - [Versioning & Releases](#versioning--releases)
@@ -23,7 +24,7 @@ The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is 
         - [SHACL Shapes for Data Validation](#shacl-shapes-for-data-validation)
     - [License](#license)
     - [How to Contribute](#how-to-contribute)
-    - [Authors](#authors)
+    - [Contributors](#contributors)
 
 <!-- /TOC -->
 
@@ -41,7 +42,7 @@ While **ontologies** provide rigorous conceptual models, they often lack formal 
 
 These requirements motivate the development of **LaDeRR (Language for Describing Risk and Resilience)**, a DSL that integrates formal resilience modeling with computational representations. Currently, **LaDeRR is primarily focused on representing resilience scenarios**, but there is an intent to extend its capabilities to cover risk concepts more comprehensively in future versions.
 
-LaDeRR is a *Domain-Specific Language (DSL)* designed to represent, analyze, and compute resilience and risk-related scenarios. It is built on top of **ResiliOnt (OntoUML)** and offers a structured approach to defining resilience constructs, their relationships, and logical constraints.
+LaDeRR is a *Domain-Specific Language (DSL)* designed to represent, analyze, and compute resilience and risk-related scenarios. It is built on top of ResiliOnt and offers a structured approach to defining resilience constructs, their relationships, and logical constraints.
 
 The language consists of three main components:
 
@@ -56,11 +57,11 @@ The following diagram illustrates the **relationship between ResiliOnt and LaDeR
 
 <p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/images/laderr-visual-schema.png" width="750"></p>
 
-To support computational reasoning over LaDeRR models, we have also developed **LaDeRR Engine**, a **Python-based tool** that enables automated processing of resilience scenarios. The engine is available here: **[w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git).**
+To support computational reasoning over LaDeRR models, the **LaDeRR Engine** has been developed. It is a Python-based tool that enables automated processing of resilience scenarios. The engine is available here: **[w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git).**
 
 LaDeRR was designed to **combine semantic precision with computational usability**, ensuring that resilience-related constructs can be represented, validated, and analyzed consistently. The justification for this approach includes:
 
-- **Semantic Foundation:** The language builds upon **ResiliOnt (OntoUML)** to ensure conceptual clarity and ontological soundness.
+- **Semantic Foundation:** The language builds upon ResiliOnt to ensure conceptual clarity and ontological soundness.
 - **Computational Reasoning:** The **abstract syntax** includes **formal logical constraints (FOL)** to define the conditions under which resilience and risk-related relations hold.
 - **Practical Application:** The **textual syntax (TOML)** makes it easy to integrate LaDeRR with software tools, enabling automated reasoning and model validation.
 - **Expressive Power:** The use of **derivations, constraints, and rules** enhances the modeling capabilities beyond what UML alone can offer.
@@ -69,6 +70,16 @@ By combining **ontological foundations with formal rules and computational synta
 
 Although **LaDeRR currently focuses on resilience scenarios**, future developments will incorporate **broader risk analysis concepts** to create a **more comprehensive risk and resilience modeling language**.
 
+## Writing a LaDeRR Specification
+
+To facilitate the adoption and correct usage of LaDeRR, we provide a detailed guide on how to create specifications of resilience scenarios using the language.
+
+The guide includes:
+- A comprehensive overview of LaDeRR specifications, covering their essential components.
+- Instructions on defining Entities, Capabilities, Vulnerabilities, Threats, Controls, and Resilience.
+- Illustrative examples demonstrating complete LaDeRR specifications.
+
+**(Under development) Access the full guide here:** [How to Write a LaDeRR Specification](https://github.com/pedropaulofb/laderr/blob/main/docs/how-to-write-laderr-spec.md)
 
 ## Permanent URLs for LaDeRR Resources
 
@@ -159,7 +170,7 @@ Contributions to LaDeRR are **highly encouraged**! The language is an evolving p
 Your feedback and contributions will help refine LaDeRR and expand its capabilities to better support risk and resilience specification.
 
 
-## Authors
+## Contributors
 
 This work was developed by researchers from the [Business Informatics Group of Ghent University, Belgium](https://ugent-businessinformatics.github.io/) and the [Semantics, Cybersecurity & Services Group at the University of Twente, Netherlands](https://www.utwente.nl/en/eemcs/scs/).
 
