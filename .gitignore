@@ -1,4 +1,8 @@
+# Ignore all .bat files in any folder
 *.bat
-*bak*
-*vpp.lck
-*/*.bat
+
+# Ignore all Excel temporary files that start with ~ in any folder
+~*.xlsx
+
+# Ignore all files ending with vpp.lck in any folder
+*.vpp.lck

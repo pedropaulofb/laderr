@@ -47,7 +47,7 @@ PLEASE BE AWARE THAT THIS IS A VERSION STILL UNDER DEVELOPMENT. USE IT CAREFULLY
     - [6. LaDeRR Engine](#6-laderr-engine)
         - [6.1 Writing a LaDeRR Specification with LaDeRR Engine](#61-writing-a-laderr-specification-with-laderr-engine)
             - [6.1.1 Automatic Inference](#611-automatic-inference)
-            - [``` Automatic Resilience Generation](#-automatic-resilience-generation)
+            - [Automatic Resilience Generation](#automatic-resilience-generation)
             - [6.1.3 Simplified Specification Example](#613-simplified-specification-example)
         - [6.2 Engine Output and Inferred Model](#62-engine-output-and-inferred-model)
     - [7. Complete Example](#7-complete-example)
@@ -444,7 +444,7 @@ The LaDeRR Engine infers various relationships and properties based on the forma
 
 Since resilience inference is a key feature of the LaDeRR Engine, the next subsection describes the conditions under which resilience mechanisms are automatically generated.
 
-#### ``` Automatic Resilience Generation
+#### Automatic Resilience Generation
 
 A key feature of the LaDeRR Engine is its ability to **automatically generate resilience mechanisms** when conditions for resilience exist. Instead of requiring users to explicitly define resilience constructs, the engine:
 
