@@ -89,7 +89,8 @@ The following **W3ID redirects** provide access to LaDeRR's key components:
 
 ### LaDeRR Main Resources
 - **Homepage:** [w3id.org/laderr](https://w3id.org/laderr)
-- **Vocabulary:** The generation of all formats is performed by RDFLib, with the TTL file serving as input.
+- **Repository:** [w3id.org/laderr/git](https://w3id.org/laderr/git)
+- **Vocabulary:** The generation of all formats was performed using RDFLib, with the TTL file serving as input.
   - **Turtle:** [w3id.org/laderr/format/ttl](https://w3id.org/laderr/format/ttl)
   - **RDF/XML (OWL):** [w3id.org/laderr/format/owl](https://w3id.org/laderr/format/owl)
   - **N-Triples:** [w3id.org/laderr/format/nt](https://w3id.org/laderr/format/nt)
@@ -98,7 +99,6 @@ The following **W3ID redirects** provide access to LaDeRR's key components:
   - **JSON-LD:** [w3id.org/laderr/format/jsonld](https://w3id.org/laderr/format/jsonld)
   - **TriG:** [w3id.org/laderr/format/trig](https://w3id.org/laderr/format/trig)
   - **TriX:** [w3id.org/laderr/format/trix](https://w3id.org/laderr/format/trix)
-- **Repository:** [w3id.org/laderr/git](https://w3id.org/laderr/git)
 
 ### Versioning & Releases
 - **Latest release:** [w3id.org/laderr/latest](https://w3id.org/laderr/latest)
