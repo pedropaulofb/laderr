@@ -121,7 +121,7 @@ The LaDeRR repository contains several artifacts that support the development, d
 
 The **metamodel** of LaDeRR is provided in two formats:
 - **Editable Version (VPP File):** The **Visual Paradigm Project File (`laderr-metamodel-v*.vpp`)** allows further modifications and extensions of the metamodel.
-- **Images:** The **metamodel is available as images** in the `metamodel images` folder, which contains individual diagrams for different aspects of LaDeRR, including constructs, specifications, resilience, dispositions, and entities.
+- **Images:** The **metamodel is available as images** in the `metamodel_images` folder, which contains individual diagrams for different aspects of LaDeRR, including constructs, specifications, resilience, dispositions, and entities.
 
 ### LaDeRR Rules
 
