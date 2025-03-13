@@ -10,8 +10,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/laderr> rdf:type owl:Ontology ;
-                           dcat:version "0.6.11" ;
+<https://w3id.org/laderr#> rdf:type owl:Ontology ;
+                           dcat:version "0.7.1" ;
                            dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
                                            <https://orcid.org/0000-0002-3452-553X> ,
                                            <https://orcid.org/0000-0003-0481-9745> ;
@@ -21,7 +21,7 @@
                            dct:issued "2025-01-14"^^xsd:date ;                           
                            dct:language "en"^^xsd:language ;
                            dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
-                           dct:modified "2025-03-12"^^xsd:date ;
+                           dct:modified "2025-03-13"^^xsd:date ;
                            dct:publisher <https://ugent-businessinformatics.github.io/> ,
                                          <https://www.flandersmake.be/> ,
                                          <https://www.utwente.nl/en/eemcs/scs/> ;
@@ -115,6 +115,18 @@ foaf:member rdf:type owl:AnnotationProperty .
 
 ###  http://xmlns.com/foaf/0.1/name
 foaf:name rdf:type owl:AnnotationProperty .
+
+###  http://www.w3.org/ns/dcat#version
+dcat:version rdf:type owl:AnnotationProperty .
+
+###  http://xmlns.com/foaf/0.1/logo
+foaf:logo rdf:type owl:AnnotationProperty .
+
+###  https://w3id.org/mod#repository
+mod:repository rdf:type owl:AnnotationProperty .
+
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
 
 
 #################################################################

@@ -89,11 +89,15 @@ The following **W3ID redirects** provide access to LaDeRR's key components:
 
 ### LaDeRR Main Resources
 - **Homepage:** [w3id.org/laderr](https://w3id.org/laderr)
-- **Vocabulary:**
+- **Vocabulary:** The generation of all formats is performed by RDFLib, with the TTL file serving as input.
   - **Turtle:** [w3id.org/laderr/format/ttl](https://w3id.org/laderr/format/ttl)
-  - **OWL/XML:** [w3id.org/laderr/format/rdf](https://w3id.org/laderr/format/owl)
-  - **N-Triples:** [w3id.org/laderr/format/rdf](https://w3id.org/laderr/format/nt)
+  - **RDF/XML (OWL):** [w3id.org/laderr/format/owl](https://w3id.org/laderr/format/owl)
+  - **N-Triples:** [w3id.org/laderr/format/nt](https://w3id.org/laderr/format/nt)
+  - **Notation3 (N3):** [w3id.org/laderr/format/n3](https://w3id.org/laderr/format/n3)
+  - **N-Quads:** [w3id.org/laderr/format/nq](https://w3id.org/laderr/format/nq)
   - **JSON-LD:** [w3id.org/laderr/format/jsonld](https://w3id.org/laderr/format/jsonld)
+  - **TriG:** [w3id.org/laderr/format/trig](https://w3id.org/laderr/format/trig)
+  - **TriX:** [w3id.org/laderr/format/trix](https://w3id.org/laderr/format/trix)
 - **Repository:** [w3id.org/laderr/git](https://w3id.org/laderr/git)
 
 ### Versioning & Releases
