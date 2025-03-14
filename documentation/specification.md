@@ -4,53 +4,25 @@ PLEASE BE AWARE THAT THIS IS A VERSION STILL UNDER DEVELOPMENT. USE IT CAREFULLY
 
 ## Table of Contents
 
-  - [1. Introduction](#1-introduction)
-  - [2. General Structure of a LaDeRR Specification](#2-general-structure-of-a-laderr-specification)
-    - [2.1. Access to LaDeRR Specification Examples and Results](#21-access-to-laderr-specification-examples-and-results)
-  - [3. Specification Metadata](#3-specification-metadata)
-    - [3.1. Required Fields and Defaults](#31-required-fields-and-defaults)
-    - [3.2. Scenario Classification and Determination](#32-scenario-classification-and-determination)
-      - [Rules Governing Scenarios](#rules-governing-scenarios)
-    - [3.3. Example of a Valid Metadata Specification](#33-example-of-a-valid-metadata-specification)
-  - [4. Defining Constructs](#4-defining-constructs)
-    - [4.1. Common Aspects of LaDeRR Constructs](#41-common-aspects-of-laderr-constructs)
-      - [Example of a General Construct Specification](#example-of-a-general-construct-specification)
-    - [4.2. Entities](#42-entities)
-      - [Fields of Entities](#fields-of-entities)
-      - [Assets](#assets)
-        - [Additional Fields of Assets](#additional-fields-of-assets)
-        - [Example of an Asset Specification](#example-of-an-asset-specification)
-      - [Threats](#threats)
-        - [Additional Fields of Threats](#additional-fields-of-threats)
-        - [Rules Governing Threats](#rules-governing-threats)
-        - [Example of a Threat Specification](#example-of-a-threat-specification)
-      - [Controls](#controls)
-        - [Additional Fields of Controls](#additional-fields-of-controls)
-        - [Example of a Control Specification](#example-of-a-control-specification)
-      - [Rules Governing Entity Relationships](#rules-governing-entity-relationships)
-    - [4.3. Dispositions](#43-dispositions)
-      - [Rules Governing Dispositions](#rules-governing-dispositions)
-      - [Capabilities](#capabilities)
-        - [Additional Fields of Capabilities](#additional-fields-of-capabilities)
-        - [Example of a Capability Specification](#example-of-a-capability-specification)
-      - [Vulnerabilities](#vulnerabilities)
-        - [Additional Fields of Vulnerabilities](#additional-fields-of-vulnerabilities)
-      - [Rules Governing Vulnerabilities](#rules-governing-vulnerabilities)
-        - [Example of a Vulnerability Specification](#example-of-a-vulnerability-specification)
-    - [4.4. Resilience](#44-resilience)
-      - [Fields of Resilience](#fields-of-resilience)
-      - [Rules Governing Resilience](#rules-governing-resilience)
-      - [Example of a Resilience Specification](#example-of-a-resilience-specification)
-  - [5. LaDeRR Engine](#5-laderr-engine)
-    - [5.1. Writing a LaDeRR Specification with LaDeRR Engine](#51-writing-a-laderr-specification-with-laderr-engine)
-      - [Automatic Inference](#automatic-inference)
-      - [Automatic Resilience Generation](#automatic-resilience-generation)
-      - [Simplified Specification Example](#simplified-specification-example)
-    - [5.2. Engine Output and Inferred Model](#52-engine-output-and-inferred-model)
-  - [6. Complete Example](#6-complete-example)
-    - [6.1. Explicit Specification](#61-explicit-specification)
-    - [6.2. Simplified Specification with LaDeRR Engine](#62-simplified-specification-with-laderr-engine)
-    - [6.3. Inferred Output by LaDeRR Engine](#63-inferred-output-by-laderr-engine)
+- [1. Introduction](#1-introduction)
+- [2. General Structure of a LaDeRR Specification](#2-general-structure-of-a-laderr-specification)
+  - [2.1. Access to LaDeRR Specification Examples and Results](#21-access-to-laderr-specification-examples-and-results)
+- [3. Specification Metadata](#3-specification-metadata)
+  - [3.1. Required Fields and Defaults](#31-required-fields-and-defaults)
+  - [3.2. Scenario Classification and Determination](#32-scenario-classification-and-determination)
+  - [3.3. Example of a Valid Metadata Specification](#33-example-of-a-valid-metadata-specification)
+- [4. Defining Constructs](#4-defining-constructs)
+  - [4.1. Common Aspects of LaDeRR Constructs](#41-common-aspects-of-laderr-constructs)
+  - [4.2. Entities](#42-entities)
+  - [4.3. Dispositions](#43-dispositions)
+  - [4.4. Resilience](#44-resilience)
+- [5. LaDeRR Engine](#5-laderr-engine)
+  - [5.1. Writing a LaDeRR Specification with LaDeRR Engine](#51-writing-a-laderr-specification-with-laderr-engine)
+  - [5.2. Engine Output and Inferred Model](#52-engine-output-and-inferred-model)
+- [6. Complete Example](#6-complete-example)
+  - [6.1. Explicit Specification](#61-explicit-specification)
+  - [6.2. Simplified Specification with LaDeRR Engine](#62-simplified-specification-with-laderr-engine)
+  - [6.3. Inferred Output by LaDeRR Engine](#63-inferred-output-by-laderr-engine)
 
 ## 1. Introduction
 
@@ -125,7 +97,7 @@ style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
 | **createdOn**   | datetime (TOML native) \| string | xsd:dateTime   | [1]          | **Yes**  | N/A                      | Creation timestamp. Must comply with `xsd:dateTime` format. See [time format documentation](https://github.com/pedropaulofb/laderr/blob/main/documentation/time_format.md). |
 | **description** | string                           | string         | [0..1]       | No       | N/A                      | Explanation of the specification.                                                                                                                                           |
 | **modifiedOn**  | datetime (TOML native) \| string | xsd:dateTime   | [0..1]       | No       | N/A                      | Timestamp of the last modification. Must comply with `xsd:dateTime` format.                                                                                                 |
-| **scenario**    | string                           | `ScenarioType` | [1]          | **Yes**  | `operational`            | Defines the context of the specification. More information in [subsection 3.2.](#32-scenario-classification-and-determination)                                                                              |
+| **scenario**    | string                           | `ScenarioType` | [1]          | **Yes**  | `operational`            | Defines the context of the specification. More information in [subsection 3.2.](#32-scenario-classification-and-determination)                                              |
 | **title**       | string                           | string         | [1]          | **Yes**  | N/A                      | Title of the specification.                                                                                                                                                 |
 | **version**     | string                           | string         | [1]          | **Yes**  | N/A                      | Version identifier of the specification (free string format, no validation enforced).                                                                                       |
 
@@ -150,9 +122,9 @@ If a LaDeRR specification is `NOT_RESILIENT`, then there must exist at least one
 
 **FOL Representation:**
 
-```latex
+$$
 \forall ls ( LaderrSpecification(ls) \land scenario(ls) = NOT_RESILIENT \leftrightarrow \exists o1, o2 ( Entity(o1) \land Entity(o2) \land constructs(ls, o1) \land constructs(ls, o2) \land succeededToDamage(o1, o2) ) )
-```
+$$
 
 - **Rule 2: A system is RESILIENT if all vulnerabilities are mitigated**
 
@@ -160,9 +132,9 @@ If a LaDeRR specification is in the `INCIDENT` state and there is no vulnerabili
 
 **FOL Representation:**
 
-```latex
+$$
 \forall ls ( LadderSpecification(ls) \land scenario(ls) = INCIDENT \land \neg \exists o1, v1 ( constructs(ls, o1) \land vulnerabilities(o1, v1) \land \neg ( state(v1) = DISABLED \lor \neg \exists c1 (Capability(c1) \land exploits(c1, v1)) ) ) \rightarrow scenario(ls) = RESILIENT )
-```
+$$
 
 - **Rule 3: An INCIDENT must be either RESILIENT or NOT_RESILIENT**
 
@@ -170,9 +142,9 @@ For every LaDeRR specification, if its `scenario` is `INCIDENT`, then it must be
 
 **FOL Representation:**
 
-```latex
+$$
 \forall ls ( LaderrSpecification(ls) \rightarrow ( scenario(ls) = INCIDENT \rightarrow scenario(ls) = RESILIENT \oplus scenario(ls) = NOT_RESILIENT ) )
-```
+$$
 
 ### 3.3. Example of a Valid Metadata Specification
 
@@ -307,18 +279,18 @@ If the scenario is **RESILIENT**, all damage attempts by threats result in `fail
 
 **FOL Representation:**
 
-```latex
+$$
 \forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = ENABLED \land state(c2) = ENABLED ) ) \leftrightarrow succeededToDamage(o2, o1) )
-```
+$$
 
 - **Rule 2: A Threat fails to damage an Asset if the exploited vulnerability is disabled**
   A threat fails to cause damage if the vulnerability it exploits is disabled, meaning the exploit does not lead to a loss of the asset’s essential capability.
 
 **FOL Representation:**
 
-```latex
+$$
 \forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = DISABLED \land state(c2) = ENABLED ) ) \leftrightarrow failedToDamage(o2, o1) )
-```
+$$
 
 ##### Example of a Threat Specification
 
@@ -366,27 +338,27 @@ inhibits = ["hacker_group"]
 
 **FOL Representation:**
 
-```latex
+$$
 \forall o1, o2 ( Entity(o1) \land Entity(o2) \land \exists v1, c2 ( \land Vulnerability(v1) \land Capability(c2) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land disables(c2, v1) ) \leftrightarrow protects(o2, o1) )
-```
+$$
 
 - **Rule 2: An Entity inhibits another if it neutralizes an exploited vulnerability**
   An entity inhibits another if it has a capability that disables a vulnerability, while the inhibited entity has a capability that exploits the same vulnerability.
 
 **FOL Representation:**
 
-```latex
+$$
 \forall o2, o3 ( Entity(o2) \land Entity(o3) \land \exists c2, c3, v1 ( \land Capability(c2) \land Capability(c3) \land capabilities(o2, c2) \land capabilities(o3, c3) \land Vulnerability(v1) \land disables(c2, v1) \land exploits(c3, v1) ) \leftrightarrow inhibits(o2, o3) )
-```
+$$
 
 - **Rule 3: A Threat threatens an Asset if it exploits a vulnerability**
   A threat entity is said to threaten an asset if it has a capability that exploits a vulnerability within the asset.
 
 **FOL Representation:**
 
-```latex
+$$
 \forall o1, o3 ( Entity(o1) \land Entity(o3) \land ( \exists v1, c3 ( Vulnerability(v1) \land Capability(c3) \land vulnerabilities(o1, v1) \land capabilities(o3, c3) \land exploits(c3, v1) ) \leftrightarrow threatens(o3, o1) ) )
-```
+$$
 
 ### 4.3. Dispositions
 
@@ -401,9 +373,9 @@ Each disposition has a **state**, which can be either `enabled` or `disabled`. B
 
 **FOL Representation:**
 
-```latex
+$$
 \forall d1, d2 ( Disposition(d1) \land Disposition(d2) \land disables(d1, d2) \rightarrow state(d1) = ENABLED \land state(d2) = DISABLED )
-```
+$$
 
 The UML diagram below illustrates the **Disposition** metamodel and its relationships with other constructs:
 
@@ -455,9 +427,9 @@ Examples of vulnerabilities include **unpatched software**, which exposes system
 
 **FOL Representation:**
 
-```latex
+$$
 \forall v, c ( Vulnerability(v) \land Capability(c) \land exposes(v, c) \rightarrow \exists! o ( Entity(o) \land vulnerabilities(o, v) \land capabilities(o, c) ) )
-```
+$$
 
 ##### Example of a Vulnerability Specification
 
@@ -506,7 +478,7 @@ A **Resilience** construct is defined by its relationships to other elements:
 
 **FOL Representation:**
 
-```latex
+$$
 \forall o1, c1, v1, o2, c2, o3, c3 (
   Entity(o1) \land Entity(o2) \land Entity(o3) \land
   Capability(c1) \land Capability(c2) \land Capability(c3) \land Vulnerability(v1) \land
@@ -517,7 +489,7 @@ A **Resilience** construct is defined by its relationships to other elements:
   \exists! r ( Resilience(r) \land resiliences(o1, r) \land preserves(r, c1) \land
   preservesAgainst(r, c3) \land preservesDespite(r, v1) \land sustains(c2, r) )
 )
-```
+$$
 
 - **Rule 2: Each Resilience Mechanism is Defined by a Unique Combination of Elements**
   For each resilience instance, there exists exactly one configuration of an entity, three capabilities, and a vulnerability that justify its existence:
@@ -528,7 +500,7 @@ A **Resilience** construct is defined by its relationships to other elements:
 
 **FOL Representation:**
 
-```latex
+$$
 \forall r ( Resilience(r) \rightarrow
   \exists! o1, \exists c1, v1, o2, c2, o3, c3 (
     resiliences(o1, r) \land preserves(r, c1) \land preservesAgainst(r, c3) \land
@@ -540,7 +512,7 @@ A **Resilience** construct is defined by its relationships to other elements:
     exposes(v1, c1) \land exploits(c3, v1)
   )
 )
-```
+$$
 
 Resilience mechanisms are essential to ensuring the stability and longevity of systems in the face of potential disruptions. The **LaDeRR Engine** facilitates the automatic detection and assignment of resilience elements, making explicit declarations unnecessary when modeling resilient scenarios.
 
