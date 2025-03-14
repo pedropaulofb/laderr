@@ -13,28 +13,33 @@ PLEASE BE AWARE THAT THIS IS A VERSION STILL UNDER DEVELOPMENT. USE IT CAREFULLY
         - [2.1. Access to LaDeRR Specification Examples and Results](#21-access-to-laderr-specification-examples-and-results)
     - [3. Specification Metadata](#3-specification-metadata)
         - [3.1. Required Fields and Defaults](#31-required-fields-and-defaults)
-        - [3.2. Complete Example of a Valid Metadata Specification](#32-complete-example-of-a-valid-metadata-specification)
+        - [3.2. Scenario Classification and Determination](#32-scenario-classification-and-determination)
+            - [3.2.1. Rules Governing Scenarios](#321-rules-governing-scenarios)
+        - [3.3. Example of a Valid Metadata Specification](#33-example-of-a-valid-metadata-specification)
     - [4. Defining Constructs](#4-defining-constructs)
         - [4.1 Common Aspects of LaDeRR Constructs](#41-common-aspects-of-laderr-constructs)
             - [4.1.1 Example of a General Construct Specification](#411-example-of-a-general-construct-specification)
-- [Without a defined label, this construct will have 'label = reinforceddesign'. The label's default value equals the id.](#without-a-defined-label-this-construct-will-have-label--reinforceddesign-the-labels-default-value-equals-the-id)
-            - [4.1.2 Constructs' Attributes](#412-constructs-attributes)
         - [4.2 Entities](#42-entities)
+                - [Fields of Entities](#fields-of-entities)
             - [4.2.1 Assets](#421-assets)
-                - [Additional Attributes of Assets](#additional-attributes-of-assets)
+                - [Additional Fields of Assets](#additional-fields-of-assets)
                 - [Example of an Asset Specification](#example-of-an-asset-specification)
             - [4.2.2 Threats](#422-threats)
-                - [Additional Attributes of Threats](#additional-attributes-of-threats)
+                - [Additional Fields of Threats](#additional-fields-of-threats)
+            - [**Rules Governing Threats**](#rules-governing-threats)
                 - [Example of a Threat Specification](#example-of-a-threat-specification)
-            - [4.2.3 Control Mechanisms](#423-control-mechanisms)
-                - [Additional Attributes of Controls](#additional-attributes-of-controls)
+            - [4.2.3 Controls](#423-controls)
+                - [Additional Fields of Controls](#additional-fields-of-controls)
                 - [Example of a Control Specification](#example-of-a-control-specification)
+        - [**Rules Governing Entity Relationships**](#rules-governing-entity-relationships)
         - [4.3 Dispositions](#43-dispositions)
+            - [**Rules Governing Dispositions**](#rules-governing-dispositions)
             - [4.3.1 Capabilities](#431-capabilities)
-                - [Additional Attributes of Capabilities](#additional-attributes-of-capabilities)
+                - [Additional Fields of Capabilities](#additional-fields-of-capabilities)
                 - [Example of a Capability Specification](#example-of-a-capability-specification)
             - [4.3.2 Vulnerabilities](#432-vulnerabilities)
-                - [Additional Attributes of Vulnerabilities](#additional-attributes-of-vulnerabilities)
+                - [Additional Fields of Vulnerabilities](#additional-fields-of-vulnerabilities)
+            - [**Rules Governing Vulnerabilities**](#rules-governing-vulnerabilities)
                 - [Example of a Vulnerability Specification](#example-of-a-vulnerability-specification)
         - [4.4 Resilience](#44-resilience)
             - [Attributes and Relationships](#attributes-and-relationships)
@@ -61,19 +66,19 @@ PLEASE BE AWARE THAT THIS IS A VERSION STILL UNDER DEVELOPMENT. USE IT CAREFULLY
 
 ## 1. Introduction
 
-The [Language for Describing Risk and Resilience (LaDeRR)](https://w3id.org/laderr/git) is an ontology-based domain-specific language (DSL) designed to specify resilience scenarios. Built over [ResiliOnt](https://github.com/pedropaulofb/resiliont/), it provides a structured approach to defining entities, capabilities, vulnerabilities, and their interrelations. LaDeRR integrates formal modeling with computational representations, ensuring precision in resilience representation.
+The [Language for Describing Risk and Resilience (LaDeRR)](https://w3id.org/laderr/git) is an ontology-based domain-specific language (DSL) designed to specify resilience scenarios. Built over [ResiliOnt](https://github.com/pedropaulofb/resiliont/), it provides a structured approach to defining entities, capabilities, vulnerabilities, and their interrelations.
 
-This document serves as a guide for writing LaDeRR specifications using its concrete syntax in [TOML format](https://toml.io/en/). It outlines the essential components, rules, and best practices for creating valid and meaningful specifications. Each section introduces a key concept of the LaDeRR language, presents its corresponding metamodel representation, explains any associated logical rules, and provides a concrete example of how to specify it in practice.
+This document serves as a guide for writing LaDeRR specifications using its concrete syntax in [TOML format](https://toml.io/en/). It outlines the essential components, rules, and best practices for creating valid specifications. Each section introduces a key concept of the LaDeRR language, presents its corresponding metamodel representation, explains any associated logical rules, and provides a concrete example of how to specify it in practice.
 
-The LaDeRR metamodel defines the core structural elements of the language, establishing the conceptual foundation for resilience and risk scenario modeling. To ensure clarity and precision, it is presented in separate UML class diagrams, each representing a distinct aspect of LaDeRR and illustrating the relationships between its components.
+The LaDeRR metamodel defines the core structural elements of the language, establishing the conceptual foundation for resilience and risk scenario modeling. It is presented in separate UML class diagrams, each representing a distinct aspect of LaDeRR.
 
-In the following sections, we will systematically cover all core elements of a LaDeRR specification. Each component will be accompanied by:
+In the following sections, we will cover all core elements of a LaDeRR specification. Each component will be accompanied by:
 - **Concept Overview**: A brief explanation of the purpose and role of the component within a LaDeRR specification.
-- **Metamodel Representation**: A UML class diagram illustrating the structure and relationships within the metamodel.
-- **Rules and Constraints (if applicable)**: Formal constraints and derivations governing the use of the component, ensuring compliance with the LaDeRR framework.
-- **Specification Example**: A fully annotated TOML snippet demonstrating a correct way to specify the component within a LaDeRR model.
+- **Metamodel Representation**: A UML class diagram illustrating the structure and relationships of the language's elements.
+- **Rules and Constraints (if applicable)**: Formal constraints and derivations governing the use of the component.
+- **Specification Example**: A LaDeRR specification snippet in TOML format, demonstrating a correct way to specify the component.
 
-Each UML diagram follows a color-coding and formatting scheme:
+The UML metamodel follows a color-coding and formatting scheme:
 
 - **Blue**: Represents classes that are defined within the specific diagram being presented.
 - **Gray**: Represents classes that are defined in other diagrams and are shown only to indicate relationships.
@@ -84,24 +89,24 @@ Each UML diagram follows a color-coding and formatting scheme:
 
 A LaDeRR specification defines **resilience scenarios** using a structured format that consists of two main components:
 
-- **Metadata**: Provides general information about the specification, including authorship, versioning, and scenario type.
-- **Constructs**: Define the key elements of the resilience scenario and their relationships. The main constructs include:
-  - **Assets**: Represent entities that need protection or have resilience capabilities.
-  - **Capabilities**: Define the functional strengths of an entity, such as protective mechanisms.
+- **Metadata**: Provides general information about the specification, including authorship, versioning, and the type of the resilience scenario being specified.
+- **Constructs**: Define the elements of the resilience scenario and their relationships. The main constructs include:
+  - **Assets**: Represent entities that have value and are subject to potential risks and threats.
+  - **Capabilities**: Define the "positive" dispositions of an entity, enabling the entity to perform specific functions.
   - **Vulnerabilities**: Represent weaknesses that can be exploited by threats.
-  - **Threats**: Entities or conditions that can exploit vulnerabilities.
-  - **Resilience**: Mechanisms that mitigate or counteract threats and vulnerabilities.
+  - **Threats**: Entities with capabilities that can exploit vulnerabilities.
+  - **Resilience**: Resilience preserves an entity's value despite vulnerabilities, preventing threats from causing damage.
   - **Control**: Entities that inhibit threats, creating resilience.
 
-Each construct is interconnected, governed by logical constraints, and formally structured in TOML format. These constraints ensure consistency and are enforced through formal rules, as described in Section 5. The following sections detail each construct, presenting its concept, metamodel representation, applicable rules, and a valid example of how to specify it in a LaDeRR model.
+Each construct is interconnected, governed by logical constraints. These constraints ensure consistency and are enforced through formal rules, as described in Section 5. The following sections detail each construct, presenting its concept, metamodel representation, applicable rules, and an example of how to specify it in a LaDeRR model.
 
 ### 2.1. Access to LaDeRR Specification Examples and Results
 
-All **LaDeRR specifications** presented in this document, including every example and fragment, are available in the [examples](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples) folder of the LaDeRR repository.
+All LaDeRR specifications presented in this document, including every example and fragment, are available in the [examples](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples) folder of the LaDeRR repository.
 
 For each LaDeRR specification included in this documentation, the following additional resources are provided:
 
-- The original specification file as presented in this document.
+- The original specification TOML file, as presented in this document.
 - Validation and inference reports:
   - Pre-Inference Validation: Ensures that the input specification conforms to the LaDeRR metamodel and does not contain missing required fields or incorrect relationships.
   - Post-Inference Validation: After inference, checks that the inferred constructs and relationships maintain logical consistency within the model.
@@ -112,30 +117,78 @@ For each LaDeRR specification included in this documentation, the following addi
   - A visualization of the graph before inference.
   - A visualization of the graph after inference.
 
-These resources allow users to verify how the LaDeRR Engine interprets and processes each specification. Links to these files are provided alongside the corresponding examples in this documentation, ensuring full access to both the input specifications and the processed results.
+These resources allow users to verify how the [**LaDeRR Engine**](#6-laderr-engine) interprets and processes each specification. Links to these files are provided alongside the corresponding examples in this documentation.
 
 
 ## 3. Specification Metadata
 
-The metadata defines global properties of a LaDeRR specification. These fields establish essential information about the specification, including its identity, authorship, and operational scenario. The UML diagram below illustrates the metadata structure:
+The metadata defines global properties of a LaDeRR specification. These fields establish essential information about the specification, including its identity, authorship, and the type of the resilience scenario being described. The UML diagram below illustrates the metadata structure:
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/LaderrSpecification.png" width="750"></p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/LaderrSpecification.png" 
+       style="max-width: 750px; max-height: 400px; height: auto; width: auto;">
+</p>
 
 ### 3.1. Required Fields and Defaults
 
-| Field        | Type         | Required | Default Value            | Description |
-|-------------|-------------|----------|--------------------------|-------------|
-| **baseURI**  | URIRef [1]  | Yes      | `https://laderr.laderr#` | Unique identifier for the specification. |
-| **title**    | string [1]  | Yes      | N/A                      | Title of the specification. |
-| **description** | string [0..1] | No | None | Brief explanation of the specification. |
-| **version**  | string [1]  | Yes      | N/A | Version identifier of the specification. |
-| **createdBy** | string [1..*] | Yes | N/A | Author(s) responsible for the specification. |
-| **createdOn** | datetime [1] | Yes | N/A | Creation timestamp. |
-| **modifiedOn** | datetime [0..1] | No | None | Timestamp of the last modification. |
-| **scenario** | `ScenarioType [1]` | Yes | `operational` | Defines the operational context of the specification. Can be `operational` or `incident`. The values `resilient` and `not_resilient` are computed and cannot be explicitly set. |
 
-### 3.2. Complete Example of a Valid Metadata Specification
+| Field        | Input Type         | Converted Type | Multiplicity | Required | Default Value            | Description |
+|-------------|-------------------|---------------|-------------|----------|--------------------------|-------------|
+| **baseURI**  | string             | URIRef        | [1]         | **Yes**  | `https://laderr.laderr#` | Unique identifier for the specification. Must be a valid URI. |
+| **createdBy** | string \| list[string] | list[string] | [1..*]      | **Yes**  | N/A                      | Author(s) responsible for the specification. If a single string is provided, it will be converted into a list. |
+| **createdOn** | datetime (TOML native) \| string | xsd:dateTime | [1] | **Yes**  | N/A | Creation timestamp. Must comply with `xsd:dateTime` format. See [time format documentation](https://github.com/pedropaulofb/laderr/blob/main/documentation/time_format.md). |
+| **description** | string | string | [0..1] | No | N/A | Explanation of the specification. |
+| **modifiedOn** | datetime (TOML native) \| string | xsd:dateTime | [0..1] | No | N/A | Timestamp of the last modification. Must comply with `xsd:dateTime` format. |
+| **scenario** | string | `ScenarioType` | [1] | **Yes** | `operational` | Defines the context of the specification. More information in [subsection 3.2.](#32-scenarios) |
+| **title**    | string           | string        | [1]         | **Yes**  | N/A                      | Title of the specification. |
+| **version**  | string           | string        | [1]         | **Yes**  | N/A | Version identifier of the specification (free string format, no validation enforced). |
 
+An [additional documentation is provided](https://github.com/pedropaulofb/laderr/blob/main/documentation/time_format.md) to present the correct way to write time formats for the metadata `createdOn` and `modifiedOn`.
+
+
+### 3.2. Scenario Classification and Determination
+
+The `LaderrSpecification`'s attribute `scenario` (mandatory) defines the context in which the specified system is analyzed. It represents the moment in time that the system is being considered. The possible values for `scenario` are divided into two groups:
+
+- **OPERATIONAL**: Represents an ongoing or regular situation. It is not necessarily related to threats, failures, or risks, but describes the system as it is functioning in normal conditions.
+- **INCIDENT**: Represents a past situation, meaning an event has already occurred. In this context, the system either demonstrates resilience or does not.
+
+If the `scenario` of a specification is set to `INCIDENT`, it must ultimately be classified as either `RESILIENT` or `NOT_RESILIENT`, but never both. The `INCIDENT` value is used when it is unknown whether the system is resilient or not, or when this classification is left to be determined automatically by the LaDeRR Engine (see [Section 6](#6-laderr-engine)).
+
+#### 3.2.1. Rules Governing Scenarios
+
+The following rules define the `scenario` values and how they are determined.
+
+- **Rule 1: A system is NOT_RESILIENT if damage has succeeded**
+
+If a LaDeRR specification is `NOT_RESILIENT`, then there must exist at least one pair of entities within it where one has successfully damaged the other.
+
+**FOL Representation:**
+```
+\forall ls ( LaderrSpecification(ls) \land scenario(ls) = NOT_RESILIENT \leftrightarrow \exists o1, o2 ( Entity(o1) \land Entity(o2) \land constructs(ls, o1) \land constructs(ls, o2) \land succeededToDamage(o1, o2) ) )
+```
+
+- **Rule 2: A system is RESILIENT if all vulnerabilities are mitigated**
+
+If a LaDeRR specification is in the `INCIDENT` state and there is no vulnerability left unaddressed (i.e., all vulnerabilities are either disabled or not actively exploited), then the system is classified as `RESILIENT`.
+
+**FOL Representation:**
+```
+\forall ls ( LadderSpecification(ls) \land scenario(ls) = INCIDENT \land \neg \exists o1, v1 ( constructs(ls, o1) \land vulnerabilities(o1, v1) \land \neg ( state(v1) = DISABLED \lor \neg \exists c1 (Capability(c1) \land exploits(c1, v1)) ) ) \rightarrow scenario(ls) = RESILIENT )
+```
+
+- **Rule 3: An INCIDENT must be either RESILIENT or NOT_RESILIENT**
+
+For every LaDeRR specification, if its `scenario` is `INCIDENT`, then it must be classified as either `RESILIENT` or `NOT_RESILIENT`, but never both.
+
+**FOL Representation:**
+```
+\forall ls ( LaderrSpecification(ls) \rightarrow ( scenario(ls) = INCIDENT \rightarrow scenario(ls) = RESILIENT \oplus scenario(ls) = NOT_RESILIENT ) )
+```
+
+### 3.3. Example of a Valid Metadata Specification
+
+[**Example 01:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 baseURI = "https://example.org#"
 title = "Flood Risk and Resilience Model"
@@ -146,26 +199,34 @@ createdOn = "2025-02-10T14:30:00Z"
 modifiedOn = "2025-03-01T10:15:00Z"
 scenario = "operational"
 ```
-<!-- see example_doc_01 -->
+
+Note that a specification containing only metadata is considered valid.
+
+From this point onward, assume that a brief metadata is appended at the beginning of all following examples. To maintain conciseness, the metadata TOML section will be omitted in the next specification excerpts.
 
 ## 4. Defining Constructs
 
 ### 4.1 Common Aspects of LaDeRR Constructs
 
-All elements within a LaDeRR specification are instances of **LaderrConstruct**, which serves as the base class for all constructs. This includes **Assets, Capabilities, Vulnerabilities, Threats, Resilience**, and **Control Mechanisms**. Each construct shares a common structure with the following attributes:
+All elements within a LaDeRR specification are instances of **LaderrConstruct**, which serves as the base class for all constructs. This includes **Assets, Capabilities, Vulnerabilities, Threats, Resilience**, and **Control**. Each construct shares a common structure with the following attributes:
 
 - **id** (*string, required, unique*): The unique identifier of the construct. This value is used to reference the construct throughout the specification.
-- **label** (*string, required*): A human-readable name for the construct. If not explicitly provided, it defaults to the `id`.
+- **label** (*string, optional*): A human-readable name for the construct. If not explicitly provided, it defaults to the `id` value.
 - **description** (*string, optional*): A textual explanation of the construct.
 
-The UML diagram below illustrates the **LaderrConstruct** class and its relationship to other elements.
+The UML diagram below illustrates the **LaderrConstruct** class and its specializations.
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/LaderrConstructs.png" width="750"></p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/LaderrConstructs.png" 
+       style="max-width: 750px; max-height: 400px; height: auto; width: auto;">
+</p>
+
 
 #### 4.1.1 Example of a General Construct Specification
 
 The following TOML snippet demonstrates how to define constructs using the common attributes.
 
+[**Example 02:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Asset.bridge]
 label = "Main River Bridge"
@@ -185,42 +246,45 @@ description = "Seismic activity that could compromise the bridge’s structure."
 
 [Resilience.reinforced_design]
 description = "A structural reinforcement method to improve resilience."
-# Without a defined label, this construct will have 'label = reinforced_design'. The label's default value equals the id.
 
 [Control.maintenance_program]
 label = "Routine Maintenance Program"
 description = "Scheduled inspections and repairs to prevent material fatigue."
 ```
 
-#### 4.1.2 Constructs' Attributes
-
-| Attribute      | Type   | Required | Default Value | Description |
-|---------------|--------|----------|--------------|-------------|
-| **id**        | string | Yes      | None         | Unique identifier for the construct. |
-| **label**     | string | No       | Same as `id` | Human-readable name for the construct. |
-| **description** | string | No       | None         | Explanation of the construct's role. |
-
-These attributes provide a standardized way to define all constructs, ensuring consistency across LaDeRR specifications. The following subsections detail specific construct types and their additional attributes.
-
+In the specification above, note that without a defined label, the declared `reinforced_design` construct will have 'label = reinforced_design'. The label's default value equals the id.
 
 ### 4.2 Entities
 
-An **Entity** represents a core component within a LaDeRR specification. Entities can assume different roles in resilience scenarios, including **Assets**, **Threats**, and **Control Mechanisms**. Each entity is associated with **Capabilities** and **Vulnerabilities**, defining its strengths and weaknesses.
+An **Entity** represents a fundamental component within a LaDeRR specification, participating in resilience scenarios. Entities are classified into one or more of the types: **Assets**, **Threats**, and **Controls**. Each type plays a distinct role in modeling vulnerabilities, risks, and protective mechanisms.
 
-The UML diagram below illustrates the **Entity** class and its relationships.
+Entities are characterized by their **Capabilities** and **Vulnerabilities**, defining their strengths and weaknesses in a given scenario. **Assets** are entities that require protection and may exhibit resilience. **Threats** attempt to exploit vulnerabilities within assets, potentially causing damage. **Controls** serve as protective mechanisms, mitigating the impact of threats by inhibiting their actions or neutralizing vulnerabilities.
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Entities.png" width="750"></p>
+The UML diagram below illustrates the **Entity** class, its subtypes, and their relationships.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Entities.png" 
+       style="max-width: 750px; max-height: 400px; height: auto; width: auto;">
+</p>
+
+##### Fields of Entities
+- **capabilities** (*list of strings, required*): Defines the set of functions or strengths the entity possesses.
+- **vulnerabilities** (*list of strings, optional*): Represents the weaknesses that can be exploited by threats.
 
 #### 4.2.1 Assets
 
-An **Asset** is an entity that requires protection and plays a crucial role in resilience scenarios. Assets are typically infrastructure, organizations, or systems that must be safeguarded against threats.
+An **Asset** is an entity of value that must be safeguarded against potential threats. Assets possess **capabilities**, which define their functions or operational strengths, and **vulnerabilities**, which represent weaknesses that threats can exploit. Assets can be **threatened** by threats and **protected** by controls. 
 
-##### Additional Attributes of Assets
+Examples of assets include a *regional power grid*, which ensures electricity supply but may be vulnerable to cyberattacks and infrastructure failures; a *hospital network*, which provides medical services but is susceptible to data breaches and equipment malfunctions; a *coral reef ecosystem*, which supports marine biodiversity but faces risks from ocean acidification and climate change; a *financial market system*, which enables global trade but is exposed to economic downturns and cyber fraud; and a *public transportation network*, which facilitates mobility but can be disrupted by mechanical failures and extreme weather events.
 
+##### Additional Fields of Assets
 - **resiliences** (*list of strings, optional*): References to resilience mechanisms protecting the asset.
+
+The LaDeRR Engine is capable of automatically detecting and associating resilience instances with assets based on system-wide analysis. Therefore, explicitly declaring resiliences is optional, as they will be inferred and correctly linked within the system.
 
 ##### Example of an Asset Specification
 
+[**Example 03:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Asset.power_grid]
 label = "Regional Power Grid"
@@ -232,15 +296,39 @@ resiliences = ["distributed_generation"]
 
 #### 4.2.2 Threats
 
-A **Threat** is an entity that exploits vulnerabilities in assets, challenging their resilience. Threats can be natural, technical, or human-driven.
+A **Threat** is an entity that actively exploits vulnerabilities in assets, potentially leading to harm. Threats can emerge from **human actions**, **technical failures**, or **natural events**. They attempt to compromise an asset’s resilience and can be **inhibited** by controls.
 
-##### Additional Attributes of Threats
+Examples of threats include a *cybercriminal group*, launching ransomware attacks to compromise data security; an *infectious disease outbreak*, spreading through populations and threatening public health infrastructure; an *oil spill*, contaminating marine ecosystems and disrupting local economies; a *social misinformation campaign*, influencing political outcomes and destabilizing trust in institutions; and an *earthquake*, damaging critical infrastructure and causing widespread economic losses.
 
+##### Additional Fields of Threats
 - **threatens** (*list of strings, required*): References to the assets that the threat targets.
-- **failedToDamage** (*list of strings, optional*): Assets that the threat attempted but failed to damage.
+- **succeededToDamage** (*list of strings, optional*): Assets that the threat successfully damaged. This is automatically determined based on the scenario.
+- **failedToDamage** (*list of strings, optional*): Assets that the threat attempted but failed to damage. This is automatically determined based on the scenario.
+
+The relationships between threats and assets—whether a threat targets, successfully damages, or fails to damage an asset—can be inferred from the underlying interactions between **capabilities** and **vulnerabilities**. When using LaDeRR Engine, these relations do not need to be explicitly declared, as they will be automatically derived based on the system's defined capabilities, vulnerabilities, and their interactions.
+
+If the scenario is **RESILIENT**, all damage attempts by threats result in `failedToDamage`. If the scenario is **NOT_RESILIENT**, some threats will have `succeededToDamage` relationships with assets.
+
+#### **Rules Governing Threats**
+- **Rule 1: A Threat succeeds in damaging an Asset if it exploits an enabled vulnerability**
+A threat is considered to have successfully damaged an asset if it possesses a capability that exploits a vulnerability in the asset, the vulnerability is enabled, and it exposes an essential capability of the asset.
+
+**FOL Representation:**
+```
+\forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = ENABLED \land state(c2) = ENABLED ) ) \leftrightarrow succeededToDamage(o2, o1) )
+```
+
+- **Rule 2: A Threat fails to damage an Asset if the exploited vulnerability is disabled**
+A threat fails to cause damage if the vulnerability it exploits is disabled, meaning the exploit does not lead to a loss of the asset’s essential capability.
+
+**FOL Representation:**
+```
+\forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = DISABLED \land state(c2) = ENABLED ) ) \leftrightarrow failedToDamage(o2, o1) )
+```
 
 ##### Example of a Threat Specification
 
+[**Example 04:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Threat.hacker_group]
 label = "Advanced Persistent Threat Group"
@@ -250,17 +338,22 @@ threatens = ["power_grid"]
 failedToDamage = ["hospital_network"]
 ```
 
-#### 4.2.3 Control Mechanisms
+#### 4.2.3 Controls
 
-A **Control** is an entity that mitigates or inhibits threats, preventing them from exploiting vulnerabilities.
+A **Control** is an entity that actively mitigates threats or neutralizes vulnerabilities, thereby reducing risk. Controls **inhibit** threats, preventing them from successfully exploiting vulnerabilities in assets. Controls play a proactive role in resilience by providing protective mechanisms that prevent losses before they occur.
 
-##### Additional Attributes of Controls
+Examples of controls include a *network firewall*, which prevents unauthorized access to hospital systems; a *vaccination program*, which mitigates the spread of infectious diseases in a population; a *marine protected area*, safeguarding coral reefs from overfishing and habitat destruction; an *algorithmic fraud detection system*, identifying suspicious transactions in financial markets; and an *early warning system for natural disasters*, enabling rapid response to earthquakes and hurricanes.
 
+##### Additional Fields of Controls
 - **protects** (*list of strings, required*): References to the assets the control safeguards.
-- **inhibits** (*list of strings, optional*): References to threats neutralized or reduced by the control.
+- **inhibits** (*list of strings, optional*): References to threats that are neutralized or reduced by the control.
+
+The relationships between controls, assets, and threats—whether a control protects an asset or inhibits a threat—can be inferred from the underlying interactions between **capabilities** and **vulnerabilities**. When using LaDeRR Engine, these relations do not need to be explicitly declared, as they will be automatically derived based on the system’s defined capabilities, vulnerabilities, and their interactions.
+
 
 ##### Example of a Control Specification
 
+[**Example 05:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Control.firewall_system]
 label = "Network Firewall"
@@ -270,31 +363,69 @@ protects = ["hospital_network"]
 inhibits = ["hacker_group"]
 ```
 
-These three types of entities define the fundamental actors in LaDeRR resilience scenarios, linking capabilities, vulnerabilities, and resilience mechanisms.
+### **Rules Governing Entity Relationships**
+
+- **Rule 1: An Entity protects another if it disables a vulnerability**
+A control or another entity is said to protect an asset if it possesses a capability that disables a vulnerability in that asset.
+
+**FOL Representation:**
+```
+\forall o1, o2 ( Entity(o1) \land Entity(o2) \land \exists v1, c2 ( \land Vulnerability(v1) \land Capability(c2) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land disables(c2, v1) ) \leftrightarrow protects(o2, o1) )
+```
+
+- **Rule 2: An Entity inhibits another if it neutralizes an exploited vulnerability**
+An entity inhibits another if it has a capability that disables a vulnerability, while the inhibited entity has a capability that exploits the same vulnerability.
+
+**FOL Representation:**
+```
+\forall o2, o3 ( Entity(o2) \land Entity(o3) \land \exists c2, c3, v1 ( \land Capability(c2) \land Capability(c3) \land capabilities(o2, c2) \land capabilities(o3, c3) \land Vulnerability(v1) \land disables(c2, v1) \land exploits(c3, v1) ) \leftrightarrow inhibits(o2, o3) )
+```
+
+- **Rule 3: A Threat threatens an Asset if it exploits a vulnerability**
+A threat entity is said to threaten an asset if it has a capability that exploits a vulnerability within the asset.
+
+**FOL Representation:**
+```
+\forall o1, o3 ( Entity(o1) \land Entity(o3) \land ( \exists v1, c3 ( Vulnerability(v1) \land Capability(c3) \land vulnerabilities(o1, v1) \land capabilities(o3, c3) \land exploits(c3, v1) ) \leftrightarrow threatens(o3, o1) ) )
+```
 
 
 ### 4.3 Dispositions
 
-Dispositions represent the inherent tendencies of entities within a LaDeRR specification. They encompass both **Capabilities** (positive dispositions that enable resilience) and **Vulnerabilities** (negative dispositions that introduce risk). These elements are critical for modeling how assets function under different conditions and how they respond to threats.
+Dispositions represent the inherent properties of entities within a LaDeRR specification that determine how they respond to changing conditions. They are divided into **Capabilities**, which represent positive dispositions that enable resilience, and **Vulnerabilities**, which represent negative dispositions that introduce risk. These elements are crucial for modeling how assets function under different conditions and how they interact with threats and controls.
 
-Each disposition has a **state**, which can be either `enabled` or `disabled`. By default, all dispositions are set to `enabled`, meaning they actively contribute to the resilience or vulnerability of an entity.
+Each disposition has a **state**, which can be either `enabled` or `disabled`. By default, all dispositions are set to `enabled`, meaning they actively contribute to the resilience or vulnerability of an entity. The state of a disposition influences whether it can be exploited or used to protect against threats.
+
+#### **Rules Governing Dispositions**
+- **Rule 1: A Disposition that disables another must be enabled**
+A disposition can only disable another if it is enabled, ensuring that only active dispositions can influence the system's resilience.
+
+**FOL Representation:**
+```
+\forall d1, d2 ( Disposition(d1) \land Disposition(d2) \land disables(d1, d2) \rightarrow state(d1) = ENABLED \land state(d2) = DISABLED )
+```
 
 The UML diagram below illustrates the **Disposition** metamodel and its relationships with other constructs:
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Dispositions.png" width="750"></p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Dispositions.png" 
+       style="max-width: 750px; max-height: 400px; height: auto; width: auto;">
+</p>
 
 #### 4.3.1 Capabilities
 
-A **Capability** is a positive disposition that enables an entity to perform functions that contribute to resilience. Capabilities can sustain resilience mechanisms and disable vulnerabilities. 
+A **Capability** is a positive disposition that enables an entity to perform specific functions that contribute to resilience. Capabilities can **sustain resilience mechanisms**, ensuring the stability of an entity under adverse conditions, and can **disable vulnerabilities**, preventing them from being exploited by threats.
 
-##### Additional Attributes of Capabilities
+Examples of capabilities include **fire resistance in building materials**, which prevents the spread of flames during a fire; **immune response in living organisms**, which helps fight infections and maintain health; **automated failover in cloud computing**, which ensures system continuity in case of a server failure; **adaptive governance in socio-ecological systems**, which allows communities to respond to environmental changes; and **reinforced structural design in engineering**, which enhances resistance against natural disasters.
 
-- **state** (*string, required, default: `"enabled"`*): Specifies whether the capability is active (`enabled`) or inactive (`disabled`).
-- **sustains** (*list of strings, optional*): References to resilience mechanisms supported by this capability.
-- **disables** (*list of strings, optional*): Vulnerabilities that are mitigated by this capability.
+##### Additional Fields of Capabilities
+- **state** (*string, optional, default: `"enabled"`*): Specifies whether the capability is active (`enabled`) or inactive (`disabled`).
+- **sustains** (*list of strings, optional*): References to resilience mechanisms supported by this capability. *(Automatically inferred when using LaDeRR Engine.)*
+- **disables** (*list of strings, optional*): Vulnerabilities that are mitigated by this capability. *(Automatically inferred when using LaDeRR Engine.)*
 
 ##### Example of a Capability Specification
 
+[**Example 06:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Capability.fire_resistance]
 label = "Fire Resistance"
@@ -306,16 +437,27 @@ disables = ["flammable_material"]
 
 #### 4.3.2 Vulnerabilities
 
-A **Vulnerability** is a negative disposition that exposes an entity to threats. Vulnerabilities can be exploited by threats and can expose capabilities that belong to the same entity.
+A **Vulnerability** is a negative disposition that makes an entity susceptible to threats. Vulnerabilities can be **exploited by threats**, potentially leading to damage, and can **expose capabilities** within the same entity, increasing the likelihood of operational failure.
 
-##### Additional Attributes of Vulnerabilities
+Examples of vulnerabilities include **unpatched software**, which exposes systems to cyberattacks; **immune deficiencies in biological organisms**, making them susceptible to infections; **structural fatigue in engineering**, reducing the durability of infrastructure over time; **financial instability in economic systems**, making institutions vulnerable to market fluctuations; and **data breaches in digital networks**, leading to loss of sensitive information.
 
+##### Additional Fields of Vulnerabilities
 - **state** (*string, required, default: `"enabled"`*): Specifies whether the vulnerability is active (`enabled`) or has been mitigated (`disabled`).
 - **exposes** (*list of strings, required*): References to capabilities that are negatively affected by this vulnerability. A vulnerability can only expose capabilities within the same entity.
-- **exploits** (*list of strings, optional*): References to threats that exploit this vulnerability.
+- **exploits** (*list of strings, optional*): References to threats that exploit this vulnerability. *(Automatically inferred when using LaDeRR Engine.)*
+
+#### **Rules Governing Vulnerabilities**
+- **Rule 2: A Vulnerability can only expose Capabilities of the same Entity**
+A vulnerability must belong to the same entity as the capabilities it exposes, ensuring that resilience and threats are properly linked.
+
+**FOL Representation:**
+```
+\forall v, c ( Vulnerability(v) \land Capability(c) \land exposes(v, c) \rightarrow \exists! o ( Entity(o) \land vulnerabilities(o, v) \land capabilities(o, c) ) )
+```
 
 ##### Example of a Vulnerability Specification
 
+[**Example 07:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Vulnerability.unpatched_software]
 label = "Unpatched Software"
@@ -325,7 +467,7 @@ exposes = ["system_integrity"]
 exploits = ["malware"]
 ```
 
-Capabilities and vulnerabilities define the operational characteristics of assets, influencing how resilience mechanisms interact with threats in a LaDeRR specification.
+Capabilities and vulnerabilities define the operational characteristics of assets, influencing how resilience mechanisms interact with threats in a LaDeRR specification. The LaDeRR Engine automatically determines resilience relations, meaning explicit declarations of resilience-related attributes are optional when using the system.
 
 
 ### 4.4 Resilience
@@ -334,7 +476,10 @@ Capabilities and vulnerabilities define the operational characteristics of asset
 
 The UML diagram below illustrates the **Resilience** construct and its relationships:
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Resilience.png" width="750"></p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Resilience.png" 
+       style="max-width: 750px; max-height: 400px; height: auto; width: auto;">
+</p>
 
 #### Attributes and Relationships
 
@@ -347,6 +492,7 @@ A **Resilience** construct is defined by its relationships to other elements:
 
 #### Example of a Resilience Specification
 
+[**Example 08:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Resilience.flood_protection]
 label = "Flood Protection Measures"
@@ -359,6 +505,7 @@ sustains = ["levee_reinforcement"]
 
 Resilience mechanisms play a crucial role in ensuring that capabilities remain functional under threat. They provide a structured way to model how systems
 
+<!-- TODO: Check if all rules are already explained inside sections 3 and 4 and, if it is the case, remove this whole section. -->
 ## 5. Logical Rules of LaDeRR
 
 In addition to the metamodel, LaDeRR specifications must comply with a set of formal rules that govern the relationships between constructs. These rules ensure logical consistency and define how elements such as capabilities, vulnerabilities, threats, and resilience mechanisms interact within a resilience scenario.
@@ -488,6 +635,7 @@ By leveraging this inference mechanism, users can **omit explicit resilience def
 
 A **manually defined** LaDeRR specification might look like this:
 
+[**Example 09:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Asset.bridge]
 label = "Main River Bridge"
@@ -524,6 +672,7 @@ However, when using **LaDeRR Engine**, the user can omit explicitly defining inf
 
 A **simplified version** of the specification:
 
+[**Example 10:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 [Asset.bridge]
 capabilities = ["structural_integrity"]
@@ -565,6 +714,7 @@ This section provides a complete LaDeRR specification example. The first version
 
 The following specification fully defines an **operational** scenario, explicitly declaring all relationships.
 
+[**Example 11:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 baseURI = "https://example.org#"
 createdBy = "Author Name"
@@ -604,6 +754,7 @@ preservesAgainst = ["hacker_group"]
 
 Using the **LaDeRR Engine**, users can omit certain elements that are **automatically inferred**. The engine derives **threats, protections, and resilience mechanisms** based on the existing capabilities, vulnerabilities, and their interactions.
 
+[**Example 12:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 ```toml
 baseURI = "https://example.org#"
 createdBy = "Author Name"

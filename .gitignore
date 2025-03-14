@@ -4,5 +4,6 @@
 # Ignore all Excel temporary files that start with ~ in any folder
 ~*.xlsx
 
-# Ignore all files ending with vpp.lck in any folder
+# Ignore all files (i) ending with vpp.lck or (ii) that has '.vpp.bak' in its filename in any folder 
 *.vpp.lck
+*.vpp.bak*

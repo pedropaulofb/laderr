@@ -11,7 +11,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/laderr#> rdf:type owl:Ontology ;
-                           dcat:version "0.7.1" ;
+                           dcat:version "0.7.2" ;
                            dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
                                            <https://orcid.org/0000-0002-3452-553X> ,
                                            <https://orcid.org/0000-0003-0481-9745> ;
@@ -21,14 +21,14 @@
                            dct:issued "2025-01-14"^^xsd:date ;                           
                            dct:language "en"^^xsd:language ;
                            dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
-                           dct:modified "2025-03-13"^^xsd:date ;
+                           dct:modified "2025-03-14"^^xsd:date ;
                            dct:publisher <https://ugent-businessinformatics.github.io/> ,
                                          <https://www.flandersmake.be/> ,
                                          <https://www.utwente.nl/en/eemcs/scs/> ;
                            dct:title "LaDeRR Vocabulary"@en ;
                            vann:preferredNamespacePrefix "laderr" ;
                            vann:preferredNamespaceUri "https://w3id.org/laderr#"^^xsd:anyURI ;
-                           owl:versionInfo "First complete vocabulary for the LaDeRR DSL."@en ;
+                           owl:versionInfo "Vocabulary for the LaDeRR DSL. Resilience's defintion updated."@en ;
                            dcat:keyword "laderr"@en , "DSL"@en ,
                                         "resilience"@en ,
                                         "risk"@en , "incident"@en ;
@@ -534,7 +534,7 @@ laderr:Resilience rdf:type owl:Class ;
                                         owl:someValuesFrom laderr:Vulnerability
                                       ] ;
                   rdfs:subClassOf laderr:LaderrConstruct ;
-                  rdfs:comment "Resilience is a capability that preserves an entity's value despite vulnerabilities, preventing threats from causing damage."@en ;
+                  rdfs:comment "Resilience preserves an entity's value despite vulnerabilities, preventing threats from causing damage."@en ;
                   rdfs:isDefinedBy <https://w3id.org/laderr> ;
                   rdfs:label "Resilience"@en .
 
