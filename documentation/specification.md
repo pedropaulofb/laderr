@@ -10,12 +10,14 @@ PLEASE BE AWARE THAT THIS IS A VERSION STILL UNDER DEVELOPMENT. USE IT CAREFULLY
     - [Table of Contents](#table-of-contents)
     - [1. Introduction](#1-introduction)
     - [2. General Structure of a LaDeRR Specification](#2-general-structure-of-a-laderr-specification)
+        - [2.1. Access to LaDeRR Specification Examples and Results](#21-access-to-laderr-specification-examples-and-results)
     - [3. Specification Metadata](#3-specification-metadata)
         - [3.1. Required Fields and Defaults](#31-required-fields-and-defaults)
         - [3.2. Complete Example of a Valid Metadata Specification](#32-complete-example-of-a-valid-metadata-specification)
     - [4. Defining Constructs](#4-defining-constructs)
         - [4.1 Common Aspects of LaDeRR Constructs](#41-common-aspects-of-laderr-constructs)
             - [4.1.1 Example of a General Construct Specification](#411-example-of-a-general-construct-specification)
+- [Without a defined label, this construct will have 'label = reinforceddesign'. The label's default value equals the id.](#without-a-defined-label-this-construct-will-have-label--reinforceddesign-the-labels-default-value-equals-the-id)
             - [4.1.2 Constructs' Attributes](#412-constructs-attributes)
         - [4.2 Entities](#42-entities)
             - [4.2.1 Assets](#421-assets)
@@ -89,9 +91,29 @@ A LaDeRR specification defines **resilience scenarios** using a structured forma
   - **Vulnerabilities**: Represent weaknesses that can be exploited by threats.
   - **Threats**: Entities or conditions that can exploit vulnerabilities.
   - **Resilience**: Mechanisms that mitigate or counteract threats and vulnerabilities.
-  - **Control Mechanisms**: Elements that inhibit or protect against threats.
+  - **Control**: Entities that inhibit threats, creating resilience.
 
-Each construct is interconnected, governed by logical constraints, and formally structured in TOML format. The following sections detail each construct, presenting its concept, metamodel representation, applicable rules, and a valid example of how to specify it in a LaDeRR model.
+Each construct is interconnected, governed by logical constraints, and formally structured in TOML format. These constraints ensure consistency and are enforced through formal rules, as described in Section 5. The following sections detail each construct, presenting its concept, metamodel representation, applicable rules, and a valid example of how to specify it in a LaDeRR model.
+
+### 2.1. Access to LaDeRR Specification Examples and Results
+
+All **LaDeRR specifications** presented in this document, including every example and fragment, are available in the [examples](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples) folder of the LaDeRR repository.
+
+For each LaDeRR specification included in this documentation, the following additional resources are provided:
+
+- The original specification file as presented in this document.
+- Validation and inference reports:
+  - Pre-Inference Validation: Ensures that the input specification conforms to the LaDeRR metamodel and does not contain missing required fields or incorrect relationships.
+  - Post-Inference Validation: After inference, checks that the inferred constructs and relationships maintain logical consistency within the model.
+- The generated graph data:
+  - The graph structure before inference.
+  - The graph structure after inference.  
+- Graph-based visualizations of the specification:
+  - A visualization of the graph before inference.
+  - A visualization of the graph after inference.
+
+These resources allow users to verify how the LaDeRR Engine interprets and processes each specification. Links to these files are provided alongside the corresponding examples in this documentation, ensuring full access to both the input specifications and the processed results.
+
 
 ## 3. Specification Metadata
 
@@ -124,6 +146,7 @@ createdOn = "2025-02-10T14:30:00Z"
 modifiedOn = "2025-03-01T10:15:00Z"
 scenario = "operational"
 ```
+<!-- see example_doc_01 -->
 
 ## 4. Defining Constructs
 
@@ -161,8 +184,8 @@ label = "Earthquake"
 description = "Seismic activity that could compromise the bridge’s structure."
 
 [Resilience.reinforced_design]
-label = "Reinforced Design"
 description = "A structural reinforcement method to improve resilience."
+# Without a defined label, this construct will have 'label = reinforced_design'. The label's default value equals the id.
 
 [Control.maintenance_program]
 label = "Routine Maintenance Program"
