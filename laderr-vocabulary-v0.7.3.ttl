@@ -1,45 +1,45 @@
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix : <https://w3id.org/laderr#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix laderr: <https://w3id.org/laderr#> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix laderr: <https://w3id.org/laderr#> .
+@base <https://w3id.org/laderr#> .
 
 <https://w3id.org/laderr#> rdf:type owl:Ontology ;
-                           dcat:version "0.7.2" ;
-                           dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
-                                           <https://orcid.org/0000-0002-3452-553X> ,
-                                           <https://orcid.org/0000-0003-0481-9745> ;
-                           dct:creator <https://orcid.org/0000-0003-2736-7817> ;
-                           dct:description "Implementation of the abstract syntax of the LaDeRR (Language for Describing Risk and Resilience) DSL (Domain Specific Language) in OWL. Used to standardize the language's vocabulary and as schema for software use."@en ;
-                           dct:identifier "https://w3id.org/laderr"^^xsd:string ;
-                           dct:issued "2025-01-14"^^xsd:date ;                           
-                           dct:language "en"^^xsd:language ;
-                           dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
-                           dct:modified "2025-03-14"^^xsd:date ;
-                           dct:publisher <https://ugent-businessinformatics.github.io/> ,
-                                         <https://www.flandersmake.be/> ,
-                                         <https://www.utwente.nl/en/eemcs/scs/> ;
-                           dct:title "LaDeRR Vocabulary"@en ;
-                           vann:preferredNamespacePrefix "laderr" ;
-                           vann:preferredNamespaceUri "https://w3id.org/laderr#"^^xsd:anyURI ;
-                           owl:versionInfo "Vocabulary for the LaDeRR DSL. Resilience's defintion updated."@en ;
-                           dcat:keyword "laderr"@en , "DSL"@en ,
-                                        "resilience"@en ,
-                                        "risk"@en , "incident"@en ;
-                           dcat:landingPage <https://w3id.org/laderr/git> ;                           
-                           foaf:homepage <https://w3id.org/laderr> ;
-                           foaf:logo <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> ;
-                           mod:repository <https://w3id.org/laderr/git> .
-
-<https://w3id.org/laderr/ttl> rdfs:comment "TTL serialization of the LaDeRR-Vocabulary."@en .
-<https://w3id.org/laderr/git> rdfs:comment "Repository for the LaDeRR DSL."@en .
-
+                            dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
+                                            <https://orcid.org/0000-0002-3452-553X> ,
+                                            <https://orcid.org/0000-0003-0481-9745> ;
+                            dct:creator <https://orcid.org/0000-0003-2736-7817> ;
+                            dct:description "Implementation of the abstract syntax of the LaDeRR (Language for Describing Risk and Resilience) DSL (Domain Specific Language) in OWL. Used to standardize the language's vocabulary and as schema for software use."@en ;
+                            dct:identifier "https://w3id.org/laderr" ;
+                            dct:issued "2025-01-14"^^xsd:date ;
+                            dct:language "en"^^xsd:language ;
+                            dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
+                            dct:modified "2025-03-14"^^xsd:date ;
+                            dct:publisher <https://ugent-businessinformatics.github.io/> ,
+                                          <https://www.flandersmake.be/> ,
+                                          <https://www.utwente.nl/en/eemcs/scs/> ;
+                            dct:title "LaDeRR Vocabulary"@en ;
+                            vann:preferredNamespacePrefix "laderr" ;
+                            vann:preferredNamespaceUri "https://w3id.org/laderr#"^^xsd:anyURI ;
+                            owl:versionInfo "Vocabulary for the LaDeRR DSL. Resilience's defintion updated."@en ;
+                            dcat:keyword "DSL"@en ,
+                                         "incident"@en ,
+                                         "laderr"@en ,
+                                         "resilience"@en ,
+                                         "risk"@en ;
+                            dcat:landingPage <https://w3id.org/laderr/git> ;
+                            dcat:version "0.7.2" ;
+                            foaf:homepage <https://w3id.org/laderr> ;
+                            foaf:logo <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> ;
+                            mod:repository <https://w3id.org/laderr/git> .
 
 #################################################################
 #    Annotation properties
@@ -93,6 +93,10 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2002/07/owl#versionInfo
+owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/ns/dcat#keyword
 dcat:keyword rdf:type owl:AnnotationProperty .
 
@@ -101,8 +105,16 @@ dcat:keyword rdf:type owl:AnnotationProperty .
 dcat:landingPage rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/ns/dcat#version
+dcat:version rdf:type owl:AnnotationProperty .
+
+
 ###  http://xmlns.com/foaf/0.1/homepage
 foaf:homepage rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/logo
+foaf:logo rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/mbox
@@ -116,17 +128,9 @@ foaf:member rdf:type owl:AnnotationProperty .
 ###  http://xmlns.com/foaf/0.1/name
 foaf:name rdf:type owl:AnnotationProperty .
 
-###  http://www.w3.org/ns/dcat#version
-dcat:version rdf:type owl:AnnotationProperty .
-
-###  http://xmlns.com/foaf/0.1/logo
-foaf:logo rdf:type owl:AnnotationProperty .
 
 ###  https://w3id.org/mod#repository
 mod:repository rdf:type owl:AnnotationProperty .
-
-###  http://www.w3.org/2002/07/owl#versionInfo
-owl:versionInfo rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -180,7 +184,6 @@ laderr:exploits rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/laderr#exposes
 laderr:exposes rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:domain laderr:Vulnerability ;
                rdfs:range laderr:Capability ;
                rdfs:comment "Defines that a Vulnerability exposes a Capability, making it susceptible to threats."@en ;
@@ -217,7 +220,6 @@ laderr:preserves rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/laderr#preservesAgainst
 laderr:preservesAgainst rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf owl:topObjectProperty ;
                         rdfs:domain laderr:Resilience ;
                         rdfs:range laderr:Capability ;
                         rdfs:comment "Indicates that a Resilience  preserves an entity despite the presence of a Capability in a Threat that would otherwise exploit a vulnerability."@en ;
@@ -236,7 +238,6 @@ laderr:preservesDespite rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/laderr#protects
 laderr:protects rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf owl:topObjectProperty ;
                 rdfs:domain laderr:Control ;
                 rdfs:range laderr:Asset ;
                 rdfs:comment "Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables the relevant Vulnerability."@en ;
@@ -348,7 +349,6 @@ laderr:modifiedOn rdf:type owl:DatatypeProperty ;
 
 ###  https://w3id.org/laderr#name
 laderr:name rdf:type owl:DatatypeProperty ;
-            rdfs:subPropertyOf owl:topDataProperty ;
             rdfs:range xsd:string ;
             rdfs:comment "The name assigned to a LaDeRR Construct."@en ;
             rdfs:label "name"@en .
@@ -394,11 +394,11 @@ laderr:Capability rdf:type owl:Class ;
 
 ###  https://w3id.org/laderr#Control
 laderr:Control rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty laderr:inhibits ;
-                                     owl:someValuesFrom laderr:Threat
-                                   ] ;
                rdfs:subClassOf laderr:Entity ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty laderr:inhibits ;
+                                 owl:someValuesFrom laderr:Threat
+                               ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty laderr:protects ;
                                  owl:someValuesFrom laderr:Asset
@@ -581,6 +581,16 @@ laderr:Vulnerability rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  https://ugent-businessinformatics.github.io/
+<https://ugent-businessinformatics.github.io/> rdf:type owl:NamedIndividual ,
+                                                        foaf:Organization ;
+                                               foaf:homepage "https://ugent-businessinformatics.github.io/"^^xsd:anyURI ;
+                                               foaf:member <https://orcid.org/0000-0001-9247-6150> ,
+                                                           <https://orcid.org/0000-0003-0481-9745> ,
+                                                           <https://orcid.org/0000-0003-2736-7817> ;
+                                               foaf:name "UGent Business Informatics, Ghent University, Belgium" .
+
+
 ###  https://w3id.org/laderr#disabled
 laderr:disabled rdf:type owl:NamedIndividual ,
                          laderr:DispositionState ;
@@ -630,20 +640,9 @@ laderr:resilient rdf:type owl:NamedIndividual ,
                  rdfs:label "resilient"@en .
 
 
-################################################################
-#    Annotation Individuals
-#################################################################
-
-###  https://ugent-businessinformatics.github.io/
-<https://ugent-businessinformatics.github.io/> rdf:type foaf:Organization ;
-                                               foaf:homepage "https://ugent-businessinformatics.github.io/"^^xsd:anyURI ;
-                                               foaf:member <https://orcid.org/0000-0001-9247-6150> ,
-                                                           <https://orcid.org/0000-0003-0481-9745> ,
-                                                           <https://orcid.org/0000-0003-2736-7817> ;
-                                               foaf:name "UGent Business Informatics, Ghent University, Belgium" .
-
 ###  https://www.flandersmake.be/
-<https://www.flandersmake.be/> rdf:type foaf:Organization ;
+<https://www.flandersmake.be/> rdf:type owl:NamedIndividual ,
+                                        foaf:Organization ;
                                foaf:homepage "https://www.flandersmake.be/"^^xsd:anyURI ;
                                foaf:member <https://orcid.org/0000-0001-9247-6150> ,
                                            <https://orcid.org/0000-0003-0481-9745> ,
@@ -652,20 +651,36 @@ laderr:resilient rdf:type owl:NamedIndividual ,
 
 
 ###  https://www.utwente.nl/en/eemcs/scs/
-<https://www.utwente.nl/en/eemcs/scs/> rdf:type foaf:Organization ;
+<https://www.utwente.nl/en/eemcs/scs/> rdf:type owl:NamedIndividual ,
+                                                foaf:Organization ;
                                        foaf:homepage "https://www.utwente.nl/en/eemcs/scs/"^^xsd:anyURI ;
                                        foaf:member <https://orcid.org/0000-0002-3452-553X> ,
                                                    <https://orcid.org/0000-0003-2736-7817> ;
                                        foaf:name "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" .
 
 
+#################################################################
+#    Annotations
+#################################################################
+
+<https://orcid.org/0000-0001-9247-6150> foaf:name "Geert Poels" .
+
+
+<https://orcid.org/0000-0002-3452-553X> foaf:name "Giancarlo Guizzardi" .
+
+
+<https://orcid.org/0000-0003-0481-9745> foaf:name "Frederik Gailly" .
+
+
 <https://orcid.org/0000-0003-2736-7817> foaf:mbox "pedropaulofb@gmail.com" ;
                                         foaf:name "Pedro Paulo Favato Barcelos" .
 
 
-<https://orcid.org/0000-0001-9247-6150> foaf:name "Geert Poels" .
-<https://orcid.org/0000-0002-3452-553X> foaf:name "Giancarlo Guizzardi" .
-<https://orcid.org/0000-0003-0481-9745> foaf:name "Frederik Gailly" .
+<https://w3id.org/laderr/git> rdfs:comment "Repository for the LaDeRR DSL."@en .
+
+
+<https://w3id.org/laderr/ttl> rdfs:comment "TTL serialization of the LaDeRR-Vocabulary."@en .
+
 
 #################################################################
 #    General axioms
@@ -696,3 +711,5 @@ laderr:resilient rdf:type owl:NamedIndividual ,
                       )
 ] .
 
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
