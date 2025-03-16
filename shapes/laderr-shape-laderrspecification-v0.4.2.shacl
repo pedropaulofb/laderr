@@ -181,7 +181,7 @@ laderr:Shape_LaderrSpecification a sh:NodeShape ;
     # ] ;
     sh:property [
         sh:path laderr:scenario ;
-        sh:in ( laderr:operational laderr:incident ) ;
+        sh:in ( laderr:operational laderr:incident laderr:resilient laderr:not_resilient ) ;
         sh:severity sh:Violation ;
-        sh:message "The scenario must be either 'laderr:operational' or 'laderr:incident'."@en ;
+        sh:message "The scenario must be one of: 'laderr:operational', 'laderr:incident', laderr:resilient, laderr:not_resilient."@en ;
     ] .

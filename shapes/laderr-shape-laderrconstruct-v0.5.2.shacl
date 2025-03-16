@@ -11,7 +11,7 @@ laderr:Shape_LaderrConstruct a sh:NodeShape ;
     sh:targetClass laderr:LaderrConstruct ;
 
     sh:closed true ;
-    sh:ignoredProperties ( rdf:type owl:sameAs rdfs:label owl:topObjectProperty laderr:capabilities laderr:vulnerabilities laderr:state laderr:disables laderr:exploits laderr:exposes laderr:failedToDamage laderr:inhibits laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences laderr:sustains laderr:threatens ) ;
+    sh:ignoredProperties ( laderr:capabilities laderr:description laderr:disables laderr:exploits laderr:exposes laderr:failedToDamage laderr:inhibits laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences laderr:state laderr:succeededToDamage laderr:sustains laderr:threatens laderr:vulnerabilities owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;
 
     # description property constraints
     sh:property [
