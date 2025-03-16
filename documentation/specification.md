@@ -307,18 +307,20 @@ threatens = ["power_grid"]
 failedToDamage = ["hospital_network"]
 ```
 
-#### Controls
+#### **Controls**  
 
-A **Control** is an entity that actively mitigates threats or neutralizes vulnerabilities, thereby reducing risk. Controls **inhibit** threats, preventing them from successfully exploiting vulnerabilities in assets. Controls play a proactive role in resilience by providing protective mechanisms that prevent losses before they occur.
+A **Control** is an entity that actively mitigates threats or neutralizes vulnerabilities, thereby reducing risk. Controls **inhibit** threats, preventing them from successfully exploiting vulnerabilities in assets. Additionally, controls **protect** assets by safeguarding them from potential risks. A control must establish at least one of these relationships (*inhibits* or *protects*) to be considered valid in the system.  
 
-Examples of controls include a _network firewall_, which prevents unauthorized access to hospital systems; a _vaccination program_, which mitigates the spread of infectious diseases in a population; a _marine protected area_, safeguarding coral reefs from overfishing and habitat destruction; an _algorithmic fraud detection system_, identifying suspicious transactions in financial markets; and an _early warning system for natural disasters_, enabling rapid response to earthquakes and hurricanes.
+Examples of controls include a _network firewall_, which prevents unauthorized access to hospital systems; a _vaccination program_, which mitigates the spread of infectious diseases in a population; a _marine protected area_, safeguarding coral reefs from overfishing and habitat destruction; an _algorithmic fraud detection system_, identifying suspicious transactions in financial markets; and an _early warning system for natural disasters_, enabling rapid response to earthquakes and hurricanes.  
 
-##### Additional Fields of Controls
+##### **Additional Fields of Controls**  
 
-- **protects** (_list of strings, required_): References to the assets the control safeguards. _(Automatically inferred when using LaDeRR Engine.)_
-- **inhibits** (_list of strings, required_): References to threats that are neutralized or reduced by the control. _(Automatically inferred when using LaDeRR Engine.)_
+- **protects** (_list of strings, optional\*_): References to the assets the control safeguards. _(Automatically inferred when using LaDeRR Engine.)_ 
+- **inhibits** (_list of strings, optional\*_): References to threats that are neutralized or reduced by the control. _(Automatically inferred when using LaDeRR Engine.)_  
 
-The relationships between controls, assets, and threats—whether a control protects an asset or inhibits a threat—can be inferred from the underlying interactions between capabilities and vulnerabilities. When using LaDeRR Engine, these relations do not need to be explicitly declared, as they will be automatically derived based on the system’s defined capabilities, vulnerabilities, and their interactions.
+\* A `Control` **must have at least one of these relationships** (`inhibits` or `protects`). 
+
+The relationships between controls, assets, and threats—whether a control protects an asset or inhibits a threat—can be inferred from the underlying interactions between capabilities and vulnerabilities. When using LaDeRR Engine, these relations do not need to be explicitly declared, as they will be automatically derived based on the system’s defined capabilities, vulnerabilities, and their interactions.  
 
 ##### Example of a Control Specification
 
