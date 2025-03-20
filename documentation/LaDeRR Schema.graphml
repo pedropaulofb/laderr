@@ -309,13 +309,18 @@
 			<data key="d7">
 				<yjs:RectangleNodeStyle cornerStyle="CUT" cornerSize="1" scaleCornerSize="true" fill="DARK_ORANGE">
 					<yjs:RectangleNodeStyle.stroke>
-						<yjs:Stroke>
+						<yjs:Stroke lineCap="SQUARE" dashStyle="Dot" thickness="5">
 							<yjs:Stroke.fill>
 								<yjs:CssFill cssString="#663800"/>
 							</yjs:Stroke.fill>
 						</yjs:Stroke>
 					</yjs:RectangleNodeStyle.stroke>
 				</yjs:RectangleNodeStyle>
+			</data>
+			<data key="d8">
+				<y:ViewState>
+					<y:FolderNodeState x:Key="c|view" Layout="460.875,-66.25,158.25,43"/>
+				</y:ViewState>
 			</data>
 		</node>
 	</graph>
