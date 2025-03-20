@@ -11,8 +11,8 @@
   - [3.1. Required Fields and Defaults](#31-required-fields-and-defaults)
   - [3.2. Scenario Classification and Determination](#32-scenario-classification-and-determination)
   - [3.3. Example of a Valid Metadata Specification](#33-example-of-a-valid-metadata-specification)
-- [4. Defining Constructs](#4-defining-constructs)
-  - [4.1. Common Aspects of LaDeRR Constructs](#41-common-aspects-of-laderr-constructs)
+- [4. Defining ScenarioComponents](#4-defining-ScenarioComponents)
+  - [4.1. Common Aspects of LaDeRR ScenarioComponents](#41-common-aspects-of-laderr-ScenarioComponents)
   - [4.2. Entities](#42-entities)
   - [4.3. Dispositions](#43-dispositions)
   - [4.4. Resilience](#44-resilience)
@@ -51,7 +51,7 @@ The UML metamodel follows a color-coding and formatting scheme:
 A LaDeRR specification defines **resilience scenarios** using a structured format that consists of two main components:
 
 - **Metadata**: Provides general information about the specification, including authorship, versioning, and the type of the resilience scenario being specified.
-- **Constructs**: Define the elements of the resilience scenario and their relationships. The main constructs include:
+- **ScenarioComponents**: Define the elements of the resilience scenario and their relationships. The main ScenarioComponents include:
   - **Assets**: Represent entities that have value and are subject to potential risks and threats.
   - **Capabilities**: Define the "positive" dispositions of an entity, enabling the entity to perform specific functions.
   - **Vulnerabilities**: Represent weaknesses that can be exploited by threats.
@@ -59,7 +59,7 @@ A LaDeRR specification defines **resilience scenarios** using a structured forma
   - **Resilience**: Resilience preserves an entity's value despite vulnerabilities, preventing threats from causing damage.
   - **Control**: Entities that inhibit threats, creating resilience.
 
-Each construct is interconnected, governed by logical constraints. These constraints ensure consistency and are enforced through formal rules, as described in Section 5. The following sections detail each construct, presenting its concept, metamodel representation, applicable rules, and an example of how to specify it in a LaDeRR model.
+Each ScenarioComponent is interconnected, governed by logical constraints. These constraints ensure consistency and are enforced through formal rules, as described in Section 5. The following sections detail each ScenarioComponent, presenting its concept, metamodel representation, applicable rules, and an example of how to specify it in a LaDeRR model.
 
 ### 2.1. Access to LaDeRR Specification Examples and Results
 
@@ -70,7 +70,7 @@ For each LaDeRR specification included in this documentation, the following addi
 - The original specification TOML file, as presented in this document.
 - Validation and inference reports:
   - Pre-Inference Validation: Ensures that the input specification conforms to the LaDeRR metamodel and does not contain missing required fields or incorrect relationships.
-  - Post-Inference Validation: After inference, checks that the inferred constructs and relationships maintain logical consistency within the model.
+  - Post-Inference Validation: After inference, checks that the inferred ScenarioComponents and relationships maintain logical consistency within the model.
 - The generated graph data:
   - The graph structure before inference.
   - The graph structure after inference.
@@ -103,7 +103,7 @@ style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
 
 An [additional documentation is provided](https://github.com/pedropaulofb/laderr/blob/main/documentation/time_format.md) to present the correct way to write time formats for the metadata `createdOn` and `modifiedOn`.
 
-Regarding the _constructs_ relation between a LaderrSpecification and LaderrConstructs, the list of constructs in a specification is formed through the instantiation of the elements being specified. This means that users do not need to explicitly define this relation within the specification itself, as it is inherently derived from the instantiation process, being managed internally.
+Regarding the _ScenarioComponents_ relation between a LaderrSpecification and ScenarioComponents, the list of ScenarioComponents in a specification is formed through the instantiation of the elements being specified. This means that users do not need to explicitly define this relation within the specification itself, as it is inherently derived from the instantiation process, being managed internally.
 
 ### 3.2. Scenario Classification and Determination
 
@@ -125,7 +125,7 @@ If a LaDeRR specification is `NOT_RESILIENT`, then there must exist at least one
 **FOL Representation:**
 
 $$
-\forall ls ( LaderrSpecification(ls) \land scenario(ls) = NOT_RESILIENT \leftrightarrow \exists o1, o2 ( Entity(o1) \land Entity(o2) \land constructs(ls, o1) \land constructs(ls, o2) \land succeededToDamage(o1, o2) ) )
+\forall ls ( LaderrSpecification(ls) \land scenario(ls) = NOT_RESILIENT \leftrightarrow \exists o1, o2 ( Entity(o1) \land Entity(o2) \land ScenarioComponents(ls, o1) \land ScenarioComponents(ls, o2) \land succeededToDamage(o1, o2) ) )
 $$
 
 - **Rule 2: A system is RESILIENT if all vulnerabilities are mitigated**
@@ -135,7 +135,7 @@ If a LaDeRR specification is in the `INCIDENT` state and there is no vulnerabili
 **FOL Representation:**
 
 $$
-\forall ls ( LadderSpecification(ls) \land scenario(ls) = INCIDENT \land \neg \exists o1, v1 ( constructs(ls, o1) \land vulnerabilities(o1, v1) \land \neg ( state(v1) = DISABLED \lor \neg \exists c1 (Capability(c1) \land exploits(c1, v1)) ) ) \rightarrow scenario(ls) = RESILIENT )
+\forall ls ( LadderSpecification(ls) \land scenario(ls) = INCIDENT \land \neg \exists o1, v1 ( ScenarioComponents(ls, o1) \land vulnerabilities(o1, v1) \land \neg ( state(v1) = DISABLED \lor \neg \exists c1 (Capability(c1) \land exploits(c1, v1)) ) ) \rightarrow scenario(ls) = RESILIENT )
 $$
 
 - **Rule 3: An INCIDENT must be either RESILIENT or NOT_RESILIENT**
@@ -167,25 +167,25 @@ Note that a specification containing only metadata is considered valid.
 
 From this point onward, assume that a brief metadata is appended at the beginning of all following examples. To maintain conciseness, the metadata TOML section will be omitted in the next specification excerpts.
 
-## 4. Defining Constructs
+## 4. Defining ScenarioComponents
 
-### 4.1. Common Aspects of LaDeRR Constructs
+### 4.1. Common Aspects of LaDeRR ScenarioComponents
 
-All elements within a LaDeRR specification are instances of **LaderrConstruct**, which serves as the base class for all constructs. This includes **Assets, Capabilities, Vulnerabilities, Threats, Resilience**, and **Control**. Each construct shares a common structure with the following attributes:
+All elements within a LaDeRR specification are instances of **ScenarioComponent**, which serves as the base class for all ScenarioComponents. This includes **Assets, Capabilities, Vulnerabilities, Threats, Resilience**, and **Control**. Each ScenarioComponent shares a common structure with the following attributes:
 
-- **id** (_string, required, unique_): The unique identifier of the construct. This value is used to reference the construct throughout the specification.
-- **label** (_string, optional_): A human-readable name for the construct. If not explicitly provided, it defaults to the `id` value.
-- **description** (_string, optional_): A textual explanation of the construct.
+- **id** (_string, required, unique_): The unique identifier of the ScenarioComponent. This value is used to reference the ScenarioComponent throughout the specification.
+- **label** (_string, optional_): A human-readable name for the ScenarioComponent. If not explicitly provided, it defaults to the `id` value.
+- **description** (_string, optional_): A textual explanation of the ScenarioComponent.
 
-The UML diagram below illustrates the **LaderrConstruct** class and its specializations.
+The UML diagram below illustrates the **ScenarioComponent** class and its specializations.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/LaderrConstructs.png"
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/ScenarioComponents.png"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
 
-#### Example of a General Construct Specification
+#### Example of a General ScenarioComponent Specification
 
-The following TOML snippet demonstrates how to define constructs using the common attributes.
+The following TOML snippet demonstrates how to define ScenarioComponents using the common attributes.
 
 [**Example 02:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 
@@ -214,7 +214,7 @@ label = "Routine Maintenance Program"
 description = "Scheduled inspections and repairs to prevent material fatigue."
 ```
 
-In the specification above, note that without a defined label, the declared `reinforced_design` construct will have 'label = reinforced_design'. The label's default value equals the id.
+In the specification above, note that without a defined label, the declared `reinforced_design` ScenarioComponent will have 'label = reinforced_design'. The label's default value equals the id.
 
 ### 4.2. Entities
 
@@ -383,7 +383,7 @@ $$
 \forall d1, d2 ( Disposition(d1) \land Disposition(d2) \land disables(d1, d2) \rightarrow state(d1) = ENABLED \land state(d2) = DISABLED )
 $$
 
-The UML diagram below illustrates the **Disposition** metamodel and its relationships with other constructs:
+The UML diagram below illustrates the **Disposition** metamodel and its relationships with other ScenarioComponents:
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Dispositions.png"
@@ -458,7 +458,7 @@ Capabilities and vulnerabilities define the operational characteristics of asset
 
 When using the **LaDeRR Engine**, explicit declarations of resilience mechanisms are unnecessary. The tool automatically infers resilience relationships based on the capabilities, vulnerabilities, and threats defined in the scenario, identifying and structuring resilience mechanisms accordingly.
 
-The UML diagram below illustrates the Resilience construct and its relationships:
+The UML diagram below illustrates the Resilience ScenarioComponent and its relationships:
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Resilience.png"
@@ -466,7 +466,7 @@ style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
 
 #### Fields of Resilience
 
-A Resilience** construct is defined by its relationships to other elements:
+A Resilience** ScenarioComponent is defined by its relationships to other elements:
 
 - **preserves** (_list of strings, required_): The capabilities that are maintained by this resilience mechanism. _(Automatically inferred when using LaDeRR Engine.)_
 - **preservesAgainst** (_list of strings, required_): Threats that the resilience mechanism helps to counteract. _(Automatically inferred when using LaDeRR Engine.)_
@@ -561,7 +561,7 @@ The LaDeRR Engine infers various relationships and properties based on the forma
    - For example, if a `scenario` attribute is missing, it defaults to `"operational"`.
 
 3. **Implicit Relationships are Derived**
-   - Many relations between constructs are inferred instead of being explicitly defined by the user.
+   - Many relations between ScenarioComponents are inferred instead of being explicitly defined by the user.
    - Examples:
      - **Protection**: If an entity has a capability that disables a vulnerability in another entity, the **protects** relation is inferred.
      - **Threats**: If an entity has a capability that exploits a vulnerability, the **threatens** relation is inferred.
@@ -574,17 +574,17 @@ Since resilience inference is a key feature of the LaDeRR Engine, the next subse
 
 #### Automatic Resilience Generation
 
-A key feature of the LaDeRR Engine is its ability to **automatically generate resilience mechanisms** when conditions for resilience exist. Instead of requiring users to explicitly define resilience constructs, the engine:
+A key feature of the LaDeRR Engine is its ability to **automatically generate resilience mechanisms** when conditions for resilience exist. Instead of requiring users to explicitly define resilience ScenarioComponents, the engine:
 
-- **Identifies** when a resilience construct should exist based on the interplay between vulnerabilities, capabilities, and threats.
-- **Instantiates** the resilience construct.
+- **Identifies** when a resilience ScenarioComponent should exist based on the interplay between vulnerabilities, capabilities, and threats.
+- **Instantiates** the resilience ScenarioComponent.
 - **Establishes the necessary relations**, such as `preserves`, `preservesDespite`, and `preservesAgainst`.
 
 For example, if an **Asset** has a **Capability** that is at risk due to a **Threat exploiting a Vulnerability**, and another **Capability exists that can sustain resilience**, the engine **automatically introduces a resilience mechanism**.
 
 This behavior is formally defined by the **Resilience Requirement Rule** in **Section (Resilience Rules)**, which states:
 
-> "If an entity has a **Capability** and a **Vulnerability**, and another entity has an **ENABLED Capability** that disables the Vulnerability, and the Vulnerability exposes the first entity’s Capability while being exploited by a third entity’s Capability, then there must exist exactly **one Resilience construct** that preserves the first Capability and is sustained by the second entity’s Capability."
+> "If an entity has a **Capability** and a **Vulnerability**, and another entity has an **ENABLED Capability** that disables the Vulnerability, and the Vulnerability exposes the first entity’s Capability while being exploited by a third entity’s Capability, then there must exist exactly **one Resilience ScenarioComponent** that preserves the first Capability and is sustained by the second entity’s Capability."
 
 By leveraging this inference mechanism, users can **omit explicit resilience definitions** in their specifications, allowing the LaDeRR Engine to dynamically determine and instantiate them when applicable.
 
@@ -626,7 +626,7 @@ preserves = ["structural_integrity"]
 preservesDespite = ["material_fatigue"]
 ```
 
-However, when using **LaDeRR Engine**, the user can omit explicitly defining inferred relations, such as `threatens` and `protects`, and even the **Resilience construct itself**, as the **engine** will infer and generate it when applicable.
+However, when using **LaDeRR Engine**, the user can omit explicitly defining inferred relations, such as `threatens` and `protects`, and even the **Resilience ScenarioComponent itself**, as the **engine** will infer and generate it when applicable.
 
 A **simplified version** of the specification:
 
@@ -744,7 +744,7 @@ exploits = ["cyber_attack"]
 
 ### 6.3. Inferred Output by LaDeRR Engine
 
-When processed by the **LaDeRR Engine**, the simplified specification is expanded, adding inferred relationships and resilience constructs:
+When processed by the **LaDeRR Engine**, the simplified specification is expanded, adding inferred relationships and resilience ScenarioComponents:
 
 - **Resilience mechanisms are created** when conditions for resilience are met.
 - **Threats are linked to their target assets** (e.g., `threatens` relation is inferred between `hacker_group` and `city`).

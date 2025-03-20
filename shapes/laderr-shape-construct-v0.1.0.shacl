@@ -2,13 +2,12 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
-### Shape for LaderrConstruct
-laderr:Shape_LaderrConstruct a sh:NodeShape ;
+### Shape for Construct
+laderr:Shape_Construct a sh:NodeShape ;
 
-    sh:targetClass laderr:LaderrConstruct ;
+    sh:targetClass laderr:Construct ;
 
     sh:closed true ;
     sh:ignoredProperties ( laderr:capabilities laderr:description laderr:disables laderr:exploits laderr:exposes laderr:failedToDamage laderr:inhibits laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences laderr:state laderr:succeededToDamage laderr:sustains laderr:threatens laderr:vulnerabilities owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;
@@ -24,14 +23,8 @@ laderr:Shape_LaderrConstruct a sh:NodeShape ;
         sh:path laderr:description ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "Multiple values for 'description' found in LaderrConstruct instance."@en ;
+        sh:message "Multiple values for 'description' found in Construct instance."@en ;
     ] ;
-    # sh:property [
-    #     sh:path laderr:description ;
-    #     sh:minCount 0 ;
-    #     sh:severity sh:Info ;
-    #     sh:message "Optional 'description' not found in LaderrConstruct instance."@en ;
-    # ] ;
 
     # label property constraints
     sh:property [
@@ -45,5 +38,8 @@ laderr:Shape_LaderrConstruct a sh:NodeShape ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "Exactly one value for 'label' must be provided for LaderrConstruct."@en ;
+        sh:message "Exactly one value for 'label' must be provided for Construct."@en ;
     ] .
+
+
+
