@@ -2,6 +2,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 ### Shape for Construct
@@ -10,7 +11,10 @@ laderr:Shape_Construct a sh:NodeShape ;
     sh:targetClass laderr:Construct ;
 
     sh:closed true ;
-    sh:ignoredProperties ( laderr:capabilities laderr:description laderr:disables laderr:exploits laderr:exposes laderr:failedToDamage laderr:inhibits laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences laderr:state laderr:succeededToDamage laderr:sustains laderr:threatens laderr:vulnerabilities owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;
+    sh:ignoredProperties (  laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:components laderr:damaged laderr:disables laderr:exploits laderr:exposes laderr:inhibits laderr:scenarios
+                            laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences laderr:situation laderr:state laderr:status laderr:sustains laderr:threatens laderr:vulnerabilities 
+                            owl:sameAs owl:topObjectProperty rdf:type 
+                         ) ;
 
     # description property constraints
     sh:property [

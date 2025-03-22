@@ -12,7 +12,9 @@ laderr:Shape_Disposition a sh:NodeShape ;
     sh:targetClass laderr:Disposition ;
 
     sh:closed true ;
-    sh:ignoredProperties ( rdf:type owl:sameAs rdfs:label owl:topObjectProperty laderr:description laderr:disables laderr:exploits laderr:exposes laderr:sustains dct:description ) ;
+    sh:ignoredProperties (  laderr:description laderr:disables laderr:exploits laderr:exposes laderr:sustains laderr:scenarios
+                            rdf:type owl:sameAs rdfs:label owl:topObjectProperty
+                        ) ;
 
     # State property constraints
     sh:property [

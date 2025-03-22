@@ -10,6 +10,9 @@ laderr:Shape_Resilience a sh:NodeShape ;
 
     sh:targetClass laderr:Resilience ;
 
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:description laderr:scenarios owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;    
+
     # Ensure each Resilience is related to exactly one Asset
     sh:property [
         sh:path [ sh:inversePath laderr:resiliences ] ;

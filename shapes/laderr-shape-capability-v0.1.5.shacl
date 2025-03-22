@@ -10,6 +10,11 @@ laderr:Shape_Capability a sh:NodeShape ;
 
     sh:targetClass laderr:Capability ;
 
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:description laderr:disables laderr:exploits laderr:exposes laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:state laderr:sustains laderr:scenarios
+                            owl:sameAs owl:topObjectProperty rdf:type rdfs:label 
+                        ) ;
+
     # Ensure each Capability is related to exactly one Entity
     sh:property [
         sh:path [ sh:inversePath laderr:capabilities ] ;
