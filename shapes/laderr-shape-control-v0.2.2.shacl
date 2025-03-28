@@ -1,0 +1,31 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix laderr: <https://w3id.org/laderr#> .
+
+### Shape for Control
+laderr:Shape_Control a sh:NodeShape ;
+
+    sh:targetClass laderr:Control ;
+
+    sh:closed true ;
+    sh:ignoredProperties ( 
+        laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:damaged laderr:description laderr:scenarios
+        laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:resiliences laderr:threatens laderr:vulnerabilities
+        owl:sameAs owl:topObjectProperty rdf:type rdfs:label
+    ) ;    
+
+    # Declare these as accepted paths
+    sh:property [ sh:path laderr:inhibits ] ;
+    sh:property [ sh:path laderr:protects ] ;
+
+    # Enforce at least one of them must appear
+    sh:or (
+        [ sh:property [ sh:path laderr:inhibits ; sh:minCount 1 ] ]
+        [ sh:property [ sh:path laderr:protects ; sh:minCount 1 ] ]
+    ) ;
+
+    sh:severity sh:Warning ;
+    sh:message "Each Control must have at least one 'inhibits' or 'protects' relationship."@en .

@@ -1,0 +1,26 @@
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Shape for ScenarioComponent
+laderr:Shape_ScenarioComponent a sh:NodeShape ;
+
+    sh:targetClass laderr:ScenarioComponent ;
+
+    sh:closed true ;
+    
+    sh:ignoredProperties (  laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:damaged laderr:description laderr:disables laderr:exploits laderr:exposes laderr:inhibits 
+                            laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences 
+                            laderr:scenarios laderr:situation laderr:state laderr:status laderr:sustains laderr:threatens laderr:vulnerabilities 
+                            owl:sameAs owl:topObjectProperty rdf:type rdfs:label
+                        ) ;
+
+    sh:property [
+        sh:path [ sh:inversePath laderr:components ] ;
+        sh:class laderr:Scenario ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each laderr:ScenarioComponent must be linked to at least one laderr:Scenario via 'laderr:components'."@en ;
+    ] .

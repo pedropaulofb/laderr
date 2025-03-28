@@ -10,6 +10,11 @@ laderr:Shape_Threat a sh:NodeShape ;
 
     sh:targetClass laderr:Threat ;
 
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:damaged laderr:description laderr:inhibits laderr:scenarios
+                            laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:protects laderr:resiliences laderr:vulnerabilities
+                            owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;        
+
     sh:property [
         sh:path laderr:threatens ;
         sh:minCount 1 ;

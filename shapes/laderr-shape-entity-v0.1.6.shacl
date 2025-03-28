@@ -1,0 +1,46 @@
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Shape for Entity
+laderr:Shape_Entity a sh:NodeShape ;
+
+    sh:targetClass laderr:Entity ;
+
+    sh:closed true ;
+    sh:ignoredProperties (
+        laderr:canDamage laderr:cannotDamage laderr:damaged laderr:description laderr:inhibits laderr:scenarios
+        laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:protects laderr:resiliences laderr:threatens laderr:vulnerabilities
+        owl:sameAs owl:topObjectProperty rdf:type rdfs:label
+    ) ;
+
+    # Relationship with Capability
+    sh:property [
+        sh:path laderr:capabilities ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "From NodeShape: Property 'capabilities' must reference one or more Capability instances."@en ;
+    ] ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "Each capability or vulnerability must be part of at least one scenario that includes the entity." ;
+        sh:select """
+            PREFIX laderr: <https://w3id.org/laderr#>
+
+            SELECT $this WHERE {
+                {
+                    $this (laderr:capabilities|laderr:vulnerabilities) ?d .
+                    FILTER NOT EXISTS {
+                        ?s a laderr:Scenario ;
+                           laderr:components $this, ?d .
+                    }
+                }
+            }
+        """ ;
+    ] .

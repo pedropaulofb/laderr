@@ -1,0 +1,53 @@
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Shape for Scenario
+laderr:Shape_Scenario a sh:NodeShape ;
+
+    sh:targetClass laderr:Scenario ;
+
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:description owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;
+
+
+    # Ensuring every Scenario has at least one ScenarioComponent via laderr:components
+    sh:property [
+        sh:path laderr:components ;
+        sh:class laderr:ScenarioComponent ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each Scenario must have at least one associated ScenarioComponent."@en ;
+    ] ;
+
+    # Situation property constraints
+    sh:property [
+        sh:path laderr:situation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid number of values for 'situation'. Expected exactly one value."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:situation ;
+        sh:in ( laderr:operational laderr:incident ) ;
+        sh:severity sh:Violation ;
+        sh:message "The 'situation' must be either 'operational' or 'incident'."@en ;
+    ] ;
+
+    # Status property constraints
+    sh:property [
+        sh:path laderr:status ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid number of values for 'status'. Expected exactly one value."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:status ;
+        sh:in ( laderr:resilient laderr:vulnerable ) ;
+        sh:severity sh:Violation ;
+        sh:message "The 'status' must be either 'resilient' or 'vulnerable'."@en ;
+    ] .

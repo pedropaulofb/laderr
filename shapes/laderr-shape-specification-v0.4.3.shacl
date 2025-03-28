@@ -4,25 +4,26 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 
-### Shape for LaderrSpecification
-laderr:Shape_LaderrSpecification a sh:NodeShape ;
+### Shape for Specification
+laderr:Shape_Specification a sh:NodeShape ;
 
-    sh:targetClass laderr:LaderrSpecification ;
+    sh:targetClass laderr:Specification ;
 
     # Specify that this shape is closed (no additional properties are allowed)
     sh:closed true ;
     
     # Specify the allowed properties
-    sh:ignoredProperties ( rdf:type owl:sameAs rdfs:label ) ;
+    sh:ignoredProperties ( dct:conformsTo rdf:type owl:sameAs rdfs:label ) ;
 
-    # Represents the relationship between a LaderrSpecification and one or more LaderrConstruct instances
+    # Represents the relationship between a Specification and one or more Construct instances
     sh:property [
         sh:path laderr:constructs ;
-        sh:class laderr:LaderrConstruct ;
+        sh:class laderr:Construct ;
         sh:minCount 1 ;
         sh:severity sh:Info ;
-        sh:message "Empty LaDeRR declaration. No LaderrConstruct found."@en ;
+        sh:message "Empty LaDeRR declaration. No Construct found."@en ;
     ] ;
 
     # Title property constraints
@@ -31,12 +32,6 @@ laderr:Shape_LaderrSpecification a sh:NodeShape ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
         sh:message "Invalid datatype for metadata 'title'. Expected xsd:string."@en ;
-    ] ;
-    sh:property [
-        sh:path laderr:title ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "Necessary metadata 'title' not found."@en ;
     ] ;
     sh:property [
         sh:path laderr:title ;
@@ -58,12 +53,6 @@ laderr:Shape_LaderrSpecification a sh:NodeShape ;
         sh:severity sh:Violation ;
         sh:message "Multiple values for metadata 'description' found."@en ;
     ] ;
-    # sh:property [
-    #     sh:path laderr:description ;
-    #     sh:minCount 1 ;
-    #     sh:severity sh:Info ;
-    #     sh:message "Optional metadata 'description' not found."@en ;
-    # ] ;
 
     # Version property constraints
     sh:property [
@@ -71,12 +60,6 @@ laderr:Shape_LaderrSpecification a sh:NodeShape ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
         sh:message "Invalid datatype for metadata 'version'. Expected xsd:string."@en ;
-    ] ;
-    sh:property [
-        sh:path laderr:version ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "Necessary metadata 'version' not found."@en ;
     ] ;
     sh:property [
         sh:path laderr:version ;
@@ -92,12 +75,6 @@ laderr:Shape_LaderrSpecification a sh:NodeShape ;
         sh:severity sh:Violation ;
         sh:message "Invalid datatype for metadata 'createdBy'. Expected xsd:string."@en ;
     ] ;
-    sh:property [
-        sh:path laderr:createdBy ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "Necessary metadata 'createdBy' not found. No author declared."@en ;
-    ] ;
 
     # CreatedOn property constraints
     sh:property [
@@ -105,12 +82,6 @@ laderr:Shape_LaderrSpecification a sh:NodeShape ;
         sh:datatype xsd:dateTime ;
         sh:severity sh:Violation ;
         sh:message "Invalid datatype for metadata 'createdOn'. Expected xsd:dateTime."@en ;
-    ] ;
-    sh:property [
-        sh:path laderr:createdOn ;
-        sh:minCount 1 ;
-        sh:severity sh:Warning ;
-        sh:message "Necessary metadata 'createdOn' not found. No creation date declared."@en ;
     ] ;
     sh:property [
         sh:path laderr:createdOn ;
@@ -126,12 +97,6 @@ laderr:Shape_LaderrSpecification a sh:NodeShape ;
         sh:severity sh:Violation ;
         sh:message "Invalid datatype for metadata 'modifiedOn'. Expected xsd:dateTime."@en ;
     ] ;
-    # sh:property [
-    #     sh:path laderr:modifiedOn ;
-    #     sh:minCount 1 ;
-    #     sh:severity sh:Info ;
-    #     sh:message "Optional metadata 'modifiedOn' not found. No modified date declared."@en ;
-    # ] ;
     sh:property [
         sh:path laderr:modifiedOn ;
         sh:maxCount 1 ;
@@ -146,42 +111,15 @@ laderr:Shape_LaderrSpecification a sh:NodeShape ;
         sh:severity sh:Violation ;
         sh:message "Invalid datatype for metadata 'baseURI'. Expected xsd:anyURI."@en ;
     ] ;
-    # sh:property [
-    #     sh:path laderr:baseURI ;
-    #     sh:minCount 1 ;
-    #     sh:severity sh:Warning ;
-    #     sh:message "Necessary metadata 'baseURI' not found. The default value 'https://laderr.laderr#' will be adopted."@en ;
-    # ] ;
     sh:property [
         sh:path laderr:baseURI ;
         sh:maxCount 1 ;
         sh:severity sh:Violation ;
         sh:message "Multiple values for metadata 'baseURI' found."@en ;
     ] ;
-
-    # Scenario property constraints
     sh:property [
-        sh:path laderr:scenario ;
-        sh:class laderr:ScenarioType ;
-        sh:severity sh:Violation ;
-        sh:message "Invalid datatype for metadata 'scenario'. Expected a value of type laderr:ScenarioType."@en ;
-    ] ;
-    sh:property [
-        sh:path laderr:scenario ;
+        sh:path laderr:baseURI ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
         sh:severity sh:Violation ;
-        sh:message "Invalid number of values for metadata 'scenario'. Expected exactly one value."@en ;
-    ] ;
-    # sh:property [
-    #     sh:path laderr:scenario ;
-    #     sh:minCount 1 ;
-    #     sh:severity sh:Warning ;
-    #     sh:message "Necessary metadata 'scenario' not found. The default value 'operational' will be adopted."@en ;
-    # ] ;
-    sh:property [
-        sh:path laderr:scenario ;
-        sh:in ( laderr:operational laderr:incident laderr:resilient laderr:not_resilient ) ;
-        sh:severity sh:Violation ;
-        sh:message "The scenario must be one of: 'laderr:operational', 'laderr:incident', laderr:resilient, laderr:not_resilient."@en ;
+        sh:message "Necessary metadata 'baseURI' not found."@en ;
     ] .
