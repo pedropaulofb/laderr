@@ -1,0 +1,92 @@
+baseURI = "https://savannahresilience.laderr#"
+createdBy = "Pedro Paulo F. Barcelos"
+createdOn = "2025-03-28T12:00:00Z"
+description = "A resilience model for animal survival in the savannah. Inspired by real-world ecological dynamics including predation, shelter-seeking, and thermal stress."
+title = "Savannah Animal Survival Resilience Model"
+version = "1.2"
+
+[Scenario.dry_season]
+label = "Dry Season Survival"
+description = "Models the challenges animals face during prolonged droughts, such as water scarcity, heat exposure, and increased territorial pressure."
+
+[Scenario.heatwave_response]
+label = "Heatwave Response"
+description = "Captures behavioral and environmental strategies animals use during extreme heat events, including movement, thermoregulation, and use of shelter."
+
+[Entity.zebra_herd]
+label = "Zebra Herd"
+capabilities = ["efficient_thermoregulation", "rapid_movement_coordination"]
+vulnerabilities = ["limited_water_access"]
+
+[Entity.lion_pride]
+label = "Lion Pride"
+capabilities = ["high_frequency_hunting", "adaptive_ambush_strategy", "unregulated_territory_roaming"]
+vulnerabilities = ["territory_dependency", "prey_migration_barriers"]
+
+[Entity.meerkat_sentinels]
+label = "Meerkat Sentinels"
+capabilities = ["predator_detection_calls"]
+
+[Entity.poacher_group]
+label = "Illegal Hunting Party"
+capabilities = ["disruptive_hunting_influence"]
+
+[Capability.efficient_thermoregulation]
+label = "Efficient Thermoregulation"
+description = "Maintains stable body temperature under heat stress, reducing risk during hot, dry conditions."
+
+[Capability.rapid_movement_coordination]
+label = "Rapid Movement Coordination"
+description = "Quick, synchronized group movement that helps evade predators and respond to threats."
+disables = "territory_dependency"
+
+[Capability.high_frequency_hunting]
+label = "High-Frequency Hunting"
+description = "Repeated hunting attempts in short intervals, increasing short-term success but risking energy depletion and prey scarcity."
+exploits = "limited_water_access"
+
+[Capability.adaptive_ambush_strategy]
+label = "Adaptive Ambush Strategy"
+description = "Adjusts hunting tactics in real-time based on prey behavior and terrain."
+disables = "territory_dependency"
+
+[Capability.unregulated_territory_roaming]
+label = "Unregulated Territory Roaming"
+description = "Explores unfamiliar areas beyond known boundaries, creating opportunities but also risks."
+exploits = "territory_dependency"
+
+[Capability.predator_detection_calls]
+label = "Predator Detection Calls"
+description = "Warning sounds that alert the group to nearby threats, lowering the chances of surprise attacks."
+disables = "prey_migration_barriers"
+
+[Capability.disruptive_hunting_influence]
+label = "Disruptive Hunting Influence"
+description = "Illegal or uncontrolled hunting that harms the ecosystem by reducing prey and destabilizing predator-prey dynamics."
+exploits = "prey_migration_barriers"
+
+[Vulnerability.limited_water_access]
+label = "Limited Water Access"
+description = "Scarcity of water sources that increases physiological stress and drives risky movement patterns."
+exposes = "efficient_thermoregulation"
+
+[Vulnerability.territory_dependency]
+label = "Territory Dependency"
+description = "Dependence on specific regions for hunting or shelter, making survival harder when conditions change."
+exposes = "high_frequency_hunting"
+
+[Vulnerability.prey_migration_barriers]
+label = "Prey Migration Barriers"
+description = "Obstacles that limit prey movement, such as fences or drought zones, reducing predator access to food."
+exposes = "high_frequency_hunting"
+
+[Entity.shaded_shelter]
+label = "Shaded Savannah Shelter"
+capabilities = ["dynamic_heat_refuge"]
+scenarios = ["heatwave_response"]
+
+[Capability.dynamic_heat_refuge]
+label = "Dynamic Heat Refuge"
+description = "Provides adaptable shaded areas that reduce heat exposure during high-temperature events."
+disables = "limited_water_access"
+scenarios = ["heatwave_response"]

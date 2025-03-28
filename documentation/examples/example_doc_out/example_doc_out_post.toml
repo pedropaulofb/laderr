@@ -1,0 +1,324 @@
+baseURI = "https://savannahresilience.laderr#"
+createdBy = "Pedro Paulo F. Barcelos"
+createdOn = "2025-03-28T12:00:00Z"
+description = "A resilience model for animal survival in the savannah. Inspired by real-world ecological dynamics including predation, shelter-seeking, and thermal stress."
+title = "Savannah Animal Survival Resilience Model"
+version = "1.2"
+
+[Asset.lion_pride_heatwave_response]
+cannotDamage = "zebra_herd_heatwave_response"
+capabilities = ["adaptive_ambush_strategy_heatwave_response", "high_frequency_hunting_heatwave_response", "unregulated_territory_roaming_heatwave_response"]
+label = "Lion Pride"
+negativeDamage = "zebra_herd_heatwave_response"
+protects = "lion_pride_heatwave_response"
+resiliences = "R17"
+scenarios = "heatwave_response"
+threatens = ["lion_pride_heatwave_response", "zebra_herd_heatwave_response"]
+vulnerabilities = ["prey_migration_barriers_heatwave_response", "territory_dependency_heatwave_response"]
+
+[Asset.lion_pride_dry_season]
+canDamage = "zebra_herd_dry_season"
+capabilities = ["adaptive_ambush_strategy_dry_season", "high_frequency_hunting_dry_season", "unregulated_territory_roaming_dry_season"]
+label = "Lion Pride"
+positiveDamage = "zebra_herd_dry_season"
+protects = "lion_pride_dry_season"
+resiliences = "RE0"
+scenarios = "dry_season"
+threatens = ["lion_pride_dry_season", "zebra_herd_dry_season"]
+vulnerabilities = ["prey_migration_barriers_dry_season", "territory_dependency_dry_season"]
+
+[Asset.zebra_herd_heatwave_response]
+capabilities = ["efficient_thermoregulation_heatwave_response", "rapid_movement_coordination_heatwave_response"]
+inhibits = "lion_pride_heatwave_response"
+label = "Zebra Herd"
+protects = "lion_pride_heatwave_response"
+resiliences = "R1L"
+scenarios = "heatwave_response"
+vulnerabilities = "limited_water_access_heatwave_response"
+
+[Asset.zebra_herd_dry_season]
+capabilities = ["efficient_thermoregulation_dry_season", "rapid_movement_coordination_dry_season"]
+inhibits = "lion_pride_dry_season"
+label = "Zebra Herd"
+protects = "lion_pride_dry_season"
+scenarios = "dry_season"
+vulnerabilities = "limited_water_access_dry_season"
+
+[Capability.predator_detection_calls_heatwave_response]
+description = "Warning sounds that alert the group to nearby threats, lowering the chances of surprise attacks."
+disables = "prey_migration_barriers_heatwave_response"
+label = "Predator Detection Calls"
+scenarios = "heatwave_response"
+state = "enabled"
+sustains = "R17"
+
+[Capability.adaptive_ambush_strategy_heatwave_response]
+description = "Adjusts hunting tactics in real-time based on prey behavior and terrain."
+disables = "territory_dependency_heatwave_response"
+label = "Adaptive Ambush Strategy"
+scenarios = "heatwave_response"
+state = "enabled"
+
+[Capability.unregulated_territory_roaming_heatwave_response]
+description = "Explores unfamiliar areas beyond known boundaries, creating opportunities but also risks."
+exploits = "territory_dependency_heatwave_response"
+label = "Unregulated Territory Roaming"
+scenarios = "heatwave_response"
+state = "enabled"
+
+[Capability.unregulated_territory_roaming_dry_season]
+description = "Explores unfamiliar areas beyond known boundaries, creating opportunities but also risks."
+exploits = "territory_dependency_dry_season"
+label = "Unregulated Territory Roaming"
+scenarios = "dry_season"
+state = "enabled"
+
+[Capability.rapid_movement_coordination_heatwave_response]
+description = "Quick, synchronized group movement that helps evade predators and respond to threats."
+disables = "territory_dependency_heatwave_response"
+label = "Rapid Movement Coordination"
+scenarios = "heatwave_response"
+state = "enabled"
+
+[Capability.dynamic_heat_refuge]
+description = "Provides adaptable shaded areas that reduce heat exposure during high-temperature events."
+disables = "limited_water_access_heatwave_response"
+label = "Dynamic Heat Refuge"
+scenarios = "heatwave_response"
+state = "enabled"
+sustains = "R1L"
+
+[Capability.high_frequency_hunting_heatwave_response]
+description = "Repeated hunting attempts in short intervals, increasing short-term success but risking energy depletion and prey scarcity."
+exploits = "limited_water_access_heatwave_response"
+label = "High-Frequency Hunting"
+scenarios = "heatwave_response"
+state = "enabled"
+
+[Capability.high_frequency_hunting_dry_season]
+description = "Repeated hunting attempts in short intervals, increasing short-term success but risking energy depletion and prey scarcity."
+exploits = "limited_water_access_dry_season"
+label = "High-Frequency Hunting"
+scenarios = "dry_season"
+state = "enabled"
+
+[Capability.efficient_thermoregulation_dry_season]
+description = "Maintains stable body temperature under heat stress, reducing risk during hot, dry conditions."
+label = "Efficient Thermoregulation"
+scenarios = "dry_season"
+state = "enabled"
+
+[Capability.efficient_thermoregulation_heatwave_response]
+description = "Maintains stable body temperature under heat stress, reducing risk during hot, dry conditions."
+label = "Efficient Thermoregulation"
+scenarios = "heatwave_response"
+state = "enabled"
+
+[Capability.rapid_movement_coordination_dry_season]
+description = "Quick, synchronized group movement that helps evade predators and respond to threats."
+disables = "territory_dependency_dry_season"
+label = "Rapid Movement Coordination"
+scenarios = "dry_season"
+state = "enabled"
+
+[Capability.disruptive_hunting_influence_heatwave_response]
+description = "Illegal or uncontrolled hunting that harms the ecosystem by reducing prey and destabilizing predator-prey dynamics."
+exploits = "prey_migration_barriers_heatwave_response"
+label = "Disruptive Hunting Influence"
+scenarios = "heatwave_response"
+state = "enabled"
+
+[Capability.predator_detection_calls_dry_season]
+description = "Warning sounds that alert the group to nearby threats, lowering the chances of surprise attacks."
+disables = "prey_migration_barriers_dry_season"
+label = "Predator Detection Calls"
+scenarios = "dry_season"
+state = "enabled"
+sustains = "RE0"
+
+[Capability.disruptive_hunting_influence_dry_season]
+description = "Illegal or uncontrolled hunting that harms the ecosystem by reducing prey and destabilizing predator-prey dynamics."
+exploits = "prey_migration_barriers_dry_season"
+label = "Disruptive Hunting Influence"
+scenarios = "dry_season"
+state = "enabled"
+
+[Capability.adaptive_ambush_strategy_dry_season]
+description = "Adjusts hunting tactics in real-time based on prey behavior and terrain."
+disables = "territory_dependency_dry_season"
+label = "Adaptive Ambush Strategy"
+scenarios = "dry_season"
+state = "enabled"
+
+[Control.meerkat_sentinels_heatwave_response]
+capabilities = "predator_detection_calls_heatwave_response"
+inhibits = "poacher_group_heatwave_response"
+label = "Meerkat Sentinels"
+protects = "lion_pride_heatwave_response"
+scenarios = "heatwave_response"
+
+[Control.zebra_herd_heatwave_response]
+capabilities = ["efficient_thermoregulation_heatwave_response", "rapid_movement_coordination_heatwave_response"]
+inhibits = "lion_pride_heatwave_response"
+label = "Zebra Herd"
+protects = "lion_pride_heatwave_response"
+resiliences = "R1L"
+scenarios = "heatwave_response"
+vulnerabilities = "limited_water_access_heatwave_response"
+
+[Control.zebra_herd_dry_season]
+capabilities = ["efficient_thermoregulation_dry_season", "rapid_movement_coordination_dry_season"]
+inhibits = "lion_pride_dry_season"
+label = "Zebra Herd"
+protects = "lion_pride_dry_season"
+scenarios = "dry_season"
+vulnerabilities = "limited_water_access_dry_season"
+
+[Control.shaded_shelter]
+capabilities = "dynamic_heat_refuge"
+inhibits = "lion_pride_heatwave_response"
+label = "Shaded Savannah Shelter"
+protects = "zebra_herd_heatwave_response"
+scenarios = "heatwave_response"
+
+[Control.lion_pride_heatwave_response]
+cannotDamage = "zebra_herd_heatwave_response"
+capabilities = ["adaptive_ambush_strategy_heatwave_response", "high_frequency_hunting_heatwave_response", "unregulated_territory_roaming_heatwave_response"]
+label = "Lion Pride"
+negativeDamage = "zebra_herd_heatwave_response"
+protects = "lion_pride_heatwave_response"
+resiliences = "R17"
+scenarios = "heatwave_response"
+threatens = ["lion_pride_heatwave_response", "zebra_herd_heatwave_response"]
+vulnerabilities = ["prey_migration_barriers_heatwave_response", "territory_dependency_heatwave_response"]
+
+[Control.lion_pride_dry_season]
+canDamage = "zebra_herd_dry_season"
+capabilities = ["adaptive_ambush_strategy_dry_season", "high_frequency_hunting_dry_season", "unregulated_territory_roaming_dry_season"]
+label = "Lion Pride"
+positiveDamage = "zebra_herd_dry_season"
+protects = "lion_pride_dry_season"
+resiliences = "RE0"
+scenarios = "dry_season"
+threatens = ["lion_pride_dry_season", "zebra_herd_dry_season"]
+vulnerabilities = ["prey_migration_barriers_dry_season", "territory_dependency_dry_season"]
+
+[Control.meerkat_sentinels_dry_season]
+capabilities = "predator_detection_calls_dry_season"
+inhibits = "poacher_group_dry_season"
+label = "Meerkat Sentinels"
+protects = "lion_pride_dry_season"
+scenarios = "dry_season"
+
+[Resilience.R17]
+label = "R17"
+preserves = "high_frequency_hunting_heatwave_response"
+preservesAgainst = "disruptive_hunting_influence_heatwave_response"
+preservesDespite = "prey_migration_barriers_heatwave_response"
+scenarios = "heatwave_response"
+
+[Resilience.RE0]
+label = "RE0"
+preserves = "high_frequency_hunting_dry_season"
+preservesAgainst = "disruptive_hunting_influence_dry_season"
+preservesDespite = "prey_migration_barriers_dry_season"
+scenarios = "dry_season"
+
+[Resilience.R1L]
+label = "R1L"
+preserves = "efficient_thermoregulation_heatwave_response"
+preservesAgainst = "high_frequency_hunting_heatwave_response"
+preservesDespite = "limited_water_access_heatwave_response"
+scenarios = "heatwave_response"
+
+[Scenario.heatwave_response]
+components = ["R17", "R1L", "adaptive_ambush_strategy_heatwave_response", "disruptive_hunting_influence_heatwave_response", "dynamic_heat_refuge", "efficient_thermoregulation_heatwave_response", "high_frequency_hunting_heatwave_response", "limited_water_access_heatwave_response", "lion_pride_heatwave_response", "meerkat_sentinels_heatwave_response", "poacher_group_heatwave_response", "predator_detection_calls_heatwave_response", "prey_migration_barriers_heatwave_response", "rapid_movement_coordination_heatwave_response", "shaded_shelter", "territory_dependency_heatwave_response", "unregulated_territory_roaming_heatwave_response", "zebra_herd_heatwave_response"]
+label = "Heatwave Response"
+situation = "operational"
+status = "resilient"
+
+[Scenario.dry_season]
+components = ["RE0", "adaptive_ambush_strategy_dry_season", "disruptive_hunting_influence_dry_season", "efficient_thermoregulation_dry_season", "high_frequency_hunting_dry_season", "limited_water_access_dry_season", "lion_pride_dry_season", "meerkat_sentinels_dry_season", "poacher_group_dry_season", "predator_detection_calls_dry_season", "prey_migration_barriers_dry_season", "rapid_movement_coordination_dry_season", "territory_dependency_dry_season", "unregulated_territory_roaming_dry_season", "zebra_herd_dry_season"]
+label = "Dry Season Survival"
+situation = "operational"
+status = "vulnerable"
+
+[Threat.poacher_group_dry_season]
+cannotDamage = "lion_pride_dry_season"
+capabilities = "disruptive_hunting_influence_dry_season"
+label = "Illegal Hunting Party"
+negativeDamage = "lion_pride_dry_season"
+scenarios = "dry_season"
+threatens = "lion_pride_dry_season"
+
+[Threat.lion_pride_heatwave_response]
+cannotDamage = "zebra_herd_heatwave_response"
+capabilities = ["adaptive_ambush_strategy_heatwave_response", "high_frequency_hunting_heatwave_response", "unregulated_territory_roaming_heatwave_response"]
+label = "Lion Pride"
+negativeDamage = "zebra_herd_heatwave_response"
+protects = "lion_pride_heatwave_response"
+resiliences = "R17"
+scenarios = "heatwave_response"
+threatens = ["lion_pride_heatwave_response", "zebra_herd_heatwave_response"]
+vulnerabilities = ["prey_migration_barriers_heatwave_response", "territory_dependency_heatwave_response"]
+
+[Threat.poacher_group_heatwave_response]
+cannotDamage = "lion_pride_heatwave_response"
+capabilities = "disruptive_hunting_influence_heatwave_response"
+label = "Illegal Hunting Party"
+negativeDamage = "lion_pride_heatwave_response"
+scenarios = "heatwave_response"
+threatens = "lion_pride_heatwave_response"
+
+[Threat.lion_pride_dry_season]
+canDamage = "zebra_herd_dry_season"
+capabilities = ["adaptive_ambush_strategy_dry_season", "high_frequency_hunting_dry_season", "unregulated_territory_roaming_dry_season"]
+label = "Lion Pride"
+positiveDamage = "zebra_herd_dry_season"
+protects = "lion_pride_dry_season"
+resiliences = "RE0"
+scenarios = "dry_season"
+threatens = ["lion_pride_dry_season", "zebra_herd_dry_season"]
+vulnerabilities = ["prey_migration_barriers_dry_season", "territory_dependency_dry_season"]
+
+[Vulnerability.territory_dependency_heatwave_response]
+description = "Dependence on specific regions for hunting or shelter, making survival harder when conditions change."
+exposes = "high_frequency_hunting_heatwave_response"
+label = "Territory Dependency"
+scenarios = "heatwave_response"
+state = "disabled"
+
+[Vulnerability.limited_water_access_dry_season]
+description = "Scarcity of water sources that increases physiological stress and drives risky movement patterns."
+exposes = "efficient_thermoregulation_dry_season"
+label = "Limited Water Access"
+scenarios = "dry_season"
+state = "enabled"
+
+[Vulnerability.prey_migration_barriers_dry_season]
+description = "Obstacles that limit prey movement, such as fences or drought zones, reducing predator access to food."
+exposes = "high_frequency_hunting_dry_season"
+label = "Prey Migration Barriers"
+scenarios = "dry_season"
+state = "disabled"
+
+[Vulnerability.limited_water_access_heatwave_response]
+description = "Scarcity of water sources that increases physiological stress and drives risky movement patterns."
+exposes = "efficient_thermoregulation_heatwave_response"
+label = "Limited Water Access"
+scenarios = "heatwave_response"
+state = "disabled"
+
+[Vulnerability.prey_migration_barriers_heatwave_response]
+description = "Obstacles that limit prey movement, such as fences or drought zones, reducing predator access to food."
+exposes = "high_frequency_hunting_heatwave_response"
+label = "Prey Migration Barriers"
+scenarios = "heatwave_response"
+state = "disabled"
+
+[Vulnerability.territory_dependency_dry_season]
+description = "Dependence on specific regions for hunting or shelter, making survival harder when conditions change."
+exposes = "high_frequency_hunting_dry_season"
+label = "Territory Dependency"
+scenarios = "dry_season"
+state = "disabled"

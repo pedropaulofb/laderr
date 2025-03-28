@@ -1,0 +1,259 @@
+@prefix : <https://savannahresilience.laderr#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Specification a laderr:Specification ;
+    dcterms:conformsTo <https://w3id.org/laderr> ;
+    laderr:baseURI "https://savannahresilience.laderr#"^^xsd:anyURI ;
+    laderr:constructs :adaptive_ambush_strategy_dry_season,
+        :adaptive_ambush_strategy_heatwave_response,
+        :disruptive_hunting_influence_dry_season,
+        :disruptive_hunting_influence_heatwave_response,
+        :dry_season,
+        :dynamic_heat_refuge,
+        :efficient_thermoregulation_dry_season,
+        :efficient_thermoregulation_heatwave_response,
+        :heatwave_response,
+        :high_frequency_hunting_dry_season,
+        :high_frequency_hunting_heatwave_response,
+        :limited_water_access_dry_season,
+        :limited_water_access_heatwave_response,
+        :lion_pride_dry_season,
+        :lion_pride_heatwave_response,
+        :meerkat_sentinels_dry_season,
+        :meerkat_sentinels_heatwave_response,
+        :poacher_group_dry_season,
+        :poacher_group_heatwave_response,
+        :predator_detection_calls_dry_season,
+        :predator_detection_calls_heatwave_response,
+        :prey_migration_barriers_dry_season,
+        :prey_migration_barriers_heatwave_response,
+        :rapid_movement_coordination_dry_season,
+        :rapid_movement_coordination_heatwave_response,
+        :shaded_shelter,
+        :territory_dependency_dry_season,
+        :territory_dependency_heatwave_response,
+        :unregulated_territory_roaming_dry_season,
+        :unregulated_territory_roaming_heatwave_response,
+        :zebra_herd_dry_season,
+        :zebra_herd_heatwave_response ;
+    laderr:createdBy "Pedro Paulo F. Barcelos"^^xsd:string ;
+    laderr:createdOn "2025-03-28T12:00:00+00:00"^^xsd:dateTime ;
+    laderr:description "A resilience model for animal survival in the savannah. Inspired by real-world ecological dynamics including predation, shelter-seeking, and thermal stress."^^xsd:string ;
+    laderr:title "Savannah Animal Survival Resilience Model"^^xsd:string ;
+    laderr:version "1.2"^^xsd:string .
+
+:dry_season a laderr:Scenario ;
+    rdfs:label "Dry Season Survival" ;
+    laderr:components :adaptive_ambush_strategy_dry_season,
+        :disruptive_hunting_influence_dry_season,
+        :efficient_thermoregulation_dry_season,
+        :high_frequency_hunting_dry_season,
+        :limited_water_access_dry_season,
+        :lion_pride_dry_season,
+        :meerkat_sentinels_dry_season,
+        :poacher_group_dry_season,
+        :predator_detection_calls_dry_season,
+        :prey_migration_barriers_dry_season,
+        :rapid_movement_coordination_dry_season,
+        :territory_dependency_dry_season,
+        :unregulated_territory_roaming_dry_season,
+        :zebra_herd_dry_season ;
+    laderr:situation laderr:operational ;
+    laderr:status laderr:vulnerable .
+
+:heatwave_response a laderr:Scenario ;
+    rdfs:label "Heatwave Response" ;
+    laderr:components :adaptive_ambush_strategy_heatwave_response,
+        :disruptive_hunting_influence_heatwave_response,
+        :dynamic_heat_refuge,
+        :efficient_thermoregulation_heatwave_response,
+        :high_frequency_hunting_heatwave_response,
+        :limited_water_access_heatwave_response,
+        :lion_pride_heatwave_response,
+        :meerkat_sentinels_heatwave_response,
+        :poacher_group_heatwave_response,
+        :predator_detection_calls_heatwave_response,
+        :prey_migration_barriers_heatwave_response,
+        :rapid_movement_coordination_heatwave_response,
+        :shaded_shelter,
+        :territory_dependency_heatwave_response,
+        :unregulated_territory_roaming_heatwave_response,
+        :zebra_herd_heatwave_response ;
+    laderr:situation laderr:operational ;
+    laderr:status laderr:vulnerable .
+
+:lion_pride_dry_season a laderr:Entity ;
+    rdfs:label "Lion Pride" ;
+    laderr:capabilities :adaptive_ambush_strategy_dry_season,
+        :high_frequency_hunting_dry_season,
+        :unregulated_territory_roaming_dry_season ;
+    laderr:vulnerabilities :prey_migration_barriers_dry_season,
+        :territory_dependency_dry_season .
+
+:lion_pride_heatwave_response a laderr:Entity ;
+    rdfs:label "Lion Pride" ;
+    laderr:capabilities :adaptive_ambush_strategy_heatwave_response,
+        :high_frequency_hunting_heatwave_response,
+        :unregulated_territory_roaming_heatwave_response ;
+    laderr:vulnerabilities :prey_migration_barriers_heatwave_response,
+        :territory_dependency_heatwave_response .
+
+:meerkat_sentinels_dry_season a laderr:Entity ;
+    rdfs:label "Meerkat Sentinels" ;
+    laderr:capabilities :predator_detection_calls_dry_season .
+
+:meerkat_sentinels_heatwave_response a laderr:Entity ;
+    rdfs:label "Meerkat Sentinels" ;
+    laderr:capabilities :predator_detection_calls_heatwave_response .
+
+:poacher_group_dry_season a laderr:Entity ;
+    rdfs:label "Illegal Hunting Party" ;
+    laderr:capabilities :disruptive_hunting_influence_dry_season .
+
+:poacher_group_heatwave_response a laderr:Entity ;
+    rdfs:label "Illegal Hunting Party" ;
+    laderr:capabilities :disruptive_hunting_influence_heatwave_response .
+
+:shaded_shelter a laderr:Entity ;
+    rdfs:label "Shaded Savannah Shelter" ;
+    laderr:capabilities :dynamic_heat_refuge .
+
+:zebra_herd_dry_season a laderr:Entity ;
+    rdfs:label "Zebra Herd" ;
+    laderr:capabilities :efficient_thermoregulation_dry_season,
+        :rapid_movement_coordination_dry_season ;
+    laderr:vulnerabilities :limited_water_access_dry_season .
+
+:zebra_herd_heatwave_response a laderr:Entity ;
+    rdfs:label "Zebra Herd" ;
+    laderr:capabilities :efficient_thermoregulation_heatwave_response,
+        :rapid_movement_coordination_heatwave_response ;
+    laderr:vulnerabilities :limited_water_access_heatwave_response .
+
+:adaptive_ambush_strategy_dry_season a laderr:Capability ;
+    rdfs:label "Adaptive Ambush Strategy" ;
+    laderr:description "Adjusts hunting tactics in real-time based on prey behavior and terrain." ;
+    laderr:disables :territory_dependency_dry_season ;
+    laderr:state laderr:enabled .
+
+:adaptive_ambush_strategy_heatwave_response a laderr:Capability ;
+    rdfs:label "Adaptive Ambush Strategy" ;
+    laderr:description "Adjusts hunting tactics in real-time based on prey behavior and terrain." ;
+    laderr:disables :territory_dependency_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:disruptive_hunting_influence_dry_season a laderr:Capability ;
+    rdfs:label "Disruptive Hunting Influence" ;
+    laderr:description "Illegal or uncontrolled hunting that harms the ecosystem by reducing prey and destabilizing predator-prey dynamics." ;
+    laderr:exploits :prey_migration_barriers_dry_season ;
+    laderr:state laderr:enabled .
+
+:disruptive_hunting_influence_heatwave_response a laderr:Capability ;
+    rdfs:label "Disruptive Hunting Influence" ;
+    laderr:description "Illegal or uncontrolled hunting that harms the ecosystem by reducing prey and destabilizing predator-prey dynamics." ;
+    laderr:exploits :prey_migration_barriers_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:dynamic_heat_refuge a laderr:Capability ;
+    rdfs:label "Dynamic Heat Refuge" ;
+    laderr:description "Provides adaptable shaded areas that reduce heat exposure during high-temperature events." ;
+    laderr:disables :limited_water_access_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:predator_detection_calls_dry_season a laderr:Capability ;
+    rdfs:label "Predator Detection Calls" ;
+    laderr:description "Warning sounds that alert the group to nearby threats, lowering the chances of surprise attacks." ;
+    laderr:disables :prey_migration_barriers_dry_season ;
+    laderr:state laderr:enabled .
+
+:predator_detection_calls_heatwave_response a laderr:Capability ;
+    rdfs:label "Predator Detection Calls" ;
+    laderr:description "Warning sounds that alert the group to nearby threats, lowering the chances of surprise attacks." ;
+    laderr:disables :prey_migration_barriers_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:rapid_movement_coordination_dry_season a laderr:Capability ;
+    rdfs:label "Rapid Movement Coordination" ;
+    laderr:description "Quick, synchronized group movement that helps evade predators and respond to threats." ;
+    laderr:disables :territory_dependency_dry_season ;
+    laderr:state laderr:enabled .
+
+:rapid_movement_coordination_heatwave_response a laderr:Capability ;
+    rdfs:label "Rapid Movement Coordination" ;
+    laderr:description "Quick, synchronized group movement that helps evade predators and respond to threats." ;
+    laderr:disables :territory_dependency_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:unregulated_territory_roaming_dry_season a laderr:Capability ;
+    rdfs:label "Unregulated Territory Roaming" ;
+    laderr:description "Explores unfamiliar areas beyond known boundaries, creating opportunities but also risks." ;
+    laderr:exploits :territory_dependency_dry_season ;
+    laderr:state laderr:enabled .
+
+:unregulated_territory_roaming_heatwave_response a laderr:Capability ;
+    rdfs:label "Unregulated Territory Roaming" ;
+    laderr:description "Explores unfamiliar areas beyond known boundaries, creating opportunities but also risks." ;
+    laderr:exploits :territory_dependency_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:efficient_thermoregulation_dry_season a laderr:Capability ;
+    rdfs:label "Efficient Thermoregulation" ;
+    laderr:description "Maintains stable body temperature under heat stress, reducing risk during hot, dry conditions." ;
+    laderr:state laderr:enabled .
+
+:efficient_thermoregulation_heatwave_response a laderr:Capability ;
+    rdfs:label "Efficient Thermoregulation" ;
+    laderr:description "Maintains stable body temperature under heat stress, reducing risk during hot, dry conditions." ;
+    laderr:state laderr:enabled .
+
+:limited_water_access_dry_season a laderr:Vulnerability ;
+    rdfs:label "Limited Water Access" ;
+    laderr:description "Scarcity of water sources that increases physiological stress and drives risky movement patterns." ;
+    laderr:exposes :efficient_thermoregulation_dry_season ;
+    laderr:state laderr:enabled .
+
+:high_frequency_hunting_dry_season a laderr:Capability ;
+    rdfs:label "High-Frequency Hunting" ;
+    laderr:description "Repeated hunting attempts in short intervals, increasing short-term success but risking energy depletion and prey scarcity." ;
+    laderr:exploits :limited_water_access_dry_season ;
+    laderr:state laderr:enabled .
+
+:high_frequency_hunting_heatwave_response a laderr:Capability ;
+    rdfs:label "High-Frequency Hunting" ;
+    laderr:description "Repeated hunting attempts in short intervals, increasing short-term success but risking energy depletion and prey scarcity." ;
+    laderr:exploits :limited_water_access_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:limited_water_access_heatwave_response a laderr:Vulnerability ;
+    rdfs:label "Limited Water Access" ;
+    laderr:description "Scarcity of water sources that increases physiological stress and drives risky movement patterns." ;
+    laderr:exposes :efficient_thermoregulation_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:prey_migration_barriers_dry_season a laderr:Vulnerability ;
+    rdfs:label "Prey Migration Barriers" ;
+    laderr:description "Obstacles that limit prey movement, such as fences or drought zones, reducing predator access to food." ;
+    laderr:exposes :high_frequency_hunting_dry_season ;
+    laderr:state laderr:enabled .
+
+:prey_migration_barriers_heatwave_response a laderr:Vulnerability ;
+    rdfs:label "Prey Migration Barriers" ;
+    laderr:description "Obstacles that limit prey movement, such as fences or drought zones, reducing predator access to food." ;
+    laderr:exposes :high_frequency_hunting_heatwave_response ;
+    laderr:state laderr:enabled .
+
+:territory_dependency_dry_season a laderr:Vulnerability ;
+    rdfs:label "Territory Dependency" ;
+    laderr:description "Dependence on specific regions for hunting or shelter, making survival harder when conditions change." ;
+    laderr:exposes :high_frequency_hunting_dry_season ;
+    laderr:state laderr:enabled .
+
+:territory_dependency_heatwave_response a laderr:Vulnerability ;
+    rdfs:label "Territory Dependency" ;
+    laderr:description "Dependence on specific regions for hunting or shelter, making survival harder when conditions change." ;
+    laderr:exposes :high_frequency_hunting_heatwave_response ;
+    laderr:state laderr:enabled .
+
