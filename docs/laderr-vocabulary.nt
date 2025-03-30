@@ -1,568 +1,552 @@
-_:n2547adcb7a364616ab6df8f6aa40ce15b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b7 .
-<https://w3id.org/laderr#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b39 .
-<https://w3id.org/laderr#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Capability> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b12 <http://www.w3.org/2002/07/owl#unionOf> _:n2547adcb7a364616ab6df8f6aa40ce15b13 .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#label> "Resilience"@en .
-<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "laderr" .
-<https://orcid.org/0000-0001-9247-6150> <http://xmlns.com/foaf/0.1/name> "Geert Poels" .
-<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/laderr#enabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b20 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#ScenarioStatus> .
-<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b35 .
-<https://w3id.org/laderr#exploits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Capability> .
-<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat can cause value loss to an Asset in an operational Scenario."@en .
-<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#label> "version"@en .
-<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/publisher> <https://www.flandersmake.be/> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#resilient> .
-<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
-<https://w3id.org/laderr#Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b36 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
-<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#label> "status"@en .
-<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#label> "preservesDespite"@en .
-<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#label> "constructs"@en .
-<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Vulnerability in ResiliOnt."@en .
-<https://w3id.org/laderr#vulnerable> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Specification> .
-<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#DispositionState> .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2004/02/skos/core#example> "The 'Heatwave Response' scenario models an operational situation in which entities like the Zebra Herd and Meerkat Sentinels act through enabled capabilities to prevent threats from causing damage, demonstrating a resilient condition."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Construct> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b5 <http://www.w3.org/2002/07/owl#unionOf> _:n2547adcb7a364616ab6df8f6aa40ce15b6 .
-<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b34 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#baseURI> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b18 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
-<https://w3id.org/laderr#preserves> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#> <http://xmlns.com/foaf/0.1/homepage> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#resilient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#label> "threatens"@en .
-<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the relationship where a Capability exploits a Vulnerability, meaning that when both are enabled, the Capability can trigger an adverse event through the Vulnerability."@en .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/publisher> <https://ugent-businessinformatics.github.io/> .
-<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat poses risk to an Asset by potentially exploiting its Vulnerabilities."@en .
-<http://purl.org/dc/terms/language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario type where resiliences are sufficient to prevent threats from causing damage."@en .
-<https://www.flandersmake.be/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b41 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#exposes> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Resilience> .
-<https://w3id.org/laderr#operational> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b58 <http://www.w3.org/2002/07/owl#distinctMembers> _:n2547adcb7a364616ab6df8f6aa40ce15b59 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b37 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
-<https://w3id.org/laderr#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#label> "DispositionState"@en .
-<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#label> "damaged"@en .
-<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0003-0481-9745> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Vulnerability> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b14 .
-<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b16 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#incident> .
-<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2004/02/skos/core#example> "During a system check, a sensor’s 'motion detection' feature might be in the DISABLED state to avoid false alarms."@en .
-<https://w3id.org/laderr#Disposition> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b5 .
-<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/title> "LaDeRR Vocabulary"@en .
-<https://w3id.org/laderr#sustains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b37 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#description> .
-<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Superclass for relationships that indicate a negative occurrence of damage. Encompasses relations where a Threat either cannot cause or did not cause damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:cannotDamage (operational) or laderr:notDamaged (incident)"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b46 .
-<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "incident"@en .
-<https://w3id.org/laderr#disables> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a Scenario to the ScenarioComponents it is composed of, such as Entities, Dispositions, and Resilience constructs."@en .
-<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#label> "scenarios"@en .
-<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat did not cause loss of value to an Asset in a Scenario with situation 'incident'."@en .
-<http://www.w3.org/2002/07/owl#versionInfo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b30 <http://www.w3.org/2002/07/owl#oneOf> _:n2547adcb7a364616ab6df8f6aa40ce15b31 .
-<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the relationship between a Capability and a Resilience where the Capability enables the conditions necessary for the Resilience to exist."@en .
-<https://w3id.org/laderr/git> <http://www.w3.org/2000/01/rdf-schema#comment> "Repository for the LaDeRR DSL."@en .
-<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2000/01/rdf-schema#label> "ScenarioComponent"@en .
-<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#ScenarioSituation> .
-<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#label> "preservesAgainst"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b51 .
-<https://ugent-businessinformatics.github.io/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Construct> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b34 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#anyURI> .
-<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2004/02/skos/core#example> "Outdated software in a system is a Vulnerability that exposes it to cyberattacks."@en .
-<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Resilience maintains the functionality and value of a Capability within a Scenario."@en .
-<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a Specification to the Constructs it defines, including Scenarios and their components."@en .
-<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
-<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#label> "Disposition"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#ScenarioSituation> .
-<https://w3id.org/laderr#Control> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#label> "negativeDamage"@en .
-<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<http://www.w3.org/2004/02/skos/core#note> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b19 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Vulnerability> .
 <https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#ScenarioComponent> .
-<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Entity with its Vulnerabilities, which may expose it to threats."@en .
-<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#label> "positiveDamage"@en .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Resilience in ResiliOnt."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#ScenarioComponent> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2004/02/skos/core#example> "The 'Savannah Animal Survival Resilience Model' specification defines a structured model with scenarios like 'Dry Season Survival' and 'Heatwave Response', including constructs such as threats, capabilities, vulnerabilities, and resiliences for ecological analysis."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b34 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<https://www.flandersmake.be/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
-<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#label> "title"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b9 .
-<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/publisher> <https://www.utwente.nl/en/eemcs/scs/> .
-<https://w3id.org/laderr#protects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b45 .
-<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#label> "disables"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b41 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
-<https://w3id.org/laderr#Construct> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b4 .
-<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
-<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#comment> "A disposition of an Entity that may be exploited by Threats, potentially leading to harm."@en .
-<https://www.utwente.nl/en/eemcs/scs/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-0481-9745> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<http://xmlns.com/foaf/0.1/homepage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b33 .
-<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#comment> "A Capability is a disposition that enables an Entity to perform specific functions."@en .
-<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/2000/01/rdf-schema#label> "ScenarioSituation"@en .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/license> <https://www.apache.org/licenses/LICENSE-2.0> .
-<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#label> "notDamaged"@en .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/description> "OWL vocabulary for LaDeRR (Language for Describing Risk and Resilience), a domain-specific language for modeling risk and resilience scenarios. This vocabulary provides a canonical RDF-based serialization of the language, enabling publication, data exchange, and computational processing. It also serves as a schema to validate and support LaDeRR instances represented as RDF graphs."@en .
-<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
-<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an enabled Capability changes the state of a Disposition (either a Capability or Vulnerability) to disabled, preventing it from being realized. This implies the disabler must be enabled and the target must have been previously enabled."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
-<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#label> "capabilities"@en .
-<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#label> "canDamage"@en .
-<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/homepage> "https://ugent-businessinformatics.github.io/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Resilience maintains a Capability’s function despite the presence of a Threat's Capability that could exploit a Vulnerability."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#disabled> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Entity with the Capabilities it possesses."@en .
-<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Resilience> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#Control> <http://www.w3.org/2004/02/skos/core#example> "A fire suppression system in a data center acts as a Control that inhibits fire-related threats and protects the servers."@en .
-<https://w3id.org/laderr#Construct> <http://www.w3.org/2000/01/rdf-schema#comment> "An abstract class encompassing both Scenarios and ScenarioComponents. I.e., any instantiable construct expressible in a LaDeRR specification."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b21 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/laderr#ScenarioSituation> .
-<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b15 .
-<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
-<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#label> "cannotDamage"@en .
-<https://w3id.org/laderr#enabled> <http://www.w3.org/2004/02/skos/core#example> "A drone's surveillance Capability is 'enabled' during a mission, allowing it to sustain communication."@en .
-<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
-<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/2000/01/rdf-schema#comment> "An enumeration defining the nature of a scenario as either 'operational' or 'incident', describing its temporal context."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b22 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/laderr#ScenarioStatus> .
-<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a DispositionState where a Capability or Vulnerability is active and can influence the system. An enabled Capability can, e.g., sustain a resilience, while an enabled Vulnerability can be exploited by threats."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b19 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preservesDespite> .
-<https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#label> "preserves"@en .
-<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#Construct> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b27 .
-<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b41 .
-<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
-<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#label> "modifiedOn"@en .
-<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b38 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Scenario> .
-<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#enabled> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b34 .
-<https://w3id.org/laderr#baseURI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/laderr#Construct> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b35 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
-<https://w3id.org/laderr#Disposition> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Disposition in ResiliOnt."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Scenario> .
-<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Superclass for relationships that indicate a positive occurrence of damage. Encompasses relations where a Threat either can cause or has caused damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:canDamage (operational) or laderr:damaged (incident)"@en .
-<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a scenario that has already occurred."@en .
-<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
-<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario situation representing the system's current functioning, with or without threats and resiliences."@en .
-<https://www.utwente.nl/en/eemcs/scs/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b11 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b37 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b16 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#capabilities> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b29 .
-<https://w3id.org/laderr#Construct> <http://www.w3.org/2000/01/rdf-schema#label> "Construct"@en .
-<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat cannot cause value loss to an Asset in an operational Scenario."@en .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b22 .
-<https://w3id.org/laderr#scenarios> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a ScenarioComponent to the Scenarios they are part of."@en .
-<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a Scenario with a ScenarioSituation describing whether it is operational or an incident."@en .
-<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "risk"@en .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#label> "Scenario"@en .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0002-3452-553X> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b52 <http://www.w3.org/2002/07/owl#distinctMembers> _:n2547adcb7a364616ab6df8f6aa40ce15b53 .
-<https://w3id.org/laderr#situation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#ScenarioComponent> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b54 .
-<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/homepage> "https://www.flandersmake.be/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the state of a Disposition, which can be either ENABLED or DISABLED, determining whether it can be realized in a given scenario."@en .
-<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#label> "enabled"@en .
-<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#operational> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioSituation> .
-<https://w3id.org/laderr#vulnerable> <http://www.w3.org/2000/01/rdf-schema#label> "vulnerable"@en .
-<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
-<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Scenario> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Entity> .
-<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b32 .
-<https://w3id.org/laderr#Control> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Risk Inhibitor in ResiliOnt."@en .
-<https://w3id.org/laderr#Capability> <http://www.w3.org/2004/02/skos/core#example> "A drone's night-vision camera is a Capability enabling surveillance in low-light rescue operations."@en .
-<https://w3id.org/mod#repository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Control> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b9 <http://www.w3.org/2002/07/owl#oneOf> _:n2547adcb7a364616ab6df8f6aa40ce15b10 .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#comment> "The title assigned to a LaDeRR Specification."@en .
-<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#label> "sustains"@en .
-<https://w3id.org/laderr#disabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Specification> .
-<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b30 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b21 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Scenario> .
-<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#resiliences> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#label> "situation"@en .
-<https://w3id.org/laderr#exposes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-0481-9745> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#enabled> .
-<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0001-9247-6150> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b57 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b38 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
-<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Threat> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b33 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
-<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
-<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#label> "description"@en .
-<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#Construct> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b1 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b44 .
-<http://purl.org/dc/terms/abstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b55 <http://www.w3.org/2002/07/owl#distinctMembers> _:n2547adcb7a364616ab6df8f6aa40ce15b56 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#capabilities> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#resilient> .
-<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines whether a Disposition (Capability or Vulnerability) is active (enabled) or inactive (disabled). The state determines its eligibility for, e.g., exploitation and disabling."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#ScenarioStatus> .
-<https://w3id.org/laderr#Threat> <http://www.w3.org/2004/02/skos/core#example> "A ransomware attack targeting hospital records is a Threat that endangers critical health information systems."@en .
-<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<http://xmlns.com/foaf/0.1/member> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#incident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat caused value loss to an Asset in an incident Scenario."@en .
-<https://w3id.org/laderr#Entity> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Value Object in ResiliOnt."@en .
-<https://w3id.org/laderr#createdBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#incident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioSituation> .
-<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Construct> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b8 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#state> .
-<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/name> "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" .
-<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "DSL"@en .
-<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr/ttl> <http://www.w3.org/2000/01/rdf-schema#comment> "TTL serialization of the LaDeRR-Vocabulary."@en .
-<http://xmlns.com/foaf/0.1/logo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/laderr#enabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#DispositionState> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#label> "Specification"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Control> .
-<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/homepage> "https://www.utwente.nl/en/eemcs/scs/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#comment> "An Entity inhibits another if it has a Capability that disables a Vulnerability, while the inhibited Entity has a Capability that exploits the same Vulnerability."@en .
-<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the base URI of a LaDeRR Specification."@en .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a present or past situation (operational or incident, respectively) in which Entities and their Dispositions interact, allowing the evaluation of resilience conditions."@en .
-<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#label> "Threat"@en .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b21 .
-<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#vulnerable> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#label> "createdOn"@en .
-<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
-<https://w3id.org/laderr#canDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b40 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#threatens> .
-<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#disables> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
-<https://w3id.org/laderr#threatens> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#Threat> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Threat Object in ResiliOnt."@en .
-<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Entity> .
-<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Entity> .
-<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#comment> "An Entity is a core participant in a Scenario, encompassing Assets, Threats, and Controls. Entities typically possess Capabilities and may have Vulnerabilities. They can protect, threaten, or inhibit others, depending on how their internal Dispositions are enabled. These interactions are derived from the interplay between their capabilities and vulnerabilities."@en .
-<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables a Vulnerability that Threats might exploit."@en .
+<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
 <https://w3id.org/laderr#inhibits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b17 .
-<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
-<https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#label> "components"@en .
-<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
-<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#Capability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
-<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0001-9247-6150> .
-<https://orcid.org/0000-0002-3452-553X> <http://xmlns.com/foaf/0.1/name> "Giancarlo Guizzardi" .
-<https://w3id.org/laderr#Disposition> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b8 .
-<https://w3id.org/laderr#disabled> <http://www.w3.org/2004/02/skos/core#example> "A system’s temperature alarm is 'disabled' during maintenance, preventing it from influencing calculations."@en .
-<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/laderr#positiveDamage> .
-<https://w3id.org/laderr#disables> <http://www.w3.org/2004/02/skos/core#example> "A water cooling system's capability of keeping temperatures below critical thresholds disables the 'overheat' vulnerability in a server rack."@en .
-<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/laderr#negativeDamage> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Resilience> .
-<https://w3id.org/laderr#constructs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Disposition> .
-<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "laderr"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Disposition> .
-<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b20 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#ScenarioComponent> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#ScenarioComponent> .
-<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#landingPage> <https://w3id.org/laderr/git> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b22 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/identifier> "https://w3id.org/laderr" .
-<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#label> "createdBy"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Entity> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b39 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
-<https://w3id.org/laderr#damaged> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#label> "exposes"@en .
-<https://w3id.org/laderr#disabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#DispositionState> .
-<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#label> "inhibits"@en .
-<https://w3id.org/laderr#Disposition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#vulnerable> .
-<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#label> "Control"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b35 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b4 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
-<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b18 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b8 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b22 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#status> .
-<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#comment> "A Threat is an entity that can potentially cause harm to an Asset through its threat capabilities, by potentially exploiting the latter's Vulnerabilities."@en .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/modified> "2025-03-30"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
-<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/abstract> "LaDeRR Vocabulary is an OWL-based ontology designed to formally define the core concepts and relationships of Language for Describing Risk and Resilience (LaDeRR). Grounded in the ResiliOnt ontology, LaDeRR enables machine-readable representations of resilience scenarios.\n\nThis vocabulary provides a structured semantic framework to represent key resilience elements, including entities, capabilities, vulnerabilities, threats, dispositions, controls, and resilience. It incorporates logical constraints and derivation rules to ensure semantic correctness and facilitate automated reasoning.\n\nThe LaDeRR Vocabulary is developed to support interoperability with domain-specific applications, enabling consistency in resilience assessments, decision support, and computational modeling. It is implemented in OWL 2 and follows best practices in ontology engineering to ensure extensibility and usability across various domains."@en .
-<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#label> "exploits"@en .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/issued> "2025-01-14"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Disposition> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b38 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#DispositionState> .
-<https://w3id.org/laderr#> <http://www.w3.org/2002/07/owl#versionInfo> "Vocabulary for the LaDeRR DSL. Resilience's definition updated."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b8 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/laderr#DispositionState> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b26 .
-<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b50 .
-<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Threat> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b36 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#title> .
-<https://w3id.org/laderr#> <http://xmlns.com/foaf/0.1/logo> <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> .
-<https://w3id.org/laderr#DispositionState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://www.w3.org/2004/02/skos/core#example> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/language> "en"^^<http://www.w3.org/2001/XMLSchema#language> .
-<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the resilience status of a Scenario: whether it cannot be damaged by threats (resilient) or not (vulnerable)."@en .
-<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "resilience"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#vulnerable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an Asset to its associated Resiliences."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "Entity"@en .
-<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#label> "incident"@en .
-<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a DispositionState where a Capability or Vulnerability is inactive and cannot influence the system. A disabled Disposition cannot exert its effect until it is re-enabled."@en .
-<https://w3id.org/laderr#components> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/laderr#scenarios> .
-<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
-<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
-<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/2000/01/rdf-schema#label> "ScenarioStatus"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#disabled> .
-<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/laderr#negativeDamage> .
-<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#label> "resiliences"@en .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n2547adcb7a364616ab6df8f6aa40ce15b36 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b40 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#Asset> <http://www.w3.org/2004/02/skos/core#example> "A museum's ancient manuscript collection is an Asset because it holds historical and cultural value that can be lost."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b4 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#description> .
-<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b36 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b27 <http://www.w3.org/2002/07/owl#oneOf> _:n2547adcb7a364616ab6df8f6aa40ce15b28 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b47 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b39 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<https://w3id.org/laderr#Threat> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b40 .
-<https://w3id.org/laderr#Entity> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b12 .
-<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/name> "UGent Business Informatics, Ghent University, Belgium" .
-<https://orcid.org/0000-0003-0481-9745> <http://xmlns.com/foaf/0.1/name> "Frederik Gailly" .
-<http://www.w3.org/ns/dcat#version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b3 .
-<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Disposition> .
-<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/name> "Flanders Make, Belgium" .
-_:n2547adcb7a364616ab6df8f6aa40ce15b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#vulnerable> .
-<http://www.w3.org/ns/dcat#landingPage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#label> "baseURI"@en .
-<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the creator of a LaDeRR Specification."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#ScenarioComponent> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b38 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#modifiedOn> .
-<https://w3id.org/laderr#components> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the version of a LaDeRR Specification."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b18 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preservesAgainst> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDifferent> .
-<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "An Asset represents an entity that has value and is subject to potential risks and threats."@en .
-<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Control> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b60 .
-<https://w3id.org/laderr#createdOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/laderr#vulnerable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioStatus> .
-<http://purl.org/dc/terms/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#label> "state"@en .
-<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#version> "0.8.3" .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#ScenarioComponent> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#operational> .
-<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
-<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Vulnerability> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b41 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#exposes> .
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 <https://w3id.org/laderr#> <https://w3id.org/mod#repository> <https://w3id.org/laderr/git> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Records the date and time when a LaDeRR Specification was last modified."@en .
-<https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/mbox> "pedropaulofb@gmail.com" .
-<http://www.w3.org/ns/dcat#keyword> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Disposition> .
-<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0001-9247-6150> .
-<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the resilience status of a scenario, which can be either 'vulnerable' or 'resilient'."@en .
-<https://w3id.org/laderr#resilient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioStatus> .
-<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#comment> "Human-readable explanation of a Construct or Specification."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b21 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#situation> .
-<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#label> "Asset"@en .
-<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#comment> "Resilience maintains the function of Capabilities despite the presence of Vulnerabilities and threats that could exploit them, thereby contributing to the preservation of asset value within a Scenario. It emerges when an Entity possesses a Capability that disables a Vulnerability exposing another Capability, while another Entity has a Capability that could exploit that same Vulnerability."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b20 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#components> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b42 <http://www.w3.org/2002/07/owl#members> _:n2547adcb7a364616ab6df8f6aa40ce15b43 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#incident> .
-<http://xmlns.com/foaf/0.1/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b19 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b4 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines that a Vulnerability exposes a Capability, making it susceptible to threats."@en .
-<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#Asset> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Object at Risk in ResiliOnt."@en .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#label> "Capability"@en .
-<https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/name> "Pedro Paulo Favato Barcelos" .
-<https://w3id.org/laderr#status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://w3id.org/laderr#notDamaged> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b35 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#createdOn> .
-<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b23 <http://www.w3.org/2002/07/owl#unionOf> _:n2547adcb7a364616ab6df8f6aa40ce15b24 .
-<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b16 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
-<https://w3id.org/laderr#Resilience> <http://www.w3.org/2004/02/skos/core#example> "A zebra herd maintains coordinated movement through its navigation Capability, which is preserved against predator threats and despite heat exhaustion vulnerabilities."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#operational> .
-<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#label> "resilient"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b17 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
-<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
-<http://xmlns.com/foaf/0.1/mbox> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2002/07/owl#equivalentClass> _:n2547adcb7a364616ab6df8f6aa40ce15b23 .
-<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#comment> "A structured document that defines one or more resilience scenarios, including constructs such as assets, threats, controls, and their interactions in specific operational or incident situations."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b37 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b33 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#createdBy> .
-<https://w3id.org/laderr#> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0003-2736-7817> .
-<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Construct> .
-<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0002-3452-553X> .
-<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/laderr#positiveDamage> .
-<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Capability> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b48 <http://www.w3.org/2002/07/owl#members> _:n2547adcb7a364616ab6df8f6aa40ce15b49 .
-<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
-<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Records the date and time when a LaDeRR Specification was created."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b17 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preserves> .
-<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/laderr#"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
-<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#label> "operational"@en .
-<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#comment> "A Control is an Entity that protects Assets by inhibiting threats (e.g., through disabling vulnerabilities)."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b19 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Vulnerability> .
-<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#label> "disabled"@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-<https://w3id.org/laderr#Capability> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Capability in ResiliOnt."@en .
-<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Resilience> .
-<https://w3id.org/laderr#Specification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b1 <http://www.w3.org/2002/07/owl#unionOf> _:n2547adcb7a364616ab6df8f6aa40ce15b2 .
-_:n2547adcb7a364616ab6df8f6aa40ce15b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n2547adcb7a364616ab6df8f6aa40ce15b25 .
-<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Scenario> .
-<https://w3id.org/laderr#Threat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#comment> "A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions. It must be enabled in a scenario to exert influence and may be disabled by another Capability."@en .
-_:n2547adcb7a364616ab6df8f6aa40ce15b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b39 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#version> .
-<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Disposition> .
-<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#label> "Vulnerability"@en .
-<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
-<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#label> "vulnerabilities"@en .
-<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
-<https://w3id.org/laderr#Scenario> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/laderr#ScenarioComponent> .
-<https://ugent-businessinformatics.github.io/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
-<https://w3id.org/laderr#version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Resilience ensures a Capability remains functional despite an existing Vulnerability exposing it."@en .
+<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an enabled Capability changes the state of a Disposition (either a Capability or Vulnerability) to disabled, preventing it from being realized. This implies the disabler must be enabled and the target must have been previously enabled."@en .
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Specification> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#ScenarioStatus> .
 <https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#label> "protects"@en .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2002/07/owl#disjointWith> <https://w3id.org/laderr#ScenarioComponent> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b17 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "Entity"@en .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-0481-9745> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#resilient> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a DispositionState where a Capability or Vulnerability is inactive and cannot influence the system. A disabled Disposition cannot exert its effect until it is re-enabled."@en .
+<https://w3id.org/laderr#Control> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#disabled> .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#ScenarioComponent> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Resilience in ResiliOnt."@en .
+<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/2004/02/skos/core#example> "A drone's surveillance Capability is 'enabled' during a mission, allowing it to sustain communication."@en .
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#label> "createdBy"@en .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/terms/language> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b34 .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario situation representing the system's current functioning, with or without threats and resiliences."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b23 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts."@en .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/title> "LaDeRR Vocabulary"@en .
+<https://www.utwente.nl/en/eemcs/scs/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the relationship where a Capability exploits a Vulnerability, meaning that when both are enabled, the Capability can trigger an adverse event through the Vulnerability."@en .
+<http://www.w3.org/ns/dcat#keyword> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#label> "Disposition"@en .
+<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b27 <http://www.w3.org/2002/07/owl#oneOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b28 .
+<https://www.flandersmake.be/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/2000/01/rdf-schema#label> "ScenarioStatus"@en .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a present or past situation (operational or incident, respectively) in which Entities and their Dispositions interact, allowing the evaluation of resilience conditions."@en .
+<https://w3id.org/laderr#title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#label> "title"@en .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2004/02/skos/core#example> "A water cooling system's capability of keeping temperatures below critical thresholds disables the 'overheat' vulnerability in a server rack."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the resilience status of a Scenario: whether it cannot be damaged by threats (resilient) or not (vulnerable)."@en .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b8 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#state> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Resilience ensures a Capability remains functional despite an existing Vulnerability exposing it."@en .
+<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/2000/01/rdf-schema#comment> "An enumeration defining the nature of a scenario as either 'operational' or 'incident', describing its temporal context."@en .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Construct> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a Specification to the Constructs it defines, including Scenarios and their components."@en .
+<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat did not cause loss of value to an Asset in a Scenario with situation 'incident'."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b40 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#label> "incident"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b46 .
+<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#landingPage> <https://w3id.org/laderr/git> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b3 .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Disposition in ResiliOnt."@en .
+<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/2000/01/rdf-schema#label> "ScenarioSituation"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b18 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preservesAgainst> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b19 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preservesDespite> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0002-3452-553X> .
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#ScenarioComponent> .
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#label> "Scenario"@en .
+<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Construct> .
+<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Scenario> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b20 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#components> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Entity with its Vulnerabilities, which may expose it to threats."@en .
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the base URI of a LaDeRR Specification."@en .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Construct> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b38 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b41 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b20 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#ScenarioComponent> .
+<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/name> "UGent Business Informatics, Ghent University, Belgium" .
+<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b34 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#anyURI> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b48 <http://www.w3.org/2002/07/owl#members> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b49 .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b18 .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines that a Vulnerability exposes a Capability, making it susceptible to threats."@en .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the state of a Disposition, which can be either ENABLED or DISABLED, determining whether it can be realized in a given scenario."@en .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr/ttl> <http://www.w3.org/2000/01/rdf-schema#comment> "TTL serialization of the LaDeRR-Vocabulary."@en .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b4 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#comment> "A structured document that defines one or more resilience scenarios, including constructs such as assets, threats, controls, and their interactions in specific operational or incident situations."@en .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b33 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b36 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2004/02/skos/core#example> "Outdated software in a system is a Vulnerability that exposes it to cyberattacks."@en .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b4 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#description> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#label> "sustains"@en .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/2004/02/skos/core#example> "A system’s temperature alarm is 'disabled' during maintenance, preventing it from influencing calculations."@en .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#label> "DispositionState"@en .
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Control> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#comment> "A disposition of an Entity that may be exploited by Threats, potentially leading to harm."@en .
+<https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/name> "Pedro Paulo Favato Barcelos" .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b9 .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Resilience maintains the functionality and value of a Capability within a Scenario."@en .
+<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "laderr"@en .
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the creator of a LaDeRR Specification."@en .
+<https://w3id.org/laderr#incident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#situation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Threat> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b39 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/laderr#negativeDamage> .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#DispositionState> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b33 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#disables> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#IrreflexiveProperty> .
+<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b30 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Construct> .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0001-9247-6150> .
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/abstract> "LaDeRR Vocabulary is an OWL-based ontology designed to formally define the core concepts and relationships of Language for Describing Risk and Resilience (LaDeRR). Grounded in the ResiliOnt ontology, LaDeRR enables machine-readable representations of resilience scenarios.\n\nThis vocabulary provides a structured semantic framework to represent key resilience elements, including entities, capabilities, vulnerabilities, threats, dispositions, controls, and resilience. It incorporates logical constraints and derivation rules to ensure semantic correctness and facilitate automated reasoning.\n\nThe LaDeRR Vocabulary is developed to support interoperability with domain-specific applications, enabling consistency in resilience assessments, decision support, and computational modeling. It is implemented in OWL 2 and follows best practices in ontology engineering to ensure extensibility and usability across various domains."@en .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
 <https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Capability> .
-_:n2547adcb7a364616ab6df8f6aa40ce15b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b17 .
+<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#label> "situation"@en .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2004/02/skos/core#example> "The 'Heatwave Response' scenario models an operational situation in which entities like the Zebra Herd and Meerkat Sentinels act through enabled capabilities to prevent threats from causing damage, demonstrating a resilient condition."@en .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#label> "disabled"@en .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Object at Risk in ResiliOnt."@en .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#operational> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioSituation> .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Risk Inhibitor in ResiliOnt."@en .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Vulnerability> .
+<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#ScenarioStatus> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b21 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/laderr#ScenarioSituation> .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Threat Object in ResiliOnt."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/laderr#Construct> <http://www.w3.org/2000/01/rdf-schema#comment> "An abstract class encompassing both Scenarios and ScenarioComponents. I.e., any instantiable construct expressible in a LaDeRR specification."@en .
+<http://xmlns.com/foaf/0.1/homepage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Entity with the Capabilities it possesses."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b35 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b8 .
+<http://xmlns.com/foaf/0.1/member> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#> <http://www.w3.org/2002/07/owl#versionInfo> "Revised LaDeRR vocabulary with disjointness axioms, equivalent class definitions, renamed individuals and properties, and improved resilience constraints. Vocabulary structure aligned with OWL 2 best practices and updated semantics."@en .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#label> "capabilities"@en .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b41 .
+<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#ScenarioComponent> .
+<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/laderr#positiveDamage> .
+<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Superclass for relationships that indicate a positive occurrence of damage. Encompasses relations where a Threat either can cause or has caused damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:canDamage (operational) or laderr:damaged (incident)"@en .
+<http://purl.org/dc/terms/identifier> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b45 .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b40 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b21 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#situation> .
+<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#label> "scenarios"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#DispositionState> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0002-3452-553X> .
+<https://www.flandersmake.be/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the version of a LaDeRR Specification."@en .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#label> "Resilience"@en .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/language> "en"^^<http://www.w3.org/2001/XMLSchema#language> .
+<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/laderr#positiveDamage> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b15 .
+<https://ugent-businessinformatics.github.io/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#Construct> <http://www.w3.org/2000/01/rdf-schema#label> "Construct"@en .
+<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b22 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b4 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#label> "Asset"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b36 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b36 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#title> .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<http://www.w3.org/2004/02/skos/core#example> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Value Object in ResiliOnt."@en .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b37 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#description> .
+<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat can cause value loss to an Asset in an operational Scenario."@en .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a Scenario with a ScenarioSituation describing whether it is operational or an incident."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b38 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#modifiedOn> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b39 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#comment> "A Capability is a disposition that enables an Entity to perform specific functions."@en .
+<https://orcid.org/0000-0003-0481-9745> <http://xmlns.com/foaf/0.1/name> "Frederik Gailly" .
+<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the resilience status of a scenario, which can be either 'vulnerable' or 'resilient'."@en .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#label> "exploits"@en .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b37 .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#label> "damaged"@en .
+<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0001-9247-6150> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b21 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#vulnerable> .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Vulnerability in ResiliOnt."@en .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Disposition> .
+<https://orcid.org/0000-0001-9247-6150> <http://xmlns.com/foaf/0.1/name> "Geert Poels" .
+<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "risk"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b29 .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#incident> <http://www.w3.org/2002/07/owl#differentFrom> <https://w3id.org/laderr#operational> .
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Superclass for relationships that indicate a negative occurrence of damage. Encompasses relations where a Threat either cannot cause or did not cause damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:cannotDamage (operational) or laderr:notDamaged (incident)"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b37 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#comment> "The title assigned to a LaDeRR Specification."@en .
+<https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#label> "components"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b34 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Resilience> .
+<http://xmlns.com/foaf/0.1/logo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b51 .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#label> "disables"@en .
+<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/publisher> <https://www.flandersmake.be/> .
+<https://w3id.org/laderr#damaged> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#state> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#label> "preserves"@en .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an Asset to its associated Resiliences."@en .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#label> "modifiedOn"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/homepage> "https://www.flandersmake.be/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#label> "status"@en .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario type where resiliences are sufficient to prevent threats from causing damage."@en .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#label> "Threat"@en .
+<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/laderr#negativeDamage> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Scenario> .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2004/02/skos/core#example> "A museum's ancient manuscript collection is an Asset because it holds historical and cultural value that can be lost."@en .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/publisher> <https://ugent-businessinformatics.github.io/> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/license> <https://www.apache.org/licenses/LICENSE-2.0> .
+<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#label> "operational"@en .
+<https://w3id.org/laderr#canDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#label> "constructs"@en .
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Records the date and time when a LaDeRR Specification was created."@en .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<http://www.w3.org/2002/07/owl#versionInfo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b30 <http://www.w3.org/2002/07/owl#oneOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b31 .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b12 <http://www.w3.org/2002/07/owl#unionOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b13 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b1 <http://www.w3.org/2002/07/owl#unionOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b2 .
+<http://www.w3.org/ns/dcat#version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr/git> <http://www.w3.org/2000/01/rdf-schema#comment> "Repository for the LaDeRR DSL."@en .
+<http://xmlns.com/foaf/0.1/mbox> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b50 .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#scenarios> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b9 <http://www.w3.org/2002/07/owl#oneOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b10 .
+<https://w3id.org/laderr#Construct> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b4 .
+<https://w3id.org/laderr#> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/laderr#"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#label> "inhibits"@en .
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b19 .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b16 .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2004/02/skos/core#example> "During a system check, a sensor’s 'motion detection' feature might be in the DISABLED state to avoid false alarms."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#label> "resiliences"@en .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b39 .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#ScenarioStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0001-9247-6150> .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2004/02/skos/core#example> "A drone's night-vision camera is a Capability enabling surveillance in low-light rescue operations."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b40 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#threatens> .
+<http://xmlns.com/foaf/0.1/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Construct> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b33 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#createdBy> .
+<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/2000/01/rdf-schema#label> "resilient"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat poses risk to an Asset by potentially exploiting its Vulnerabilities."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/publisher> <https://www.utwente.nl/en/eemcs/scs/> .
+<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Control> .
+<https://w3id.org/laderr#vulnerable> <http://www.w3.org/2000/01/rdf-schema#comment> "A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss."@en .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioStatus> .
+<https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/mbox> "pedropaulofb@gmail.com" .
+<https://w3id.org/laderr#components> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/laderr#scenarios> .
+<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2000/01/rdf-schema#comment> "A Threat is an entity that can potentially cause harm to an Asset through its threat capabilities, by potentially exploiting the latter's Vulnerabilities."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b16 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#capabilities> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b44 .
+<https://w3id.org/laderr#notDamaged> <http://www.w3.org/2000/01/rdf-schema#label> "notDamaged"@en .
+<https://w3id.org/laderr#operational> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b22 .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b12 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b14 .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#label> "Capability"@en .
+<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#label> "preservesDespite"@en .
+<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "DSL"@en .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-0481-9745> .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b38 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Capability> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Entity> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Resilience maintains a Capability’s function despite the presence of a Threat's Capability that could exploit a Vulnerability."@en .
+<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "incident"@en .
+<https://w3id.org/laderr#preservesDespite> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat cannot cause value loss to an Asset in an operational Scenario."@en .
+<http://www.w3.org/ns/dcat#landingPage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#vulnerable> <http://www.w3.org/2000/01/rdf-schema#label> "vulnerable"@en .
+<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#keyword> "resilience"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b16 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#label> "Control"@en .
+<https://w3id.org/laderr#disables> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Records the date and time when a LaDeRR Specification was last modified."@en .
+<https://w3id.org/laderr#incident> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a scenario that has already occurred."@en .
+<https://w3id.org/laderr#constructs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Specification> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b34 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#baseURI> .
+<https://w3id.org/laderr#positiveDamage> <http://www.w3.org/2000/01/rdf-schema#label> "positiveDamage"@en .
+<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b25 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b23 <http://www.w3.org/2002/07/owl#unionOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b24 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#incident> .
+<https://w3id.org/laderr#vulnerabilities> <http://www.w3.org/2000/01/rdf-schema#label> "vulnerabilities"@en .
+<https://ugent-businessinformatics.github.io/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#> <http://xmlns.com/foaf/0.1/homepage> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b20 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Resilience> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2000/01/rdf-schema#comment> "Resilience maintains the function of Capabilities despite the presence of Vulnerabilities and threats that could exploit them, thereby contributing to the preservation of asset value within a Scenario. It emerges when an Entity possesses a Capability that disables a Vulnerability exposing another Capability, while another Entity has a Capability that could exploit that same Vulnerability."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b37 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b17 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#preserves> .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#label> "preservesAgainst"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#cannotDamage> <http://www.w3.org/2000/01/rdf-schema#label> "cannotDamage"@en .
+<https://w3id.org/laderr#Construct> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b1 .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#DispositionState> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#label> "enabled"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b35 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#createdOn> .
+<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/description> "OWL vocabulary for LaDeRR (Language for Describing Risk and Resilience), a domain-specific language for modeling risk and resilience scenarios. This vocabulary provides a canonical RDF-based serialization of the language, enabling publication, data exchange, and computational processing. It also serves as a schema to validate and support LaDeRR instances represented as RDF graphs."@en .
+<https://w3id.org/mod#repository> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#incident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioSituation> .
+<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#label> "version"@en .
+<https://w3id.org/laderr#> <http://www.w3.org/ns/dcat#version> "0.8.3" .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2000/01/rdf-schema#comment> "A Control is an Entity that protects Assets by inhibiting threats (e.g., through disabling vulnerabilities)."@en .
+<https://orcid.org/0000-0002-3452-553X> <http://xmlns.com/foaf/0.1/name> "Giancarlo Guizzardi" .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/identifier> "https://w3id.org/laderr" .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#label> "state"@en .
+<https://w3id.org/laderr#title> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/laderr#resiliences> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Resilience> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#operational> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b22 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/laderr#ScenarioStatus> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Threat> .
+<https://w3id.org/laderr#vulnerable> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b8 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/laderr#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "laderr" .
+<https://w3id.org/laderr#preserves> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#createdBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#enabled> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/laderr#version> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b42 <http://www.w3.org/2002/07/owl#members> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b43 .
+<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a Threat caused value loss to an Asset in an incident Scenario."@en .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#ScenarioComponent> .
+<https://w3id.org/laderr#Entity> <http://www.w3.org/2000/01/rdf-schema#comment> "An Entity is a core participant in a Scenario, encompassing Assets, Threats, and Controls. Entities typically possess Capabilities and may have Vulnerabilities. They can protect, threaten, or inhibit others, depending on how their internal Dispositions are enabled. These interactions are derived from the interplay between their capabilities and vulnerabilities."@en .
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/laderr#damaged> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Capability in ResiliOnt."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Scenario> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#comment> "A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions. It must be enabled in a scenario to exert influence and may be disabled by another Capability."@en .
+<https://w3id.org/laderr#Threat> <http://www.w3.org/2004/02/skos/core#example> "A ransomware attack targeting hospital records is a Threat that endangers critical health information systems."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b11 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b7 .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
+<https://w3id.org/laderr#state> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines whether a Disposition (Capability or Vulnerability) is active (enabled) or inactive (disabled). The state determines its eligibility for, e.g., exploitation and disabling."@en .
+<https://w3id.org/laderr#> <http://xmlns.com/foaf/0.1/logo> <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Control> <http://www.w3.org/2004/02/skos/core#example> "A fire suppression system in a data center acts as a Control that inhibits fire-related threats and protects the servers."@en .
+<https://w3id.org/laderr#preservesAgainst> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b26 .
+<https://w3id.org/laderr#Resilience> <http://www.w3.org/2004/02/skos/core#example> "A zebra herd maintains coordinated movement through its navigation Capability, which is preserved against predator threats and despite heat exhaustion vulnerabilities."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "An Asset represents an entity that has value and is subject to potential risks and threats."@en .
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a DispositionState where a Capability or Vulnerability is active and can influence the system. An enabled Capability can, e.g., sustain a resilience, while an enabled Vulnerability can be exploited by threats."@en .
+<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/name> "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" .
+<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/2000/01/rdf-schema#label> "ScenarioComponent"@en .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b35 .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b8 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/laderr#DispositionState> .
+<https://w3id.org/laderr#operational> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/modified> "2025-03-30"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b22 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#status> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Control> .
+<https://ugent-businessinformatics.github.io/> <http://xmlns.com/foaf/0.1/homepage> "https://ugent-businessinformatics.github.io/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/laderr#resilient> <http://www.w3.org/2002/07/owl#differentFrom> <https://w3id.org/laderr#vulnerable> .
+<https://w3id.org/laderr#enabled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#DispositionState> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#exploits> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0003-2736-7817> .
+<https://w3id.org/laderr#Scenario> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b21 .
+<https://w3id.org/laderr#Vulnerability> <http://www.w3.org/2000/01/rdf-schema#label> "Vulnerability"@en .
+<https://w3id.org/laderr#vulnerable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/laderr#ScenarioStatus> .
+<https://w3id.org/laderr#status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Vulnerability> .
+<https://w3id.org/laderr#Capability> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the relationship between a Capability and a Resilience where the Capability enables the conditions necessary for the Resilience to exist."@en .
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#label> "baseURI"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b32 .
+<https://w3id.org/laderr#disables> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Disposition> .
+<https://w3id.org/laderr#components> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#ScenarioSituation> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/issued> "2025-01-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b38 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://www.w3.org/2004/02/skos/core#note> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#status> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Scenario> .
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#baseURI> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0003-2736-7817> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b5 <http://www.w3.org/2002/07/owl#unionOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b6 .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#label> "Specification"@en .
+<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#ScenarioSituation> .
+<https://w3id.org/laderr#disabled> <http://www.w3.org/2002/07/owl#differentFrom> <https://w3id.org/laderr#enabled> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b47 .
+<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#label> "description"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b18 <http://www.w3.org/2002/07/owl#someValuesFrom> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#label> "threatens"@en .
+<https://w3id.org/laderr#notDamaged> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#comment> "Human-readable explanation of a Construct or Specification."@en .
+<https://w3id.org/laderr#modifiedOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#capabilities> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/laderr#DispositionState> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#createdOn> <http://www.w3.org/2000/01/rdf-schema#label> "createdOn"@en .
+<https://w3id.org/laderr#threatens> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/laderr#Asset> .
+<https://w3id.org/laderr#scenarios> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a ScenarioComponent to the Scenarios they are part of."@en .
+<https://w3id.org/laderr#description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<https://w3id.org/laderr#protects> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables a Vulnerability that Threats might exploit."@en .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b36 .
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<https://w3id.org/laderr#Construct> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://w3id.org/laderr> .
+<https://w3id.org/laderr#sustains> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Capability> .
+<https://w3id.org/laderr#> <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0003-0481-9745> .
+<https://w3id.org/laderr#inhibits> <http://www.w3.org/2000/01/rdf-schema#comment> "An Entity inhibits another if it has a Capability that disables a Vulnerability, while the inhibited Entity has a Capability that exploits the same Vulnerability."@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Vulnerability> .
+<https://w3id.org/laderr#negativeDamage> <http://www.w3.org/2000/01/rdf-schema#label> "negativeDamage"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/laderr#ScenarioComponent> .
+<https://w3id.org/laderr#canDamage> <http://www.w3.org/2000/01/rdf-schema#label> "canDamage"@en .
+<https://www.flandersmake.be/> <http://xmlns.com/foaf/0.1/name> "Flanders Make, Belgium" .
+<https://w3id.org/laderr#components> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a Scenario to the ScenarioComponents it is composed of, such as Entities, Dispositions, and Resilience constructs."@en .
+<https://w3id.org/laderr#ScenarioComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://www.utwente.nl/en/eemcs/scs/> <http://xmlns.com/foaf/0.1/homepage> "https://www.utwente.nl/en/eemcs/scs/"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<https://w3id.org/laderr#exposes> <http://www.w3.org/2000/01/rdf-schema#label> "exposes"@en .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b35 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b39 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/laderr#version> .
+<https://w3id.org/laderr#vulnerable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/laderr#Disposition> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b5 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/laderr#situation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/laderr#Scenario> .
+<https://w3id.org/laderr#Specification> <http://www.w3.org/2004/02/skos/core#example> "The 'Savannah Animal Survival Resilience Model' specification defines a structured model with scenarios like 'Dry Season Survival' and 'Heatwave Response', including constructs such as threats, capabilities, vulnerabilities, and resiliences for ecological analysis."@en .
+<https://w3id.org/laderr#ScenarioSituation> <http://www.w3.org/2002/07/owl#equivalentClass> _:n35fcc6a47a8f472eb4df65e9e0a7b9b3b27 .
+_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/laderr#Threat> .

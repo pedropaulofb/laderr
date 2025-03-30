@@ -34,7 +34,7 @@ The LaDeRR Vocabulary is developed to support interoperability with domain-speci
                             dct:title "LaDeRR Vocabulary"@en ;
                             vann:preferredNamespacePrefix "laderr" ;
                             vann:preferredNamespaceUri "https://w3id.org/laderr#"^^xsd:anyURI ;
-                            owl:versionInfo owl:versionInfo "Revised LaDeRR vocabulary with disjointness axioms, equivalent class definitions, renamed individuals and properties, and improved resilience constraints. Vocabulary structure aligned with OWL 2 best practices and updated semantics."@en ;
+                            owl:versionInfo "Revised LaDeRR vocabulary with disjointness axioms, equivalent class definitions, renamed individuals and properties, and improved resilience constraints. Vocabulary structure aligned with OWL 2 best practices and updated semantics."@en ;
                             dcat:keyword "DSL"@en ,
                                          "incident"@en ,
                                          "laderr"@en ,

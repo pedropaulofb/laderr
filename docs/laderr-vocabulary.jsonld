@@ -1,20 +1,19 @@
 [
   {
-    "@id": "http://www.w3.org/ns/dcat#version",
+    "@id": "http://www.w3.org/2002/07/owl#versionInfo",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#disabled",
+    "@id": "https://w3id.org/laderr#ScenarioComponent",
     "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://w3id.org/laderr#DispositionState"
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Represents a DispositionState where a Capability or Vulnerability is inactive and cannot influence the system. A disabled Disposition cannot exert its effect until it is re-enabled."
+        "@value": "A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -25,70 +24,50 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "disabled"
+        "@value": "ScenarioComponent"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#example": [
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@language": "en",
-        "@value": "A system’s temperature alarm is 'disabled' during maintenance, preventing it from influencing calculations."
+        "@id": "https://w3id.org/laderr#Construct"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b23"
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/modified",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b23",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#capabilities",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#Class"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2002/07/owl#unionOf": [
       {
-        "@language": "en",
-        "@value": "Associates an Entity with the Capabilities it possesses."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Entity"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "capabilities"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Capability"
+        "@list": [
+          {
+            "@id": "https://w3id.org/laderr#Disposition"
+          },
+          {
+            "@id": "https://w3id.org/laderr#Entity"
+          },
+          {
+            "@id": "https://w3id.org/laderr#Resilience"
+          }
+        ]
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/license",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#negativeDamage",
+    "@id": "https://w3id.org/laderr#notDamaged",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Superclass for relationships that indicate a negative occurrence of damage. Encompasses relations where a Threat either cannot cause or did not cause damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:cannotDamage (operational) or laderr:notDamaged (incident)"
+        "@value": "Indicates that a Threat did not cause loss of value to an Asset in a Scenario with situation 'incident'."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -104,320 +83,22 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "negativeDamage"
+        "@value": "notDamaged"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "https://w3id.org/laderr#Asset"
       }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#Threat",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
       {
-        "@language": "en",
-        "@value": "A Threat is an entity that can potentially cause harm to an Asset through its threat capabilities, by potentially exploiting the latter's Vulnerabilities."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Threat"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/laderr#Entity"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b40"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#example": [
-      {
-        "@language": "en",
-        "@value": "A ransomware attack targeting hospital records is a Threat that endangers critical health information systems."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#note": [
-      {
-        "@language": "en",
-        "@value": "Corresponds to the concept of Threat Object in ResiliOnt."
+        "@id": "https://w3id.org/laderr#negativeDamage"
       }
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b40",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#threatens"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://w3id.org/laderr#Asset"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr/ttl",
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "TTL serialization of the LaDeRR-Vocabulary."
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#preservesAgainst",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Indicates that a Resilience maintains a Capability’s function despite the presence of a Threat's Capability that could exploit a Vulnerability."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Resilience"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "preservesAgainst"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Capability"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#Specification",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A structured document that defines one or more resilience scenarios, including constructs such as assets, threats, controls, and their interactions in specific operational or incident situations."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Specification"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b33"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b34"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b35"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b36"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b37"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b38"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b39"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#example": [
-      {
-        "@language": "en",
-        "@value": "The 'Savannah Animal Survival Resilience Model' specification defines a structured model with scenarios like 'Dry Season Survival' and 'Heatwave Response', including constructs such as threats, capabilities, vulnerabilities, and resiliences for ecological analysis."
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b33",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#createdBy"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b34",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#baseURI"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b35",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#createdOn"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b36",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#title"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b37",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#maxQualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#description"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b38",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#maxQualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#modifiedOn"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b39",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#maxQualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#version"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#resilient",
+    "@id": "https://w3id.org/laderr#vulnerable",
     "@type": [
       "http://www.w3.org/2002/07/owl#NamedIndividual",
       "https://w3id.org/laderr#ScenarioStatus"
@@ -425,7 +106,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A scenario type where resiliences are sufficient to prevent threats from causing damage."
+        "@value": "A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -436,18 +117,55 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "resilient"
+        "@value": "vulnerable"
       }
     ]
   },
   {
-    "@id": "http://www.w3.org/2004/02/skos/core#example",
+    "@id": "https://w3id.org/laderr#enabled",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/laderr#DispositionState"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Represents a DispositionState where a Capability or Vulnerability is active and can influence the system. An enabled Capability can, e.g., sustain a resilience, while an enabled Vulnerability can be exploited by threats."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "enabled"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "en",
+        "@value": "A drone's surveillance Capability is 'enabled' during a mission, allowing it to sustain communication."
+      }
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#operational",
+    "@id": "https://orcid.org/0000-0003-2736-7817",
+    "http://xmlns.com/foaf/0.1/mbox": [
+      {
+        "@value": "pedropaulofb@gmail.com"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Pedro Paulo Favato Barcelos"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#incident",
     "@type": [
       "http://www.w3.org/2002/07/owl#NamedIndividual",
       "https://w3id.org/laderr#ScenarioSituation"
@@ -455,7 +173,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A scenario situation representing the system's current functioning, with or without threats and resiliences."
+        "@value": "Represents a scenario that has already occurred."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -466,17 +184,25 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "operational"
+        "@value": "incident"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#differentFrom": [
+      {
+        "@id": "https://w3id.org/laderr#operational"
       }
     ]
   },
   {
-    "@id": "https://w3id.org/laderr/git",
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Repository for the LaDeRR DSL."
-      }
+    "@id": "http://www.w3.org/2004/02/skos/core#note",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/issued",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
@@ -508,894 +234,21 @@
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#preservesDespite",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Indicates that a Resilience ensures a Capability remains functional despite an existing Vulnerability exposing it."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Resilience"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "preservesDespite"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Vulnerability"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#situation",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Associates a Scenario with a ScenarioSituation describing whether it is operational or an incident."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Scenario"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "situation"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#ScenarioSituation"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2004/02/skos/core#note",
+    "@id": "http://purl.org/vocab/vann/preferredNamespaceUri",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#resiliences",
+    "@id": "http://purl.org/dc/terms/creator",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Links an Asset to its associated Resiliences."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Asset"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "resiliences"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Resilience"
-      }
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#positiveDamage",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Superclass for relationships that indicate a positive occurrence of damage. Encompasses relations where a Threat either can cause or has caused damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:canDamage (operational) or laderr:damaged (incident)"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Threat"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "positiveDamage"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Asset"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#Vulnerability",
+    "@id": "http://xmlns.com/foaf/0.1/Organization",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A disposition of an Entity that may be exploited by Threats, potentially leading to harm."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Vulnerability"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/laderr#Disposition"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b41"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#example": [
-      {
-        "@language": "en",
-        "@value": "Outdated software in a system is a Vulnerability that exposes it to cyberattacks."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#note": [
-      {
-        "@language": "en",
-        "@value": "Corresponds to the concept of Vulnerability in ResiliOnt."
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b41",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#exposes"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://w3id.org/laderr#Capability"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/homepage",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/description",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://orcid.org/0000-0003-2736-7817",
-    "http://xmlns.com/foaf/0.1/mbox": [
-      {
-        "@value": "pedropaulofb@gmail.com"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "Pedro Paulo Favato Barcelos"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/mod#repository",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/dcat#keyword",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b55",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AllDifferent"
-    ],
-    "http://www.w3.org/2002/07/owl#distinctMembers": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#incident"
-          },
-          {
-            "@id": "https://w3id.org/laderr#operational"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#threatens",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Indicates that a Threat poses risk to an Asset by potentially exploiting its Vulnerabilities."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Threat"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "threatens"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Asset"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#exposes",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Defines that a Vulnerability exposes a Capability, making it susceptible to threats."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Vulnerability"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "exposes"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Capability"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#components",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Links a Scenario to the ScenarioComponents it is composed of, such as Entities, Dispositions, and Resilience constructs."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Scenario"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "components"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#ScenarioComponent"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "https://w3id.org/laderr#scenarios"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#createdBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Indicates the creator of a LaDeRR Specification."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "createdBy"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/name",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://ugent-businessinformatics.github.io/",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://xmlns.com/foaf/0.1/Organization"
-    ],
-    "http://xmlns.com/foaf/0.1/homepage": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
-        "@value": "https://ugent-businessinformatics.github.io/"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/member": [
-      {
-        "@id": "https://orcid.org/0000-0001-9247-6150"
-      },
-      {
-        "@id": "https://orcid.org/0000-0003-0481-9745"
-      },
-      {
-        "@id": "https://orcid.org/0000-0003-2736-7817"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "UGent Business Informatics, Ghent University, Belgium"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#title",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The title assigned to a LaDeRR Specification."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "title"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#constructs",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Links a Specification to the Constructs it defines, including Scenarios and their components."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Specification"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "constructs"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Construct"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/contributor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/language",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#ScenarioStatus",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Represents the resilience status of a scenario, which can be either 'vulnerable' or 'resilient'."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "ScenarioStatus"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b30"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b30",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#oneOf": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#resilient"
-          },
-          {
-            "@id": "https://w3id.org/laderr#vulnerable"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b52",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AllDifferent"
-    ],
-    "http://www.w3.org/2002/07/owl#distinctMembers": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#disabled"
-          },
-          {
-            "@id": "https://w3id.org/laderr#enabled"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2001/XMLSchema#date",
-    "@type": [
-      "http://www.w3.org/2000/01/rdf-schema#Datatype"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#canDamage",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Indicates that a Threat can cause value loss to an Asset in an operational Scenario."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Threat"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "canDamage"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Asset"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "https://w3id.org/laderr#positiveDamage"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/abstract",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#baseURI",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Defines the base URI of a LaDeRR Specification."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "baseURI"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#Scenario",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Represents a present or past situation (operational or incident, respectively) in which Entities and their Dispositions interact, allowing the evaluation of resilience conditions."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Scenario"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/laderr#Construct"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b20"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b21"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b22"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#disjointWith": [
-      {
-        "@id": "https://w3id.org/laderr#ScenarioComponent"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#example": [
-      {
-        "@language": "en",
-        "@value": "The 'Heatwave Response' scenario models an operational situation in which entities like the Zebra Herd and Meerkat Sentinels act through enabled capabilities to prevent threats from causing damage, demonstrating a resilient condition."
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b20",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#components"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "https://w3id.org/laderr#ScenarioComponent"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b21",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onClass": [
-      {
-        "@id": "https://w3id.org/laderr#ScenarioSituation"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#situation"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b22",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onClass": [
-      {
-        "@id": "https://w3id.org/laderr#ScenarioStatus"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#status"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#vulnerable",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://w3id.org/laderr#ScenarioStatus"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "vulnerable"
-      }
-    ]
-  },
-  {
-    "@id": "https://orcid.org/0000-0002-3452-553X",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "Giancarlo Guizzardi"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#protects",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables a Vulnerability that Threats might exploit."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Control"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "protects"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Asset"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#Disposition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions. It must be enabled in a scenario to exert influence and may be disabled by another Capability."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Disposition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "https://w3id.org/laderr#ScenarioComponent"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b5"
-      },
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b8"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#note": [
-      {
-        "@language": "en",
-        "@value": "Corresponds to the concept of Disposition in ResiliOnt."
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b5",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#Capability"
-          },
-          {
-            "@id": "https://w3id.org/laderr#Vulnerability"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b8",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onClass": [
-      {
-        "@id": "https://w3id.org/laderr#DispositionState"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://w3id.org/laderr#state"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
     ]
   },
   {
@@ -1422,7 +275,7 @@
     ],
     "http://www.w3.org/2002/07/owl#equivalentClass": [
       {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b9"
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b9"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#example": [
@@ -1433,7 +286,7 @@
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b9",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b9",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -1451,48 +304,19 @@
     ]
   },
   {
-    "@id": "https://www.flandersmake.be/",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://xmlns.com/foaf/0.1/Organization"
-    ],
-    "http://xmlns.com/foaf/0.1/homepage": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
-        "@value": "https://www.flandersmake.be/"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/member": [
-      {
-        "@id": "https://orcid.org/0000-0001-9247-6150"
-      },
-      {
-        "@id": "https://orcid.org/0000-0003-0481-9745"
-      },
-      {
-        "@id": "https://orcid.org/0000-0003-2736-7817"
-      }
-    ],
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "Flanders Make, Belgium"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#scenarios",
+    "@id": "https://w3id.org/laderr#damaged",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Links a ScenarioComponent to the Scenarios they are part of."
+        "@value": "Indicates that a Threat caused value loss to an Asset in an incident Scenario."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/laderr#ScenarioComponent"
+        "@id": "https://w3id.org/laderr#Threat"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -1503,31 +327,18 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "scenarios"
+        "@value": "damaged"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/laderr#Scenario"
+        "@id": "https://w3id.org/laderr#Asset"
       }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/issued",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/logo",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/vocab/vann/preferredNamespaceUri",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "https://w3id.org/laderr#positiveDamage"
+      }
     ]
   },
   {
@@ -1650,7 +461,7 @@
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
         "@language": "en",
-        "@value": "Vocabulary for the LaDeRR DSL. Resilience's definition updated."
+        "@value": "Revised LaDeRR vocabulary with disjointness axioms, equivalent class definitions, renamed individuals and properties, and improved resilience constraints. Vocabulary structure aligned with OWL 2 best practices and updated semantics."
       }
     ],
     "http://www.w3.org/ns/dcat#keyword": [
@@ -1702,19 +513,46 @@
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#notDamaged",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b42",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDisjointClasses"
+    ],
+    "http://www.w3.org/2002/07/owl#members": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/laderr#Construct"
+          },
+          {
+            "@id": "https://w3id.org/laderr#DispositionState"
+          },
+          {
+            "@id": "https://w3id.org/laderr#ScenarioSituation"
+          },
+          {
+            "@id": "https://w3id.org/laderr#ScenarioStatus"
+          },
+          {
+            "@id": "https://w3id.org/laderr#Specification"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#resiliences",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Indicates that a Threat did not cause loss of value to an Asset in a Scenario with situation 'incident'."
+        "@value": "Links an Asset to its associated Resiliences."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/laderr#Threat"
+        "@id": "https://w3id.org/laderr#Asset"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -1725,29 +563,30 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "notDamaged"
+        "@value": "resiliences"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/laderr#Asset"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "https://w3id.org/laderr#negativeDamage"
+        "@id": "https://w3id.org/laderr#Resilience"
       }
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#ScenarioComponent",
+    "@id": "http://www.w3.org/2001/XMLSchema#date",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts."
+        "@value": "The title assigned to a LaDeRR Specification."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -1758,38 +597,12 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "ScenarioComponent"
+        "@value": "title"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/laderr#Construct"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b23"
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b23",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#Disposition"
-          },
-          {
-            "@id": "https://w3id.org/laderr#Entity"
-          },
-          {
-            "@id": "https://w3id.org/laderr#Resilience"
-          }
-        ]
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
       }
     ]
   },
@@ -1827,14 +640,15 @@
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#ScenarioSituation",
+    "@id": "https://w3id.org/laderr#operational",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/laderr#ScenarioSituation"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "An enumeration defining the nature of a scenario as either 'operational' or 'incident', describing its temporal context."
+        "@value": "A scenario situation representing the system's current functioning, with or without threats and resiliences."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -1845,59 +659,121 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "ScenarioSituation"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b27"
+        "@value": "operational"
       }
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b27",
+    "@id": "http://www.w3.org/ns/dcat#landingPage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#Entity",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
-    "http://www.w3.org/2002/07/owl#oneOf": [
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An Entity is a core participant in a Scenario, encompassing Assets, Threats, and Controls. Entities typically possess Capabilities and may have Vulnerabilities. They can protect, threaten, or inhibit others, depending on how their internal Dispositions are enabled. These interactions are derived from the interplay between their capabilities and vulnerabilities."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/laderr#ScenarioComponent"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b16"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b12"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "Corresponds to the concept of Value Object in ResiliOnt."
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b12",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
           {
-            "@id": "https://w3id.org/laderr#incident"
+            "@id": "https://w3id.org/laderr#Asset"
           },
           {
-            "@id": "https://w3id.org/laderr#operational"
+            "@id": "https://w3id.org/laderr#Control"
+          },
+          {
+            "@id": "https://w3id.org/laderr#Threat"
           }
         ]
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/title",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b16",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#capabilities"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/laderr#Capability"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/mod#repository",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/creator",
+    "@id": "http://xmlns.com/foaf/0.1/mbox",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#inhibits",
+    "@id": "https://w3id.org/laderr#preserves",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "An Entity inhibits another if it has a Capability that disables a Vulnerability, while the inhibited Entity has a Capability that exploits the same Vulnerability."
+        "@value": "Indicates that a Resilience maintains the functionality and value of a Capability within a Scenario."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "https://w3id.org/laderr#Control"
+        "@id": "https://w3id.org/laderr#Resilience"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -1908,26 +784,12 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "inhibits"
+        "@value": "preserves"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/laderr#Threat"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2002/07/owl#versionInfo",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://orcid.org/0000-0003-0481-9745",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "Frederik Gailly"
+        "@id": "https://w3id.org/laderr#Capability"
       }
     ]
   },
@@ -1965,6 +827,133 @@
     ]
   },
   {
+    "@id": "https://w3id.org/laderr#ScenarioSituation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An enumeration defining the nature of a scenario as either 'operational' or 'incident', describing its temporal context."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "ScenarioSituation"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b27"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b27",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#oneOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/laderr#incident"
+          },
+          {
+            "@id": "https://w3id.org/laderr#operational"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#positiveDamage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Superclass for relationships that indicate a positive occurrence of damage. Encompasses relations where a Threat either can cause or has caused damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:canDamage (operational) or laderr:damaged (incident)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Threat"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "positiveDamage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Asset"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/contributor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr/ttl",
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "TTL serialization of the LaDeRR-Vocabulary."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#constructs",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Links a Specification to the Constructs it defines, including Scenarios and their components."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Specification"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "constructs"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Construct"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/laderr#Resilience",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -1993,13 +982,13 @@
     ],
     "http://www.w3.org/2002/07/owl#equivalentClass": [
       {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b17"
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b17"
       },
       {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b18"
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b18"
       },
       {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b19"
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b19"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#example": [
@@ -2016,7 +1005,7 @@
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b17",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b17",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -2032,7 +1021,7 @@
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b18",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b18",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -2048,7 +1037,7 @@
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b19",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b19",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -2060,6 +1049,363 @@
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
         "@id": "https://w3id.org/laderr#Vulnerability"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#capabilities",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Associates an Entity with the Capabilities it possesses."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "capabilities"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Capability"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/publisher",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#createdBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Indicates the creator of a LaDeRR Specification."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "createdBy"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+      }
+    ]
+  },
+  {
+    "@id": "https://orcid.org/0000-0003-0481-9745",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Frederik Gailly"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#example",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/dcat#version",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://www.flandersmake.be/",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://xmlns.com/foaf/0.1/Organization"
+    ],
+    "http://xmlns.com/foaf/0.1/homepage": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://www.flandersmake.be/"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/member": [
+      {
+        "@id": "https://orcid.org/0000-0001-9247-6150"
+      },
+      {
+        "@id": "https://orcid.org/0000-0003-0481-9745"
+      },
+      {
+        "@id": "https://orcid.org/0000-0003-2736-7817"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Flanders Make, Belgium"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/description",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#threatens",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Indicates that a Threat poses risk to an Asset by potentially exploiting its Vulnerabilities."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Threat"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "threatens"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Asset"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/name",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/license",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#Threat",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A Threat is an entity that can potentially cause harm to an Asset through its threat capabilities, by potentially exploiting the latter's Vulnerabilities."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Threat"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/laderr#Entity"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b40"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "en",
+        "@value": "A ransomware attack targeting hospital records is a Threat that endangers critical health information systems."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "Corresponds to the concept of Threat Object in ResiliOnt."
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b40",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#threatens"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/laderr#Asset"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#inhibits",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An Entity inhibits another if it has a Capability that disables a Vulnerability, while the inhibited Entity has a Capability that exploits the same Vulnerability."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Control"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "inhibits"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Threat"
+      }
+    ]
+  },
+  {
+    "@id": "https://orcid.org/0000-0002-3452-553X",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Giancarlo Guizzardi"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#negativeDamage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Superclass for relationships that indicate a negative occurrence of damage. Encompasses relations where a Threat either cannot cause or did not cause damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:cannotDamage (operational) or laderr:notDamaged (incident)"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Threat"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "negativeDamage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Asset"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#createdOn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Records the date and time when a LaDeRR Specification was created."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "createdOn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b48",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AllDisjointClasses"
+    ],
+    "http://www.w3.org/2002/07/owl#members": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/laderr#Disposition"
+          },
+          {
+            "@id": "https://w3id.org/laderr#Entity"
+          },
+          {
+            "@id": "https://w3id.org/laderr#Resilience"
+          }
+        ]
       }
     ]
   },
@@ -2104,14 +1450,14 @@
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#description",
+    "@id": "https://w3id.org/laderr#baseURI",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Human-readable explanation of a Construct or Specification."
+        "@value": "Defines the base URI of a LaDeRR Specification."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2122,70 +1468,24 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "description"
+        "@value": "baseURI"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
       }
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#disables",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "http://www.w3.org/2002/07/owl#IrreflexiveProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Indicates that an enabled Capability changes the state of a Disposition (either a Capability or Vulnerability) to disabled, preventing it from being realized. This implies the disabler must be enabled and the target must have been previously enabled."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "https://w3id.org/laderr#Capability"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "disables"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#Disposition"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#example": [
-      {
-        "@language": "en",
-        "@value": "A water cooling system's capability of keeping temperatures below critical thresholds disables the 'overheat' vulnerability in a server rack."
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/mbox",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#damaged",
+    "@id": "https://w3id.org/laderr#canDamage",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Indicates that a Threat caused value loss to an Asset in an incident Scenario."
+        "@value": "Indicates that a Threat can cause value loss to an Asset in an operational Scenario."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -2201,7 +1501,7 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "damaged"
+        "@value": "canDamage"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -2212,6 +1512,204 @@
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
       {
         "@id": "https://w3id.org/laderr#positiveDamage"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#components",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Links a Scenario to the ScenarioComponents it is composed of, such as Entities, Dispositions, and Resilience constructs."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Scenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "components"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#ScenarioComponent"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "https://w3id.org/laderr#scenarios"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#protects",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables a Vulnerability that Threats might exploit."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Control"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "protects"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Asset"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#state",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Defines whether a Disposition (Capability or Vulnerability) is active (enabled) or inactive (disabled). The state determines its eligibility for, e.g., exploitation and disabling."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Disposition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "state"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#DispositionState"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#preservesAgainst",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Indicates that a Resilience maintains a Capability’s function despite the presence of a Threat's Capability that could exploit a Vulnerability."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Resilience"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "preservesAgainst"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Capability"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#Vulnerability",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A disposition of an Entity that may be exploited by Threats, potentially leading to harm."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Vulnerability"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/laderr#Disposition"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b41"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "en",
+        "@value": "Outdated software in a system is a Vulnerability that exposes it to cyberattacks."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "Corresponds to the concept of Vulnerability in ResiliOnt."
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b41",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#exposes"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/laderr#Capability"
       }
     ]
   },
@@ -2249,40 +1747,14 @@
     ]
   },
   {
-    "@id": "http://xmlns.com/foaf/0.1/member",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/publisher",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://orcid.org/0000-0001-9247-6150",
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-        "@value": "Geert Poels"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#createdOn",
+    "@id": "https://w3id.org/laderr#description",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Records the date and time when a LaDeRR Specification was created."
+        "@value": "Human-readable explanation of a Construct or Specification."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2293,30 +1765,53 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "createdOn"
+        "@value": "description"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
       }
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/dcat#landingPage",
+    "@id": "https://w3id.org/laderr#resilient",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/laderr#ScenarioStatus"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A scenario type where resiliences are sufficient to prevent threats from causing damage."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "resilient"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#differentFrom": [
+      {
+        "@id": "https://w3id.org/laderr#vulnerable"
+      }
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#Asset",
+    "@id": "https://w3id.org/laderr#Scenario",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "An Asset represents an entity that has value and is subject to potential risks and threats."
+        "@value": "Represents a present or past situation (operational or incident, respectively) in which Entities and their Dispositions interact, allowing the evaluation of resilience conditions."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2327,123 +1822,104 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Asset"
+        "@value": "Scenario"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/laderr#Entity"
+        "@id": "https://w3id.org/laderr#Construct"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b20"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b21"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b22"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#disjointWith": [
+      {
+        "@id": "https://w3id.org/laderr#ScenarioComponent"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#example": [
       {
         "@language": "en",
-        "@value": "A museum's ancient manuscript collection is an Asset because it holds historical and cultural value that can be lost."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#note": [
-      {
-        "@language": "en",
-        "@value": "Corresponds to the concept of Object at Risk in ResiliOnt."
+        "@value": "The 'Heatwave Response' scenario models an operational situation in which entities like the Zebra Herd and Meerkat Sentinels act through enabled capabilities to prevent threats from causing damage, demonstrating a resilient condition."
       }
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b58",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b20",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AllDifferent"
+      "http://www.w3.org/2002/07/owl#Restriction"
     ],
-    "http://www.w3.org/2002/07/owl#distinctMembers": [
+    "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#resilient"
-          },
-          {
-            "@id": "https://w3id.org/laderr#vulnerable"
-          }
-        ]
+        "@id": "https://w3id.org/laderr#components"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "https://w3id.org/laderr#ScenarioComponent"
       }
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#incident",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b21",
     "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://w3id.org/laderr#ScenarioSituation"
+      "http://www.w3.org/2002/07/owl#Restriction"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2002/07/owl#onClass": [
       {
-        "@language": "en",
-        "@value": "Represents a scenario that has already occurred."
+        "@id": "https://w3id.org/laderr#ScenarioSituation"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+    "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "https://w3id.org/laderr"
+        "@id": "https://w3id.org/laderr#situation"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
       {
-        "@language": "en",
-        "@value": "incident"
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
       }
     ]
   },
   {
-    "@id": "http://xmlns.com/foaf/0.1/Organization",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b22",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#state",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#Restriction"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2002/07/owl#onClass": [
       {
-        "@language": "en",
-        "@value": "Defines whether a Disposition (Capability or Vulnerability) is active (enabled) or inactive (disabled). The state determines its eligibility for, e.g., exploitation and disabling."
+        "@id": "https://w3id.org/laderr#ScenarioStatus"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
+    "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "https://w3id.org/laderr#Disposition"
+        "@id": "https://w3id.org/laderr#status"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
       {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "state"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://w3id.org/laderr#DispositionState"
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/identifier",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#preserves",
+    "@id": "https://w3id.org/laderr#preservesDespite",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Indicates that a Resilience maintains the functionality and value of a Capability within a Scenario."
+        "@value": "Indicates that a Resilience ensures a Capability remains functional despite an existing Vulnerability exposing it."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -2459,12 +1935,12 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "preserves"
+        "@value": "preservesDespite"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://w3id.org/laderr#Capability"
+        "@id": "https://w3id.org/laderr#Vulnerability"
       }
     ]
   },
@@ -2498,6 +1974,237 @@
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "https://w3id.org/laderr#Resilience"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#disabled",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://w3id.org/laderr#DispositionState"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Represents a DispositionState where a Capability or Vulnerability is inactive and cannot influence the system. A disabled Disposition cannot exert its effect until it is re-enabled."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "disabled"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#differentFrom": [
+      {
+        "@id": "https://w3id.org/laderr#enabled"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "en",
+        "@value": "A system’s temperature alarm is 'disabled' during maintenance, preventing it from influencing calculations."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#ScenarioStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Represents the resilience status of a scenario, which can be either 'vulnerable' or 'resilient'."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "ScenarioStatus"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b30"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b30",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#oneOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/laderr#resilient"
+          },
+          {
+            "@id": "https://w3id.org/laderr#vulnerable"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#Disposition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions. It must be enabled in a scenario to exert influence and may be disabled by another Capability."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Disposition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/laderr#ScenarioComponent"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b5"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b8"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "Corresponds to the concept of Disposition in ResiliOnt."
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b5",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "https://w3id.org/laderr#Capability"
+          },
+          {
+            "@id": "https://w3id.org/laderr#Vulnerability"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "https://w3id.org/laderr#DispositionState"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#state"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://ugent-businessinformatics.github.io/",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://xmlns.com/foaf/0.1/Organization"
+    ],
+    "http://xmlns.com/foaf/0.1/homepage": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "@value": "https://ugent-businessinformatics.github.io/"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/member": [
+      {
+        "@id": "https://orcid.org/0000-0001-9247-6150"
+      },
+      {
+        "@id": "https://orcid.org/0000-0003-0481-9745"
+      },
+      {
+        "@id": "https://orcid.org/0000-0003-2736-7817"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "UGent Business Informatics, Ghent University, Belgium"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/homepage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#exposes",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Defines that a Vulnerability exposes a Capability, making it susceptible to threats."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Vulnerability"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "exposes"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Capability"
       }
     ]
   },
@@ -2568,14 +2275,26 @@
     ]
   },
   {
-    "@id": "https://w3id.org/laderr#Entity",
+    "@id": "http://purl.org/dc/terms/modified",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#disables",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/2002/07/owl#IrreflexiveProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "An Entity is a core participant in a Scenario, encompassing Assets, Threats, and Controls. Entities typically possess Capabilities and may have Vulnerabilities. They can protect, threaten, or inhibit others, depending on how their internal Dispositions are enabled. These interactions are derived from the interplay between their capabilities and vulnerabilities."
+        "@value": "Indicates that an enabled Capability changes the state of a Disposition (either a Capability or Vulnerability) to disabled, preventing it from being realized. This implies the disabler must be enabled and the target must have been previously enabled."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Capability"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -2586,63 +2305,371 @@
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Entity"
+        "@value": "disables"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Disposition"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "en",
+        "@value": "A water cooling system's capability of keeping temperatures below critical thresholds disables the 'overheat' vulnerability in a server rack."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#scenarios",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Links a ScenarioComponent to the Scenarios they are part of."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#ScenarioComponent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "scenarios"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#Scenario"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/language",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#Specification",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A structured document that defines one or more resilience scenarios, including constructs such as assets, threats, controls, and their interactions in specific operational or incident situations."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Specification"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "https://w3id.org/laderr#ScenarioComponent"
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b33"
       },
       {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b16"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b34"
+      },
       {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b12"
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b35"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b36"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b37"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b38"
+      },
+      {
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b39"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#note": [
+    "http://www.w3.org/2004/02/skos/core#example": [
       {
         "@language": "en",
-        "@value": "Corresponds to the concept of Value Object in ResiliOnt."
+        "@value": "The 'Savannah Animal Survival Resilience Model' specification defines a structured model with scenarios like 'Dry Season Survival' and 'Heatwave Response', including constructs such as threats, capabilities, vulnerabilities, and resiliences for ecological analysis."
       }
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b12",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#Asset"
-          },
-          {
-            "@id": "https://w3id.org/laderr#Control"
-          },
-          {
-            "@id": "https://w3id.org/laderr#Threat"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b16",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b33",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "https://w3id.org/laderr#capabilities"
+        "@id": "https://w3id.org/laderr#createdBy"
       }
     ],
     "http://www.w3.org/2002/07/owl#someValuesFrom": [
       {
-        "@id": "https://w3id.org/laderr#Capability"
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b34",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#baseURI"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b35",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#createdOn"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b36",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#title"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b37",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#maxQualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#description"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b38",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#maxQualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#modifiedOn"
+      }
+    ]
+  },
+  {
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b39",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#maxQualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://w3id.org/laderr#version"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr/git",
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Repository for the LaDeRR DSL."
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/logo",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/member",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#Asset",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An Asset represents an entity that has value and is subject to potential risks and threats."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Asset"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "https://w3id.org/laderr#Entity"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#example": [
+      {
+        "@language": "en",
+        "@value": "A museum's ancient manuscript collection is an Asset because it holds historical and cultural value that can be lost."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "Corresponds to the concept of Object at Risk in ResiliOnt."
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/vocab/vann/preferredNamespacePrefix",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://orcid.org/0000-0001-9247-6150",
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+        "@value": "Geert Poels"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/dcat#keyword",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "https://w3id.org/laderr#situation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Associates a Scenario with a ScenarioSituation describing whether it is operational or an incident."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "https://w3id.org/laderr#Scenario"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/laderr"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "situation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://w3id.org/laderr#ScenarioSituation"
       }
     ]
   },
@@ -2708,17 +2735,17 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b4"
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b4"
       }
     ],
     "http://www.w3.org/2002/07/owl#equivalentClass": [
       {
-        "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b1"
+        "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b1"
       }
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b1",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b1",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -2736,7 +2763,7 @@
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b4",
+    "@id": "_:n35fcc6a47a8f472eb4df65e9e0a7b9b3b4",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -2758,81 +2785,9 @@
     ]
   },
   {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b42",
+    "@id": "http://purl.org/dc/terms/identifier",
     "@type": [
-      "http://www.w3.org/2002/07/owl#AllDisjointClasses"
-    ],
-    "http://www.w3.org/2002/07/owl#members": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#Construct"
-          },
-          {
-            "@id": "https://w3id.org/laderr#DispositionState"
-          },
-          {
-            "@id": "https://w3id.org/laderr#ScenarioSituation"
-          },
-          {
-            "@id": "https://w3id.org/laderr#ScenarioStatus"
-          },
-          {
-            "@id": "https://w3id.org/laderr#Specification"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:n2547adcb7a364616ab6df8f6aa40ce15b48",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AllDisjointClasses"
-    ],
-    "http://www.w3.org/2002/07/owl#members": [
-      {
-        "@list": [
-          {
-            "@id": "https://w3id.org/laderr#Disposition"
-          },
-          {
-            "@id": "https://w3id.org/laderr#Entity"
-          },
-          {
-            "@id": "https://w3id.org/laderr#Resilience"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/laderr#enabled",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://w3id.org/laderr#DispositionState"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Represents a DispositionState where a Capability or Vulnerability is active and can influence the system. An enabled Capability can, e.g., sustain a resilience, while an enabled Vulnerability can be exploited by threats."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-        "@id": "https://w3id.org/laderr"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "enabled"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#example": [
-      {
-        "@language": "en",
-        "@value": "A drone's surveillance Capability is 'enabled' during a mission, allowing it to sustain communication."
-      }
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   }
 ]
