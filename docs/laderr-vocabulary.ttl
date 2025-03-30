@@ -1,132 +1,147 @@
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix laderr: <https://w3id.org/laderr#> .
-@prefix mod: <https://w3id.org/mod#> .
+@prefix : <https://w3id.org/laderr#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/laderr#> .
 
 <https://w3id.org/laderr#> rdf:type owl:Ontology ;
-                           dcat:version "0.7.1" ;
-                           dct:contributor <https://orcid.org/0000-0001-9247-6150> ,
-                                           <https://orcid.org/0000-0002-3452-553X> ,
-                                           <https://orcid.org/0000-0003-0481-9745> ;
-                           dct:creator <https://orcid.org/0000-0003-2736-7817> ;
-                           dct:description "Implementation of the abstract syntax of the LaDeRR (Language for Describing Risk and Resilience) DSL (Domain Specific Language) in OWL. Used to standardize the language's vocabulary and as schema for software use."@en ;
-                           dct:identifier "https://w3id.org/laderr"^^xsd:string ;
-                           dct:issued "2025-01-14"^^xsd:date ;                           
-                           dct:language "en"^^xsd:language ;
-                           dct:license <https://www.apache.org/licenses/LICENSE-2.0> ;
-                           dct:modified "2025-03-13"^^xsd:date ;
-                           dct:publisher <https://ugent-businessinformatics.github.io/> ,
-                                         <https://www.flandersmake.be/> ,
-                                         <https://www.utwente.nl/en/eemcs/scs/> ;
-                           dct:title "LaDeRR Vocabulary"@en ;
-                           vann:preferredNamespacePrefix "laderr" ;
-                           vann:preferredNamespaceUri "https://w3id.org/laderr#"^^xsd:anyURI ;
-                           owl:versionInfo "First complete vocabulary for the LaDeRR DSL."@en ;
-                           dcat:keyword "laderr"@en , "DSL"@en ,
-                                        "resilience"@en ,
-                                        "risk"@en , "incident"@en ;
-                           dcat:landingPage <https://w3id.org/laderr/git> ;                           
-                           foaf:homepage <https://w3id.org/laderr> ;
-                           foaf:logo <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> ;
-                           mod:repository <https://w3id.org/laderr/git> .
+                            <http://purl.org/dc/terms/abstract> """LaDeRR Vocabulary is an OWL-based ontology designed to formally define the core concepts and relationships of Language for Describing Risk and Resilience (LaDeRR). Grounded in the ResiliOnt ontology, LaDeRR enables machine-readable representations of resilience scenarios.
 
-<https://w3id.org/laderr/ttl> rdfs:comment "TTL serialization of the LaDeRR-Vocabulary."@en .
-<https://w3id.org/laderr/git> rdfs:comment "Repository for the LaDeRR DSL."@en .
+This vocabulary provides a structured semantic framework to represent key resilience elements, including entities, capabilities, vulnerabilities, threats, dispositions, controls, and resilience. It incorporates logical constraints and derivation rules to ensure semantic correctness and facilitate automated reasoning.
 
+The LaDeRR Vocabulary is developed to support interoperability with domain-specific applications, enabling consistency in resilience assessments, decision support, and computational modeling. It is implemented in OWL 2 and follows best practices in ontology engineering to ensure extensibility and usability across various domains."""@en ;
+                            <http://purl.org/dc/terms/contributor> <https://orcid.org/0000-0001-9247-6150> ,
+                                                                   <https://orcid.org/0000-0002-3452-553X> ,
+                                                                   <https://orcid.org/0000-0003-0481-9745> ;
+                            <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0003-2736-7817> ;
+                            <http://purl.org/dc/terms/description> "OWL vocabulary for LaDeRR (Language for Describing Risk and Resilience), a domain-specific language for modeling risk and resilience scenarios. This vocabulary provides a canonical RDF-based serialization of the language, enabling publication, data exchange, and computational processing. It also serves as a schema to validate and support LaDeRR instances represented as RDF graphs."@en ;
+                            <http://purl.org/dc/terms/identifier> "https://w3id.org/laderr" ;
+                            <http://purl.org/dc/terms/issued> "2025-01-14"^^xsd:date ;
+                            <http://purl.org/dc/terms/language> "en"^^xsd:language ;
+                            <http://purl.org/dc/terms/license> <https://www.apache.org/licenses/LICENSE-2.0> ;
+                            <http://purl.org/dc/terms/modified> "2025-03-30"^^xsd:date ;
+                            <http://purl.org/dc/terms/publisher> <https://ugent-businessinformatics.github.io/> ,
+                                                                 <https://www.flandersmake.be/> ,
+                                                                 <https://www.utwente.nl/en/eemcs/scs/> ;
+                            <http://purl.org/dc/terms/title> "LaDeRR Vocabulary"@en ;
+                            <http://purl.org/vocab/vann/preferredNamespacePrefix> "laderr" ;
+                            <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/laderr#"^^xsd:anyURI ;
+                            owl:versionInfo "Vocabulary for the LaDeRR DSL. Resilience's definition updated."@en ;
+                            <http://www.w3.org/ns/dcat#keyword> "DSL"@en ,
+                                                                "incident"@en ,
+                                                                "laderr"@en ,
+                                                                "resilience"@en ,
+                                                                "risk"@en ;
+                            <http://www.w3.org/ns/dcat#landingPage> <https://w3id.org/laderr/git> ;
+                            <http://www.w3.org/ns/dcat#version> "0.8.3" ;
+                            <http://xmlns.com/foaf/0.1/homepage> <https://w3id.org/laderr> ;
+                            <http://xmlns.com/foaf/0.1/logo> <https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png> ;
+                            <https://w3id.org/mod#repository> <https://w3id.org/laderr/git> .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.org/dc/terms/contributor
-dct:contributor rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/creator
-dct:creator rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
-dct:description rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/identifier
-dct:identifier rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/identifier> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/issued
-dct:issued rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/language
-dct:language rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/language> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/license
-dct:license rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/modified
-dct:modified rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/publisher
-dct:publisher rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/title
-dct:title rdf:type owl:AnnotationProperty .
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespacePrefix
-vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
-vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
 
-
-###  http://www.w3.org/ns/dcat#keyword
-dcat:keyword rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/ns/dcat#landingPage
-dcat:landingPage rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/homepage
-foaf:homepage rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/mbox
-foaf:mbox rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/member
-foaf:member rdf:type owl:AnnotationProperty .
-
-
-###  http://xmlns.com/foaf/0.1/name
-foaf:name rdf:type owl:AnnotationProperty .
-
-###  http://www.w3.org/ns/dcat#version
-dcat:version rdf:type owl:AnnotationProperty .
-
-###  http://xmlns.com/foaf/0.1/logo
-foaf:logo rdf:type owl:AnnotationProperty .
-
-###  https://w3id.org/mod#repository
-mod:repository rdf:type owl:AnnotationProperty .
 
 ###  http://www.w3.org/2002/07/owl#versionInfo
 owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/dcat#keyword
+<http://www.w3.org/ns/dcat#keyword> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/dcat#landingPage
+<http://www.w3.org/ns/dcat#landingPage> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/dcat#version
+<http://www.w3.org/ns/dcat#version> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+<http://xmlns.com/foaf/0.1/homepage> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/logo
+<http://xmlns.com/foaf/0.1/logo> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+<http://xmlns.com/foaf/0.1/mbox> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/member
+<http://xmlns.com/foaf/0.1/member> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/mod#repository
+<https://w3id.org/mod#repository> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -141,170 +156,236 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
+###  https://w3id.org/laderr#canDamage
+:canDamage rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :positiveDamage ;
+           rdfs:domain :Threat ;
+           rdfs:range :Asset ;
+           rdfs:comment "Indicates that a Threat can cause value loss to an Asset in an operational Scenario."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "canDamage"@en .
+
+
+###  https://w3id.org/laderr#cannotDamage
+:cannotDamage rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :negativeDamage ;
+              rdfs:domain :Threat ;
+              rdfs:range :Asset ;
+              rdfs:comment "Indicates that a Threat cannot cause value loss to an Asset in an operational Scenario."@en ;
+              rdfs:isDefinedBy <https://w3id.org/laderr> ;
+              rdfs:label "cannotDamage"@en .
+
+
 ###  https://w3id.org/laderr#capabilities
-laderr:capabilities rdf:type owl:ObjectProperty ;
-                    rdfs:domain laderr:Entity ;
-                    rdfs:range laderr:Capability ;
-                    rdfs:comment "Associates an Entity with the Capabilities it possesses."@en ;
-                    rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                    rdfs:label "capabilities"@en .
+:capabilities rdf:type owl:ObjectProperty ;
+              rdfs:domain :Entity ;
+              rdfs:range :Capability ;
+              rdfs:comment "Associates an Entity with the Capabilities it possesses."@en ;
+              rdfs:isDefinedBy <https://w3id.org/laderr> ;
+              rdfs:label "capabilities"@en .
+
+
+###  https://w3id.org/laderr#components
+:components rdf:type owl:ObjectProperty ;
+            owl:inverseOf :scenarios ;
+            rdfs:domain :Scenario ;
+            rdfs:range :ScenarioComponent ;
+            rdfs:comment "Links a Scenario to the ScenarioComponents it is composed of, such as Entities, Dispositions, and Resilience constructs."@en ;
+            rdfs:isDefinedBy <https://w3id.org/laderr> ;
+            rdfs:label "components"@en .
 
 
 ###  https://w3id.org/laderr#constructs
-laderr:constructs rdf:type owl:ObjectProperty ;
-                  rdfs:domain laderr:LaderrSpecification ;
-                  rdfs:range laderr:LaderrConstruct ;
-                  rdfs:comment "Links a LaDeRR Specification to its associated constructs."@en ;
-                  rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                  rdfs:label "constructs"@en .
+:constructs rdf:type owl:ObjectProperty ;
+            rdfs:domain :Specification ;
+            rdfs:range :Construct ;
+            rdfs:comment "Links a Specification to the Constructs it defines, including Scenarios and their components."@en ;
+            rdfs:isDefinedBy <https://w3id.org/laderr> ;
+            rdfs:label "constructs"@en .
+
+
+###  https://w3id.org/laderr#damaged
+:damaged rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :positiveDamage ;
+         rdfs:domain :Threat ;
+         rdfs:range :Asset ;
+         rdfs:comment "Indicates that a Threat caused value loss to an Asset in an incident Scenario."@en ;
+         rdfs:isDefinedBy <https://w3id.org/laderr> ;
+         rdfs:label "damaged"@en .
 
 
 ###  https://w3id.org/laderr#disables
-laderr:disables rdf:type owl:ObjectProperty ,
-                         owl:IrreflexiveProperty ;
-                rdfs:domain laderr:Capability ;
-                rdfs:range laderr:Disposition ;
-                rdfs:comment "Indicates that a Capability disables a specific Disposition, preventing it from being realized."@en ;
-                rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                rdfs:label "disables"@en .
+:disables rdf:type owl:ObjectProperty ,
+                   owl:IrreflexiveProperty ;
+          rdfs:domain :Capability ;
+          rdfs:range :Disposition ;
+          rdfs:comment "Indicates that an enabled Capability changes the state of a Disposition (either a Capability or Vulnerability) to disabled, preventing it from being realized. This implies the disabler must be enabled and the target must have been previously enabled."@en ;
+          rdfs:isDefinedBy <https://w3id.org/laderr> ;
+          rdfs:label "disables"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> "A water cooling system's capability of keeping temperatures below critical thresholds disables the 'overheat' vulnerability in a server rack."@en .
 
 
 ###  https://w3id.org/laderr#exploits
-laderr:exploits rdf:type owl:ObjectProperty ;
-                rdfs:domain laderr:Capability ;
-                rdfs:range laderr:Vulnerability ;
-                rdfs:comment "Defines the relationship where a Capability exploits a Vulnerability, meaning that when both are enabled, the Capability can trigger an adverse event through the Vulnerability."@en ;
-                rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                rdfs:label "exploits"@en .
+:exploits rdf:type owl:ObjectProperty ;
+          rdfs:domain :Capability ;
+          rdfs:range :Vulnerability ;
+          rdfs:comment "Defines the relationship where a Capability exploits a Vulnerability, meaning that when both are enabled, the Capability can trigger an adverse event through the Vulnerability."@en ;
+          rdfs:isDefinedBy <https://w3id.org/laderr> ;
+          rdfs:label "exploits"@en .
 
 
 ###  https://w3id.org/laderr#exposes
-laderr:exposes rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf owl:topObjectProperty ;
-               rdfs:domain laderr:Vulnerability ;
-               rdfs:range laderr:Capability ;
-               rdfs:comment "Defines that a Vulnerability exposes a Capability, making it susceptible to threats."@en ;
-               rdfs:isDefinedBy <https://w3id.org/laderr> ;
-               rdfs:label "exposes"@en .
-
-
-###  https://w3id.org/laderr#failedToDamage
-laderr:failedToDamage rdf:type owl:ObjectProperty ;
-                      rdfs:domain laderr:Threat ;
-                      rdfs:range laderr:Asset ;
-                      rdfs:comment "Indicates that a Threat entity failed to damage an Asset because the Asset’s Vulnerability was disabled."@en ;
-                      rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                      rdfs:label "failedToDamage"@en .
+:exposes rdf:type owl:ObjectProperty ;
+         rdfs:domain :Vulnerability ;
+         rdfs:range :Capability ;
+         rdfs:comment "Defines that a Vulnerability exposes a Capability, making it susceptible to threats."@en ;
+         rdfs:isDefinedBy <https://w3id.org/laderr> ;
+         rdfs:label "exposes"@en .
 
 
 ###  https://w3id.org/laderr#inhibits
-laderr:inhibits rdf:type owl:ObjectProperty ;
-                rdfs:domain laderr:Control ;
-                rdfs:range laderr:Threat ;
-                rdfs:comment "An Entity inhibits another if it has a Capability that disables a Vulnerability, while the inhibited Entity has a Capability that exploits the same Vulnerability."@en ;
+:inhibits rdf:type owl:ObjectProperty ;
+          rdfs:domain :Control ;
+          rdfs:range :Threat ;
+          rdfs:comment "An Entity inhibits another if it has a Capability that disables a Vulnerability, while the inhibited Entity has a Capability that exploits the same Vulnerability."@en ;
+          rdfs:isDefinedBy <https://w3id.org/laderr> ;
+          rdfs:label "inhibits"@en .
+
+
+###  https://w3id.org/laderr#negativeDamage
+:negativeDamage rdf:type owl:ObjectProperty ;
+                rdfs:domain :Threat ;
+                rdfs:range :Asset ;
+                rdfs:comment "Superclass for relationships that indicate a negative occurrence of damage. Encompasses relations where a Threat either cannot cause or did not cause damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:cannotDamage (operational) or laderr:notDamaged (incident)"@en ;
                 rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                rdfs:label "inhibits"@en .
+                rdfs:label "negativeDamage"@en .
+
+
+###  https://w3id.org/laderr#notDamaged
+:notDamaged rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :negativeDamage ;
+            rdfs:domain :Threat ;
+            rdfs:range :Asset ;
+            rdfs:comment "Indicates that a Threat did not cause loss of value to an Asset in a Scenario with situation 'incident'."@en ;
+            rdfs:isDefinedBy <https://w3id.org/laderr> ;
+            rdfs:label "notDamaged"@en .
+
+
+###  https://w3id.org/laderr#positiveDamage
+:positiveDamage rdf:type owl:ObjectProperty ;
+                rdfs:domain :Threat ;
+                rdfs:range :Asset ;
+                rdfs:comment "Superclass for relationships that indicate a positive occurrence of damage. Encompasses relations where a Threat either can cause or has caused damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:canDamage (operational) or laderr:damaged (incident)"@en ;
+                rdfs:isDefinedBy <https://w3id.org/laderr> ;
+                rdfs:label "positiveDamage"@en .
 
 
 ###  https://w3id.org/laderr#preserves
-laderr:preserves rdf:type owl:ObjectProperty ;
-                 rdfs:domain laderr:Resilience ;
-                 rdfs:range laderr:Capability ;
-                 rdfs:comment "A Resilience preserves a Capability by ensuring it remains functional (i.e., it preserves the value of this capability)."@en ;
-                 rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                 rdfs:label "preserves"@en .
+:preserves rdf:type owl:ObjectProperty ;
+           rdfs:domain :Resilience ;
+           rdfs:range :Capability ;
+           rdfs:comment "Indicates that a Resilience maintains the functionality and value of a Capability within a Scenario."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "preserves"@en .
 
 
 ###  https://w3id.org/laderr#preservesAgainst
-laderr:preservesAgainst rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf owl:topObjectProperty ;
-                        rdfs:domain laderr:Resilience ;
-                        rdfs:range laderr:Capability ;
-                        rdfs:comment "Indicates that a Resilience  preserves an entity despite the presence of a Capability in a Threat that would otherwise exploit a vulnerability."@en ;
-                        rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                        rdfs:label "preservesAgainst"@en .
+:preservesAgainst rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Resilience ;
+                  rdfs:range :Capability ;
+                  rdfs:comment "Indicates that a Resilience maintains a Capability’s function despite the presence of a Threat's Capability that could exploit a Vulnerability."@en ;
+                  rdfs:isDefinedBy <https://w3id.org/laderr> ;
+                  rdfs:label "preservesAgainst"@en .
 
 
 ###  https://w3id.org/laderr#preservesDespite
-laderr:preservesDespite rdf:type owl:ObjectProperty ;
-                        rdfs:domain laderr:Resilience ;
-                        rdfs:range laderr:Vulnerability ;
-                        rdfs:comment "Indicates that a Resilience capability ensures the preservation of an Asset despite an existing Vulnerability on it."@en ;
-                        rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                        rdfs:label "preservesDespite"@en .
+:preservesDespite rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Resilience ;
+                  rdfs:range :Vulnerability ;
+                  rdfs:comment "Indicates that a Resilience ensures a Capability remains functional despite an existing Vulnerability exposing it."@en ;
+                  rdfs:isDefinedBy <https://w3id.org/laderr> ;
+                  rdfs:label "preservesDespite"@en .
 
 
 ###  https://w3id.org/laderr#protects
-laderr:protects rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf owl:topObjectProperty ;
-                rdfs:domain laderr:Control ;
-                rdfs:range laderr:Asset ;
-                rdfs:comment "Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables the relevant Vulnerability."@en ;
-                rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                rdfs:label "protects"@en .
+:protects rdf:type owl:ObjectProperty ;
+          rdfs:domain :Control ;
+          rdfs:range :Asset ;
+          rdfs:comment "Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables a Vulnerability that Threats might exploit."@en ;
+          rdfs:isDefinedBy <https://w3id.org/laderr> ;
+          rdfs:label "protects"@en .
 
 
 ###  https://w3id.org/laderr#resiliences
-laderr:resiliences rdf:type owl:ObjectProperty ;
-                   rdfs:domain laderr:Asset ;
-                   rdfs:range laderr:Resilience ;
-                   rdfs:comment "Links an Asset to its associated Resiliences."@en ;
-                   rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                   rdfs:label "resiliences"@en .
+:resiliences rdf:type owl:ObjectProperty ;
+             rdfs:domain :Asset ;
+             rdfs:range :Resilience ;
+             rdfs:comment "Links an Asset to its associated Resiliences."@en ;
+             rdfs:isDefinedBy <https://w3id.org/laderr> ;
+             rdfs:label "resiliences"@en .
 
 
-###  https://w3id.org/laderr#scenario
-laderr:scenario rdf:type owl:ObjectProperty ;
-                rdfs:domain laderr:LaderrSpecification ;
-                rdfs:range laderr:ScenarioType ;
-                rdfs:comment "Associates a LaDeRR Specification with a Scenario Type that describes its operational context."@en ;
-                rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                rdfs:label "scenario"@en .
+###  https://w3id.org/laderr#scenarios
+:scenarios rdf:type owl:ObjectProperty ;
+           rdfs:domain :ScenarioComponent ;
+           rdfs:range :Scenario ;
+           rdfs:comment "Links a ScenarioComponent to the Scenarios they are part of."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "scenarios"@en .
+
+
+###  https://w3id.org/laderr#situation
+:situation rdf:type owl:ObjectProperty ;
+           rdfs:domain :Scenario ;
+           rdfs:range :ScenarioSituation ;
+           rdfs:comment "Associates a Scenario with a ScenarioSituation describing whether it is operational or an incident."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "situation"@en .
 
 
 ###  https://w3id.org/laderr#state
-laderr:state rdf:type owl:ObjectProperty ;
-             rdfs:domain laderr:Disposition ;
-             rdfs:range laderr:DispositionState ;
-             rdfs:comment "Represents the current state of a Disposition, which can be either enabled or disabled."@en ;
-             rdfs:isDefinedBy <https://w3id.org/laderr> ;
-             rdfs:label "state"@en .
+:state rdf:type owl:ObjectProperty ;
+       rdfs:domain :Disposition ;
+       rdfs:range :DispositionState ;
+       rdfs:comment "Defines whether a Disposition (Capability or Vulnerability) is active (enabled) or inactive (disabled). The state determines its eligibility for, e.g., exploitation and disabling."@en ;
+       rdfs:isDefinedBy <https://w3id.org/laderr> ;
+       rdfs:label "state"@en .
 
 
-###  https://w3id.org/laderr#succeededToDamage
-laderr:succeededToDamage rdf:type owl:ObjectProperty ;
-                         rdfs:domain laderr:Threat ;
-                         rdfs:range laderr:Asset ;
-                         rdfs:comment "Indicates that a Threat entity successfully damaged an Asset by exploiting an enabled vulnerability in the Asset."@en ;
-                         rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                         rdfs:label "succeededToDamage"@en .
+###  https://w3id.org/laderr#status
+:status rdf:type owl:ObjectProperty ;
+        rdfs:domain :Scenario ;
+        rdfs:range :ScenarioStatus ;
+        rdfs:comment "Defines the resilience status of a Scenario: whether it cannot be damaged by threats (resilient) or not (vulnerable)."@en ;
+        rdfs:isDefinedBy <https://w3id.org/laderr> ;
+        rdfs:label "status"@en .
 
 
 ###  https://w3id.org/laderr#sustains
-laderr:sustains rdf:type owl:ObjectProperty ;
-                rdfs:domain laderr:Capability ;
-                rdfs:range laderr:Resilience ;
-                rdfs:comment "Represents the relationship between a Capability and a Resilience where the Capability enables the conditions necessary for the Resilience to exist."@en ;
-                rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                rdfs:label "sustains"@en .
+:sustains rdf:type owl:ObjectProperty ;
+          rdfs:domain :Capability ;
+          rdfs:range :Resilience ;
+          rdfs:comment "Represents the relationship between a Capability and a Resilience where the Capability enables the conditions necessary for the Resilience to exist."@en ;
+          rdfs:isDefinedBy <https://w3id.org/laderr> ;
+          rdfs:label "sustains"@en .
 
 
 ###  https://w3id.org/laderr#threatens
-laderr:threatens rdf:type owl:ObjectProperty ;
-                 rdfs:domain laderr:Threat ;
-                 rdfs:range laderr:Asset ;
-                 rdfs:comment "A Threat poses a potential risk to an Asset due to the presence of an exploitable Vulnerability in the latter."@en ;
-                 rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                 rdfs:label "threatens"@en .
+:threatens rdf:type owl:ObjectProperty ;
+           rdfs:domain :Threat ;
+           rdfs:range :Asset ;
+           rdfs:comment "Indicates that a Threat poses risk to an Asset by potentially exploiting its Vulnerabilities."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "threatens"@en .
 
 
 ###  https://w3id.org/laderr#vulnerabilities
-laderr:vulnerabilities rdf:type owl:ObjectProperty ;
-                       rdfs:domain laderr:Entity ;
-                       rdfs:range laderr:Vulnerability ;
-                       rdfs:comment "Associates an Entity with its Vulnerabilities, which may expose it to threats."@en ;
-                       rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                       rdfs:label "vulnerabilities"@en .
+:vulnerabilities rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Entity ;
+                 rdfs:range :Vulnerability ;
+                 rdfs:comment "Associates an Entity with its Vulnerabilities, which may expose it to threats."@en ;
+                 rdfs:isDefinedBy <https://w3id.org/laderr> ;
+                 rdfs:label "vulnerabilities"@en .
 
 
 #################################################################
@@ -312,60 +393,59 @@ laderr:vulnerabilities rdf:type owl:ObjectProperty ;
 #################################################################
 
 ###  https://w3id.org/laderr#baseURI
-laderr:baseURI rdf:type owl:DatatypeProperty ;
-               rdfs:range xsd:anyURI ;
-               rdfs:comment "Defines the base URI of a LaDeRR Specification."@en ;
-               rdfs:label "baseURI"@en .
+:baseURI rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:anyURI ;
+         rdfs:comment "Defines the base URI of a LaDeRR Specification."@en ;
+         rdfs:isDefinedBy <https://w3id.org/laderr> ;
+         rdfs:label "baseURI"@en .
 
 
 ###  https://w3id.org/laderr#createdBy
-laderr:createdBy rdf:type owl:DatatypeProperty ;
-                 rdfs:range xsd:string ;
-                 rdfs:comment "Indicates the creator of a LaDeRR Specification."@en ;
-                 rdfs:label "createdBy"@en .
+:createdBy rdf:type owl:DatatypeProperty ;
+           rdfs:range rdfs:Literal ;
+           rdfs:comment "Indicates the creator of a LaDeRR Specification."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "createdBy"@en .
 
 
 ###  https://w3id.org/laderr#createdOn
-laderr:createdOn rdf:type owl:DatatypeProperty ;
-                 rdfs:range xsd:dateTime ;
-                 rdfs:comment "Records the date and time when a LaDeRR Specification was created."@en ;
-                 rdfs:label "createdOn"@en .
+:createdOn rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:dateTime ;
+           rdfs:comment "Records the date and time when a LaDeRR Specification was created."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "createdOn"@en .
 
 
 ###  https://w3id.org/laderr#description
-laderr:description rdf:type owl:DatatypeProperty ;
-                   rdfs:range xsd:string ;
-                   rdfs:comment "A textual description providing details about a LaDeRR construct or specification."@en ;
-                   rdfs:label "description"@en .
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:range rdfs:Literal ;
+             rdfs:comment "Human-readable explanation of a Construct or Specification."@en ;
+             rdfs:isDefinedBy <https://w3id.org/laderr> ;
+             rdfs:label "description"@en .
 
 
 ###  https://w3id.org/laderr#modifiedOn
-laderr:modifiedOn rdf:type owl:DatatypeProperty ;
-                  rdfs:range xsd:dateTime ;
-                  rdfs:comment "Records the date and time when a LaDeRR Specification was last modified."@en ;
-                  rdfs:label "modifiedOn"@en .
-
-
-###  https://w3id.org/laderr#name
-laderr:name rdf:type owl:DatatypeProperty ;
-            rdfs:subPropertyOf owl:topDataProperty ;
-            rdfs:range xsd:string ;
-            rdfs:comment "The name assigned to a LaDeRR Construct."@en ;
-            rdfs:label "name"@en .
+:modifiedOn rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Records the date and time when a LaDeRR Specification was last modified."@en ;
+            rdfs:isDefinedBy <https://w3id.org/laderr> ;
+            rdfs:label "modifiedOn"@en .
 
 
 ###  https://w3id.org/laderr#title
-laderr:title rdf:type owl:DatatypeProperty ;
-             rdfs:range xsd:string ;
-             rdfs:comment "The title assigned to a LaDeRR Specification."@en ;
-             rdfs:label "title"@en .
+:title rdf:type owl:DatatypeProperty ;
+       rdfs:range rdfs:Literal ;
+       rdfs:comment "The title assigned to a LaDeRR Specification."@en ;
+       rdfs:isDefinedBy <https://w3id.org/laderr> ;
+       rdfs:label "title"@en .
 
 
 ###  https://w3id.org/laderr#version
-laderr:version rdf:type owl:DatatypeProperty ;
-               rdfs:range xsd:string ;
-               rdfs:comment "Specifies the version of a LaDeRR Specification."@en ;
-               rdfs:label "version"@en .
+:version rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Specifies the version of a LaDeRR Specification."@en ;
+         rdfs:isDefinedBy <https://w3id.org/laderr> ;
+         rdfs:label "version"@en .
 
 
 #################################################################
@@ -373,326 +453,408 @@ laderr:version rdf:type owl:DatatypeProperty ;
 #################################################################
 
 ###  http://xmlns.com/foaf/0.1/Organization
-foaf:Organization rdf:type owl:Class .
+<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class .
 
 
 ###  https://w3id.org/laderr#Asset
-laderr:Asset rdf:type owl:Class ;
-             rdfs:subClassOf laderr:Entity ;
-             rdfs:comment "An Asset represents an entity that has value and is subject to potential risks and threats."@en ;
-             rdfs:isDefinedBy <https://w3id.org/laderr> ;
-             rdfs:label "Asset"@en .
+:Asset rdf:type owl:Class ;
+       rdfs:subClassOf :Entity ;
+       rdfs:comment "An Asset represents an entity that has value and is subject to potential risks and threats."@en ;
+       rdfs:isDefinedBy <https://w3id.org/laderr> ;
+       rdfs:label "Asset"@en ;
+       <http://www.w3.org/2004/02/skos/core#example> "A museum's ancient manuscript collection is an Asset because it holds historical and cultural value that can be lost."@en ;
+       <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Object at Risk in ResiliOnt."@en .
 
 
 ###  https://w3id.org/laderr#Capability
-laderr:Capability rdf:type owl:Class ;
-                  rdfs:subClassOf laderr:Disposition ;
-                  rdfs:comment "A Capability is a disposition that enables an Entity to perform specific functions."@en ;
-                  rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                  rdfs:label "Capability"@en .
+:Capability rdf:type owl:Class ;
+            rdfs:subClassOf :Disposition ;
+            rdfs:comment "A Capability is a disposition that enables an Entity to perform specific functions."@en ;
+            rdfs:isDefinedBy <https://w3id.org/laderr> ;
+            rdfs:label "Capability"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> "A drone's night-vision camera is a Capability enabling surveillance in low-light rescue operations."@en ;
+            <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Capability in ResiliOnt."@en .
+
+
+###  https://w3id.org/laderr#Construct
+:Construct rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Scenario
+                                               :ScenarioComponent
+                                             )
+                               ] ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :description ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ;
+           rdfs:comment "An abstract class encompassing both Scenarios and ScenarioComponents. I.e., any instantiable construct expressible in a LaDeRR specification."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "Construct"@en .
 
 
 ###  https://w3id.org/laderr#Control
-laderr:Control rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty laderr:inhibits ;
-                                     owl:someValuesFrom laderr:Threat
-                                   ] ;
-               rdfs:subClassOf laderr:Entity ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty laderr:protects ;
-                                 owl:someValuesFrom laderr:Asset
-                               ] ;
-               rdfs:comment "A Control is an Entity that mitigates risks by inhibiting Threats and protecting Assets through its Capabilities."@en ;
-               rdfs:isDefinedBy <https://w3id.org/laderr> ;
-               rdfs:label "Control"@en .
+:Control rdf:type owl:Class ;
+         rdfs:subClassOf :Entity ;
+         rdfs:comment "A Control is an Entity that protects Assets by inhibiting threats (e.g., through disabling vulnerabilities)."@en ;
+         rdfs:isDefinedBy <https://w3id.org/laderr> ;
+         rdfs:label "Control"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> "A fire suppression system in a data center acts as a Control that inhibits fire-related threats and protects the servers."@en ;
+         <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Risk Inhibitor in ResiliOnt."@en .
 
 
 ###  https://w3id.org/laderr#Disposition
-laderr:Disposition rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Class ;
-                                         owl:unionOf ( laderr:Capability
-                                                       laderr:Vulnerability
-                                                     )
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty laderr:state ;
-                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onClass laderr:DispositionState
-                                       ] ;
-                   rdfs:subClassOf laderr:LaderrConstruct ;
-                   rdfs:comment "A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions."@en ;
-                   rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                   rdfs:label "Disposition"@en .
+:Disposition rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Class ;
+                                   owl:unionOf ( :Capability
+                                                 :Vulnerability
+                                               )
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :state ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :DispositionState
+                                 ] ;
+             rdfs:subClassOf :ScenarioComponent ;
+             rdfs:comment "A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions. It must be enabled in a scenario to exert influence and may be disabled by another Capability."@en ;
+             rdfs:isDefinedBy <https://w3id.org/laderr> ;
+             rdfs:label "Disposition"@en ;
+             <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Disposition in ResiliOnt."@en .
 
 
 ###  https://w3id.org/laderr#DispositionState
-laderr:DispositionState rdf:type owl:Class ;
-                        owl:equivalentClass [ rdf:type owl:Class ;
-                                              owl:oneOf ( laderr:disabled
-                                                          laderr:enabled
-                                                        )
-                                            ] ;
-                        rdfs:comment "Represents the state of a Disposition, which can be either ENABLED or DISABLED, determining whether it can be realized in a given scenario."@en ;
-                        rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                        rdfs:label "DispositionState"@en .
+:DispositionState rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:oneOf ( :disabled
+                                                    :enabled
+                                                  )
+                                      ] ;
+                  rdfs:comment "Represents the state of a Disposition, which can be either ENABLED or DISABLED, determining whether it can be realized in a given scenario."@en ;
+                  rdfs:isDefinedBy <https://w3id.org/laderr> ;
+                  rdfs:label "DispositionState"@en ;
+                  <http://www.w3.org/2004/02/skos/core#example> "During a system check, a sensor’s 'motion detection' feature might be in the DISABLED state to avoid false alarms."@en .
 
 
 ###  https://w3id.org/laderr#Entity
-laderr:Entity rdf:type owl:Class ;
-              owl:equivalentClass [ rdf:type owl:Class ;
-                                    owl:unionOf ( laderr:Asset
-                                                  laderr:Control
-                                                  laderr:Threat
-                                                )
-                                  ] ;
-              rdfs:subClassOf laderr:LaderrConstruct ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty laderr:capabilities ;
-                                owl:someValuesFrom laderr:Capability
-                              ] ;
-              rdfs:comment "An Entity is a fundamental concept that encompasses assets, threats, and controls in the resilience domain."@en ;
-              rdfs:isDefinedBy <https://w3id.org/laderr> ;
-              rdfs:label "Entity"@en .
-
-
-###  https://w3id.org/laderr#LaderrConstruct
-laderr:LaderrConstruct rdf:type owl:Class ;
-                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                         owl:onProperty laderr:name ;
-                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onDataRange xsd:string
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty laderr:description ;
-                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                         owl:onDataRange xsd:string
-                                       ] ;
-                       rdfs:comment "A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts."@en ;
-                       rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                       rdfs:label "LaderrConstruct"@en .
-
-
-###  https://w3id.org/laderr#LaderrSpecification
-laderr:LaderrSpecification rdf:type owl:Class ;
-                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                 owl:onProperty laderr:scenario ;
-                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                 owl:onClass laderr:ScenarioType
-                                               ] ;
-                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                             owl:onProperty laderr:createdBy ;
-                                             owl:someValuesFrom xsd:string
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty laderr:baseURI ;
-                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onDataRange xsd:anyURI
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty laderr:createdOn ;
-                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onDataRange xsd:dateTime
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty laderr:title ;
-                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onDataRange xsd:string
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty laderr:description ;
-                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onDataRange xsd:string
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty laderr:modifiedOn ;
-                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onDataRange xsd:dateTime
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty laderr:version ;
-                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onDataRange xsd:string
-                                           ] ;
-                           rdfs:comment "A specification document that defines a structured resilience model, including assets, threats, and controls."@en ;
-                           rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                           rdfs:label "LaderrSpecification"@en .
+:Entity rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( :Asset
+                                            :Control
+                                            :Threat
+                                          )
+                            ] ;
+        rdfs:subClassOf :ScenarioComponent ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :capabilities ;
+                          owl:someValuesFrom :Capability
+                        ] ;
+        rdfs:comment "An Entity is a core participant in a Scenario, encompassing Assets, Threats, and Controls. Entities typically possess Capabilities and may have Vulnerabilities. They can protect, threaten, or inhibit others, depending on how their internal Dispositions are enabled. These interactions are derived from the interplay between their capabilities and vulnerabilities."@en ;
+        rdfs:isDefinedBy <https://w3id.org/laderr> ;
+        rdfs:label "Entity"@en ;
+        <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Value Object in ResiliOnt."@en .
 
 
 ###  https://w3id.org/laderr#Resilience
-laderr:Resilience rdf:type owl:Class ;
-                  owl:equivalentClass [ rdf:type owl:Restriction ;
-                                        owl:onProperty laderr:preserves ;
-                                        owl:someValuesFrom laderr:Capability
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty laderr:preservesAgainst ;
-                                        owl:someValuesFrom laderr:Capability
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty laderr:preservesDespite ;
-                                        owl:someValuesFrom laderr:Vulnerability
-                                      ] ;
-                  rdfs:subClassOf laderr:LaderrConstruct ;
-                  rdfs:comment "Resilience is a capability that preserves an entity's value despite vulnerabilities, preventing threats from causing damage."@en ;
-                  rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                  rdfs:label "Resilience"@en .
+:Resilience rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :preserves ;
+                                  owl:someValuesFrom :Capability
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :preservesAgainst ;
+                                  owl:someValuesFrom :Capability
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :preservesDespite ;
+                                  owl:someValuesFrom :Vulnerability
+                                ] ;
+            rdfs:subClassOf :ScenarioComponent ;
+            rdfs:comment "Resilience maintains the function of Capabilities despite the presence of Vulnerabilities and threats that could exploit them, thereby contributing to the preservation of asset value within a Scenario. It emerges when an Entity possesses a Capability that disables a Vulnerability exposing another Capability, while another Entity has a Capability that could exploit that same Vulnerability."@en ;
+            rdfs:isDefinedBy <https://w3id.org/laderr> ;
+            rdfs:label "Resilience"@en ;
+            <http://www.w3.org/2004/02/skos/core#example> "A zebra herd maintains coordinated movement through its navigation Capability, which is preserved against predator threats and despite heat exhaustion vulnerabilities."@en ;
+            <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Resilience in ResiliOnt."@en .
 
 
-###  https://w3id.org/laderr#ScenarioType
-laderr:ScenarioType rdf:type owl:Class ;
-                    owl:equivalentClass [ rdf:type owl:Class ;
-                                          owl:oneOf ( laderr:incident
-                                                      laderr:not_resilient
-                                                      laderr:operational
-                                                      laderr:resilient
-                                                    )
-                                        ] ;
-                    rdfs:comment "An enumeration defining different scenario types, including operational, incident, resilient, and not_resilient."@en ;
-                    rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                    rdfs:label "ScenarioType"@en .
+###  https://w3id.org/laderr#Scenario
+:Scenario rdf:type owl:Class ;
+          rdfs:subClassOf :Construct ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :components ;
+                            owl:someValuesFrom :ScenarioComponent
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :situation ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :ScenarioSituation
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :status ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :ScenarioStatus
+                          ] ;
+          owl:disjointWith :ScenarioComponent ;
+          rdfs:comment "Represents a present or past situation (operational or incident, respectively) in which Entities and their Dispositions interact, allowing the evaluation of resilience conditions."@en ;
+          rdfs:isDefinedBy <https://w3id.org/laderr> ;
+          rdfs:label "Scenario"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> "The 'Heatwave Response' scenario models an operational situation in which entities like the Zebra Herd and Meerkat Sentinels act through enabled capabilities to prevent threats from causing damage, demonstrating a resilient condition."@en .
+
+
+###  https://w3id.org/laderr#ScenarioComponent
+:ScenarioComponent rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:unionOf ( :Disposition
+                                                       :Entity
+                                                       :Resilience
+                                                     )
+                                       ] ;
+                   rdfs:subClassOf :Construct ;
+                   rdfs:comment "A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts."@en ;
+                   rdfs:isDefinedBy <https://w3id.org/laderr> ;
+                   rdfs:label "ScenarioComponent"@en .
+
+
+###  https://w3id.org/laderr#ScenarioSituation
+:ScenarioSituation rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:oneOf ( :incident
+                                                     :operational
+                                                   )
+                                       ] ;
+                   rdfs:comment "An enumeration defining the nature of a scenario as either 'operational' or 'incident', describing its temporal context."@en ;
+                   rdfs:isDefinedBy <https://w3id.org/laderr> ;
+                   rdfs:label "ScenarioSituation"@en .
+
+
+###  https://w3id.org/laderr#ScenarioStatus
+:ScenarioStatus rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:oneOf ( :resilient
+                                                  :vulnerable
+                                                )
+                                    ] ;
+                rdfs:comment "Represents the resilience status of a scenario, which can be either 'vulnerable' or 'resilient'."@en ;
+                rdfs:isDefinedBy <https://w3id.org/laderr> ;
+                rdfs:label "ScenarioStatus"@en .
+
+
+###  https://w3id.org/laderr#Specification
+:Specification rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :createdBy ;
+                                 owl:someValuesFrom xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :baseURI ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:anyURI
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :createdOn ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :title ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :description ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :modifiedOn ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :version ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ;
+               rdfs:comment "A structured document that defines one or more resilience scenarios, including constructs such as assets, threats, controls, and their interactions in specific operational or incident situations."@en ;
+               rdfs:isDefinedBy <https://w3id.org/laderr> ;
+               rdfs:label "Specification"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> "The 'Savannah Animal Survival Resilience Model' specification defines a structured model with scenarios like 'Dry Season Survival' and 'Heatwave Response', including constructs such as threats, capabilities, vulnerabilities, and resiliences for ecological analysis."@en .
 
 
 ###  https://w3id.org/laderr#Threat
-laderr:Threat rdf:type owl:Class ;
-              owl:equivalentClass [ rdf:type owl:Restriction ;
-                                    owl:onProperty laderr:threatens ;
-                                    owl:someValuesFrom laderr:Asset
-                                  ] ;
-              rdfs:subClassOf laderr:Entity ;
-              rdfs:comment "A Threat is an entity that can potentially cause harm to an Asset through its threat capabilities, by potentially exploiting the latter's Vulnerabilities."@en ;
-              rdfs:isDefinedBy <https://w3id.org/laderr> ;
-              rdfs:label "Threat"@en .
+:Threat rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :threatens ;
+                              owl:someValuesFrom :Asset
+                            ] ;
+        rdfs:subClassOf :Entity ;
+        rdfs:comment "A Threat is an entity that can potentially cause harm to an Asset through its threat capabilities, by potentially exploiting the latter's Vulnerabilities."@en ;
+        rdfs:isDefinedBy <https://w3id.org/laderr> ;
+        rdfs:label "Threat"@en ;
+        <http://www.w3.org/2004/02/skos/core#example> "A ransomware attack targeting hospital records is a Threat that endangers critical health information systems."@en ;
+        <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Threat Object in ResiliOnt."@en .
 
 
 ###  https://w3id.org/laderr#Vulnerability
-laderr:Vulnerability rdf:type owl:Class ;
-                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                           owl:onProperty laderr:exposes ;
-                                           owl:someValuesFrom laderr:Capability
-                                         ] ;
-                     rdfs:subClassOf laderr:Disposition ;
-                     rdfs:comment "A disposition of an Entity that may be exploited by Threats, potentially leading to harm."@en ;
-                     rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                     rdfs:label "Vulnerability"@en .
+:Vulnerability rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :exposes ;
+                                     owl:someValuesFrom :Capability
+                                   ] ;
+               rdfs:subClassOf :Disposition ;
+               rdfs:comment "A disposition of an Entity that may be exploited by Threats, potentially leading to harm."@en ;
+               rdfs:isDefinedBy <https://w3id.org/laderr> ;
+               rdfs:label "Vulnerability"@en ;
+               <http://www.w3.org/2004/02/skos/core#example> "Outdated software in a system is a Vulnerability that exposes it to cyberattacks."@en ;
+               <http://www.w3.org/2004/02/skos/core#note> "Corresponds to the concept of Vulnerability in ResiliOnt."@en .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
+###  https://ugent-businessinformatics.github.io/
+<https://ugent-businessinformatics.github.io/> rdf:type owl:NamedIndividual ,
+                                                        <http://xmlns.com/foaf/0.1/Organization> ;
+                                               <http://xmlns.com/foaf/0.1/homepage> "https://ugent-businessinformatics.github.io/"^^xsd:anyURI ;
+                                               <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0001-9247-6150> ,
+                                                                                  <https://orcid.org/0000-0003-0481-9745> ,
+                                                                                  <https://orcid.org/0000-0003-2736-7817> ;
+                                               <http://xmlns.com/foaf/0.1/name> "UGent Business Informatics, Ghent University, Belgium" .
+
+
 ###  https://w3id.org/laderr#disabled
-laderr:disabled rdf:type owl:NamedIndividual ,
-                         laderr:DispositionState ;
-                owl:differentFrom laderr:enabled ;
-                rdfs:comment "Represents a DispositionState where a Capability or Vulnerability is inactive and cannot influence the system. A disabled Disposition cannot exert its effect until it is re-enabled."@en ;
-                rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                rdfs:label "disabled"@en .
+:disabled rdf:type owl:NamedIndividual ,
+                   :DispositionState ;
+          rdfs:comment "Represents a DispositionState where a Capability or Vulnerability is inactive and cannot influence the system. A disabled Disposition cannot exert its effect until it is re-enabled."@en ;
+          rdfs:isDefinedBy <https://w3id.org/laderr> ;
+          rdfs:label "disabled"@en ;
+          <http://www.w3.org/2004/02/skos/core#example> "A system’s temperature alarm is 'disabled' during maintenance, preventing it from influencing calculations."@en .
 
 
 ###  https://w3id.org/laderr#enabled
-laderr:enabled rdf:type owl:NamedIndividual ,
-                        laderr:DispositionState ;
-               rdfs:comment "Represents a DispositionState where a Capability or Vulnerability is active and can influence the system. An enabled Capability can, e.g., sustain a resilience, while an enabled Vulnerability can be exploited by threats."@en ;
-               rdfs:isDefinedBy <https://w3id.org/laderr> ;
-               rdfs:label "enabled"@en .
+:enabled rdf:type owl:NamedIndividual ,
+                  :DispositionState ;
+         rdfs:comment "Represents a DispositionState where a Capability or Vulnerability is active and can influence the system. An enabled Capability can, e.g., sustain a resilience, while an enabled Vulnerability can be exploited by threats."@en ;
+         rdfs:isDefinedBy <https://w3id.org/laderr> ;
+         rdfs:label "enabled"@en ;
+         <http://www.w3.org/2004/02/skos/core#example> "A drone's surveillance Capability is 'enabled' during a mission, allowing it to sustain communication."@en .
 
 
 ###  https://w3id.org/laderr#incident
-laderr:incident rdf:type owl:NamedIndividual ,
-                         laderr:ScenarioType ;
-                rdfs:comment "A scenario type in which a disruptive event has occurred, and its impact is being assessed."@en ;
-                rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                rdfs:label "incident"@en .
-
-
-###  https://w3id.org/laderr#not_resilient
-laderr:not_resilient rdf:type owl:NamedIndividual ,
-                              laderr:ScenarioType ;
-                     rdfs:comment "A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss."@en ;
-                     rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                     rdfs:label "not_resilient"@en .
+:incident rdf:type owl:NamedIndividual ,
+                   :ScenarioSituation ;
+          rdfs:comment "Represents a scenario that has already occurred."@en ;
+          rdfs:isDefinedBy <https://w3id.org/laderr> ;
+          rdfs:label "incident"@en .
 
 
 ###  https://w3id.org/laderr#operational
-laderr:operational rdf:type owl:NamedIndividual ,
-                            laderr:ScenarioType ;
-                   rdfs:comment "A scenario type representing the system's current functioning, with or without threats and resiliences."@en ;
-                   rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                   rdfs:label "operational"@en .
+:operational rdf:type owl:NamedIndividual ,
+                      :ScenarioSituation ;
+             rdfs:comment "A scenario situation representing the system's current functioning, with or without threats and resiliences."@en ;
+             rdfs:isDefinedBy <https://w3id.org/laderr> ;
+             rdfs:label "operational"@en .
 
 
 ###  https://w3id.org/laderr#resilient
-laderr:resilient rdf:type owl:NamedIndividual ,
-                          laderr:ScenarioType ;
-                 rdfs:comment "A scenario type where resiliences are sufficient to prevent threats from causing damage."@en ;
-                 rdfs:isDefinedBy <https://w3id.org/laderr> ;
-                 rdfs:label "resilient"@en .
+:resilient rdf:type owl:NamedIndividual ,
+                    :ScenarioStatus ;
+           rdfs:comment "A scenario type where resiliences are sufficient to prevent threats from causing damage."@en ;
+           rdfs:isDefinedBy <https://w3id.org/laderr> ;
+           rdfs:label "resilient"@en .
 
 
-################################################################
-#    Annotation Individuals
-#################################################################
+###  https://w3id.org/laderr#vulnerable
+:vulnerable rdf:type owl:NamedIndividual ,
+                     :ScenarioStatus ;
+            rdfs:comment "A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss."@en ;
+            rdfs:isDefinedBy <https://w3id.org/laderr> ;
+            rdfs:label "vulnerable"@en .
 
-###  https://ugent-businessinformatics.github.io/
-<https://ugent-businessinformatics.github.io/> rdf:type foaf:Organization ;
-                                               foaf:homepage "https://ugent-businessinformatics.github.io/"^^xsd:anyURI ;
-                                               foaf:member <https://orcid.org/0000-0001-9247-6150> ,
-                                                           <https://orcid.org/0000-0003-0481-9745> ,
-                                                           <https://orcid.org/0000-0003-2736-7817> ;
-                                               foaf:name "UGent Business Informatics, Ghent University, Belgium" .
 
 ###  https://www.flandersmake.be/
-<https://www.flandersmake.be/> rdf:type foaf:Organization ;
-                               foaf:homepage "https://www.flandersmake.be/"^^xsd:anyURI ;
-                               foaf:member <https://orcid.org/0000-0001-9247-6150> ,
-                                           <https://orcid.org/0000-0003-0481-9745> ,
-                                           <https://orcid.org/0000-0003-2736-7817> ;
-                               foaf:name "Flanders Make, Belgium" .
+<https://www.flandersmake.be/> rdf:type owl:NamedIndividual ,
+                                        <http://xmlns.com/foaf/0.1/Organization> ;
+                               <http://xmlns.com/foaf/0.1/homepage> "https://www.flandersmake.be/"^^xsd:anyURI ;
+                               <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0001-9247-6150> ,
+                                                                  <https://orcid.org/0000-0003-0481-9745> ,
+                                                                  <https://orcid.org/0000-0003-2736-7817> ;
+                               <http://xmlns.com/foaf/0.1/name> "Flanders Make, Belgium" .
 
 
 ###  https://www.utwente.nl/en/eemcs/scs/
-<https://www.utwente.nl/en/eemcs/scs/> rdf:type foaf:Organization ;
-                                       foaf:homepage "https://www.utwente.nl/en/eemcs/scs/"^^xsd:anyURI ;
-                                       foaf:member <https://orcid.org/0000-0002-3452-553X> ,
-                                                   <https://orcid.org/0000-0003-2736-7817> ;
-                                       foaf:name "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" .
+<https://www.utwente.nl/en/eemcs/scs/> rdf:type owl:NamedIndividual ,
+                                                <http://xmlns.com/foaf/0.1/Organization> ;
+                                       <http://xmlns.com/foaf/0.1/homepage> "https://www.utwente.nl/en/eemcs/scs/"^^xsd:anyURI ;
+                                       <http://xmlns.com/foaf/0.1/member> <https://orcid.org/0000-0002-3452-553X> ,
+                                                                          <https://orcid.org/0000-0003-2736-7817> ;
+                                       <http://xmlns.com/foaf/0.1/name> "Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands" .
 
 
-<https://orcid.org/0000-0003-2736-7817> foaf:mbox "pedropaulofb@gmail.com" ;
-                                        foaf:name "Pedro Paulo Favato Barcelos" .
+#################################################################
+#    Annotations
+#################################################################
+
+<https://orcid.org/0000-0001-9247-6150> <http://xmlns.com/foaf/0.1/name> "Geert Poels" .
 
 
-<https://orcid.org/0000-0001-9247-6150> foaf:name "Geert Poels" .
-<https://orcid.org/0000-0002-3452-553X> foaf:name "Giancarlo Guizzardi" .
-<https://orcid.org/0000-0003-0481-9745> foaf:name "Frederik Gailly" .
+<https://orcid.org/0000-0002-3452-553X> <http://xmlns.com/foaf/0.1/name> "Giancarlo Guizzardi" .
+
+
+<https://orcid.org/0000-0003-0481-9745> <http://xmlns.com/foaf/0.1/name> "Frederik Gailly" .
+
+
+<https://orcid.org/0000-0003-2736-7817> <http://xmlns.com/foaf/0.1/mbox> "pedropaulofb@gmail.com" ;
+                                        <http://xmlns.com/foaf/0.1/name> "Pedro Paulo Favato Barcelos" .
+
+
+<https://w3id.org/laderr/git> rdfs:comment "Repository for the LaDeRR DSL."@en .
+
+
+<https://w3id.org/laderr/ttl> rdfs:comment "TTL serialization of the LaDeRR-Vocabulary."@en .
+
 
 #################################################################
 #    General axioms
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( laderr:Disposition
-                laderr:Entity
-                laderr:Resilience
+  owl:members ( :Construct
+                :DispositionState
+                :ScenarioSituation
+                :ScenarioStatus
+                :Specification
               )
 ] .
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( laderr:DispositionState
-                laderr:LaderrConstruct
-                laderr:LaderrSpecification
-                laderr:ScenarioType
+  owl:members ( :Disposition
+                :Entity
+                :Resilience
               )
 ] .
 
 
 [ rdf:type owl:AllDifferent ;
-  owl:distinctMembers ( laderr:incident
-                        laderr:not_resilient
-                        laderr:operational
-                        laderr:resilient
+  owl:distinctMembers ( :disabled
+                        :enabled
                       )
 ] .
 
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :incident
+                        :operational
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( :resilient
+                        :vulnerable
+                      )
+] .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

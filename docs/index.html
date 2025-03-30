@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="resources/primer.css" media="screen"/>
@@ -10,14 +10,13 @@
 <link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
 <link rel="stylesheet" href="resources/slider.css" media="screen"/>
 <meta name="color-scheme" content="dark light">
-<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
-	<dark-mode-toggle class="slider"></dark-mode-toggle>
-</div>
+<script type="module" src="resources/dark-mode-toggle.mjs"></script>
  <title>LaDeRR Vocabulary</title>
+ <meta name="robots" content="index,follow" />
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/laderr#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/laderr#","name":"LaDeRR Vocabulary", "headline":"Document describing the ontology https://w3id.org/laderr#", "dateReleased":"2025-01-14", "dateModified":"2025-03-12", "version":"First complete vocabulary for the LaDeRR DSL.", "license":"https://www.apache.org/licenses/LICENSE-2.0", "author":[{"@type":"Person","name":"Pedro Paulo Favato Barcelos","url":"https://orcid.org/0000-0003-2736-7817"}], "contributor":[{"@type":"Person","name":"Geert Poels","url":"https://orcid.org/0000-0001-9247-6150"},{"@type":"Person","name":"Giancarlo Guizzardi","url":"https://orcid.org/0000-0002-3452-553X"},{"@type":"Person","name":"Frederik Gailly","url":"https://orcid.org/0000-0003-0481-9745"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://w3id.org/laderr#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/laderr#","name":"LaDeRR Vocabulary", "headline":"LaDeRR Vocabulary is an OWL-based ontology designed to formally define the core concepts and relationships of Language for Describing Risk and Resilience (LaDeRR). Grounded in the ResiliOnt ontology, LaDeRR enables machine-readable representations of resilience scenarios. This vocabulary provides a structured semantic framework to represent key resilience elements, including entities, capabilities, vulnerabilities, threats, dispositions, controls, and resilience. It incorporates logical constraints and derivation rules to ensure semantic correctness and facilitate automated reasoning. The LaDeRR Vocabulary is developed to support interoperability with domain-specific applications, enabling consistency in resilience assessments, decision support, and computational modeling. It is implemented in OWL 2 and follows best practices in ontology engineering to ensure extensibility and usability across various domains.", "dateReleased":"Sun Mar 30 13:33:49 CEST 2025", "dateModified":"2025-03-30", "version":"Revised LaDeRR vocabulary with disjointness axioms, equivalent class definitions, renamed individuals and properties, and improved resilience constraints. Vocabulary structure aligned with OWL 2 best practices and updated semantics.", "license":"https://www.apache.org/licenses/LICENSE-2.0", "author":[{"@type":"Person","name":"Pedro Paulo Favato Barcelos","url":"https://orcid.org/0000-0003-2736-7817"}], "contributor":[{"@type":"Person","name":"Geert Poels","url":"https://orcid.org/0000-0001-9247-6150"},{"@type":"Person","name":"Giancarlo Guizzardi","url":"https://orcid.org/0000-0002-3452-553X"},{"@type":"Person","name":"Frederik Gailly","url":"https://orcid.org/0000-0003-0481-9745"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -62,19 +61,20 @@ $(function(){
   </head> 
 
 <body>
+   <a id="top"></a>
+   <div class="darkmode">
+      <dark-mode-toggle class="slider"></dark-mode-toggle>
+   </div>
 <div class="container">
 <div class="head">
 <h1>LaDeRR Vocabulary</h1>
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png" width="250/">
-<h2>Release: 2025-01-14</h2>
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/resources/logo_laderr.png"  alt="LaDeRR Logo" width="250/">
 
 
 <dl>
-<dt>Modified on: 2025-03-12</dt>
-<dt>Latest version:</dt>
-<dd><a href="https://w3id.org/laderr#">https://w3id.org/laderr#</a></dd>
+<dt>Modified on: 2025-03-30</dt>
 <dt>Revision:</dt>
-<dd>First complete vocabulary for the LaDeRR DSL.</dd>
+<dd>Revised LaDeRR vocabulary with disjointness axioms, equivalent class definitions, renamed individuals and properties, and improved resilience constraints. Vocabulary structure aligned with OWL 2 best practices and updated semantics.</dd>
 <dt>Issued on:</dt>
 <dd>2025-01-14</dd>
 <dt>Authors:</dt>
@@ -88,7 +88,7 @@ $(function(){
 <dd><a href="https://www.utwente.nl/en/eemcs/scs/">Semantics, Cybersecurity & Services (SCS), University of Twente, the Netherlands</a></dd>
 <dd><a href="https://www.flandersmake.be/">Flanders Make, Belgium</a></dd>
 <dt>Download serialization:</dt>
-<dd>The generation of all available formats was performed using RDFLib, with the TTL file serving as input.</dd>
+<dd>All serializations were generated using RDFLib, based on the TTL file as the input source.</dd>
 <dd>
     <span><a href="laderr-vocabulary.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a></span>
     <span><a href="laderr-vocabulary.n3" target="_blank"><img src="https://img.shields.io/badge/Format-N3-blue.svg" alt="N3" /></a></span>
@@ -101,9 +101,8 @@ $(function(){
 </dd>
 <dt>License:</dt><dd><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank"><img src="https://img.shields.io/badge/License-https://www.apache.org/licenses/LICENSE_2.0-blue.svg" alt="https://www.apache.org/licenses/LICENSE-2.0" /></a>
 </dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd>Pedro Paulo Favato Barcelos. LaDeRR Vocabulary. Revision: First complete vocabulary for the LaDeRR DSL..</dd>
+<dd>Barcelos, P. P. F., Gailly, F., Poels, G., & Guizzardi, G. (2025). LaDeRR Vocabulary Specification. https://github.com/pedropaulofb/laderr</dd>
 </dl>
-
 <hr/>
 </div>
 <div class="status">
@@ -111,43 +110,239 @@ $(function(){
 <span>LaDeRR Vocabulary Specification</span>
 </div>
 </div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
-  
-  **LaDeRR Vocabulary** is an OWL-based ontology designed to formally define the core concepts and relationships of **Language for Describing Risk and Resilience (LaDeRR)**. Grounded in the [ResiliOnt ontology](https://doi.org/10.1007/978-3-031-75872-0_21), LaDeRR enables machine-readable representations of resilience scenarios.
+**LaDeRR Vocabulary** is an OWL-based ontology designed to formally define the core concepts and relationships of **Language for Describing Risk and Resilience (LaDeRR)**. Grounded in the [ResiliOnt ontology](https://doi.org/10.1007/978-3-031-75872-0_21), LaDeRR enables machine-readable representations of resilience scenarios.
 
-  This vocabulary provides a structured semantic framework to represent key resilience elements, including entities, capabilities, vulnerabilities, threats, dispositions, controls, and resilience. It incorporates logical constraints and derivation rules to ensure semantic correctness and facilitate automated reasoning.
-
-  The LaDeRR Vocabulary is developed to support interoperability with domain-specific applications, enabling consistency in resilience assessments, decision support, and computational modeling. It is implemented in OWL 2 and follows best practices in ontology engineering to ensure extensibility and usability across various domains.
-
+This vocabulary provides a structured semantic framework to represent key resilience elements, including entities, capabilities, vulnerabilities, threats, dispositions, controls, and resilience. It incorporates logical constraints and derivation rules to ensure semantic correctness and facilitate automated reasoning.
+ 
+The LaDeRR Vocabulary is developed to support interoperability with domain-specific applications, enabling consistency in resilience assessments, decision support, and computational modeling. It is implemented in OWL 2 and follows best practices in ontology engineering to ensure extensibility and usability across various domains.</span>
 </div>
 <div id="toc"></div>  
 
-<!--DESCRIPTION SECTION-->
-    <div id="description"><h2 id="desc" class="list">LaDeRR Vocabulary: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">LaDeRR Vocabulary: Overview <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a>
+   </li>
+   <li>
+      <a href="#Capability" title="https://w3id.org/laderr#Capability">Capability</a>
+   </li>
+   <li>
+      <a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a>
+   </li>
+   <li>
+      <a href="#Control" title="https://w3id.org/laderr#Control">Control</a>
+   </li>
+   <li>
+      <a href="#Disposition" title="https://w3id.org/laderr#Disposition">Disposition</a>
+   </li>
+   <li>
+      <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a>
+   </li>
+   <li>
+      <a href="#Entity" title="https://w3id.org/laderr#Entity">Entity</a>
+   </li>
+   <li>
+      <a href="#Resilience" title="https://w3id.org/laderr#Resilience">Resilience</a>
+   </li>
+   <li>
+      <a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a>
+   </li>
+   <li>
+      <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a>
+   </li>
+   <li>
+      <a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a>
+   </li>
+   <li>
+      <a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a>
+   </li>
+   <li>
+      <a href="#Specification" title="https://w3id.org/laderr#Specification">Specification</a>
+   </li>
+   <li>
+      <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a>
+   </li>
+   <li>
+      <a href="#Vulnerability" title="https://w3id.org/laderr#Vulnerability">Vulnerability</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#canDamage" title="https://w3id.org/laderr#canDamage">canDamage</a>
+   </li>
+   <li>
+      <a href="#cannotDamage" title="https://w3id.org/laderr#cannotDamage">cannotDamage</a>
+   </li>
+   <li>
+      <a href="#capabilities" title="https://w3id.org/laderr#capabilities">capabilities</a>
+   </li>
+   <li>
+      <a href="#components" title="https://w3id.org/laderr#components">components</a>
+   </li>
+   <li>
+      <a href="#constructs" title="https://w3id.org/laderr#constructs">constructs</a>
+   </li>
+   <li>
+      <a href="#damaged" title="https://w3id.org/laderr#damaged">damaged</a>
+   </li>
+   <li>
+      <a href="#disables" title="https://w3id.org/laderr#disables">disables</a>
+   </li>
+   <li>
+      <a href="#exploits" title="https://w3id.org/laderr#exploits">exploits</a>
+   </li>
+   <li>
+      <a href="#exposes" title="https://w3id.org/laderr#exposes">exposes</a>
+   </li>
+   <li>
+      <a href="#inhibits" title="https://w3id.org/laderr#inhibits">inhibits</a>
+   </li>
+   <li>
+      <a href="#negativeDamage" title="https://w3id.org/laderr#negativeDamage">negativeDamage</a>
+   </li>
+   <li>
+      <a href="#notDamaged" title="https://w3id.org/laderr#notDamaged">notDamaged</a>
+   </li>
+   <li>
+      <a href="#positiveDamage" title="https://w3id.org/laderr#positiveDamage">positiveDamage</a>
+   </li>
+   <li>
+      <a href="#preserves" title="https://w3id.org/laderr#preserves">preserves</a>
+   </li>
+   <li>
+      <a href="#preservesAgainst" title="https://w3id.org/laderr#preservesAgainst">preservesAgainst</a>
+   </li>
+   <li>
+      <a href="#preservesDespite" title="https://w3id.org/laderr#preservesDespite">preservesDespite</a>
+   </li>
+   <li>
+      <a href="#protects" title="https://w3id.org/laderr#protects">protects</a>
+   </li>
+   <li>
+      <a href="#resiliences" title="https://w3id.org/laderr#resiliences">resiliences</a>
+   </li>
+   <li>
+      <a href="#scenarios" title="https://w3id.org/laderr#scenarios">scenarios</a>
+   </li>
+   <li>
+      <a href="#situation" title="https://w3id.org/laderr#situation">situation</a>
+   </li>
+   <li>
+      <a href="#state" title="https://w3id.org/laderr#state">state</a>
+   </li>
+   <li>
+      <a href="#status" title="https://w3id.org/laderr#status">status</a>
+   </li>
+   <li>
+      <a href="#sustains" title="https://w3id.org/laderr#sustains">sustains</a>
+   </li>
+   <li>
+      <a href="#threatens" title="https://w3id.org/laderr#threatens">threatens</a>
+   </li>
+   <li>
+      <a href="#vulnerabilities" title="https://w3id.org/laderr#vulnerabilities">vulnerabilities</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#baseURI" title="https://w3id.org/laderr#baseURI">baseURI</a>
+   </li>
+   <li>
+      <a href="#createdBy" title="https://w3id.org/laderr#createdBy">createdBy</a>
+   </li>
+   <li>
+      <a href="#createdOn" title="https://w3id.org/laderr#createdOn">createdOn</a>
+   </li>
+   <li>
+      <a href="#description" title="https://w3id.org/laderr#description">description</a>
+   </li>
+   <li>
+      <a href="#modifiedOn" title="https://w3id.org/laderr#modifiedOn">modifiedOn</a>
+   </li>
+   <li>
+      <a href="#title" title="https://w3id.org/laderr#title">title</a>
+   </li>
+   <li>
+      <a href="#version" title="https://w3id.org/laderr#version">version</a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#disabled" title="https://w3id.org/laderr#disabled">disabled</a>
+   </li>
+   <li>
+      <a href="#enabled" title="https://w3id.org/laderr#enabled">enabled</a>
+   </li>
+   <li>
+      <a href="#https://ugent-businessinformatics.github.io/" title="https://ugent-businessinformatics.github.io/">
+         <span>https://ugent-businessinformatics.github.io/</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://www.flandersmake.be/" title="https://www.flandersmake.be/">
+         <span>https://www.flandersmake.be/</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://www.utwente.nl/en/eemcs/scs/" title="https://www.utwente.nl/en/eemcs/scs/">
+         <span>https://www.utwente.nl/en/eemcs/scs/</span>
+      </a>
+   </li>
+   <li>
+      <a href="#incident" title="https://w3id.org/laderr#incident">incident</a>
+   </li>
+   <li>
+      <a href="#operational" title="https://w3id.org/laderr#operational">operational</a>
+   </li>
+   <li>
+      <a href="#resilient" title="https://w3id.org/laderr#resilient">resilient</a>
+   </li>
+   <li>
+      <a href="#vulnerable" title="https://w3id.org/laderr#vulnerable">vulnerable</a>
+   </li>
+</ul>
+</div>
+  
 
-<span class="markdown">Implementation of the abstract syntax of the LaDeRR (Language for Describing Risk and Resilience) DSL (Domain Specific Language) in OWL. Used to standardize the language's vocabulary and as schema for software use.</span></div>
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">LaDeRR Vocabulary: Description <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">OWL vocabulary for LaDeRR (Language for Describing Risk and Resilience), a domain-specific language for modeling risk and resilience scenarios. This vocabulary provides a canonical RDF-based serialization of the language, enabling publication, data exchange, and computational processing. It also serves as a schema to validate and support LaDeRR instances represented as RDF graphs.</span></div>
    
 
 <!--CROSSREF SECTION-->
-   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for LaDeRR Vocabulary classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for LaDeRR Vocabulary classes, object properties and data properties <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a></span></h2>
 This section provides details for each class and property defined by LaDeRR Vocabulary.
 <div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
  <h3 id="classes-headline" class="list">Classes</h3>
  <ul class="hlist">
   <li><a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a></li>
   <li><a href="#Capability" title="https://w3id.org/laderr#Capability">Capability</a></li>
+  <li><a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a></li>
   <li><a href="#Control" title="https://w3id.org/laderr#Control">Control</a></li>
   <li><a href="#Disposition" title="https://w3id.org/laderr#Disposition">Disposition</a></li>
   <li><a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a></li>
   <li><a href="#Entity" title="https://w3id.org/laderr#Entity">Entity</a></li>
-  <li><a href="#LaderrConstruct" title="https://w3id.org/laderr#LaderrConstruct">LaderrConstruct</a></li>
-  <li><a href="#LaderrSpecification" title="https://w3id.org/laderr#LaderrSpecification">LaderrSpecification</a></li>
   <li><a href="#Resilience" title="https://w3id.org/laderr#Resilience">Resilience</a></li>
-  <li><a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a></li>
+  <li><a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a></li>
+  <li><a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a></li>
+  <li><a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a></li>
+  <li><a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a></li>
+  <li><a href="#Specification" title="https://w3id.org/laderr#Specification">Specification</a></li>
   <li><a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a></li>
   <li><a href="#Vulnerability" title="https://w3id.org/laderr#Vulnerability">Vulnerability</a></li>
  </ul>
  <div class="entity" id="Asset">
-  <h3>Asset<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>Asset<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#Asset</p>
   <div class="comment">
    <span class="markdown">An Asset represents an entity that has value and is subject to potential risks and threats.</span>
@@ -158,6 +353,14 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dt>
    <dd>
     <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>A museum's ancient manuscript collection is an Asset because it holds historical and cultural value that can be lost.</pre>
    </dd>
   </dl>
   <dl class="description">
@@ -177,12 +380,12 @@ This section provides details for each class and property defined by LaDeRR Voca
     is in range of
    </dt>
    <dd>
-    <a href="#failedToDamage" title="https://w3id.org/laderr#failedToDamage">failedToDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#protects" title="https://w3id.org/laderr#protects">protects</a> <sup class="type-op" title="object property">op</sup>, <a href="#succeededToDamage" title="https://w3id.org/laderr#succeededToDamage">succeededToDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#threatens" title="https://w3id.org/laderr#threatens">threatens</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#canDamage" title="https://w3id.org/laderr#canDamage">canDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#cannotDamage" title="https://w3id.org/laderr#cannotDamage">cannotDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#damaged" title="https://w3id.org/laderr#damaged">damaged</a> <sup class="type-op" title="object property">op</sup>, <a href="#negativeDamage" title="https://w3id.org/laderr#negativeDamage">negativeDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#notDamaged" title="https://w3id.org/laderr#notDamaged">notDamaged</a> <sup class="type-op" title="object property">op</sup>, <a href="#positiveDamage" title="https://w3id.org/laderr#positiveDamage">positiveDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#protects" title="https://w3id.org/laderr#protects">protects</a> <sup class="type-op" title="object property">op</sup>, <a href="#threatens" title="https://w3id.org/laderr#threatens">threatens</a> <sup class="type-op" title="object property">op</sup>
    </dd>
   </dl>
  </div>
  <div class="entity" id="Capability">
-  <h3>Capability<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>Capability<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#Capability</p>
   <div class="comment">
    <span class="markdown">A Capability is a disposition that enables an Entity to perform specific functions.</span>
@@ -193,6 +396,14 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dt>
    <dd>
     <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>A drone's night-vision camera is a Capability enabling surveillance in low-light rescue operations.</pre>
    </dd>
   </dl>
   <dl class="description">
@@ -216,11 +427,11 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dd>
   </dl>
  </div>
- <div class="entity" id="Control">
-  <h3>Control<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#Control</p>
+ <div class="entity" id="Construct">
+  <h3>Construct<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#Construct</p>
   <div class="comment">
-   <span class="markdown">A Control is an Entity that mitigates risks by inhibiting Threats and protecting Assets through its Capabilities.</span>
+   <span class="markdown">An abstract class encompassing both Scenarios and ScenarioComponents. I.e., any instantiable construct expressible in a LaDeRR specification.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -235,8 +446,55 @@ This section provides details for each class and property defined by LaDeRR Voca
     is equivalent to
    </dt>
    <dd>
-    <a href="#inhibits" title="https://w3id.org/laderr#inhibits">inhibits</a> <sup class="type-op" title="object property">op</sup> <span class="logic">some</span> <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    has super-classes
+   </dt>
+   <dd></dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#constructs" title="https://w3id.org/laderr#constructs">constructs</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a> <sup class="type-c" title="class">c</sup>, <a href="#Specification" title="https://w3id.org/laderr#Specification">Specification</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Control">
+  <h3>Control<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#Control</p>
+  <div class="comment">
+   <span class="markdown">A Control is an Entity that protects Assets by inhibiting threats (e.g., through disabling vulnerabilities).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>A fire suppression system in a data center acts as a Control that inhibits fire-related threats and protects the servers.</pre>
+   </dd>
+  </dl>
+  <dl class="description">
    <dt>
     has super-classes
    </dt>
@@ -252,10 +510,10 @@ This section provides details for each class and property defined by LaDeRR Voca
   </dl>
  </div>
  <div class="entity" id="Disposition">
-  <h3>Disposition<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>Disposition<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#Disposition</p>
   <div class="comment">
-   <span class="markdown">A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions.</span>
+   <span class="markdown">A Disposition is a potential of an Entity to exhibit certain behaviors or effects under specific conditions. It must be enabled in a scenario to exert influence and may be disabled by another Capability.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -279,7 +537,7 @@ This section provides details for each class and property defined by LaDeRR Voca
     has super-classes
    </dt>
    <dd>
-    <a href="#LaderrConstruct" title="https://w3id.org/laderr#LaderrConstruct">LaderrConstruct</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -308,7 +566,7 @@ This section provides details for each class and property defined by LaDeRR Voca
   </dl>
  </div>
  <div class="entity" id="DispositionState">
-  <h3>DispositionState<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>DispositionState<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#DispositionState</p>
   <div class="comment">
    <span class="markdown">Represents the state of a Disposition, which can be either ENABLED or DISABLED, determining whether it can be realized in a given scenario.</span>
@@ -319,6 +577,14 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dt>
    <dd>
     <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>During a system check, a sensor’s 'motion detection' feature might be in the DISABLED state to avoid false alarms.</pre>
    </dd>
   </dl>
   <dl class="description">
@@ -344,15 +610,15 @@ This section provides details for each class and property defined by LaDeRR Voca
     is disjoint with
    </dt>
    <dd>
-    <a href="#LaderrConstruct" title="https://w3id.org/laderr#LaderrConstruct">LaderrConstruct</a> <sup class="type-c" title="class">c</sup>, <a href="#LaderrSpecification" title="https://w3id.org/laderr#LaderrSpecification">LaderrSpecification</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a> <sup class="type-c" title="class">c</sup>, <a href="#Specification" title="https://w3id.org/laderr#Specification">Specification</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
  <div class="entity" id="Entity">
-  <h3>Entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>Entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#Entity</p>
   <div class="comment">
-   <span class="markdown">An Entity is a fundamental concept that encompasses assets, threats, and controls in the resilience domain.</span>
+   <span class="markdown">An Entity is a core participant in a Scenario, encompassing Assets, Threats, and Controls. Entities typically possess Capabilities and may have Vulnerabilities. They can protect, threaten, or inhibit others, depending on how their internal Dispositions are enabled. These interactions are derived from the interplay between their capabilities and vulnerabilities.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -373,7 +639,7 @@ This section provides details for each class and property defined by LaDeRR Voca
     has super-classes
    </dt>
    <dd>
-    <a href="#LaderrConstruct" title="https://w3id.org/laderr#LaderrConstruct">LaderrConstruct</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     has sub-classes
@@ -395,89 +661,11 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dd>
   </dl>
  </div>
- <div class="entity" id="LaderrConstruct">
-  <h3>LaderrConstruct<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#LaderrConstruct</p>
-  <div class="comment">
-   <span class="markdown">A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    has super-classes
-   </dt>
-   <dd></dd>
-   <dt>
-    has sub-classes
-   </dt>
-   <dd>
-    <a href="#Disposition" title="https://w3id.org/laderr#Disposition">Disposition</a> <sup class="type-c" title="class">c</sup>, <a href="#Entity" title="https://w3id.org/laderr#Entity">Entity</a> <sup class="type-c" title="class">c</sup>, <a href="#Resilience" title="https://w3id.org/laderr#Resilience">Resilience</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    is in range of
-   </dt>
-   <dd>
-    <a href="#constructs" title="https://w3id.org/laderr#constructs">constructs</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
-    is disjoint with
-   </dt>
-   <dd>
-    <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>, <a href="#LaderrSpecification" title="https://w3id.org/laderr#LaderrSpecification">LaderrSpecification</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="LaderrSpecification">
-  <h3>LaderrSpecification<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#LaderrSpecification</p>
-  <div class="comment">
-   <span class="markdown">A specification document that defines a structured resilience model, including assets, threats, and controls.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    is equivalent to
-   </dt>
-   <dd>
-    <a href="#scenario" title="https://w3id.org/laderr#scenario">scenario</a> <sup class="type-op" title="object property">op</sup> <span class="logic">exactly</span> 1 <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-   <dt>
-    has super-classes
-   </dt>
-   <dd></dd>
-   <dt>
-    is in domain of
-   </dt>
-   <dd>
-    <a href="#constructs" title="https://w3id.org/laderr#constructs">constructs</a> <sup class="type-op" title="object property">op</sup>, <a href="#scenario" title="https://w3id.org/laderr#scenario">scenario</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
-    is disjoint with
-   </dt>
-   <dd>
-    <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>, <a href="#LaderrConstruct" title="https://w3id.org/laderr#LaderrConstruct">LaderrConstruct</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
  <div class="entity" id="Resilience">
-  <h3>Resilience<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>Resilience<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#Resilience</p>
   <div class="comment">
-   <span class="markdown">Resilience is a capability that preserves an entity's value despite vulnerabilities, preventing threats from causing damage.</span>
+   <span class="markdown">Resilience maintains the function of Capabilities despite the presence of Vulnerabilities and threats that could exploit them, thereby contributing to the preservation of asset value within a Scenario. It emerges when an Entity possesses a Capability that disables a Vulnerability exposing another Capability, while another Entity has a Capability that could exploit that same Vulnerability.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -485,6 +673,14 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dt>
    <dd>
     <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>A zebra herd maintains coordinated movement through its navigation Capability, which is preserved against predator threats and despite heat exhaustion vulnerabilities.</pre>
    </dd>
   </dl>
   <dl class="description">
@@ -504,7 +700,7 @@ This section provides details for each class and property defined by LaDeRR Voca
     has super-classes
    </dt>
    <dd>
-    <a href="#LaderrConstruct" title="https://w3id.org/laderr#LaderrConstruct">LaderrConstruct</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -526,11 +722,60 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dd>
   </dl>
  </div>
- <div class="entity" id="ScenarioType">
-  <h3>ScenarioType<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#ScenarioType</p>
+ <div class="entity" id="Scenario">
+  <h3>Scenario<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#Scenario</p>
   <div class="comment">
-   <span class="markdown">An enumeration defining different scenario types, including operational, incident, resilient, and not_resilient.</span>
+   <span class="markdown">Represents a present or past situation (operational or incident, respectively) in which Entities and their Dispositions interact, allowing the evaluation of resilience conditions.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>The 'Heatwave Response' scenario models an operational situation in which entities like the Zebra Herd and Meerkat Sentinels act through enabled capabilities to prevent threats from causing damage, demonstrating a resilient condition.</pre>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#components" title="https://w3id.org/laderr#components">components</a> <sup class="type-op" title="object property">op</sup>, <a href="#situation" title="https://w3id.org/laderr#situation">situation</a> <sup class="type-op" title="object property">op</sup>, <a href="#status" title="https://w3id.org/laderr#status">status</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#scenarios" title="https://w3id.org/laderr#scenarios">scenarios</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ScenarioComponent">
+  <h3>ScenarioComponent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#ScenarioComponent</p>
+  <div class="comment">
+   <span class="markdown">A base construct in the LaDeRR vocabulary, representing fundamental elements such as entities, their dispositions, and resilience concepts.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -545,30 +790,165 @@ This section provides details for each class and property defined by LaDeRR Voca
     is equivalent to
    </dt>
    <dd>
-    { <a href="#incident" title="https://w3id.org/laderr#incident">incident</a> <sup class="type-ni" title="named individual">ni</sup> , <a href="#not_resilient" title="https://w3id.org/laderr#not_resilient">not_resilient</a> <sup class="type-ni" title="named individual">ni</sup> , <a href="#operational" title="https://w3id.org/laderr#operational">operational</a> <sup class="type-ni" title="named individual">ni</sup> , <a href="#resilient" title="https://w3id.org/laderr#resilient">resilient</a> <sup class="type-ni" title="named individual">ni</sup> }
+    <a href="#Disposition" title="https://w3id.org/laderr#Disposition">Disposition</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Entity" title="https://w3id.org/laderr#Entity">Entity</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#Resilience" title="https://w3id.org/laderr#Resilience">Resilience</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Disposition" title="https://w3id.org/laderr#Disposition">Disposition</a> <sup class="type-c" title="class">c</sup>, <a href="#Entity" title="https://w3id.org/laderr#Entity">Entity</a> <sup class="type-c" title="class">c</sup>, <a href="#Resilience" title="https://w3id.org/laderr#Resilience">Resilience</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#scenarios" title="https://w3id.org/laderr#scenarios">scenarios</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
    </dt>
    <dd>
-    <a href="#scenario" title="https://w3id.org/laderr#scenario">scenario</a> <sup class="type-op" title="object property">op</sup>
-   </dd>
-   <dt>
-    has members
-   </dt>
-   <dd>
-    <a href="#incident" title="https://w3id.org/laderr#incident">incident</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#not_resilient" title="https://w3id.org/laderr#not_resilient">not_resilient</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#operational" title="https://w3id.org/laderr#operational">operational</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#resilient" title="https://w3id.org/laderr#resilient">resilient</a> <sup class="type-ni" title="named individual">ni</sup>
+    <a href="#components" title="https://w3id.org/laderr#components">components</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is disjoint with
    </dt>
    <dd>
-    <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>, <a href="#LaderrConstruct" title="https://w3id.org/laderr#LaderrConstruct">LaderrConstruct</a> <sup class="type-c" title="class">c</sup>, <a href="#LaderrSpecification" title="https://w3id.org/laderr#LaderrSpecification">LaderrSpecification</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ScenarioSituation">
+  <h3>ScenarioSituation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#ScenarioSituation</p>
+  <div class="comment">
+   <span class="markdown">An enumeration defining the nature of a scenario as either 'operational' or 'incident', describing its temporal context.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    { <a href="#incident" title="https://w3id.org/laderr#incident">incident</a> <sup class="type-ni" title="named individual">ni</sup> , <a href="#operational" title="https://w3id.org/laderr#operational">operational</a> <sup class="type-ni" title="named individual">ni</sup> }
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#situation" title="https://w3id.org/laderr#situation">situation</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#incident" title="https://w3id.org/laderr#incident">incident</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#operational" title="https://w3id.org/laderr#operational">operational</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a> <sup class="type-c" title="class">c</sup>, <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a> <sup class="type-c" title="class">c</sup>, <a href="#Specification" title="https://w3id.org/laderr#Specification">Specification</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ScenarioStatus">
+  <h3>ScenarioStatus<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#ScenarioStatus</p>
+  <div class="comment">
+   <span class="markdown">Represents the resilience status of a scenario, which can be either 'vulnerable' or 'resilient'.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    { <a href="#resilient" title="https://w3id.org/laderr#resilient">resilient</a> <sup class="type-ni" title="named individual">ni</sup> , <a href="#vulnerable" title="https://w3id.org/laderr#vulnerable">vulnerable</a> <sup class="type-ni" title="named individual">ni</sup> }
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#status" title="https://w3id.org/laderr#status">status</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#resilient" title="https://w3id.org/laderr#resilient">resilient</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#vulnerable" title="https://w3id.org/laderr#vulnerable">vulnerable</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a> <sup class="type-c" title="class">c</sup>, <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a> <sup class="type-c" title="class">c</sup>, <a href="#Specification" title="https://w3id.org/laderr#Specification">Specification</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Specification">
+  <h3>Specification<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#Specification</p>
+  <div class="comment">
+   <span class="markdown">A structured document that defines one or more resilience scenarios, including constructs such as assets, threats, controls, and their interactions in specific operational or incident situations.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>The 'Savannah Animal Survival Resilience Model' specification defines a structured model with scenarios like 'Dry Season Survival' and 'Heatwave Response', including constructs such as threats, capabilities, vulnerabilities, and resiliences for ecological analysis.</pre>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd></dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#constructs" title="https://w3id.org/laderr#constructs">constructs</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a> <sup class="type-c" title="class">c</sup>, <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a> <sup class="type-c" title="class">c</sup>, <a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
  <div class="entity" id="Threat">
-  <h3>Threat<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>Threat<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#Threat</p>
   <div class="comment">
    <span class="markdown">A Threat is an entity that can potentially cause harm to an Asset through its threat capabilities, by potentially exploiting the latter's Vulnerabilities.</span>
@@ -579,6 +959,14 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dt>
    <dd>
     <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>A ransomware attack targeting hospital records is a Threat that endangers critical health information systems.</pre>
    </dd>
   </dl>
   <dl class="description">
@@ -598,7 +986,7 @@ This section provides details for each class and property defined by LaDeRR Voca
     is in domain of
    </dt>
    <dd>
-    <a href="#failedToDamage" title="https://w3id.org/laderr#failedToDamage">failedToDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#succeededToDamage" title="https://w3id.org/laderr#succeededToDamage">succeededToDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#threatens" title="https://w3id.org/laderr#threatens">threatens</a> <sup class="type-op" title="object property">op</sup>
+    <a href="#canDamage" title="https://w3id.org/laderr#canDamage">canDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#cannotDamage" title="https://w3id.org/laderr#cannotDamage">cannotDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#damaged" title="https://w3id.org/laderr#damaged">damaged</a> <sup class="type-op" title="object property">op</sup>, <a href="#negativeDamage" title="https://w3id.org/laderr#negativeDamage">negativeDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#notDamaged" title="https://w3id.org/laderr#notDamaged">notDamaged</a> <sup class="type-op" title="object property">op</sup>, <a href="#positiveDamage" title="https://w3id.org/laderr#positiveDamage">positiveDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#threatens" title="https://w3id.org/laderr#threatens">threatens</a> <sup class="type-op" title="object property">op</sup>
    </dd>
    <dt>
     is in range of
@@ -609,7 +997,7 @@ This section provides details for each class and property defined by LaDeRR Voca
   </dl>
  </div>
  <div class="entity" id="Vulnerability">
-  <h3>Vulnerability<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <h3>Vulnerability<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#Vulnerability</p>
   <div class="comment">
    <span class="markdown">A disposition of an Entity that may be exploited by Threats, potentially leading to harm.</span>
@@ -620,6 +1008,14 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dt>
    <dd>
     <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>Outdated software in a system is a Vulnerability that exposes it to cyberattacks.</pre>
    </dd>
   </dl>
   <dl class="description">
@@ -652,27 +1048,108 @@ This section provides details for each class and property defined by LaDeRR Voca
 </div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
  <h3 id="properties" class="list">Object Properties</h3>
  <ul class="hlist">
+  <li><a href="#canDamage" title="https://w3id.org/laderr#canDamage">canDamage</a></li>
+  <li><a href="#cannotDamage" title="https://w3id.org/laderr#cannotDamage">cannotDamage</a></li>
   <li><a href="#capabilities" title="https://w3id.org/laderr#capabilities">capabilities</a></li>
+  <li><a href="#components" title="https://w3id.org/laderr#components">components</a></li>
   <li><a href="#constructs" title="https://w3id.org/laderr#constructs">constructs</a></li>
+  <li><a href="#damaged" title="https://w3id.org/laderr#damaged">damaged</a></li>
   <li><a href="#disables" title="https://w3id.org/laderr#disables">disables</a></li>
   <li><a href="#exploits" title="https://w3id.org/laderr#exploits">exploits</a></li>
   <li><a href="#exposes" title="https://w3id.org/laderr#exposes">exposes</a></li>
-  <li><a href="#failedToDamage" title="https://w3id.org/laderr#failedToDamage">failedToDamage</a></li>
   <li><a href="#inhibits" title="https://w3id.org/laderr#inhibits">inhibits</a></li>
+  <li><a href="#negativeDamage" title="https://w3id.org/laderr#negativeDamage">negativeDamage</a></li>
+  <li><a href="#notDamaged" title="https://w3id.org/laderr#notDamaged">notDamaged</a></li>
+  <li><a href="#positiveDamage" title="https://w3id.org/laderr#positiveDamage">positiveDamage</a></li>
   <li><a href="#preserves" title="https://w3id.org/laderr#preserves">preserves</a></li>
   <li><a href="#preservesAgainst" title="https://w3id.org/laderr#preservesAgainst">preservesAgainst</a></li>
   <li><a href="#preservesDespite" title="https://w3id.org/laderr#preservesDespite">preservesDespite</a></li>
   <li><a href="#protects" title="https://w3id.org/laderr#protects">protects</a></li>
   <li><a href="#resiliences" title="https://w3id.org/laderr#resiliences">resiliences</a></li>
-  <li><a href="#scenario" title="https://w3id.org/laderr#scenario">scenario</a></li>
+  <li><a href="#scenarios" title="https://w3id.org/laderr#scenarios">scenarios</a></li>
+  <li><a href="#situation" title="https://w3id.org/laderr#situation">situation</a></li>
   <li><a href="#state" title="https://w3id.org/laderr#state">state</a></li>
-  <li><a href="#succeededToDamage" title="https://w3id.org/laderr#succeededToDamage">succeededToDamage</a></li>
+  <li><a href="#status" title="https://w3id.org/laderr#status">status</a></li>
   <li><a href="#sustains" title="https://w3id.org/laderr#sustains">sustains</a></li>
   <li><a href="#threatens" title="https://w3id.org/laderr#threatens">threatens</a></li>
   <li><a href="#vulnerabilities" title="https://w3id.org/laderr#vulnerabilities">vulnerabilities</a></li>
  </ul>
+ <div class="entity" id="canDamage">
+  <h3>canDamage<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#canDamage</p>
+  <div class="comment">
+   <span class="markdown">Indicates that a Threat can cause value loss to an Asset in an operational Scenario.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#positiveDamage" title="https://w3id.org/laderr#positiveDamage">positiveDamage</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="cannotDamage">
+  <h3>cannotDamage<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#cannotDamage</p>
+  <div class="comment">
+   <span class="markdown">Indicates that a Threat cannot cause value loss to an Asset in an operational Scenario.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#negativeDamage" title="https://w3id.org/laderr#negativeDamage">negativeDamage</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="capabilities">
-  <h3>capabilities<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>capabilities<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#capabilities</p>
   <div class="comment">
    <span class="markdown">Associates an Entity with the Capabilities it possesses.</span>
@@ -702,11 +1179,11 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dl>
   </div>
  </div>
- <div class="entity" id="constructs">
-  <h3>constructs<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#constructs</p>
+ <div class="entity" id="components">
+  <h3>components<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#components</p>
   <div class="comment">
-   <span class="markdown">Links a LaDeRR Specification to its associated constructs.</span>
+   <span class="markdown">Links a Scenario to the ScenarioComponents it is composed of, such as Entities, Dispositions, and Resilience constructs.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -722,22 +1199,28 @@ This section provides details for each class and property defined by LaDeRR Voca
      has domain
     </dt>
     <dd>
-     <a href="#LaderrSpecification" title="https://w3id.org/laderr#LaderrSpecification">LaderrSpecification</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#LaderrConstruct" title="https://w3id.org/laderr#LaderrConstruct">LaderrConstruct</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#scenarios" title="https://w3id.org/laderr#scenarios">scenarios</a> <sup class="type-op" title="object property">op</sup>
     </dd>
    </dl>
   </div>
  </div>
- <div class="entity" id="disables">
-  <h3>disables<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#disables</p>
+ <div class="entity" id="constructs">
+  <h3>constructs<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#constructs</p>
   <div class="comment">
-   <span class="markdown">Indicates that a Capability disables a specific Disposition, preventing it from being realized.</span>
+   <span class="markdown">Links a Specification to the Constructs it defines, including Scenarios and their components.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -745,6 +1228,82 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dt>
    <dd>
     <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Specification" title="https://w3id.org/laderr#Specification">Specification</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Construct" title="https://w3id.org/laderr#Construct">Construct</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="damaged">
+  <h3>damaged<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#damaged</p>
+  <div class="comment">
+   <span class="markdown">Indicates that a Threat caused value loss to an Asset in an incident Scenario.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#positiveDamage" title="https://w3id.org/laderr#positiveDamage">positiveDamage</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="disables">
+  <h3>disables<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#disables</p>
+  <div class="comment">
+   <span class="markdown">Indicates that an enabled Capability changes the state of a Disposition (either a Capability or Vulnerability) to disabled, preventing it from being realized. This implies the disabler must be enabled and the target must have been previously enabled.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl>
+   <dt>
+    Example
+   </dt>
+   <dd>
+    <pre>A water cooling system's capability of keeping temperatures below critical thresholds disables the 'overheat' vulnerability in a server rack.</pre>
    </dd>
   </dl>
   <div class="description">
@@ -766,7 +1325,7 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="exploits">
-  <h3>exploits<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>exploits<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#exploits</p>
   <div class="comment">
    <span class="markdown">Defines the relationship where a Capability exploits a Vulnerability, meaning that when both are enabled, the Capability can trigger an adverse event through the Vulnerability.</span>
@@ -797,7 +1356,7 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="exposes">
-  <h3>exposes<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>exposes<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#exposes</p>
   <div class="comment">
    <span class="markdown">Defines that a Vulnerability exposes a Capability, making it susceptible to threats.</span>
@@ -813,12 +1372,6 @@ This section provides details for each class and property defined by LaDeRR Voca
   <div class="description">
    <dl>
     <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2002/07/owl#topObjectProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topObjectProperty">top Object Property</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
      has domain
     </dt>
     <dd>
@@ -833,39 +1386,8 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dl>
   </div>
  </div>
- <div class="entity" id="failedToDamage">
-  <h3>failedToDamage<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#failedToDamage</p>
-  <div class="comment">
-   <span class="markdown">Indicates that a Threat entity failed to damage an Asset because the Asset’s Vulnerability was disabled.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
-   </dd>
-  </dl>
-  <div class="description">
-   <dl>
-    <dt>
-     has domain
-    </dt>
-    <dd>
-     <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
-    </dd>
-   </dl>
-  </div>
- </div>
  <div class="entity" id="inhibits">
-  <h3>inhibits<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>inhibits<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#inhibits</p>
   <div class="comment">
    <span class="markdown">An Entity inhibits another if it has a Capability that disables a Vulnerability, while the inhibited Entity has a Capability that exploits the same Vulnerability.</span>
@@ -895,11 +1417,122 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dl>
   </div>
  </div>
+ <div class="entity" id="negativeDamage">
+  <h3>negativeDamage<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#negativeDamage</p>
+  <div class="comment">
+   <span class="markdown">Superclass for relationships that indicate a negative occurrence of damage. Encompasses relations where a Threat either cannot cause or did not cause damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:cannotDamage (operational) or laderr:notDamaged (incident)</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#cannotDamage" title="https://w3id.org/laderr#cannotDamage">cannotDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#notDamaged" title="https://w3id.org/laderr#notDamaged">notDamaged</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="notDamaged">
+  <h3>notDamaged<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#notDamaged</p>
+  <div class="comment">
+   <span class="markdown">Indicates that a Threat did not cause loss of value to an Asset in a Scenario with situation 'incident'.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#negativeDamage" title="https://w3id.org/laderr#negativeDamage">negativeDamage</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="positiveDamage">
+  <h3>positiveDamage<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#positiveDamage</p>
+  <div class="comment">
+   <span class="markdown">Superclass for relationships that indicate a positive occurrence of damage. Encompasses relations where a Threat either can cause or has caused damage to an Asset. I.e., depending on the scenario’s situation, it is realized as laderr:canDamage (operational) or laderr:damaged (incident)</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#canDamage" title="https://w3id.org/laderr#canDamage">canDamage</a> <sup class="type-op" title="object property">op</sup>, <a href="#damaged" title="https://w3id.org/laderr#damaged">damaged</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
  <div class="entity" id="preserves">
-  <h3>preserves<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>preserves<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#preserves</p>
   <div class="comment">
-   <span class="markdown">A Resilience preserves a Capability by ensuring it remains functional (i.e., it preserves the value of this capability).</span>
+   <span class="markdown">Indicates that a Resilience maintains the functionality and value of a Capability within a Scenario.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -927,10 +1560,10 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="preservesAgainst">
-  <h3>preservesAgainst<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>preservesAgainst<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#preservesAgainst</p>
   <div class="comment">
-   <span class="markdown">Indicates that a Resilience preserves an entity despite the presence of a Capability in a Threat that would otherwise exploit a vulnerability.</span>
+   <span class="markdown">Indicates that a Resilience maintains a Capability’s function despite the presence of a Threat's Capability that could exploit a Vulnerability.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -942,12 +1575,6 @@ This section provides details for each class and property defined by LaDeRR Voca
   </dl>
   <div class="description">
    <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2002/07/owl#topObjectProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topObjectProperty">top Object Property</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
     <dt>
      has domain
     </dt>
@@ -964,10 +1591,10 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="preservesDespite">
-  <h3>preservesDespite<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>preservesDespite<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#preservesDespite</p>
   <div class="comment">
-   <span class="markdown">Indicates that a Resilience capability ensures the preservation of an Asset despite an existing Vulnerability on it.</span>
+   <span class="markdown">Indicates that a Resilience ensures a Capability remains functional despite an existing Vulnerability exposing it.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -995,10 +1622,10 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="protects">
-  <h3>protects<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>protects<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#protects</p>
   <div class="comment">
-   <span class="markdown">Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables the relevant Vulnerability.</span>
+   <span class="markdown">Represents a relationship where an Entity prevents harm to another Entity by possessing a Capability that disables a Vulnerability that Threats might exploit.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1010,12 +1637,6 @@ This section provides details for each class and property defined by LaDeRR Voca
   </dl>
   <div class="description">
    <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2002/07/owl#topObjectProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topObjectProperty">top Object Property</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
     <dt>
      has domain
     </dt>
@@ -1032,7 +1653,7 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="resiliences">
-  <h3>resiliences<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>resiliences<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#resiliences</p>
   <div class="comment">
    <span class="markdown">Links an Asset to its associated Resiliences.</span>
@@ -1062,11 +1683,11 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dl>
   </div>
  </div>
- <div class="entity" id="scenario">
-  <h3>scenario<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#scenario</p>
+ <div class="entity" id="scenarios">
+  <h3>scenarios<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#scenarios</p>
   <div class="comment">
-   <span class="markdown">Associates a LaDeRR Specification with a Scenario Type that describes its operational context.</span>
+   <span class="markdown">Links a ScenarioComponent to the Scenarios they are part of.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1082,22 +1703,59 @@ This section provides details for each class and property defined by LaDeRR Voca
      has domain
     </dt>
     <dd>
-     <a href="#LaderrSpecification" title="https://w3id.org/laderr#LaderrSpecification">LaderrSpecification</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ScenarioComponent" title="https://w3id.org/laderr#ScenarioComponent">ScenarioComponent</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#components" title="https://w3id.org/laderr#components">components</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="situation">
+  <h3>situation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#situation</p>
+  <div class="comment">
+   <span class="markdown">Associates a Scenario with a ScenarioSituation describing whether it is operational or an incident.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
  <div class="entity" id="state">
-  <h3>state<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>state<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#state</p>
   <div class="comment">
-   <span class="markdown">Represents the current state of a Disposition, which can be either enabled or disabled.</span>
+   <span class="markdown">Defines whether a Disposition (Capability or Vulnerability) is active (enabled) or inactive (disabled). The state determines its eligibility for, e.g., exploitation and disabling.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1124,11 +1782,11 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dl>
   </div>
  </div>
- <div class="entity" id="succeededToDamage">
-  <h3>succeededToDamage<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#succeededToDamage</p>
+ <div class="entity" id="status">
+  <h3>status<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#status</p>
   <div class="comment">
-   <span class="markdown">Indicates that a Threat entity successfully damaged an Asset by exploiting an enabled vulnerability in the Asset.</span>
+   <span class="markdown">Defines the resilience status of a Scenario: whether it cannot be damaged by threats (resilient) or not (vulnerable).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1144,19 +1802,19 @@ This section provides details for each class and property defined by LaDeRR Voca
      has domain
     </dt>
     <dd>
-     <a href="#Threat" title="https://w3id.org/laderr#Threat">Threat</a> <sup class="type-c" title="class">c</sup>
+     <a href="#Scenario" title="https://w3id.org/laderr#Scenario">Scenario</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="#Asset" title="https://w3id.org/laderr#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+     <a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
  </div>
  <div class="entity" id="sustains">
-  <h3>sustains<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>sustains<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#sustains</p>
   <div class="comment">
    <span class="markdown">Represents the relationship between a Capability and a Resilience where the Capability enables the conditions necessary for the Resilience to exist.</span>
@@ -1187,10 +1845,10 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="threatens">
-  <h3>threatens<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>threatens<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#threatens</p>
   <div class="comment">
-   <span class="markdown">A Threat poses a potential risk to an Asset due to the presence of an exploitable Vulnerability in the latter.</span>
+   <span class="markdown">Indicates that a Threat poses risk to an Asset by potentially exploiting its Vulnerabilities.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1218,7 +1876,7 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="vulnerabilities">
-  <h3>vulnerabilities<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <h3>vulnerabilities<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#vulnerabilities</p>
   <div class="comment">
    <span class="markdown">Associates an Entity with its Vulnerabilities, which may expose it to threats.</span>
@@ -1256,16 +1914,23 @@ This section provides details for each class and property defined by LaDeRR Voca
   <li><a href="#createdOn" title="https://w3id.org/laderr#createdOn">createdOn</a></li>
   <li><a href="#description" title="https://w3id.org/laderr#description">description</a></li>
   <li><a href="#modifiedOn" title="https://w3id.org/laderr#modifiedOn">modifiedOn</a></li>
-  <li><a href="#name" title="https://w3id.org/laderr#name">name</a></li>
   <li><a href="#title" title="https://w3id.org/laderr#title">title</a></li>
   <li><a href="#version" title="https://w3id.org/laderr#version">version</a></li>
  </ul>
  <div class="entity" id="baseURI">
-  <h3>baseURI<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <h3>baseURI<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#baseURI</p>
   <div class="comment">
    <span class="markdown">Defines the base URI of a LaDeRR Specification.</span>
   </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
   <div class="description">
    <dl>
     <dt>
@@ -1278,28 +1943,44 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="createdBy">
-  <h3>createdBy<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <h3>createdBy<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#createdBy</p>
   <div class="comment">
    <span class="markdown">Indicates the creator of a LaDeRR Specification.</span>
   </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
   <div class="description">
    <dl>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+     <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Literal">Literal</a>
     </dd>
    </dl>
   </div>
  </div>
  <div class="entity" id="createdOn">
-  <h3>createdOn<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <h3>createdOn<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#createdOn</p>
   <div class="comment">
    <span class="markdown">Records the date and time when a LaDeRR Specification was created.</span>
   </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
   <div class="description">
    <dl>
     <dt>
@@ -1312,28 +1993,44 @@ This section provides details for each class and property defined by LaDeRR Voca
   </div>
  </div>
  <div class="entity" id="description">
-  <h3>description<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <h3>description<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#description</p>
   <div class="comment">
-   <span class="markdown">A textual description providing details about a LaDeRR construct or specification.</span>
+   <span class="markdown">Human-readable explanation of a Construct or Specification.</span>
   </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
   <div class="description">
    <dl>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+     <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Literal">Literal</a>
     </dd>
    </dl>
   </div>
  </div>
  <div class="entity" id="modifiedOn">
-  <h3>modifiedOn<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <h3>modifiedOn<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#modifiedOn</p>
   <div class="comment">
    <span class="markdown">Records the date and time when a LaDeRR Specification was last modified.</span>
   </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
   <div class="description">
    <dl>
     <dt>
@@ -1345,52 +2042,45 @@ This section provides details for each class and property defined by LaDeRR Voca
    </dl>
   </div>
  </div>
- <div class="entity" id="name">
-  <h3>name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#name</p>
-  <div class="comment">
-   <span class="markdown">The name assigned to a LaDeRR Construct.</span>
-  </div>
-  <div class="description">
-   <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
-    </dd>
-    <dt>
-     has range
-    </dt>
-    <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
-    </dd>
-   </dl>
-  </div>
- </div>
  <div class="entity" id="title">
-  <h3>title<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <h3>title<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#title</p>
   <div class="comment">
    <span class="markdown">The title assigned to a LaDeRR Specification.</span>
   </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
   <div class="description">
    <dl>
     <dt>
      has range
     </dt>
     <dd>
-     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+     <a href="http://www.w3.org/2000/01/rdf-schema#Literal" target="_blank" title="http://www.w3.org/2000/01/rdf-schema#Literal">Literal</a>
     </dd>
    </dl>
   </div>
  </div>
  <div class="entity" id="version">
-  <h3>version<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <h3>version<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#version</p>
   <div class="comment">
    <span class="markdown">Specifies the version of a LaDeRR Specification.</span>
   </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
   <div class="description">
    <dl>
     <dt>
@@ -1407,16 +2097,16 @@ This section provides details for each class and property defined by LaDeRR Voca
  <ul class="hlist">
   <li><a href="#disabled" title="https://w3id.org/laderr#disabled">disabled</a></li>
   <li><a href="#enabled" title="https://w3id.org/laderr#enabled">enabled</a></li>
-  <!-- <li><a href="#https://ugent-businessinformatics.github.io/" title="https://ugent-businessinformatics.github.io/"> <span>https://ugent-businessinformatics.github.io/</span> </a></li> -->
-  <!-- <li><a href="#https://www.flandersmake.be/" title="https://www.flandersmake.be/"> <span>https://www.flandersmake.be/</span> </a></li>
-  <li><a href="#https://www.utwente.nl/en/eemcs/scs/" title="https://www.utwente.nl/en/eemcs/scs/"> <span>https://www.utwente.nl/en/eemcs/scs/</span> </a></li> -->
+  <li><a href="#https://ugent-businessinformatics.github.io/" title="https://ugent-businessinformatics.github.io/"> <span>https://ugent-businessinformatics.github.io/</span> </a></li>
+  <li><a href="#https://www.flandersmake.be/" title="https://www.flandersmake.be/"> <span>https://www.flandersmake.be/</span> </a></li>
+  <li><a href="#https://www.utwente.nl/en/eemcs/scs/" title="https://www.utwente.nl/en/eemcs/scs/"> <span>https://www.utwente.nl/en/eemcs/scs/</span> </a></li>
   <li><a href="#incident" title="https://w3id.org/laderr#incident">incident</a></li>
-  <li><a href="#not_resilient" title="https://w3id.org/laderr#not_resilient">not_resilient</a></li>
   <li><a href="#operational" title="https://w3id.org/laderr#operational">operational</a></li>
   <li><a href="#resilient" title="https://w3id.org/laderr#resilient">resilient</a></li>
+  <li><a href="#vulnerable" title="https://w3id.org/laderr#vulnerable">vulnerable</a></li>
  </ul>
  <div class="entity" id="disabled">
-  <h3>disabled<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <h3>disabled<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#disabled</p>
   <div class="comment">
    <span class="markdown">Represents a DispositionState where a Capability or Vulnerability is inactive and cannot influence the system. A disabled Disposition cannot exert its effect until it is re-enabled.</span>
@@ -1436,10 +2126,16 @@ This section provides details for each class and property defined by LaDeRR Voca
    <dd>
     <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#example" target="_blank" title="http://www.w3.org/2004/02/skos/core#example">example</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"A system’s temperature alarm is 'disabled' during maintenance, preventing it from influencing calculations."@en</span>
+   </dd>
   </dl>
  </div>
  <div class="entity" id="enabled">
-  <h3>enabled<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <h3>enabled<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#enabled</p>
   <div class="comment">
    <span class="markdown">Represents a DispositionState where a Capability or Vulnerability is active and can influence the system. An enabled Capability can, e.g., sustain a resilience, while an enabled Vulnerability can be exploited by threats.</span>
@@ -1459,10 +2155,16 @@ This section provides details for each class and property defined by LaDeRR Voca
    <dd>
     <a href="#DispositionState" title="https://w3id.org/laderr#DispositionState">DispositionState</a> <sup class="type-c" title="class">c</sup>
    </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/2004/02/skos/core#example" target="_blank" title="http://www.w3.org/2004/02/skos/core#example">example</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"A drone's surveillance Capability is 'enabled' during a mission, allowing it to sustain communication."@en</span>
+   </dd>
   </dl>
  </div>
- <!-- <div class="entity" id="https://ugent-businessinformatics.github.io/">
-  <h3>https://ugent-businessinformatics.github.io/<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+ <div class="entity" id="https://ugent-businessinformatics.github.io/">
+  <h3>https://ugent-businessinformatics.github.io/<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://ugent-businessinformatics.github.io/</p>
   <dl class="description">
    <dt>
@@ -1478,13 +2180,13 @@ This section provides details for each class and property defined by LaDeRR Voca
     <a href="http://xmlns.com/foaf/0.1/homepage" target="_blank" title="http://xmlns.com/foaf/0.1/homepage">homepage</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://ugent-businessinformatics.github.io/" target="_blank">https://ugent-businessinformatics.github.io/</a>
    </dd>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1235" title="https://orcid.org/0000-0001-9247-6150">0000 0001 9247 6150</a> <sup class="type-ep" title="external property">ep</sup>
+    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1519" title="https://orcid.org/0000-0001-9247-6150">0000 0001 9247 6150</a> <sup class="type-ep" title="external property">ep</sup>
    </dd>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1247" title="https://orcid.org/0000-0003-0481-9745">0000 0003 0481 9745</a> <sup class="type-ep" title="external property">ep</sup>
+    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1531" title="https://orcid.org/0000-0003-0481-9745">0000 0003 0481 9745</a> <sup class="type-ep" title="external property">ep</sup>
    </dd>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1253" title="https://orcid.org/0000-0003-2736-7817">0000 0003 2736 7817</a> <sup class="type-ep" title="external property">ep</sup>
+    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1537" title="https://orcid.org/0000-0003-2736-7817">0000 0003 2736 7817</a> <sup class="type-ep" title="external property">ep</sup>
    </dd>
    <dd>
     <a href="http://xmlns.com/foaf/0.1/name" target="_blank" title="http://xmlns.com/foaf/0.1/name">name</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"UGent Business Informatics, Ghent University, Belgium"</span>
@@ -1492,7 +2194,7 @@ This section provides details for each class and property defined by LaDeRR Voca
   </dl>
  </div>
  <div class="entity" id="https://www.flandersmake.be/">
-  <h3>https://www.flandersmake.be/<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <h3>https://www.flandersmake.be/<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://www.flandersmake.be/</p>
   <dl class="description">
    <dt>
@@ -1508,13 +2210,13 @@ This section provides details for each class and property defined by LaDeRR Voca
     <a href="http://xmlns.com/foaf/0.1/homepage" target="_blank" title="http://xmlns.com/foaf/0.1/homepage">homepage</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://www.flandersmake.be/" target="_blank">https://www.flandersmake.be/</a>
    </dd>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1235" title="https://orcid.org/0000-0001-9247-6150">0000 0001 9247 6150</a> <sup class="type-ep" title="external property">ep</sup>
+    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1519" title="https://orcid.org/0000-0001-9247-6150">0000 0001 9247 6150</a> <sup class="type-ep" title="external property">ep</sup>
    </dd>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1247" title="https://orcid.org/0000-0003-0481-9745">0000 0003 0481 9745</a> <sup class="type-ep" title="external property">ep</sup>
+    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1531" title="https://orcid.org/0000-0003-0481-9745">0000 0003 0481 9745</a> <sup class="type-ep" title="external property">ep</sup>
    </dd>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1253" title="https://orcid.org/0000-0003-2736-7817">0000 0003 2736 7817</a> <sup class="type-ep" title="external property">ep</sup>
+    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1537" title="https://orcid.org/0000-0003-2736-7817">0000 0003 2736 7817</a> <sup class="type-ep" title="external property">ep</sup>
    </dd>
    <dd>
     <a href="http://xmlns.com/foaf/0.1/name" target="_blank" title="http://xmlns.com/foaf/0.1/name">name</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Flanders Make, Belgium"</span>
@@ -1522,7 +2224,7 @@ This section provides details for each class and property defined by LaDeRR Voca
   </dl>
  </div>
  <div class="entity" id="https://www.utwente.nl/en/eemcs/scs/">
-  <h3>https://www.utwente.nl/en/eemcs/scs/<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <h3>https://www.utwente.nl/en/eemcs/scs/<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://www.utwente.nl/en/eemcs/scs/</p>
   <dl class="description">
    <dt>
@@ -1538,21 +2240,21 @@ This section provides details for each class and property defined by LaDeRR Voca
     <a href="http://xmlns.com/foaf/0.1/homepage" target="_blank" title="http://xmlns.com/foaf/0.1/homepage">homepage</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="https://www.utwente.nl/en/eemcs/scs/" target="_blank">https://www.utwente.nl/en/eemcs/scs/</a>
    </dd>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1241" title="https://orcid.org/0000-0002-3452-553X">0000 0002 3452 553 X</a> <sup class="type-ep" title="external property">ep</sup>
+    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1525" title="https://orcid.org/0000-0002-3452-553X">0000 0002 3452 553 X</a> <sup class="type-ep" title="external property">ep</sup>
    </dd>
    <dd>
-    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1253" title="https://orcid.org/0000-0003-2736-7817">0000 0003 2736 7817</a> <sup class="type-ep" title="external property">ep</sup>
+    <a href="http://xmlns.com/foaf/0.1/member" target="_blank" title="http://xmlns.com/foaf/0.1/member">member</a> <sup class="type-ap" title="annotation property">ap</sup> <a href="#d4e1537" title="https://orcid.org/0000-0003-2736-7817">0000 0003 2736 7817</a> <sup class="type-ep" title="external property">ep</sup>
    </dd>
    <dd>
     <a href="http://xmlns.com/foaf/0.1/name" target="_blank" title="http://xmlns.com/foaf/0.1/name">name</a> <sup class="type-ap" title="annotation property">ap</sup> <span class="literal">"Semantics, Cybersecurity &amp; Services (SCS), University of Twente, the Netherlands"</span>
    </dd>
   </dl>
- </div> -->
+ </div>
  <div class="entity" id="incident">
-  <h3>incident<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <h3>incident<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#incident</p>
   <div class="comment">
-   <span class="markdown">A scenario type in which a disruptive event has occurred, and its impact is being assessed.</span>
+   <span class="markdown">Represents a scenario that has already occurred.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1567,38 +2269,15 @@ This section provides details for each class and property defined by LaDeRR Voca
     belongs to
    </dt>
    <dd>
-    <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
-   </dd>
-  </dl>
- </div>
- <div class="entity" id="not_resilient">
-  <h3>not_resilient<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
-  <p><strong>IRI:</strong> https://w3id.org/laderr#not_resilient</p>
-  <div class="comment">
-   <span class="markdown">A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss.</span>
-  </div>
-  <dl class="definedBy">
-   <dt>
-    Is defined by
-   </dt>
-   <dd>
-    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
-   </dd>
-  </dl>
-  <dl class="description">
-   <dt>
-    belongs to
-   </dt>
-   <dd>
-    <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
  <div class="entity" id="operational">
-  <h3>operational<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <h3>operational<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#operational</p>
   <div class="comment">
-   <span class="markdown">A scenario type representing the system's current functioning, with or without threats and resiliences.</span>
+   <span class="markdown">A scenario situation representing the system's current functioning, with or without threats and resiliences.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -1613,12 +2292,12 @@ This section provides details for each class and property defined by LaDeRR Voca
     belongs to
    </dt>
    <dd>
-    <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ScenarioSituation" title="https://w3id.org/laderr#ScenarioSituation">ScenarioSituation</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
  <div class="entity" id="resilient">
-  <h3>resilient<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <h3>resilient<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://w3id.org/laderr#resilient</p>
   <div class="comment">
    <span class="markdown">A scenario type where resiliences are sufficient to prevent threats from causing damage.</span>
@@ -1636,12 +2315,35 @@ This section provides details for each class and property defined by LaDeRR Voca
     belongs to
    </dt>
    <dd>
-    <a href="#ScenarioType" title="https://w3id.org/laderr#ScenarioType">ScenarioType</a> <sup class="type-c" title="class">c</sup>
+    <a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="vulnerable">
+  <h3>vulnerable<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/laderr#vulnerable</p>
+  <div class="comment">
+   <span class="markdown">A scenario type where the system lacks resilience, meaning threats successfully exploit vulnerabilities, leading to damage or loss.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://w3id.org/laderr">https://w3id.org/laderr</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#ScenarioStatus" title="https://w3id.org/laderr#ScenarioStatus">ScenarioStatus</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
 </div><div id="legend">
-<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<h2>Legend <span class="backlink"> back to <a href="#top">top</a>, <a href="#toc">ToC</a></span></h2>
 <div   class="entity">
 <sup class="type-c" title="Classes">c</sup>: Classes <br/>
 <sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
@@ -1652,7 +2354,6 @@ This section provides details for each class and property defined by LaDeRR Voca
 </div>
 </div>
     
-
 </div>
 </body>
 </html>
