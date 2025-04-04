@@ -82,7 +82,7 @@ The guide includes:
 
 ## Permanent URLs for LaDeRR Resources
 
-To ensure **persistent and stable access** to LaDeRR resources, we provide **permanent URLs** using the [W3ID](https://w3id.org/) system. These URLs enable long-term access to the **LaDeRR specification, vocabulary, and engine**, while supporting **content negotiation** for different formats.
+To ensure persistent and stable access to LaDeRR resources, we provide permanent URLs using the [W3ID](https://w3id.org/) system. These URLs enable long-term access to the LaDeRR specification, vocabulary, and engine.
 
 The following **W3ID redirects** provide access to LaDeRR's key artifacts:
 
@@ -109,8 +109,6 @@ The following **W3ID redirects** provide access to LaDeRR's key artifacts:
 - **Repository:** [w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git)
 - **Latest release:** [w3id.org/laderr/engine/latest](https://w3id.org/laderr/engine/latest)
 - **All releases:** [w3id.org/laderr/engine/releases](https://w3id.org/laderr/engine/releases)
-
-By providing permanent URIs, LaDeRR ensures that its resources remain accessible over time.
 
 
 ## Available Artifacts
