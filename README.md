@@ -2,29 +2,27 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/resources/logo_laderr.png" width="500"></p>
 
-The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is an ontology-based textual domain-specific description language. It was designed to specify resilience scenarios, in a standardized format, through the specification of the participating entities and the interplay between their capabilities and vulnerabilities.
+The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is an ontology-based textual domain-specific language (DSL) for resilience modeling. It was designed to specify resilience scenarios, in a standardized format, through the specification of the participating entities and the interplay between their capabilities and vulnerabilities.
 
 
 ## Table of Contents
 
 <!-- TOC -->
 
-- [LaDeRR: **La**nguage for **De**scribing **R**isk and **R**esilience](#laderr-language-for-describing-risk-and-resilience)
-    - [Table of Contents](#table-of-contents)
-    - [Introduction](#introduction)
-    - [Writing a LaDeRR Specification](#writing-a-laderr-specification)
-    - [Permanent URLs for LaDeRR Resources](#permanent-urls-for-laderr-resources)
-        - [LaDeRR Main Resources](#laderr-main-resources)
-        - [Versioning & Releases](#versioning--releases)
-        - [LaDeRR Engine](#laderr-engine)
-    - [Available Artifacts](#available-artifacts)
-        - [LaDeRR Metamodel](#laderr-metamodel)
-        - [LaDeRR Rules](#laderr-rules)
-        - [LaDeRR Vocabulary](#laderr-vocabulary)
-        - [SHACL Shapes for Data Validation](#shacl-shapes-for-data-validation)
-    - [License](#license)
-    - [How to Contribute](#how-to-contribute)
-    - [Contributors](#contributors)
+- [Introduction](#introduction)
+- [Writing a LaDeRR Specification](#writing-a-laderr-specification)
+- [Permanent URLs for LaDeRR Resources](#permanent-urls-for-laderr-resources)
+  - [LaDeRR](#laderr)
+  - [LaDeRR Vocabulary Resources](#laderr-vocabulary-resources)
+  - [LaDeRR Engine](#laderr-engine)
+- [Available Artifacts](#available-artifacts)
+  - [LaDeRR Metamodel](#laderr-metamodel)
+  - [LaDeRR Rules](#laderr-rules)
+  - [LaDeRR Vocabulary](#laderr-vocabulary)
+  - [SHACL Shapes for Data Validation](#shacl-shapes-for-data-validation)
+- [License](#license)
+- [How to Contribute](#how-to-contribute)
+- [Contributors](#contributors)
 
 <!-- /TOC -->
 
@@ -44,20 +42,21 @@ These requirements motivate the development of **LaDeRR (Language for Describing
 
 LaDeRR is a *Domain-Specific Language (DSL)* designed to represent, analyze, and compute resilience and risk-related scenarios. It is built on top of ResiliOnt and offers a structured approach to defining resilience constructs, their relationships, and logical constraints.
 
-The language consists of three main components:
+The language consists of two main components:
 
 1. **Abstract Syntax (UML + FOL):** Defines the conceptual model using UML class diagrams, complemented by **First-Order Logic (FOL)** rules to express derivations and constraints.
 2. **Textual Concrete Syntax (TOML):** Provides a machine-readable format for defining resilience models in practice.
 
 A third component is planned for a future release:
 
-3. **Visual Concrete Syntax (Planned):** A graphical representation to support intuitive modeling. The Visual Concrete Syntax will provide a graphical notation for LaDeRR, making it easier for users to model resilience scenarios intuitively.
+3. **Visual Concrete Syntax (Planned):** A future graphical representation intended to support intuitive modeling. This component will complement the textual syntax by offering a user-friendly graphical notation to manipulate LaDeRR constructs.
 
 The following diagram illustrates the **relationship between ResiliOnt and LaDeRR**, highlighting the mapping process and different syntactic representations:
 
 <p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/images/laderr-visual-schema.png" width="750"></p>
 
-To support computational reasoning over LaDeRR models, the **LaDeRR Engine** has been developed. It is a Python-based tool that enables automated processing of resilience scenarios. The engine is available here: **[w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git).**
+To support computational reasoning over LaDeRR models, the **LaDeRR Engine** has been developed. It is a Python-based tool that enables the representation, analysis, and validation of resilience scenarios.
+The engine is available at the [LaDeRR Engine Repository](https://w3id.org/laderr/engine/git).
 
 LaDeRR was designed to **combine semantic precision with computational usability**, ensuring that resilience-related constructs can be represented, validated, and analyzed consistently. The justification for this approach includes:
 
@@ -85,24 +84,25 @@ The guide includes:
 
 To ensure **persistent and stable access** to LaDeRR resources, we provide **permanent URLs** using the [W3ID](https://w3id.org/) system. These URLs enable long-term access to the **LaDeRR specification, vocabulary, and engine**, while supporting **content negotiation** for different formats.
 
-The following **W3ID redirects** provide access to LaDeRR's key components:
+The following **W3ID redirects** provide access to LaDeRR's key artifacts:
 
-### LaDeRR Main Resources
+### LaDeRR
+
+- **Git repository:** [w3id.org/laderr/git](https://w3id.org/laderr/git)
+
+#### Versioning & Releases
+- **Latest release:** [w3id.org/laderr/latest](https://w3id.org/laderr/latest)
+- **All releases:** [w3id.org/laderr/releases](https://w3id.org/laderr/releases)
+
+### LaDeRR Vocabulary Resources
 - **Homepage:** [w3id.org/laderr](https://w3id.org/laderr)
-- **Repository:** [w3id.org/laderr/git](https://w3id.org/laderr/git)
 - **Vocabulary:** The generation of all formats was performed using RDFLib, with the TTL file serving as input.
   - **Turtle:** [w3id.org/laderr/format/ttl](https://w3id.org/laderr/format/ttl)
   - **RDF/XML (OWL):** [w3id.org/laderr/format/owl](https://w3id.org/laderr/format/owl)
   - **N-Triples:** [w3id.org/laderr/format/nt](https://w3id.org/laderr/format/nt)
   - **Notation3 (N3):** [w3id.org/laderr/format/n3](https://w3id.org/laderr/format/n3)
-  - **N-Quads:** [w3id.org/laderr/format/nq](https://w3id.org/laderr/format/nq)
   - **JSON-LD:** [w3id.org/laderr/format/jsonld](https://w3id.org/laderr/format/jsonld)
   - **TriG:** [w3id.org/laderr/format/trig](https://w3id.org/laderr/format/trig)
-  - **TriX:** [w3id.org/laderr/format/trix](https://w3id.org/laderr/format/trix)
-
-### Versioning & Releases
-- **Latest release:** [w3id.org/laderr/latest](https://w3id.org/laderr/latest)
-- **All releases:** [w3id.org/laderr/releases](https://w3id.org/laderr/releases)
 
 ### LaDeRR Engine
 - **Homepage:** [w3id.org/laderr/engine](https://w3id.org/laderr/engine)
@@ -128,16 +128,26 @@ The **metamodel** of LaDeRR is provided in two formats:
 The **metamodel is complemented by logical rules** that define constraints and derivations that cannot be fully expressed in UML class diagrams. These rules are available in the file:
 - `laderr-rules-0.6.2.xlsx`: This file contains a structured set of logical rules, including derivations, constraints, and formal conditions that enhance the expressiveness of LaDeRR.
 
+
 ### LaDeRR Vocabulary
 
-The **official vocabulary** of LaDeRR is provided as a Turtle file:
-- `laderr-vocabulary-v*.ttl`: This file implements the abstract syntax of LaDeRR in **OWL**, making it available for semantic processing and ontology-based applications.
+The **LaDeRR Vocabulary** is an OWL 2 vocabulary that provides a formal semantic schema for **LaDeRR model instances**. It aligns with the structure defined by the metamodel, but its purpose is distinct: the LaDeRR Vocabulary defines the **data model** used by the laderr-engine to represent, reason over, and validate LaDeRR specifications as RDF graphs.
 
-Additional serializations of the vocabulary are available in the `docs` folder:
-- `laderr-vocabulary.jsonld`
-- `laderr-vocabulary.nt`
-- `laderr-vocabulary.owl`
-- `laderr-vocabulary.ttl` (Turtle format)
+This vocabulary implements the modeling constructs (e.g., `Entity`, `Capability`, `Threat`, `Scenario`, `Resilience`, etc.) as OWL classes and properties, enabling semantic reasoning and interoperability across systems. It serves as the **machine-processable schema** that supports LaDeRR applications.
+
+The full documentation of the vocabulary is available at: [https://w3id.org/laderr](https://w3id.org/laderr)
+
+The base URI [https://w3id.org/laderr/format](https://w3id.org/laderr/format) can be used to retrieve the LaDeRR vocabulary in a specific RDF serialization format by appending the desired format as a path segment. For example, to access the vocabulary in Turtle, use [https://w3id.org/laderr/format/ttl](https://w3id.org/laderr/format/ttl), or for JSON-LD, use [https://w3id.org/laderr/format/jsonld](https://w3id.org/laderr/format/jsonld).
+
+You can access the vocabulary directly in specific formats using the links below:
+
+- Turtle (source): [`laderr-vocabulary-v*.ttl`](https://w3id.org/laderr/format/ttl)
+- Other formats:
+  - [JSON-LD](https://w3id.org/laderr/format/jsonld)
+  - [N-Triples](https://w3id.org/laderr/format/nt)
+  - [OWL (RDF/XML)](https://w3id.org/laderr/format/owl)
+  - [Notation3 (N3)](https://w3id.org/laderr/format/n3)
+  - [TriG](https://w3id.org/laderr/format/trig)
 
 ### SHACL Shapes for Data Validation
 
@@ -152,7 +162,7 @@ To ensure that LaDeRR models conform to the defined vocabulary, **SHACL (Shapes 
 - `laderr-shape-threat-v*.shacl`
 - `laderr-shape-vulnerability-v*.shacl`
 
-These SHACL files enable validation of LaDeRR models against the vocabulary, ensuring that instances comply with the expected constraints.
+These SHACL files enable automated validation of LaDeRR models, ensuring that each instance adheres to the constraints defined in the vocabulary.
 
 
 ## License
@@ -162,14 +172,11 @@ The **LaDeRR DSL** is released under the **[Apache License 2.0](https://www.apac
 ## How to Contribute
 Contributions to LaDeRR are **highly encouraged**! The language is an evolving project, and community input is essential for improving its **expressiveness, usability, and computational support**. You can contribute to this project in the following ways.
 
-1. **Report Issues:**
-   - If you find **bugs**, **inconsistencies**, or **unclear documentation**, please open an **[issue](https://github.com/pedropaulofb/laderr/issues)** in the GitHub repository.
+1. **Report Issues:** If you find **bugs**, **inconsistencies**, or **unclear documentation**, please open an **[issue](https://github.com/pedropaulofb/laderr/issues)** in the GitHub repository.
 
-2. **Suggest Improvements:**
-   - If you have ideas for **enhancing LaDeRR**, propose them through **issues** in the repository.
+2. **Suggest Improvements:** If you have ideas for **enhancing LaDeRR**, propose them through **issues** in the repository.
 
-3. **Submit Pull Requests (PRs):**
-   - Contributions to the **vocabulary, abstract syntax, or documentation** are welcome via **[pull requests](https://github.com/pedropaulofb/laderr/pulls)**.
+3. **Submit Pull Requests (PRs):** Contributions to the **vocabulary, abstract syntax, or documentation** are welcome via **[pull requests](https://github.com/pedropaulofb/laderr/pulls)**.
 
 Your feedback and contributions will help refine LaDeRR and expand its capabilities to better support risk and resilience specification.
 
