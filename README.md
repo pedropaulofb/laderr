@@ -152,15 +152,18 @@ You can access the vocabulary directly in specific formats using the links below
 ### SHACL Shapes for Data Validation
 
 To ensure that LaDeRR models conform to the defined vocabulary, **SHACL (Shapes Constraint Language) shapes** were created for validation. These are available in the `shapes` folder:
-- `laderr-shape-capability-v*.shacl`
-- `laderr-shape-control-v*.shacl`
-- `laderr-shape-disposition-v*.shacl`
 - `laderr-shape-entity-v*.shacl`
-- `laderr-shape-laderrconstruct-v*.shacl`
-- `laderr-shape-laderrspecification-v*.shacl`
 - `laderr-shape-resilience-v*.shacl`
+- `laderr-shape-scenariocomponent-v*.shacl`
+- `laderr-shape-scenario-v*.shacl`
+- `laderr-shape-specification-v*.shacl`
 - `laderr-shape-threat-v*.shacl`
 - `laderr-shape-vulnerability-v*.shacl`
+- `laderr-shape-asset-v*.shacl`
+- `laderr-shape-capability-v*.shacl`
+- `laderr-shape-construct-v*.shacl`
+- `laderr-shape-control-v*.shacl`
+- `laderr-shape-disposition-v*.shacl`
 
 These SHACL files enable automated validation of LaDeRR models, ensuring that each instance adheres to the constraints defined in the vocabulary.
 
