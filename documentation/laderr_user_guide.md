@@ -11,14 +11,18 @@
   - [1.3. Processing the Specification with the LaDeRR Engine](#13-processing-the-specification-with-the-laderr-engine)
   - [1.4. Understanding the Visual Graphs](#14-understanding-the-visual-graphs)
 - [2. General Structure of a LaDeRR Specification](#2-general-structure-of-a-laderr-specification)
+  - [2.1. Two Approaches to Writing LaDeRR Specifications](#21-two-approaches-to-writing-laderr-specifications)
+  - [2.2. Validation Process](#22-validation-process)
 - [3. Specification Metadata](#3-specification-metadata)
   - [3.1. Required Fields and Defaults](#31-required-fields-and-defaults)
+  - [3.2. Examples of Valid Metadata Blocks](#32-examples-of-valid-metadata-blocks)
+    - [Minimal Valid Metadata](#minimal-valid-metadata)
+    - [Complete Example with All Supported Fields](#complete-example-with-all-supported-fields)
+- [4. Specification Constructs](#4-specification-constructs)
+  - [4.1. Common Attributes of All Constructs](#41-common-attributes-of-all-constructs)
+  - [4.2. Example of Construct Definition](#42-example-of-construct-definition)
   - [3.2. Scenario Classification and Determination](#32-scenario-classification-and-determination)
     - [Rules Governing Scenarios](#rules-governing-scenarios)
-  - [3.3. Example of a Valid Metadata Specification](#33-example-of-a-valid-metadata-specification)
-- [4. Defining ScenarioComponents](#4-defining-scenariocomponents)
-  - [4.1. Common Aspects of LaDeRR ScenarioComponents](#41-common-aspects-of-laderr-scenariocomponents)
-    - [Example of a General ScenarioComponent Specification](#example-of-a-general-scenariocomponent-specification)
   - [4.2. Entities](#42-entities)
     - [Fields of Entities](#fields-of-entities)
     - [Assets](#assets)
@@ -291,54 +295,52 @@ description = "A resilience model for animal survival in the savannah. Inspired 
 version = "1.2"
 ```
 
-## 4. Defining ScenarioComponents
+## 4. Specification Constructs
 
-### 4.1. Common Aspects of LaDeRR ScenarioComponents
+All elements that describe the resilience scenario in a LaDeRR specification—such as threats, capabilities, assets, and so on—are represented as instances of the abstract class `Construct`.
 
-All elements within a LaDeRR specification are instances of **ScenarioComponent**, which serves as the base class for all ScenarioComponents. This includes **Assets, Capabilities, Vulnerabilities, Threats, Resilience**, and **Control**. Each ScenarioComponent shares a common structure with the following attributes:
+Note that, although `Specification` and its attributes are technically constructs in the LaDeRR metamodel, the term **Construct** is used—both in the metamodel formalization and throughout this guide—to refer specifically to scenarios and their defining elements, i.e., the entities and relations that constitute the resilience model being specified.
 
-- **id** (_string, required, unique_): The unique identifier of the ScenarioComponent. This value is used to reference the ScenarioComponent throughout the specification.
-- **label** (_string, optional_): A human-readable name for the ScenarioComponent. If not explicitly provided, it defaults to the `id` value.
-- **description** (_string, optional_): A textual explanation of the ScenarioComponent.
-
-The UML diagram below illustrates the **ScenarioComponent** class and its specializations.
+Constructs are used to express the aspects of a resilience scenario and are divided into `Scenario` and `ScenarioComponent` categories. These are further refined into more specific types, such as `Capability`, `Vulnerability`, `Asset`, `Threat`, `Control`, and `Resilience`. The full taxonomy of constructs is presented in the diagram below:
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/ScenarioComponents.png"
-style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
+<img src="https://github.com/pedropaulofb/laderr/blob/main/documentation/images/construct_taxonomy.png" 
+alt="LaDeRR Construct Taxonomy Diagram"
+style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
+</p>
+<p align="center"><em>Taxonomy of constructs in LaDeRR. All user-defined elements in a resilience scenario belong to this hierarchy.</em></p>
 
-#### Example of a General ScenarioComponent Specification
+### 4.1. Common Attributes of All Constructs
 
-The following TOML snippet demonstrates how to define ScenarioComponents using the common attributes.
+Regardless of their specific type, all constructs share the same basic structure defined in the `Construct` class. The following three attributes are required for every instance:
 
-[**Example 02:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
+- **id** (_string, required, unique_): The identifier of the construct. It must be unique within the specification and is used to reference this element throughout the model.
+- **label** (_string, required_): A human-readable name for the construct. If not explicitly provided in the input file, it automatically defaults to the same value as the `id`.
+- **description** (_string, optional_): A description of the construct.
 
-```toml
-[Asset.bridge]
-label = "Main River Bridge"
-description = "A key transportation infrastructure that requires protection."
+The UML class diagram below summarizes the definition of the `Construct` class, presenting its attributes, specializations, and its association with the class `Specification`.
 
-[Capability.structural_integrity]
-label = "Structural Integrity"
-description = "The ability of the bridge to withstand external forces."
+<p align="center">
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Constructs.png" 
+alt="LaDeRR Construct Class Diagram"
+style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
+</p>
+<p align="center"><em>UML diagram of the Construct class.</em></p>
 
-[Vulnerability.material_fatigue]
-label = "Material Fatigue"
-description = "Structural weakening due to repeated stress."
+### 4.2. Example of Construct Definition
 
-[Threat.earthquake]
-label = "Earthquake"
-description = "Seismic activity that could compromise the bridge’s structure."
+The following TOML snippet illustrates how to define constructs using their attributes:
 
-[Resilience.reinforced_design]
-description = "A structural reinforcement method to improve resilience."
+<!-- TODO -->
+$$$toml
+# Example construct definitions
+# To be filled in later
+$$$
 
-[Control.maintenance_program]
-label = "Routine Maintenance Program"
-description = "Scheduled inspections and repairs to prevent material fatigue."
-```
+<!-- TODO: MAKE IT SPECIFIC -->
+As shown above, the `label` field is mandatory in the model but can be omitted in the TOML input. If omitted, it is automatically assigned the same value as the construct’s `id`.
 
-In the specification above, note that without a defined label, the declared `reinforced_design` ScenarioComponent will have 'label = reinforced_design'. The label's default value equals the id.
+In the next sections, we will explore each specific subtype of construct in detail, including their unique roles, rules, and configuration examples.
 
 ### 3.2. Scenario Classification and Determination
 
