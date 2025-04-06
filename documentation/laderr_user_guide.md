@@ -1,23 +1,44 @@
-# How to Write LaDeRR Specifications
+# LaDeRR User Guide
 
 **WORK IN PROGRESS: PLEASE BE AWARE THAT THIS DOCUMENT IS STILL UNDER DEVELOPMENT. USE IT CAREFULLY.**
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [1. Introduction](#1-introduction)
+  - [1.1. LaDeRR Metamodel Presentation](#11-laderr-metamodel-presentation)
+  - [1.2. Access to LaDeRR Specification Example and Results](#12-access-to-laderr-specification-example-and-results)
+  - [1.3. Processing the Specification with the LaDeRR Engine](#13-processing-the-specification-with-the-laderr-engine)
+  - [1.4. Understanding the Visual Graphs](#14-understanding-the-visual-graphs)
 - [2. General Structure of a LaDeRR Specification](#2-general-structure-of-a-laderr-specification)
-  - [2.1. Access to LaDeRR Specification Examples and Results](#21-access-to-laderr-specification-examples-and-results)
 - [3. Specification Metadata](#3-specification-metadata)
   - [3.1. Required Fields and Defaults](#31-required-fields-and-defaults)
   - [3.2. Scenario Classification and Determination](#32-scenario-classification-and-determination)
+    - [Rules Governing Scenarios](#rules-governing-scenarios)
   - [3.3. Example of a Valid Metadata Specification](#33-example-of-a-valid-metadata-specification)
-- [4. Defining ScenarioComponents](#4-defining-ScenarioComponents)
-  - [4.1. Common Aspects of LaDeRR ScenarioComponents](#41-common-aspects-of-laderr-ScenarioComponents)
+- [4. Defining ScenarioComponents](#4-defining-scenariocomponents)
+  - [4.1. Common Aspects of LaDeRR ScenarioComponents](#41-common-aspects-of-laderr-scenariocomponents)
+    - [Example of a General ScenarioComponent Specification](#example-of-a-general-scenariocomponent-specification)
   - [4.2. Entities](#42-entities)
+    - [Fields of Entities](#fields-of-entities)
+    - [Assets](#assets)
+    - [Threats](#threats)
+    - [Controls](#controls)
+    - [Rules Governing Entity Relationships](#rules-governing-entity-relationships)
   - [4.3. Dispositions](#43-dispositions)
+    - [Rules Governing Dispositions](#rules-governing-dispositions)
+    - [Capabilities](#capabilities)
+    - [Vulnerabilities](#vulnerabilities)
+    - [Rules Governing Vulnerabilities](#rules-governing-vulnerabilities)
   - [4.4. Resilience](#44-resilience)
+    - [Fields of Resilience](#fields-of-resilience)
+    - [Rules Governing Resilience](#rules-governing-resilience)
+    - [Example of a Resilience Specification](#example-of-a-resilience-specification)
 - [5. LaDeRR Engine](#5-laderr-engine)
   - [5.1. Writing a LaDeRR Specification with LaDeRR Engine](#51-writing-a-laderr-specification-with-laderr-engine)
+    - [Automatic Inference](#automatic-inference)
+    - [Automatic Resilience Generation](#automatic-resilience-generation)
+    - [Simplified Specification Example](#simplified-specification-example)
   - [5.2. Engine Output and Inferred Model](#52-engine-output-and-inferred-model)
 - [6. Complete Example](#6-complete-example)
   - [6.1. Explicit Specification](#61-explicit-specification)
@@ -26,59 +47,180 @@
 
 ## 1. Introduction
 
-The [Language for Describing Risk and Resilience (LaDeRR)](https://w3id.org/laderr/git) is an ontology-based domain-specific language (DSL) designed to specify resilience scenarios. Built over [ResiliOnt](https://github.com/pedropaulofb/resiliont/), it provides a structured approach to defining entities, capabilities, vulnerabilities, and their interrelations.
+This guide provides a complete walkthrough for writing specifications using the [**La**nguage for **De**scribing **R**isk and **R**esilience (LaDeRR)](https://w3id.org/laderr/git), an ontology-based domain-specific language (DSL) for modeling resilience scenarios. Grounded in the [**ResiliOnt**](https://github.com/pedropaulofb/resiliont/) ontology, LaDeRR enables users to represent the interplay between entities, their capabilities, and their vulnerabilities in a structured, analyzable format.
 
-This document serves as a guide for writing LaDeRR specifications using its concrete syntax in [TOML format](https://toml.io/en/). It outlines the essential components, rules, and best practices for creating valid specifications. Each section introduces a key concept of the LaDeRR language, presents its corresponding metamodel representation, explains any associated logical rules, and provides a concrete example of how to specify it in practice.
+Specifications are written in [TOML](https://toml.io/en/), a human-readable and machine-processable syntax. This guide introduces each language construct alongside its metamodel representation, relevant rules, and example fragments, building up to a complete and valid LaDeRR specification.
 
-The LaDeRR metamodel defines the core structural elements of the language, establishing the conceptual foundation for resilience and risk scenario modeling. It is presented in separate UML class diagrams, each representing a distinct aspect of LaDeRR.
-
-In the following sections, we will cover all core elements of a LaDeRR specification. Each component will be accompanied by:
+The following sections cover all core elements of a LaDeRR specification. Each component is accompanied by:
 
 - **Concept Overview**: A brief explanation of the purpose and role of the component within a LaDeRR specification.
 - **Metamodel Representation**: A UML class diagram illustrating the structure and relationships of the language's elements.
 - **Rules and Constraints (if applicable)**: Formal constraints and derivations governing the use of the component.
 - **Specification Example**: A LaDeRR specification snippet in TOML format, demonstrating a correct way to specify the component.
 
+### 1.1. LaDeRR Metamodel Presentation
+
+The LaDeRR metamodel defines the core structural elements of the language, establishing the conceptual foundation for resilience and risk scenario modeling. It is presented through separate UML class diagrams, each representing a distinct aspect of the LaDeRR language.
+
 The UML metamodel follows a color-coding and formatting scheme:
 
 - **Blue**: Represents classes that are defined within the specific diagram being presented.
-- **Gray**: Represents classes that are defined in other diagrams and are shown only to indicate relationships.
+- **Gray**: Represents classes defined in other diagrams, shown for context.
 - **White**: Represents enumerations, which define a set of predefined values.
 - **Red**: Represents notes that provide additional constraints, rules, or clarifications.
 
+### 1.2. Access to LaDeRR Specification Example and Results
+
+All examples presented throughout this guide are part of a single, incrementally constructed LaDeRR model. Each new concept is introduced by extending the same base file step by step. This approach allows readers to follow the progressive development of a complete and semantically rich LaDeRR specification.
+
+The final, complete version—containing all elements introduced throughout the guide—is available in the [`documentation/example`](https://github.com/pedropaulofb/laderr/tree/main/documentation/example) folder of the LaDeRR repository. While this guide focuses on the LaDeRR language itself, many of the outputs referenced below—such as inferred specifications, visualizations, and reports—were generated using the [**LaDeRR Engine**](https://w3id.org/laderr/engine), a supporting tool designed to validate and extend LaDeRR models.
+
+This folder includes:
+
+- [`example_doc_in.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_in.toml): the full input in TOML format, incrementally built and explained across the sections of this guide.
+
+- [`example_doc_out`](https://github.com/pedropaulofb/laderr/tree/main/documentation/example/example_doc_out): directory containing the full set of outputs generated by the LaDeRR Engine, including:
+
+  - **Post-Inference Specification in LaDeRR (.toml) and Graph (.ttl) formats**:
+    - [`example_doc_out_post.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post.toml)
+    - [`example_doc_out_post.ttl`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post.ttl)
+
+  - **Visualizations (Pre- and Post-Inference)**:
+    - [`example_doc_out_pre_dry_season.png`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_pre_dry_season.png)
+    - [`example_doc_out_pre_heatwave_response.png`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_pre_heatwave_response.png)
+    - [`example_doc_out_post_dry_season.png`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post_dry_season.png)
+    - [`example_doc_out_post_heatwave_response.png`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post_heatwave_response.png)
+
+  - **Analytical Reports (PDF)**:
+    - [`example_doc_out_report_pre_dry_season.pdf`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_report_pre_dry_season.pdf)
+    - [`example_doc_out_report_pre_heatwave_response.pdf`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_report_pre_heatwave_response.pdf)
+    - [`example_doc_out_report_post_dry_season.pdf`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_report_post_dry_season.pdf)
+    - [`example_doc_out_report_post_heatwave_response.pdf`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_report_post_heatwave_response.pdf)
+
+  - **Validation Reports (TXT)**:
+    - [`example_doc_out_validation_report_pre.txt`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_validation_report_pre.txt)
+    - [`example_doc_out_validation_report_post.txt`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_validation_report_post.txt)
+
+These outputs demonstrate how the [**LaDeRR Engine**](https://w3id.org/laderr/engine) processes a specification: transforming it into an RDF graph, applying inference mechanisms and validation, and producing a structured representation of the modeled scenario.
+
+### 1.3. Processing the Specification with the LaDeRR Engine
+
+The specification was processed using the [**LaDeRR Engine**](https://w3id.org/laderr/engine), a Python-based software that supports various operations over LaDeRR models. These operations are executed in two phases: **pre-inference** and **post-inference**. In addition to applying an OWL reasoner to infer implicit relations based on the model’s logical structure, the engine also applies inference rules defined in the LaDeRR metamodel. These rules enable the engine to extend the original specification with additional semantics—deriving new relations, instances, and properties—resulting in a more comprehensive model ready for analysis and visualization.
+
+Upon processing the specification, the engine performs the following tasks:
+
+- **OWL Graph Generation**: The TOML input is transformed into an RDF graph compliant with the [LaDeRR Vocabulary](https://w3id.org/laderr). This graph is exported in Turtle (`.ttl`) format.
+
+- **Graph Visualizations**: Each scenario in the specification is rendered as a `.png` image using Graphviz, both **before** and **after** inference.
+
+- **Analytical Reports**: For each scenario and phase (pre and post), the engine generates a detailed `.pdf` report. These reports include the visualization and a set of computed statistics and resilience metrics.
+
+- **Validation Reports**: The engine validates the RDF graph against a set of SHACL shapes to ensure conformance with the expected structure and constraints.
+
+Since the current example contains two scenarios, the engine generated four visualizations and four PDF reports (one per scenario and phase), along with the associated validation outputs.
+
+For more technical details or to learn how to run the engine yourself, please refer to the [LaDeRR Engine repository](https://w3id.org/laderr/engine/git).
+
+### 1.4. Understanding the Visual Graphs
+
+Throughout this guide, several visualizations of LaDeRR scenarios are presented. These were generated automatically by the LaDeRR Engine using [Graphviz](https://graphviz.org/) and are based on the RDF representation of the input specification.
+
+Each node and edge in the graph follows a consistent color and shape scheme to indicate its type and role within the scenario. The legend below provides a quick reference:
+
+<p align="center">
+<img src="https://github.com/pedropaulofb/laderr/blob/main/documentation/images/visualization_legend.png" alt="Legend for Scenario Elements"
+style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
+<p align="center"><em>Visual legend used in LaDeRR scenario diagrams, defining node shapes, colors, and edge styles according to their roles in the specification.</em></p>
+
+Here is how to interpret the visual elements:
+
+- **Node Colors and Shapes**:
+  - **Light Green / Dark Green Circles**: Capabilities (enabled / disabled).
+  - **Light Red / Dark Red Circles**: Vulnerabilities (enabled / disabled).
+  - **Orange Ellipses**: Resilience instances.
+  - **Light Green Squares**: Assets.
+  - **Blue Squares**: Controls.
+  - **Pink Squares**: Threats.
+  - **Gray Squares**: Entities that are not typed as asset, control, or threat.
+
+- **Multicolored Nodes**:
+  - **Dispositions** (capability and vulnerability at the same time) appear with **green and red wedges**, indicating dual classification.
+  - **Entities** with multiple subtypes (e.g., both *Asset* and *Control*) use **striped fills** combining their respective colors. If an entity has all three subtypes (*Asset*, *Control*, and *Threat*), a three-way split is used.
+
+- **Edge Colors and Types**:
+  - **Blue Arrows**: Links between entities (*protects*, *inhibits*, *threatens*).
+  - **Orange Arrows**: Resilience relations (*preserves*, *preservesAgainst*, *preservesDespite*, *sustains*).
+  - **Dark Red Arrows**: A capability disabling a vulnerability.
+  - **Black Arrows**: Causal relations (*exploits*, *exposes*).
+  - **Green Arrows**: Vulnerabilities that *did not* cause damage.
+  - **Red Arrows**: Vulnerabilities that *did* cause damage.
+  - **Black Arrows with Diamond Tail**: Relations from entities to their capabilities, vulnerabilities, or resiliences.
+
+Refer back to this legend when reading visualizations throughout the guide to better understand the semantics encoded in the diagrams.
+
 ## 2. General Structure of a LaDeRR Specification
 
-A LaDeRR specification defines **resilience scenarios** using a structured format that consists of two main components:
+Each LaDeRR specification consists of two main parts that together define one or more resilience scenarios in a structured and analyzable way:
 
-- **Metadata**: Provides general information about the specification, including authorship, versioning, and the type of the resilience scenario being specified.
-- **ScenarioComponents**: Define the elements of the resilience scenario and their relationships. The main ScenarioComponents include:
-  - **Assets**: Represent entities that have value and are subject to potential risks and threats.
-  - **Capabilities**: Define the "positive" dispositions of an entity, enabling the entity to perform specific functions.
-  - **Vulnerabilities**: Represent weaknesses that can be exploited by threats.
-  - **Threats**: Entities with capabilities that can exploit vulnerabilities.
-  - **Resilience**: Resilience preserves an entity's value despite vulnerabilities, preventing threats from causing damage.
-  - **Control**: Entities that inhibit threats, creating resilience.
+- **Metadata**: Contains general information about the specification, such as its title, authorship, versioning, and the type of scenario being described. (See [Section 3](#3-metadata) for details.)
 
-Each ScenarioComponent is interconnected, governed by logical constraints. These constraints ensure consistency and are enforced through formal rules, as described in Section 5. The following sections detail each ScenarioComponent, presenting its concept, metamodel representation, applicable rules, and an example of how to specify it in a LaDeRR model.
+- **ScenarioComponents**: Represent the core elements of the scenario and their interrelations. These include:
+  - **Assets**: Entities that hold value and are potentially exposed to threats.
+  - **Capabilities**: The positive dispositions of entities—their abilities to perform protective or sustaining functions.
+  - **Vulnerabilities**: Weaknesses that may be exploited by threats.
+  - **Threats**: Entities that possess capabilities capable of exploiting vulnerabilities.
+  - **Resilience**: Constructs that preserve the value of entities despite vulnerabilities or external pressures.
+  - **Control**: Entities that inhibit threats and support resilience by blocking harmful effects.
 
-### 2.1. Access to LaDeRR Specification Examples and Results
+These components are interconnected through a set of logical constraints. These are enforced through formal rules.
 
-All LaDeRR specifications presented in this document, including every example and fragment, are available in the [examples](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples) folder of the LaDeRR repository.
+The next sections provide a detailed explanation of each part of the specification, including conceptual background, metamodel diagrams, associated rules, and concrete TOML examples.
 
-For each LaDeRR specification included in this documentation, the following additional resources are provided:
+### 2.1. Two Approaches to Writing LaDeRR Specifications
 
-- The original specification TOML file, as presented in this document.
-- Validation and inference reports:
-  - Pre-Inference Validation: Ensures that the input specification conforms to the LaDeRR metamodel and does not contain missing required fields or incorrect relationships.
-  - Post-Inference Validation: After inference, checks that the inferred ScenarioComponents and relationships maintain logical consistency within the model.
-- The generated graph data:
-  - The graph structure before inference.
-  - The graph structure after inference.
-- Graph-based visualizations of the specification:
-  - A visualization of the graph before inference.
-  - A visualization of the graph after inference.
+When writing a LaDeRR specification, users can choose between two approaches, depending on their needs and familiarity with the language:
 
-These resources allow users to verify how the [**LaDeRR Engine**](#5-laderr-engine) interprets and processes each specification. Links to these files are provided alongside the corresponding examples in this documentation.
+- **Complete (Manual) Specification**:  
+  In this approach, the user explicitly defines all elements and their properties using the full features of the LaDeRR language. Even fields that could be derived or assigned by default—such as types, statuses, or certain relationships—are specified directly. This method provides full control over the model and is useful for advanced users who want to fine-tune every aspect of a scenario.
+
+- **Minimal (Auto-Completed) Specification**:  
+  Alternatively, users can define only the essential structure of a scenario, leaving the rest to be automatically completed by the [LaDeRR Engine](https://w3id.org/laderr/engine/git). The engine applies reasoning, default values, and inference rules to generate a complete and semantically enriched version of the model. This saves time and reduces the learning curve, especially for new users or when modeling large (sets of) scenarios.
+
+To illustrate the difference:
+- A **minimal input specification** (92 lines):  
+  [`example_doc_in.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_in.toml)
+- The **fully completed version** generated after the minimal version by the engine (324 lines):  
+  [`example_doc_out_post.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post.toml)
+
+Throughout this guide, each language construct will be presented with examples showing **both styles**—the minimal form written by the user and the complete result produced by the LaDeRR Engine. This will help readers understand not only how to write a specification, but also what the engine adds during its processing.
+
+### 2.2. Validation Process
+
+Before and after performing reasoning on a specification, the [LaDeRR Engine](https://w3id.org/laderr/engine/git) can optionally validate the model to help ensure completeness and consistency with the language’s metamodel.
+
+Validation is based on [SHACL (Shapes Constraint Language)](https://www.w3.org/TR/shacl/), a W3C standard for RDF graph validation. The engine applies a set of predefined SHACL shapes that reflect the structural rules of the LaDeRR metamodel. These shapes are [available in this repository](https://github.com/pedropaulofb/laderr/tree/main/shapes).
+
+The validation runs in two stages:
+
+- **Pre-Inference Validation**: After parsing the user-written specification but before inference, to catch any structural issues early.
+- **Post-Inference Validation**: After reasoning is complete, to verify that the enriched model remains logically consistent and structurally valid.
+
+Each stage produces a report containing messages of the following types:
+
+- **Passed**: No issues were found.
+- **Info**: Non-mandatory elements are missing—these are not required but are recommended for completeness.
+- **Warning**: A mandatory element is missing according to the LaDeRR metamodel. However, because LaDeRR adopts the [Open World Assumption (OWA)](https://www.dataversity.net/introduction-to-open-world-assumption-vs-closed-world-assumption/), the engine allows these omissions and continues processing.
+- **Violation**: A critical inconsistency was detected that violates the defined structural rules.
+
+Validation is implemented using the open-source [PySHACL](https://github.com/RDFLib/pySHACL) library. For more technical details on the validation logic and output structure, refer to the PySHACL documentation.
+
+The figure below illustrates the typical processing flow of a simplified specification, highlighting validation stages before and after reasoning:
+
+<p align="center">
+<img src="https://github.com/pedropaulofb/laderr/blob/main/documentation/images/processing_stages.png"  alt="LaDeRR Engine's Process"
+style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
+<p align="center"><em>Simplified view of the LaDeRR Engine’s processing stages, from a minimal user-defined specification to a fully enriched and validated model.</em></p>
+
 
 ## 3. Specification Metadata
 
@@ -307,7 +449,7 @@ threatens = ["power_grid"]
 failedToDamage = ["hospital_network"]
 ```
 
-#### **Controls**  
+#### Controls
 
 A **Control** is an entity that actively mitigates threats or neutralizes vulnerabilities, thereby reducing risk. Controls **inhibit** threats, preventing them from successfully exploiting vulnerabilities in assets. Additionally, controls **protect** assets by safeguarding them from potential risks. A control must establish at least one of these relationships (*inhibits* or *protects*) to be considered valid in the system.  
 

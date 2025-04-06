@@ -113,7 +113,7 @@ The following **W3ID redirects** provide access to LaDeRR's key artifacts:
 
 ## Available Artifacts
 
-The LaDeRR repository contains several artifacts that support the development, documentation, and computational use of the **Language for Describing Risk and Resilience (LaDeRR)**. These artifacts include the **metamodel, vocabulary, rules, SHACL shapes for validation, and documentation resources**.
+The LaDeRR repository contains several artifacts that support the development, documentation, and computational use of the **Language for Describing Risk and Resilience (LaDeRR)**. These artifacts include the metamodel, vocabulary, rules, SHACL shapes for validation, and documentation resources.
 
 ### LaDeRR Metamodel
 
