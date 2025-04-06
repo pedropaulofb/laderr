@@ -239,7 +239,7 @@ The UML class diagram below presents the structure of the `Specification` class 
 alt="LaDeRR Specification UML Diagram"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 </p>
-<p align="center"><em>UML representation of the LaDeRR Specification class and its relation to scenario constructs. At least one specification must exist, but constructs are optional.</em></p>
+<p align="center"><em>UML representation of the LaDeRR Specification class and its relation to scenario constructs.</em></p>
 
 It is important to note that a LaDeRR specification file is considered **valid** even if it contains only metadata—i.e., it does not require constructs to be defined. However, in most practical cases, constructs will be present to describe one or more resilience scenarios.
 
@@ -332,10 +332,10 @@ style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 The following TOML snippet illustrates how to define constructs using their attributes:
 
 <!-- TODO -->
-$$$toml
+```toml
 # Example construct definitions
 # To be filled in later
-$$$
+```
 
 <!-- TODO: MAKE IT SPECIFIC -->
 As shown above, the `label` field is mandatory in the model but can be omitted in the TOML input. If omitted, it is automatically assigned the same value as the construct’s `id`.
