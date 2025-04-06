@@ -340,9 +340,9 @@ The following TOML snippet illustrates how to define constructs using their attr
 <!-- TODO: MAKE IT SPECIFIC -->
 As shown above, the `label` field is mandatory in the model but can be omitted in the TOML input. If omitted, it is automatically assigned the same value as the construct’s `id`.
 
-In the next sections, we will explore each specific subtype of construct in detail, including their unique roles, rules, and configuration examples.
+In the next sections, we will explore each specific subtype of construct in detail.
 
-### 3.2. Scenario Classification and Determination
+## 5. Scenario
 
 The `LaderrSpecification`'s attribute `scenario` (mandatory) defines the context in which the specified system is analyzed. It represents the moment in time that the system is being considered. The possible values for `scenario` are divided into two groups:
 
@@ -361,9 +361,9 @@ If a LaDeRR specification is `NOT_RESILIENT`, then there must exist at least one
 
 **FOL Representation:**
 
-```
+$$
 \forall ls ( LaderrSpecification(ls) \land scenario(ls) = NOT_RESILIENT \leftrightarrow \exists o1, o2 ( Entity(o1) \land Entity(o2) \land ScenarioComponents(ls, o1) \land ScenarioComponents(ls, o2) \land succeededToDamage(o1, o2) ) )
-```
+$$
 
 - **Rule 2: A system is RESILIENT if all vulnerabilities are mitigated**
 
@@ -371,9 +371,9 @@ If a LaDeRR specification is in the `INCIDENT` state and there is no vulnerabili
 
 **FOL Representation:**
 
-```
+$$
 \forall ls ( LadderSpecification(ls) \land scenario(ls) = INCIDENT \land \neg \exists o1, v1 ( ScenarioComponents(ls, o1) \land vulnerabilities(o1, v1) \land \neg ( state(v1) = DISABLED \lor \neg \exists c1 (Capability(c1) \land exploits(c1, v1)) ) ) \rightarrow scenario(ls) = RESILIENT )
-```
+$$
 
 - **Rule 3: An INCIDENT must be either RESILIENT or NOT_RESILIENT**
 
@@ -381,9 +381,9 @@ For every LaDeRR specification, if its `scenario` is `INCIDENT`, then it must be
 
 **FOL Representation:**
 
-```latex
-\forall ls ( LaderrSpecification(ls) \rightarrow ( scenario(ls) = INCIDENT \rightarrow scenario(ls) = RESILIENT \oplus scenario(ls) = NOT_RESILIENT ) )
-```
+$$
+\forall ls ( LaderrSpecification(ls) \rightarrow ( scenario(ls) = INCIDENT \rightarrow scenario(ls) = RESILIENT \oplus scenario(ls) = NOT\_RESILIENT ) )
+$$
 
 ### 4.2. Entities
 
