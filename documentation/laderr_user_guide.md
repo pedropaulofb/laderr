@@ -342,48 +342,89 @@ As shown above, the `label` field is mandatory in the model but can be omitted i
 
 In the next sections, we will explore each specific subtype of construct in detail.
 
-## 5. Scenario
+## 5. Scenarios
 
-The `LaderrSpecification`'s attribute `scenario` (mandatory) defines the context in which the specified system is analyzed. It represents the moment in time that the system is being considered. The possible values for `scenario` are divided into two groups:
+In LaDeRR, a **Scenario** represents a snapshot of a resilience context at a given point in time. It groups a set of components—entities and relations—that together express the conditions of the system in that moment. Scenarios enable users to analyze and reason about whether resilience is present or lacking, either in current operations or in past incidents.
 
-- **OPERATIONAL**: Represents an ongoing or regular situation. It is not necessarily related to threats, failures, or risks, but describes the system as it is functioning in normal conditions.
-- **INCIDENT**: Represents a past situation, meaning an event has already occurred. In this context, the system either demonstrates resilience or does not.
+Scenarios are essential for modeling dynamic systems that may change over time. A single specification can include multiple scenarios, allowing users to represent different temporal perspectives or stages of system evolution (e.g., before and after adding a resilience control).
 
-If the `scenario` of a specification is set to `INCIDENT`, it must ultimately be classified as either `RESILIENT` or `NOT_RESILIENT`, but never both. The `INCIDENT` value is used when it is unknown whether the system is resilient or not, or when this classification is left to be determined automatically by the LaDeRR Engine (see [Section 5](#5-laderr-engine)).
+All scenarios are defined as instances of the `Scenario` class and share the same required structure, which includes the following attributes:
 
-#### Rules Governing Scenarios
+- **situation** (_ScenarioSituationEnum, required, default = `operational`_): Specifies whether the scenario represents an ongoing moment (`operational`) or a past event (`incident`). This affects how threats and consequences are interpreted.
+- **status** (_ScenarioStatusEnum, required, default = `vulnerable`_): Indicates the resilience level of the scenario, classifying it as either `resilient` or `vulnerable` based on the protection of asset capabilities.
 
-The following rules define the `scenario` values and how they are determined.
+If these attributes are omitted from the specification, the default values are applied automatically—ensuring that the scenario is treated as operational and vulnerable unless stated otherwise.
 
-- **Rule 1: A system is NOT_RESILIENT if damage has succeeded**
+> **Note on Engine Behavior**  
+> When using the [LaDeRR Engine](https://w3id.org/laderr/engine):
+> - It is **recommended** to explicitly define the `situation` attribute, as this affects how threats and outcomes are interpreted during inference.
+> - It is **not required** to specify the `status` attribute manually. The engine automatically computes and updates the scenario status during post-inference processing. Any user-defined value for `status` may be overwritten by this automated evaluation.
 
-If a LaDeRR specification is `NOT_RESILIENT`, then there must exist at least one pair of entities within it where one has successfully damaged the other.
+The UML diagram below presents the metamodel structure for Scenarios and their relationship with ScenarioComponents:
 
-**FOL Representation:**
+<p align="center">
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/metamodel_images/Scenario.png" 
+alt="Scenario Metamodel"
+style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
+<p align="center"><em>Metamodel of the <code>Scenario</code> class, showing its attributes, enumerations, and relation to scenario components.</em></p>
 
-$$
-\forall ls ( LaderrSpecification(ls) \land scenario(ls) = NOT_RESILIENT \leftrightarrow \exists o1, o2 ( Entity(o1) \land Entity(o2) \land ScenarioComponents(ls, o1) \land ScenarioComponents(ls, o2) \land succeededToDamage(o1, o2) ) )
-$$
+If a `ScenarioComponent` is not explicitly linked to any `Scenario`, it is automatically interpreted as belonging to **all** scenarios defined within the same specification. This default behavior simplifies modeling in cases where certain components are relevant across multiple scenarios.
 
-- **Rule 2: A system is RESILIENT if all vulnerabilities are mitigated**
+Moreover, if no `Scenario` is explicitly declared in the specification, a default one is assumed to exist. In such cases, all scenario components are treated as part of this single, implicit scenario. When using the LaDeRR Engine, this default scenario is generated automatically, and a randomly generated identifier is assigned to it.
 
-If a LaDeRR specification is in the `INCIDENT` state and there is no vulnerability left unaddressed (i.e., all vulnerabilities are either disabled or not actively exploited), then the system is classified as `RESILIENT`.
+### 5.1. Scenarios' Situations
 
-**FOL Representation:**
+The `situation` attribute characterizes the temporal nature of the scenario. It accepts one of the following values:
 
-$$
-\forall ls ( LadderSpecification(ls) \land scenario(ls) = INCIDENT \land \neg \exists o1, v1 ( ScenarioComponents(ls, o1) \land vulnerabilities(o1, v1) \land \neg ( state(v1) = DISABLED \lor \neg \exists c1 (Capability(c1) \land exploits(c1, v1)) ) ) \rightarrow scenario(ls) = RESILIENT )
-$$
+- **`operational`**: Represents a current or ongoing situation. Threats may exist, but their outcomes are still uncertain. The scenario reflects the system's present state, where resilience might still be tested in the future.
+  
+- **`incident`**: Represents a past situation. All outcomes are known and assumed to have occurred unless explicitly stated otherwise. If a threat had the opportunity to cause damage and there was no resilience in place, it is assumed that the damage occurred.
 
-- **Rule 3: An INCIDENT must be either RESILIENT or NOT_RESILIENT**
+This distinction is critical for interpreting the semantics of threats and resilience within the model.
 
-For every LaDeRR specification, if its `scenario` is `INCIDENT`, then it must be classified as either `RESILIENT` or `NOT_RESILIENT`, but never both.
+### 5.2. Scenarios' Status
 
-**FOL Representation:**
+The `status` attribute summarizes the overall condition of the scenario in terms of resilience. It can take one of two values:
 
-$$
-\forall ls ( LaderrSpecification(ls) \rightarrow ( scenario(ls) = INCIDENT \rightarrow scenario(ls) = RESILIENT \oplus scenario(ls) = NOT\_RESILIENT ) )
-$$
+- **`resilient`**: Indicates that **all** assets in the scenario are protected. This occurs when:
+  - Every capability that is at risk is preserved by a corresponding instance of Resilience, **or**
+  - The assets are not targeted by any threat.
+
+- **`vulnerable`**: Indicates that **at least one** asset capability is unprotected and exposed to threats. This classification is conservative—if any vulnerability exists that is not counteracted by resilience, the entire scenario is deemed vulnerable.
+
+These attributes together help define the scope and interpretation of each scenario within a LaDeRR specification.
+
+### 5.3. Scenarios' Rules
+
+<!-- TODO -->
+
+### 5.4. Examples of Scenario Definition
+
+Below are three examples illustrating different ways to work with scenarios in a LaDeRR specification:
+
+#### A. Explicit Definition of a Scenario
+
+This example shows how to define a named scenario with both `situation` and `status` attributes, along with components explicitly assigned to it:
+
+$$$toml
+# Add example of a scenario with components here
+$$$
+
+#### B. Components Without Scenario Assignment
+
+In this example, scenario components are defined without specifying any associated scenario. They will automatically be considered part of **all** scenarios defined in the specification:
+
+$$$toml
+# Add example with multiple scenarios and components without scenario assignment here
+$$$
+
+#### C. No Scenario Declared
+
+This example shows a minimal case where no scenario is declared. A default scenario will be implicitly created by the LaDeRR Engine, and all components will be assigned to it:
+
+$$$toml
+# Add example without any scenario definition here
+$$$
 
 ### 4.2. Entities
 
