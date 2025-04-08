@@ -4,7 +4,6 @@
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [1. Introduction](#1-introduction)
   - [1.1. LaDeRR Metamodel Presentation](#11-laderr-metamodel-presentation)
   - [1.2. Access to LaDeRR Specification Example and Results](#12-access-to-laderr-specification-example-and-results)
@@ -16,33 +15,22 @@
 - [3. Specification Metadata](#3-specification-metadata)
   - [3.1. Required Fields and Defaults](#31-required-fields-and-defaults)
   - [3.2. Examples of Valid Metadata Blocks](#32-examples-of-valid-metadata-blocks)
-    - [Minimal Valid Metadata](#minimal-valid-metadata)
-    - [Complete Example with All Supported Fields](#complete-example-with-all-supported-fields)
 - [4. Specification Constructs](#4-specification-constructs)
   - [4.1. Common Attributes of All Constructs](#41-common-attributes-of-all-constructs)
   - [4.2. Example of Construct Definition](#42-example-of-construct-definition)
-  - [3.2. Scenario Classification and Determination](#32-scenario-classification-and-determination)
-    - [Rules Governing Scenarios](#rules-governing-scenarios)
-  - [4.2. Entities](#42-entities)
-    - [Fields of Entities](#fields-of-entities)
-    - [Assets](#assets)
-    - [Threats](#threats)
-    - [Controls](#controls)
-    - [Rules Governing Entity Relationships](#rules-governing-entity-relationships)
-  - [4.3. Dispositions](#43-dispositions)
-    - [Rules Governing Dispositions](#rules-governing-dispositions)
-    - [Capabilities](#capabilities)
-    - [Vulnerabilities](#vulnerabilities)
-    - [Rules Governing Vulnerabilities](#rules-governing-vulnerabilities)
-  - [4.4. Resilience](#44-resilience)
-    - [Fields of Resilience](#fields-of-resilience)
-    - [Rules Governing Resilience](#rules-governing-resilience)
-    - [Example of a Resilience Specification](#example-of-a-resilience-specification)
+- [5. Scenarios](#5-scenarios)
+  - [5.1. Scenarios' Situations](#51-scenarios-situations)
+  - [5.2. Scenarios' Status](#52-scenarios-status)
+  - [5.3. Scenarios' Rules](#53-scenarios-rules)
+  - [5.4. Examples of Scenario Definition](#54-examples-of-scenario-definition)
+- [6. Scenario Components](#6-scenario-components)
+  - [6.1. Linking Scenario Components to Scenarios](#61-linking-scenario-components-to-scenarios)
+  - [6.2. Scenario-Specific Duplication in LaDeRR Engine](#62-scenario-specific-duplication-in-laderr-engine)
+  - [6.1. Entities](#61-entities)
+  - [6.2. Dispositions](#62-dispositions)
+  - [6.3. Resilience](#63-resilience)
 - [5. LaDeRR Engine](#5-laderr-engine)
   - [5.1. Writing a LaDeRR Specification with LaDeRR Engine](#51-writing-a-laderr-specification-with-laderr-engine)
-    - [Automatic Inference](#automatic-inference)
-    - [Automatic Resilience Generation](#automatic-resilience-generation)
-    - [Simplified Specification Example](#simplified-specification-example)
   - [5.2. Engine Output and Inferred Model](#52-engine-output-and-inferred-model)
 - [6. Complete Example](#6-complete-example)
   - [6.1. Explicit Specification](#61-explicit-specification)
@@ -426,65 +414,184 @@ $$$toml
 # Add example without any scenario definition here
 $$$
 
-### 4.2. Entities
+## 6. Scenario Components
+
+In LaDeRR, the elements that describe the structure and dynamics of a scenario are called **Scenario Components**. These include entities, dispositions, and resilience—each playing a specific role in representing how threats, vulnerabilities, and protections interact within a system.
+
+All scenario components are instances of the abstract class `ScenarioComponent`, which does not define any attributes on its own but serves as a common superclass for the following three types:
+
+- [`Entity`](#61-entities): Represents a system participant (e.g., asset, threat, or control).
+- [`Disposition`](#62-dispositions): Represents an intrinsic property of an entity that manifests under specific conditions. It can be positive, as a capability that supports system functionality, or as a vulnerability that exposes the entity to potential harm.
+- [`Resilience`](#63-resilience): Represents the preservation of functions (capabilities) in the face of threats and vulnerabilities.
+
+These elements are the core building blocks that determine the structure and behavior of the system being modeled.
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/metamodel_images/ScenarioComponents.png"
+alt="Scenario Components Metamodel"
+style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
+</p>
+<p align="center"><em>Metamodel overview of the abstract class <code>ScenarioComponent</code> and its three concrete subclasses: <code>Entity</code>, <code>Disposition</code>, and <code>Resilience</code>.</em></p>
+
+Each of these types is described in detail in the following subsections. You will learn their purpose, required fields, how they relate to other components, and the inference rules used by the [LaDeRR Engine](https://w3id.org/laderr/engine) to compute additional structure based on their definitions.
+
+The examples shown in the next sections are provided in both minimal and complete forms to help users understand how to author them manually or rely on the engine to infer missing information.
+
+### 6.1. Linking Scenario Components to Scenarios
+
+Each scenario component—whether an entity, disposition, or resilience—must be associated with one or more scenarios. This association determines the context in which the component exists and contributes to resilience analysis.
+
+There are two supported ways to establish this connection in a LaDeRR specification:
+
+#### A. Listing components inside the scenario definition
+You can explicitly list component identifiers under a scenario's `components` attribute:
+
+$$$toml
+[Scenario.x]
+components = ["y"]
+
+[ScenarioComponent.y]
+# component definition
+$$$
+
+#### B. Referencing scenarios from the component
+Alternatively, each scenario component can declare the scenarios to which it belongs by using the `scenarios` attribute:
+
+$$$toml
+[Scenario.x]
+# scenario definition
+
+[ScenarioComponent.y]
+scenarios = ["x"]
+# component definition
+$$$
+
+Both approaches are semantically equivalent and can be used interchangeably. When using the LaDeRR Engine, either method will correctly link the component to the intended scenario(s).
+
+In addition, if a specification defines only one scenario, components do not need to explicitly declare the association—the LaDeRR Engine will assume all components belong to that scenario.
+
+### 6.2. Scenario-Specific Duplication in LaDeRR Engine
+
+As soon as a LaDeRR specification is loaded into the [LaDeRR Engine](https://w3id.org/laderr/engine), all scenario components are internally duplicated per scenario—even before validation or inference takes place. This ensures that each component is treated as context-specific from the very beginning of processing. Every rule, validation, and inference step is then applied individually to each scenario-specific version of the component, preserving their independence and enabling precise per-scenario analysis.
+
+This duplication mechanism becomes especially important when a component is associated with multiple scenarios, as its behavior or interactions may differ depending on the context. For instance, a vulnerability might be exploited in one scenario but disabled in another.
+
+To support this, the engine duplicates the component for each scenario to which it belongs. Each duplicated component has:
+
+- A unique `id` generated by appending the scenario’s ID as a suffix to the original component ID.
+- The **same label** as the original component (i.e., `label` remains unchanged across scenarios).
+- Scenario-specific attributes, such as modified capabilities, relationships, or resilience links.
+
+#### Example: Multi-Scenario Duplication
+
+Given the following input:
+
+$$$toml
+[Scenario.dry_season]
+label = "Dry Season Survival"
+description = "Models the challenges animals face during prolonged droughts, such as water scarcity, heat exposure, and increased territorial pressure."
+
+[Scenario.heatwave_response]
+label = "Heatwave Response"
+description = "Captures behavioral and environmental strategies animals use during extreme heat events, including movement, thermoregulation, and use of shelter."
+
+[Entity.zebra_herd]
+label = "Zebra Herd"
+capabilities = ["efficient_thermoregulation", "rapid_movement_coordination"]
+vulnerabilities = ["limited_water_access"]
+scenarios = ["dry_season", "heatwave_response"]
+$$$
+
+The LaDeRR Engine generates the following post-inference output:
+
+$$$toml
+[Asset.zebra_herd_heatwave_response]
+capabilities = ["efficient_thermoregulation_heatwave_response", "rapid_movement_coordination_heatwave_response"]
+vulnerabilities = ["limited_water_access_heatwave_response"]
+inhibits = "lion_pride_heatwave_response"
+protects = "lion_pride_heatwave_response"
+resiliences = "R1L"
+label = "Zebra Herd"
+scenarios = "heatwave_response"
+
+[Asset.zebra_herd_dry_season]
+capabilities = ["efficient_thermoregulation_dry_season", "rapid_movement_coordination_dry_season"]
+vulnerabilities = ["limited_water_access_dry_season"]
+inhibits = "lion_pride_dry_season"
+protects = "lion_pride_dry_season"
+resiliences = "R1L"
+label = "Zebra Herd"
+scenarios = "dry_season"
+$$$
+
+This approach ensures accurate scenario-based analysis and prevents the reasoning process from mistakenly treating scenario-specific components as if they were identical.
+
+### 6.1. Entities
 
 An **Entity** represents a fundamental component within a LaDeRR specification, participating in resilience scenarios. Entities are classified into one or more of the types: **Assets**, **Threats**, and **Controls**. Each type plays a distinct role in modeling vulnerabilities, risks, and protective mechanisms.
 
-Entities are characterized by their **Capabilities** and **Vulnerabilities**, defining their strengths and weaknesses in a given scenario. **Assets** are entities that require protection and may exhibit resilience. **Threats** attempt to exploit vulnerabilities within assets, potentially causing damage. **Controls** serve as protective mechanisms, mitigating the impact of threats by inhibiting their actions or neutralizing vulnerabilities.
+All entities are defined as instances of the abstract class `Entity`, which is specialized into the following three types:
 
-The UML diagram below illustrates the **Entity** class, its subtypes, and their relationships.
+- **Asset**: An element of value that must be protected.
+- **Threat**: A source of potential harm that can exploit vulnerabilities.
+- **Control**: A protective mechanism that inhibits threats or safeguards assets.
+
+Entities are characterized by their **capabilities** and, optionally, **vulnerabilities**. These dispositions define their strengths and weaknesses and serve as the basis for determining protective, harmful, and resilience-enabling interactions.
+
+The UML diagram below illustrates the `Entity` class, its subtypes, and their relationships with capabilities, vulnerabilities, and Resilience:
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Entities.png"
-style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/metamodel_images/Entities.png"
+style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
+</p>
+<p align="center"><em>Metamodel of the <code>Entity</code> class, its specializations, and its associations with <code>Capability</code>, <code>Vulnerability</code>, and <code>Resilience</code>.</em></p>
 
-#### Fields of Entities
+#### Shared Fields of Entities
 
-- **capabilities** (_list of strings, required_): Defines the set of functions or strengths the entity possesses.
-- **vulnerabilities** (_list of strings, optional_): Represents the weaknesses that can be exploited by threats.
+- **capabilities** (_list of strings, required_): The positive dispositions possessed by the entity.
+- **vulnerabilities** (_list of strings, optional_): The negative dispositions that may expose the entity to damage.
+
+Each entity must have at least one capability, and may optionally include one or more vulnerabilities.
 
 #### Assets
 
-An **Asset** is an entity of value that must be safeguarded against potential threats. Assets possess **capabilities**, which define their functions or operational strengths, and **vulnerabilities**, which represent weaknesses that threats can exploit. Assets can be **threatened** by threats and **protected** by controls.
+An **Asset** is an entity of value that is potentially exposed to risks and needs to be safeguarded. Assets may be targeted by threats and protected by controls. They can also have instances of **Resilience**, which preserve their capabilities despite the presence of vulnerabilities and threats.
 
 Examples of assets include a _regional power grid_, which ensures electricity supply but may be vulnerable to cyberattacks and infrastructure failures; a _hospital network_, which provides medical services but is susceptible to data breaches and equipment malfunctions; a _coral reef ecosystem_, which supports marine biodiversity but faces risks from ocean acidification and climate change; a _financial market system_, which enables global trade but is exposed to economic downturns and cyber fraud; and a _public transportation network_, which facilitates mobility but can be disrupted by mechanical failures and extreme weather events.
 
-##### Additional Fields of Assets
+Assets are defined by the following additional field:
 
-- **resiliences** (_list of strings, optional_): References to resiliences protecting the asset's capabilities.
+- **resiliences** (_list of strings, optional_): References to resilience instances associated with the asset. _(Automatically inferred when using LaDeRR Engine.)_
 
-The LaDeRR Engine is capable of automatically detecting and associating resilience instances with assets based on system-wide analysis. Therefore, explicitly declaring resiliences is optional, as they will be inferred and correctly linked within the system.
+> The LaDeRR Engine automatically computes resilience based on system conditions. Users may provide explicit resilience declarations, but they are not required.
 
 ##### Example of an Asset Specification
 
-[**Example 03:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
-
-```toml
+$$$toml
 [Asset.power_grid]
 label = "Regional Power Grid"
 description = "A critical infrastructure providing electricity."
 capabilities = ["load_balancing", "fault_tolerance"]
 vulnerabilities = ["cyber_attack", "equipment_failure"]
 resiliences = ["distributed_generation"]
-```
+$$$
 
 #### Threats
 
-A **Threat** is an entity that actively exploits vulnerabilities in assets, potentially leading to harm. Threats can emerge from human actions, technical failures, or natural events. They attempt to compromise an asset’s resilience and can be inhibited by controls.
+A **Threat** is an entity that endangers assets by exploiting vulnerabilities. Its interaction with assets is scenario-dependent, and its effectiveness may vary depending on whether resilience or control mechanisms are in place.
 
 Examples of threats include a _cybercriminal group_, launching ransomware attacks to compromise data security; an _infectious disease outbreak_, spreading through populations and threatening public health infrastructure; an _oil spill_, contaminating marine ecosystems and disrupting local economies; a _social misinformation campaign_, influencing political outcomes and destabilizing trust in institutions; and an _earthquake_, damaging critical infrastructure and causing widespread economic losses.
 
-##### Additional Fields of Threats
+Additional fields for Threats include:
 
-- **threatens** (_list of strings, required_): References to the assets that the threat targets. _(Automatically inferred when using LaDeRR Engine.)_
-- **succeededToDamage** (_list of strings, optional_): Assets that the threat successfully damaged. This is automatically determined based on the scenario. _(Automatically inferred when using LaDeRR Engine.)_
-- **failedToDamage** (_list of strings, optional_): Assets that the threat attempted but failed to damage. This is automatically determined based on the scenario. _(Automatically inferred when using LaDeRR Engine.)_
+- **threatens** (_list of strings, required_): Assets that the threat targets. _(Automatically inferred.)_
+- **canDamage** / **cannotDamage** (_list of strings, optional_): Used when the scenario situation is `operational`. Indicates whether a threat has the potential to cause damage.
+- **damaged** / **notDamaged** (_list of strings, optional_): Used when the scenario situation is `incident`. Indicates whether a threat actually succeeded or failed in causing damage.
 
-The relationships between threats and assets—whether a threat targets, successfully damages, or fails to damage an asset—can be inferred from the underlying interactions between capabilities and vulnerabilities. When using LaDeRR Engine, these relations do not need to be explicitly declared, as they will be automatically derived based on the system's defined capabilities, vulnerabilities, and their interactions.
-
-If the scenario is **RESILIENT**, all damage attempts by threats result in `failedToDamage`. If the scenario is **NOT_RESILIENT**, some threats will have `succeededToDamage` relationships with assets.
+> These outcome-specific relationships are automatically inferred by the LaDeRR Engine. Users may declare them manually for traceability, but they will be overwritten if inconsistent.
 
 ##### Rules Governing Threats
+<!-- TO BE UPDATED -->
 
 - **Rule 1: A Threat succeeds in damaging an Asset if it exploits an enabled vulnerability**
   A threat is considered to have successfully damaged an asset if it possesses a capability that exploits a vulnerability in the asset, the vulnerability is enabled, and it exposes an essential capability of the asset.
@@ -504,48 +611,51 @@ If the scenario is **RESILIENT**, all damage attempts by threats result in `fail
 \forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = DISABLED \land state(c2) = ENABLED ) ) \leftrightarrow failedToDamage(o2, o1) )
 ```
 
+- **Rule 3: A Threat threatens an Asset if it exploits a vulnerability**
+  A threat entity is said to threaten an asset if it has a capability that exploits a vulnerability within the asset.
+
+**FOL Representation:**
+
+```
+\forall o1, o3 ( Entity(o1) \land Entity(o3) \land ( \exists v1, c3 ( Vulnerability(v1) \land Capability(c3) \land vulnerabilities(o1, v1) \land capabilities(o3, c3) \land exploits(c3, v1) ) \leftrightarrow threatens(o3, o1) ) )
+```
+
 ##### Example of a Threat Specification
 
 [**Example 04:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 
-```toml
+$$$toml
 [Threat.hacker_group]
 label = "Advanced Persistent Threat Group"
 description = "A cybercriminal organization targeting infrastructure."
 capabilities = ["cyber_attack"]
 threatens = ["power_grid"]
-failedToDamage = ["hospital_network"]
-```
+notDamaged = ["hospital_network"]
+$$$
 
 #### Controls
 
-A **Control** is an entity that actively mitigates threats or neutralizes vulnerabilities, thereby reducing risk. Controls **inhibit** threats, preventing them from successfully exploiting vulnerabilities in assets. Additionally, controls **protect** assets by safeguarding them from potential risks. A control must establish at least one of these relationships (*inhibits* or *protects*) to be considered valid in the system.  
+A **Control** is an entity designed to reduce risk by counteracting threats or protecting assets. It must establish at least one of the following relationships:
 
-Examples of controls include a _network firewall_, which prevents unauthorized access to hospital systems; a _vaccination program_, which mitigates the spread of infectious diseases in a population; a _marine protected area_, safeguarding coral reefs from overfishing and habitat destruction; an _algorithmic fraud detection system_, identifying suspicious transactions in financial markets; and an _early warning system for natural disasters_, enabling rapid response to earthquakes and hurricanes.  
+- **protects** (_list of strings, optional_): Assets that the control safeguards. _(Automatically inferred.)_
+- **inhibits** (_list of strings, optional_): Threats that are neutralized or weakened by the control. _(Automatically inferred.)_
 
-##### **Additional Fields of Controls**  
-
-- **protects** (_list of strings, optional\*_): References to the assets the control safeguards. _(Automatically inferred when using LaDeRR Engine.)_ 
-- **inhibits** (_list of strings, optional\*_): References to threats that are neutralized or reduced by the control. _(Automatically inferred when using LaDeRR Engine.)_  
-
-\* A `Control` **must have at least one of these relationships** (`inhibits` or `protects`). 
-
-The relationships between controls, assets, and threats—whether a control protects an asset or inhibits a threat—can be inferred from the underlying interactions between capabilities and vulnerabilities. When using LaDeRR Engine, these relations do not need to be explicitly declared, as they will be automatically derived based on the system’s defined capabilities, vulnerabilities, and their interactions.  
+> A valid `Control` must define at least one `inhibits` or `protects` relationship. These are inferred during processing by the LaDeRR Engine, based on the disabling of vulnerabilities or inhibition of threat capabilities.
 
 ##### Example of a Control Specification
 
 [**Example 05:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
 
-```toml
+$$$toml
 [Control.firewall_system]
 label = "Network Firewall"
 description = "A security system preventing unauthorized access."
 capabilities = ["intrusion_prevention"]
 protects = ["hospital_network"]
 inhibits = ["hacker_group"]
-```
+$$$
 
-#### Rules Governing Entity Relationships
+##### Rules Governing Control
 
 - **Rule 1: An Entity protects another if it disables a vulnerability**
   A control or another entity is said to protect an asset if it possesses a capability that disables a vulnerability in that asset.
@@ -565,16 +675,7 @@ inhibits = ["hacker_group"]
 \forall o2, o3 ( Entity(o2) \land Entity(o3) \land \exists c2, c3, v1 ( \land Capability(c2) \land Capability(c3) \land capabilities(o2, c2) \land capabilities(o3, c3) \land Vulnerability(v1) \land disables(c2, v1) \land exploits(c3, v1) ) \leftrightarrow inhibits(o2, o3) )
 ```
 
-- **Rule 3: A Threat threatens an Asset if it exploits a vulnerability**
-  A threat entity is said to threaten an asset if it has a capability that exploits a vulnerability within the asset.
-
-**FOL Representation:**
-
-```
-\forall o1, o3 ( Entity(o1) \land Entity(o3) \land ( \exists v1, c3 ( Vulnerability(v1) \land Capability(c3) \land vulnerabilities(o1, v1) \land capabilities(o3, c3) \land exploits(c3, v1) ) \leftrightarrow threatens(o3, o1) ) )
-```
-
-### 4.3. Dispositions
+### 6.2. Dispositions
 
 Dispositions represent the inherent properties of entities within a LaDeRR specification that determine how they respond to changing conditions. They are divided into **Capabilities**, which represent positive dispositions that enable resilience, and **Vulnerabilities**, which represent negative dispositions that introduce risk. These elements are crucial for modeling how assets function under different conditions and how they interact with threats and controls.
 
@@ -662,7 +763,7 @@ exploits = ["malware"]
 
 Capabilities and vulnerabilities define the operational characteristics of assets, influencing how resilience mechanisms interact with threats in a LaDeRR specification. The LaDeRR Engine automatically determines resilience relations, meaning explicit declarations of resilience-related attributes are optional when using the system.
 
-### 4.4. Resilience
+### 6.3. Resilience
 
 **Resilience** represents the mechanisms that enable entities to withstand adverse conditions, preserving capabilities, and mitigating the effects of threats. It serves as a fundamental aspect of maintaining system functionality against disruptions. Resilience mechanisms are associated with Assets, Capabilities, and Vulnerabilities, establishing structured ways to counteract risks and enhance stability.
 
