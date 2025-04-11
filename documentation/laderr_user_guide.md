@@ -394,25 +394,94 @@ Below are three examples illustrating different ways to work with scenarios in a
 
 This example shows how to define a named scenario with both `situation` and `status` attributes, along with components explicitly assigned to it:
 
-$$$toml
-# Add example of a scenario with components here
-$$$
+```toml
+[Scenario.heatwave_response]
+label = "Heatwave Response"
+situation = "operational"
+status = "resilient"
+
+[Scenario.dry_season]
+label = "Dry Season Survival"
+situation = "operational"
+status = "vulnerable"
+```
+<p align="left"><em>Example of complete Scenario description.</em></p>
 
 #### B. Components Without Scenario Assignment
 
-In this example, scenario components are defined without specifying any associated scenario. They will automatically be considered part of **all** scenarios defined in the specification:
+In this example, scenario components are defined without specifying any associated scenario. They will automatically be considered part of **all** scenarios defined in the specification. This effect can be observed in the example below, where __zebra_herd__ is not linked to any scenario.
 
-$$$toml
-# Add example with multiple scenarios and components without scenario assignment here
-$$$
+```toml
+[Scenario.heatwave_response]
+label = "Heatwave Response"
+situation = "operational"
+status = "resilient"
+
+[Scenario.dry_season]
+label = "Dry Season Survival"
+
+[Entity.zebra_herd]
+label = "Zebra Herd"
+# Other zebra_herd definitions
+```
+<p align="left"><em>Example of unprocessed specification without scenario assignment.</em></p>
+
+After being processed by LaDeRR Engine, the result of this is:
+
+```toml
+[Scenario.heatwave_response]
+components = ["zebra_herd_heatwave_response"]
+label = "Heatwave Response"
+situation = "operational"
+status = "resilient"
+
+[Scenario.dry_season]
+components = ["zebra_herd_dry_season"]
+label = "Dry Season Survival"
+situation = "operational"
+status = "vulnerable"
+
+[Entity.zebra_herd_heatwave_response]
+label = "Zebra Herd"
+scenarios = "heatwave_response"
+# Other zebra_herd definitions
+
+[Asset.zebra_herd_dry_season]
+label = "Zebra Herd"
+scenarios = "dry_season"
+```
+<p align="left"><em>Example of processed specification without scenario assignment.</em></p>
+
+As can be seen, __zebra_herd__ was assigned to both scenarios contained in the specification. Additionally, note that, for scenario __dry_season__, as its attributes situation and status were not assigned, the default values were automatically attributed to it.
+
+See subsections [6.2](#62-scenario-specific-duplication-in-laderr-engine) for a better understanding about the duplication and automatically assignment.
 
 #### C. No Scenario Declared
 
 This example shows a minimal case where no scenario is declared. A default scenario will be implicitly created by the LaDeRR Engine, and all components will be assigned to it:
 
-$$$toml
-# Add example without any scenario definition here
-$$$
+```toml
+[Entity.zebra_herd]
+label = "Zebra Herd"
+# Other zebra_herd definitions
+```
+<p align="left"><em>Example of unprocessed specification without scenario definition.</em></p>
+
+After processing, we get the following:
+
+```toml
+[Scenario.SX01]
+components = ["zebra_herd"]
+label = "SX01"
+situation = "operational"
+status = "vulnerable"
+
+[Entity.zebra_herd]
+label = "Zebra Herd"
+scenarios = ["SX01"]
+# Other zebra_herd definitions
+```
+<p align="left"><em>Example of automatic creation of scenario from specification without scenario definition.</em></p>
 
 ## 6. Scenario Components
 
@@ -450,9 +519,10 @@ $$$toml
 [Scenario.x]
 components = ["y"]
 
-[ScenarioComponent.y]
+[Entity.y]
 # component definition
 $$$
+<p align="left"><em>Example of first option of scenario assignment.</em></p>
 
 #### B. Referencing scenarios from the component
 Alternatively, each scenario component can declare the scenarios to which it belongs by using the `scenarios` attribute:
@@ -465,6 +535,7 @@ $$$toml
 scenarios = ["x"]
 # component definition
 $$$
+<p align="left"><em>Example of first option of scenario assignment.</em></p>
 
 Both approaches are semantically equivalent and can be used interchangeably. When using the LaDeRR Engine, either method will correctly link the component to the intended scenario(s).
 
