@@ -47,8 +47,8 @@ The following sections cover all core elements of a LaDeRR specification. Each c
 
 - **Concept Overview**: A brief explanation of the purpose and role of the component within a LaDeRR specification.
 - **Metamodel Representation**: A UML class diagram illustrating the structure and relationships of the language's elements.
-- **Rules and Constraints (if applicable)**: Formal constraints and derivations governing the use of the component.
 - **Specification Example**: A LaDeRR specification snippet in TOML format, demonstrating a correct way to specify the component.
+- **Rules and Constraints (if applicable)**: Formal constraints and derivations governing the use of the component.
 
 ### 1.1. LaDeRR Metamodel Presentation
 
@@ -65,7 +65,7 @@ The UML metamodel follows a color-coding and formatting scheme:
 
 All examples presented throughout this guide are part of a single, incrementally constructed LaDeRR model. Each new concept is introduced by extending the same base file step by step. This approach allows readers to follow the progressive development of a complete and semantically rich LaDeRR specification.
 
-The final, complete version—containing all elements introduced throughout the guide—is available in the [`documentation/example`](https://github.com/pedropaulofb/laderr/tree/main/documentation/example) folder of the LaDeRR repository. While this guide focuses on the LaDeRR language itself, many of the outputs referenced below—such as inferred specifications, visualizations, and reports—were generated using the [**LaDeRR Engine**](https://w3id.org/laderr/engine), a supporting tool designed to validate and extend LaDeRR models.
+The final, complete version—containing all elements introduced throughout the guide—is available in the [`documentation/example`](https://github.com/pedropaulofb/laderr/tree/main/documentation/example) folder of the LaDeRR repository. While this guide focuses on the LaDeRR language itself, many of the outputs referenced below—such as inferred specifications, visualizations, and reports—were generated using the [**LaDeRR Engine**](https://w3id.org/laderr/engine/git), a supporting tool designed to validate and extend LaDeRR models.
 
 This folder includes:
 
@@ -93,11 +93,11 @@ This folder includes:
     - [`example_doc_out_validation_report_pre.txt`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_validation_report_pre.txt)
     - [`example_doc_out_validation_report_post.txt`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_validation_report_post.txt)
 
-These outputs demonstrate how the [**LaDeRR Engine**](https://w3id.org/laderr/engine) processes a specification: transforming it into an RDF graph, applying inference mechanisms and validation, and producing a structured representation of the modeled scenario.
+These outputs demonstrate how the [**LaDeRR Engine**](https://w3id.org/laderr/engine/git) processes a specification: transforming it into an RDF graph, applying inference mechanisms and validation, and producing a structured representation of the modeled scenario.
 
 ### 1.3. Processing the Specification with the LaDeRR Engine
 
-The specification was processed using the [**LaDeRR Engine**](https://w3id.org/laderr/engine), a Python-based software that supports various operations over LaDeRR models. These operations are executed in two phases: **pre-inference** and **post-inference**. In addition to applying an OWL reasoner to infer implicit relations based on the model’s logical structure, the engine also applies inference rules defined in the LaDeRR metamodel. These rules enable the engine to extend the original specification with additional semantics—deriving new relations, instances, and properties—resulting in a more comprehensive model ready for analysis and visualization.
+The specification was processed using the [**LaDeRR Engine**](https://w3id.org/laderr/engine/git), a Python-based software that supports various operations over LaDeRR models. These operations are executed in two phases: **pre-inference** and **post-inference**. In addition to applying an OWL reasoner to infer implicit relations based on the model’s logical structure, the engine also applies inference rules defined in the LaDeRR metamodel. These rules enable the engine to extend the original specification with additional semantics—deriving new relations, instances, and properties—resulting in a more comprehensive model ready for analysis and visualization.
 
 Upon processing the specification, the engine performs the following tasks:
 
@@ -120,9 +120,9 @@ Throughout this guide, several visualizations of LaDeRR scenarios are presented.
 Each node and edge in the graph follows a consistent color and shape scheme to indicate its type and role within the scenario. The legend below provides a quick reference:
 
 <p align="center">
-<img src="https://github.com/pedropaulofb/laderr/blob/main/documentation/images/visualization_legend.png" alt="Legend for Scenario Elements"
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/documentation/images/visualization_legend.png" alt="Legend for Scenario Elements"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
-<p align="center"><em>Visual legend used in LaDeRR scenario diagrams, defining node shapes, colors, and edge styles according to their roles in the specification.</em></p>
+<p align="center"><em>Visual legend used in LaDeRR scenario diagrams, defining nodes' and edges' shapes and colors according to their roles in the specification.</em></p>
 
 Here is how to interpret the visual elements:
 
@@ -154,35 +154,32 @@ Refer back to this legend when reading visualizations throughout the guide to be
 
 Each LaDeRR specification consists of two main parts that together define one or more resilience scenarios in a structured and analyzable way:
 
-- **Metadata**: Contains general information about the specification, such as its title, authorship, versioning, and the type of scenario being described. (See [Section 3](#3-metadata) for details.)
+- **Metadata**: Contains general information about the specification, such as its title, authorship, versioning, and the type of scenario being described. (See [Section 3](#3-specification-metadata)) for details.)
 
+<!-- TODO: Missing Scenario in the list below. See how it can be added. -->
 - **ScenarioComponents**: Represent the core elements of the scenario and their interrelations. These include:
   - **Assets**: Entities that hold value and are potentially exposed to threats.
+  - **Threats**: Entities that possess capabilities capable of exploiting vulnerabilities.
+  - **Control**: Entities that inhibit threats and support resilience by blocking harmful effects.
   - **Capabilities**: The positive dispositions of entities—their abilities to perform protective or sustaining functions.
   - **Vulnerabilities**: Weaknesses that may be exploited by threats.
-  - **Threats**: Entities that possess capabilities capable of exploiting vulnerabilities.
   - **Resilience**: Constructs that preserve the value of entities despite vulnerabilities or external pressures.
-  - **Control**: Entities that inhibit threats and support resilience by blocking harmful effects.
 
-These components are interconnected through a set of logical constraints. These are enforced through formal rules.
-
-The next sections provide a detailed explanation of each part of the specification, including conceptual background, metamodel diagrams, associated rules, and concrete TOML examples.
+The next sections provide a detailed explanation of each part of the specification.
 
 ### 2.1. Two Approaches to Writing LaDeRR Specifications
 
 When writing a LaDeRR specification, users can choose between two approaches, depending on their needs and familiarity with the language:
 
-- **Complete (Manual) Specification**:  
+- **Complete (Manual) Specification**:
   In this approach, the user explicitly defines all elements and their properties using the full features of the LaDeRR language. Even fields that could be derived or assigned by default—such as types, statuses, or certain relationships—are specified directly. This method provides full control over the model and is useful for advanced users who want to fine-tune every aspect of a scenario.
 
 - **Minimal (Auto-Completed) Specification**:  
   Alternatively, users can define only the essential structure of a scenario, leaving the rest to be automatically completed by the [LaDeRR Engine](https://w3id.org/laderr/engine/git). The engine applies reasoning, default values, and inference rules to generate a complete and semantically enriched version of the model. This saves time and reduces the learning curve, especially for new users or when modeling large (sets of) scenarios.
 
 To illustrate the difference:
-- A **minimal input specification** (92 lines):  
-  [`example_doc_in.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_in.toml)
-- The **fully completed version** generated after the minimal version by the engine (324 lines):  
-  [`example_doc_out_post.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post.toml)
+- A **minimal input specification** (92 lines): [`example_doc_in.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_in.toml)
+- The **fully completed version** generated after the minimal version by the engine (324 lines): [`example_doc_out_post.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post.toml)
 
 Throughout this guide, each language construct will be presented with examples showing **both styles**—the minimal form written by the user and the complete result produced by the LaDeRR Engine. This will help readers understand not only how to write a specification, but also what the engine adds during its processing.
 
@@ -209,7 +206,7 @@ Validation is implemented using the open-source [PySHACL](https://github.com/RDF
 The figure below illustrates the typical processing flow of a simplified specification, highlighting validation stages before and after reasoning:
 
 <p align="center">
-<img src="https://github.com/pedropaulofb/laderr/blob/main/documentation/images/processing_stages.png"  alt="LaDeRR Engine's Process"
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/documentation/images/processing_stages.png"  alt="LaDeRR Engine's Process"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
 <p align="center"><em>Simplified view of the LaDeRR Engine’s processing stages, from a minimal user-defined specification to a fully enriched and validated model.</em></p>
 
@@ -269,6 +266,8 @@ baseURI = "https://minimalexample.laderr#"
 
 While such minimal files are valid, they are not useful in practice unless used for testing or incremental development.
 
+<!-- TODO: Add a note informing that, when using LaDeRR Engine, it creates at least one scenario when none is explicitly defined. So, a blank file will generate a validation error in this case because every scenario needs at least one scenario component, as this document presents in a later moment. -->
+
 #### Complete Example with All Supported Fields
 
 The example below illustrates a fully detailed metadata section. It includes multiple values where allowed and offers a comprehensive description of the specification's context and authorship.
@@ -292,7 +291,7 @@ Note that, although `Specification` and its attributes are technically construct
 Constructs are used to express the aspects of a resilience scenario and are divided into `Scenario` and `ScenarioComponent` categories. These are further refined into more specific types, such as `Capability`, `Vulnerability`, `Asset`, `Threat`, `Control`, and `Resilience`. The full taxonomy of constructs is presented in the diagram below:
 
 <p align="center">
-<img src="https://github.com/pedropaulofb/laderr/blob/main/documentation/images/construct_taxonomy.png" 
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/documentation/images/construct_taxonomy.png" 
 alt="LaDeRR Construct Taxonomy Diagram"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 </p>
@@ -302,6 +301,7 @@ style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 
 Regardless of their specific type, all constructs share the same basic structure defined in the `Construct` class. The following three attributes are required for every instance:
 
+<!-- TODO: id is a special case, as the user does not need to insert it as an attribute/a specific field. It is used for the creation of instances by writing in the instance declaration section. See what's the best way to write that. Maybe adding a note? -->
 - **id** (_string, required, unique_): The identifier of the construct. It must be unique within the specification and is used to reference this element throughout the model.
 - **label** (_string, required_): A human-readable name for the construct. If not explicitly provided in the input file, it automatically defaults to the same value as the `id`.
 - **description** (_string, optional_): A description of the construct.
@@ -344,7 +344,7 @@ All scenarios are defined as instances of the `Scenario` class and share the sam
 If these attributes are omitted from the specification, the default values are applied automatically—ensuring that the scenario is treated as operational and vulnerable unless stated otherwise.
 
 > **Note on Engine Behavior**  
-> When using the [LaDeRR Engine](https://w3id.org/laderr/engine):
+> When using the [LaDeRR Engine](https://w3id.org/laderr/engine/git):
 > - It is **recommended** to explicitly define the `situation` attribute, as this affects how threats and outcomes are interpreted during inference.
 > - It is **not required** to specify the `status` attribute manually. The engine automatically computes and updates the scenario status during post-inference processing. Any user-defined value for `status` may be overwritten by this automated evaluation.
 
@@ -502,7 +502,7 @@ style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 </p>
 <p align="center"><em>Metamodel overview of the abstract class <code>ScenarioComponent</code> and its three concrete subclasses: <code>Entity</code>, <code>Disposition</code>, and <code>Resilience</code>.</em></p>
 
-Each of these types is described in detail in the following subsections. You will learn their purpose, required fields, how they relate to other components, and the inference rules used by the [LaDeRR Engine](https://w3id.org/laderr/engine) to compute additional structure based on their definitions.
+Each of these types is described in detail in the following subsections. You will learn their purpose, required fields, how they relate to other components, and the inference rules used by the [LaDeRR Engine](https://w3id.org/laderr/engine/git) to compute additional structure based on their definitions.
 
 The examples shown in the next sections are provided in both minimal and complete forms to help users understand how to author them manually or rely on the engine to infer missing information.
 
@@ -543,7 +543,7 @@ In addition, if a specification defines only one scenario, components do not nee
 
 ### 6.2. Scenario-Specific Duplication in LaDeRR Engine
 
-As soon as a LaDeRR specification is loaded into the [LaDeRR Engine](https://w3id.org/laderr/engine), all scenario components are internally duplicated per scenario—even before validation or inference takes place. This ensures that each component is treated as context-specific from the very beginning of processing. Every rule, validation, and inference step is then applied individually to each scenario-specific version of the component, preserving their independence and enabling precise per-scenario analysis.
+As soon as a LaDeRR specification is loaded into the [LaDeRR Engine](https://w3id.org/laderr/engine/git), all scenario components are internally duplicated per scenario—even before validation or inference takes place. This ensures that each component is treated as context-specific from the very beginning of processing. Every rule, validation, and inference step is then applied individually to each scenario-specific version of the component, preserving their independence and enabling precise per-scenario analysis.
 
 This duplication mechanism becomes especially important when a component is associated with multiple scenarios, as its behavior or interactions may differ depending on the context. For instance, a vulnerability might be exploited in one scenario but disabled in another.
 
@@ -693,7 +693,7 @@ Additional fields for Threats include:
 
 ##### Example of a Threat Specification
 
-[**Example 04:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
+[**Example 04:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/example)
 
 $$$toml
 [Threat.hacker_group]
