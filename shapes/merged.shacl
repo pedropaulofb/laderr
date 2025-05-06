@@ -1,0 +1,539 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix laderr: <https://w3id.org/laderr#> .
+
+### Shape for Asset
+laderr:Shape_Asset a sh:NodeShape ;
+    sh:targetClass laderr:Asset ;
+    
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:damaged laderr:description laderr:inhibits laderr:scenarios
+                            laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:protects laderr:resiliences laderr:threatens laderr:vulnerabilities
+                            owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+### Shape for Capability
+laderr:Shape_Capability a sh:NodeShape ;
+
+    sh:targetClass laderr:Capability ;
+
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:description laderr:disables laderr:exploits laderr:exposes laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:state laderr:sustains laderr:scenarios
+                            owl:sameAs owl:topObjectProperty rdf:type rdfs:label 
+                        ) ;
+
+    # Ensure each Capability is related to exactly one Entity
+    sh:property [
+        sh:path [ sh:inversePath laderr:capabilities ] ;
+        sh:class laderr:Entity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each Capability must be related to exactly one Entity."@en ;
+    ] .@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Shape for Construct
+laderr:Shape_Construct a sh:NodeShape ;
+
+    sh:targetClass laderr:Construct ;
+
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:components laderr:damaged laderr:disables laderr:exploits laderr:exposes laderr:inhibits laderr:scenarios
+                            laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences laderr:situation laderr:state laderr:status laderr:sustains laderr:threatens laderr:vulnerabilities 
+                            owl:sameAs owl:topObjectProperty rdf:type 
+                         ) ;
+
+    # description property constraints
+    sh:property [
+        sh:path laderr:description ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for 'description'. Expected xsd:string."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:description ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Multiple values for 'description' found in Construct instance."@en ;
+    ] ;
+
+    # label property constraints
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for 'label'. Expected xsd:string."@en ;
+    ] ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Exactly one value for 'label' must be provided for Construct."@en ;
+    ] .
+
+
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix laderr: <https://w3id.org/laderr#> .
+
+### Shape for Control
+laderr:Shape_Control a sh:NodeShape ;
+
+    sh:targetClass laderr:Control ;
+
+    sh:closed true ;
+    sh:ignoredProperties ( 
+        laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:damaged laderr:description laderr:scenarios
+        laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:resiliences laderr:threatens laderr:vulnerabilities
+        owl:sameAs owl:topObjectProperty rdf:type rdfs:label
+    ) ;    
+
+    # Declare these as accepted paths
+    sh:property [ sh:path laderr:inhibits ] ;
+    sh:property [ sh:path laderr:protects ] ;
+
+    # Enforce at least one of them must appear
+    sh:or (
+        [ sh:property [ sh:path laderr:inhibits ; sh:minCount 1 ] ]
+        [ sh:property [ sh:path laderr:protects ; sh:minCount 1 ] ]
+    ) ;
+
+    sh:severity sh:Warning ;
+    sh:message "Each Control must have at least one 'inhibits' or 'protects' relationship."@en .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+### Shape for Disposition
+laderr:Shape_Disposition a sh:NodeShape ;
+
+    sh:targetClass laderr:Disposition ;
+
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:description laderr:disables laderr:exploits laderr:exposes laderr:sustains laderr:scenarios
+                            rdf:type owl:sameAs rdfs:label owl:topObjectProperty
+                        ) ;
+
+    # State property constraints
+    sh:property [
+        sh:path laderr:state ;
+        sh:in ( laderr:enabled laderr:disabled ) ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid value for property 'state'. Expected one of laderr:enabled or laderr:disabled."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:state ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Exactly one value for 'state' must be provided for Disposition."@en ;
+    ] .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Shape for Entity
+laderr:Shape_Entity a sh:NodeShape ;
+
+    sh:targetClass laderr:Entity ;
+
+    sh:closed true ;
+    sh:ignoredProperties (
+        laderr:canDamage laderr:cannotDamage laderr:damaged laderr:description laderr:inhibits laderr:scenarios
+        laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:protects laderr:resiliences laderr:threatens laderr:vulnerabilities
+        owl:sameAs owl:topObjectProperty rdf:type rdfs:label
+    ) ;
+
+    # Relationship with Capability
+    sh:property [
+        sh:path laderr:capabilities ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "From NodeShape: Property 'capabilities' must reference one or more Capability instances."@en ;
+    ] ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Violation ;
+        sh:message "Each capability or vulnerability must be part of at least one scenario that includes the entity." ;
+        sh:select """
+            PREFIX laderr: <https://w3id.org/laderr#>
+
+            SELECT $this WHERE {
+                {
+                    $this (laderr:capabilities|laderr:vulnerabilities) ?d .
+                    FILTER NOT EXISTS {
+                        ?s a laderr:Scenario ;
+                           laderr:components $this, ?d .
+                    }
+                }
+            }
+        """ ;
+    ] .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+### Shape for Resilience
+laderr:Shape_Resilience a sh:NodeShape ;
+
+    sh:targetClass laderr:Resilience ;
+
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:description laderr:scenarios owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;    
+
+    # Ensure each Resilience is related to exactly one Asset
+    sh:property [
+        sh:path [ sh:inversePath laderr:resiliences ] ;
+        sh:class laderr:Asset ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each Resilience must be related to exactly one Asset."@en ;
+    ] ;
+
+    # preserves (mandatory relationship to Capability)
+    sh:property [
+        sh:path laderr:preserves ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Property 'preserves' must reference at least one Capability."@en ;
+    ] ;
+
+    # preservesAgainst constraint
+    sh:property [
+        sh:path laderr:preservesAgainst ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Property 'preservesAgainst' must reference at least one Capability."@en ;
+    ] ;
+
+    # preservesDespite constraint
+    sh:property [
+        sh:path laderr:preservesDespite ;
+        sh:class laderr:Vulnerability ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Property 'preservesDespite' must reference at least one Vulnerability."@en ;
+    ] ;
+
+    # sustains (mandatory inverse relationship: Resilience must be sustained by Capability)
+    sh:property [
+        sh:path [ sh:inversePath laderr:sustains ] ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each Resilience instance must be sustained by at least one Capability."@en ;
+    ] .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Shape for Scenario
+laderr:Shape_Scenario a sh:NodeShape ;
+
+    sh:targetClass laderr:Scenario ;
+
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:description owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;
+
+
+    # Ensuring every Scenario has at least one ScenarioComponent via laderr:components
+    sh:property [
+        sh:path laderr:components ;
+        sh:class laderr:ScenarioComponent ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each Scenario must have at least one associated ScenarioComponent."@en ;
+    ] ;
+
+    # Situation property constraints
+    sh:property [
+        sh:path laderr:situation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid number of values for 'situation'. Expected exactly one value."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:situation ;
+        sh:in ( laderr:operational laderr:incident ) ;
+        sh:severity sh:Violation ;
+        sh:message "The 'situation' must be either 'operational' or 'incident'."@en ;
+    ] ;
+
+    # Status property constraints
+    sh:property [
+        sh:path laderr:status ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid number of values for 'status'. Expected exactly one value."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:status ;
+        sh:in ( laderr:resilient laderr:vulnerable ) ;
+        sh:severity sh:Violation ;
+        sh:message "The 'status' must be either 'resilient' or 'vulnerable'."@en ;
+    ] .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+### Shape for ScenarioComponent
+laderr:Shape_ScenarioComponent a sh:NodeShape ;
+
+    sh:targetClass laderr:ScenarioComponent ;
+
+    sh:closed true ;
+    
+    sh:ignoredProperties (  laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:damaged laderr:description laderr:disables laderr:exploits laderr:exposes laderr:inhibits 
+                            laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:preserves laderr:preservesAgainst laderr:preservesDespite laderr:protects laderr:resiliences 
+                            laderr:scenarios laderr:situation laderr:state laderr:status laderr:sustains laderr:threatens laderr:vulnerabilities 
+                            owl:sameAs owl:topObjectProperty rdf:type rdfs:label
+                        ) ;
+
+    sh:property [
+        sh:path [ sh:inversePath laderr:components ] ;
+        sh:class laderr:Scenario ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each laderr:ScenarioComponent must be linked to at least one laderr:Scenario via 'laderr:components'."@en ;
+    ] .
+@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+### Shape for Specification
+laderr:Shape_Specification a sh:NodeShape ;
+
+    sh:targetClass laderr:Specification ;
+
+    # Specify that this shape is closed (no additional properties are allowed)
+    sh:closed true ;
+    
+    # Specify the allowed properties
+    sh:ignoredProperties ( dct:conformsTo rdf:type owl:sameAs rdfs:label ) ;
+
+    # Represents the relationship between a Specification and one or more Construct instances
+    sh:property [
+        sh:path laderr:constructs ;
+        sh:class laderr:Construct ;
+        sh:minCount 1 ;
+        sh:severity sh:Info ;
+        sh:message "Empty LaDeRR declaration. No Construct found."@en ;
+    ] ;
+
+    # Title property constraints
+    sh:property [
+        sh:path laderr:title ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for metadata 'title'. Expected xsd:string."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:title ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Multiple values for metadata 'title' found."@en ;
+    ] ;
+
+    # Description property constraints
+    sh:property [
+        sh:path laderr:description ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for metadata 'description'. Expected xsd:string."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:description ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Multiple values for metadata 'description' found."@en ;
+    ] ;
+
+    # Version property constraints
+    sh:property [
+        sh:path laderr:version ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for metadata 'version'. Expected xsd:string."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:version ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Multiple values for metadata 'version' found."@en ;
+    ] ;
+
+    # CreatedBy property constraints
+    sh:property [
+        sh:path laderr:createdBy ;
+        sh:datatype xsd:string ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for metadata 'createdBy'. Expected xsd:string."@en ;
+    ] ;
+
+    # CreatedOn property constraints
+    sh:property [
+        sh:path laderr:createdOn ;
+        sh:datatype xsd:dateTime ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for metadata 'createdOn'. Expected xsd:dateTime."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:createdOn ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Multiple values for metadata 'createdOn' found."@en ;
+    ] ;
+
+    # ModifiedOn property constraints
+    sh:property [
+        sh:path laderr:modifiedOn ;
+        sh:datatype xsd:dateTime ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for metadata 'modifiedOn'. Expected xsd:dateTime."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:modifiedOn ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Multiple values for metadata 'modifiedOn' found."@en ;
+    ] ;
+
+    # baseURI property constraints
+    sh:property [
+        sh:path laderr:baseURI ;
+        sh:datatype xsd:anyURI ;
+        sh:severity sh:Violation ;
+        sh:message "Invalid datatype for metadata 'baseURI'. Expected xsd:anyURI."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:baseURI ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Multiple values for metadata 'baseURI' found."@en ;
+    ] ;
+    sh:property [
+        sh:path laderr:baseURI ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Necessary metadata 'baseURI' not found."@en ;
+    ] .@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix laderr: <https://w3id.org/laderr#> .
+
+### Shape for Threat
+laderr:Shape_Threat a sh:NodeShape ;
+
+    sh:targetClass laderr:Threat ;
+
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:canDamage laderr:cannotDamage laderr:capabilities laderr:damaged laderr:description laderr:inhibits laderr:scenarios
+                            laderr:negativeDamage laderr:notDamaged laderr:positiveDamage laderr:protects laderr:resiliences laderr:vulnerabilities
+                            owl:sameAs owl:topObjectProperty rdf:type rdfs:label ) ;        
+
+    sh:property [
+        sh:path laderr:threatens ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Each Threat must have a 'threatens' relationship with at least one Asset."@en ;
+    ] .@prefix laderr: <https://w3id.org/laderr#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+### Shape for Vulnerability
+laderr:Shape_Vulnerability a sh:NodeShape ;
+
+    sh:targetClass laderr:Vulnerability ;
+
+    sh:closed true ;
+    sh:ignoredProperties (  laderr:capabilities laderr:components laderr:description laderr:disables laderr:exploits laderr:exposes laderr:state laderr:sustains laderr:scenarios
+                            owl:sameAs owl:topObjectProperty rdf:type rdfs:label 
+                        ) ;
+
+    # Relationships with Vulnerability and Capability
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path laderr:exposes ;
+        sh:class laderr:Capability ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Property 'exposes' must reference at least one Capability."@en ;
+    ] ;
+    
+    # Ensure each Vulnerability is related to exactly one Entity
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path [ sh:inversePath laderr:vulnerabilities ] ;
+        sh:class laderr:Entity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Each Vulnerability must be related to exactly one Entity."@en ;
+    ] ;
+    
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A Vulnerability can only expose a Capability belonging to the same Entity."@en ;
+        sh:severity sh:Violation ;
+        sh:select """
+            PREFIX laderr: <https://w3id.org/laderr#>
+
+            SELECT $this ?exposedCapability
+            WHERE {
+                $this laderr:exposes ?exposedCapability .
+                ?entity laderr:vulnerabilities $this .
+                
+                FILTER NOT EXISTS {
+                    ?entity laderr:capabilities ?exposedCapability .
+                }
+            }
+        """ ;
+    ] .

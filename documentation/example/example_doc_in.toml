@@ -5,6 +5,8 @@ description = "A resilience model for animal survival in the savannah. Inspired 
 title = "Savannah Animal Survival Resilience Model"
 version = "1.2"
 
+# This LaDeRR specification models resilience scenarios related to animal survival in the savannah, focusing on challenges posed by prolonged droughts and extreme heat events. It defines two scenarios—Dry Season Survival and Heatwave Response—and describes the behavior, capabilities, and vulnerabilities of various entities, including a zebra herd, lion pride, meerkat sentinels, an illegal hunting party, and a shaded savannah shelter. Capabilities such as thermoregulation, hunting strategies, and threat detection interact with vulnerabilities like limited water access, territory dependency, and prey migration barriers. These interactions are formalized through disabling and exposing relations, illustrating how different factors contribute to or mitigate resilience across the modeled scenarios.
+
 [Scenario.dry_season]
 label = "Dry Season Survival"
 description = "Models the challenges animals face during prolonged droughts, such as water scarcity, heat exposure, and increased territorial pressure."
@@ -15,20 +17,24 @@ description = "Captures behavioral and environmental strategies animals use duri
 
 [Entity.zebra_herd]
 label = "Zebra Herd"
+description = "A social group of zebras that relies on coordinated movement and thermoregulation to survive in arid environments."
 capabilities = ["efficient_thermoregulation", "rapid_movement_coordination"]
 vulnerabilities = ["limited_water_access"]
 
 [Entity.lion_pride]
 label = "Lion Pride"
+description = "A cooperative group of lions that depends on territory and group hunting strategies to secure food and maintain dominance."
 capabilities = ["high_frequency_hunting", "adaptive_ambush_strategy", "unregulated_territory_roaming"]
 vulnerabilities = ["territory_dependency", "prey_migration_barriers"]
 
 [Entity.meerkat_sentinels]
 label = "Meerkat Sentinels"
+description = "Meerkats that serve as lookouts for their group, issuing vocal alerts when predators are near."
 capabilities = ["predator_detection_calls"]
 
 [Entity.poacher_group]
 label = "Illegal Hunting Party"
+description = "A human group engaged in unauthorized hunting activities, disrupting natural predator-prey relationships."
 capabilities = ["disruptive_hunting_influence"]
 
 [Capability.efficient_thermoregulation]
@@ -82,6 +88,7 @@ exposes = "high_frequency_hunting"
 
 [Entity.shaded_shelter]
 label = "Shaded Savannah Shelter"
+description = "Naturally occurring or animal-used areas that offer shade and protection from extreme heat."
 capabilities = ["dynamic_heat_refuge"]
 scenarios = ["heatwave_response"]
 
