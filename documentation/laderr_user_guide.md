@@ -284,7 +284,7 @@ The example below illustrates a fully detailed metadata section. It includes mul
 
 ```toml
 baseURI = "https://savannahresilience.laderr#"
-createdBy = ["Pedro Paulo F. Barcelos", "M. J. Silva", "Institute for Ecological Modeling"]
+createdBy = ["Pedro Paulo F. Barcelos", "Jane Example", "Fictional Institute of Modeling"]
 createdOn = "2025-03-28T12:00:00Z"
 modifiedOn = "2025-04-01T10:30:00Z"
 title = "Savannah Animal Survival Resilience Model"
@@ -647,7 +647,6 @@ capabilities = ["efficient_thermoregulation_heatwave_response", "rapid_movement_
 vulnerabilities = ["limited_water_access_heatwave_response"]
 inhibits = "lion_pride_heatwave_response"
 protects = "lion_pride_heatwave_response"
-resiliences = "R1L"
 label = "Zebra Herd"
 scenarios = "heatwave_response"
 
@@ -656,7 +655,6 @@ capabilities = ["efficient_thermoregulation_dry_season", "rapid_movement_coordin
 vulnerabilities = ["limited_water_access_dry_season"]
 inhibits = "lion_pride_dry_season"
 protects = "lion_pride_dry_season"
-resiliences = "R1L"
 label = "Zebra Herd"
 scenarios = "dry_season"
 ```
@@ -692,6 +690,39 @@ All entities share the same set of core attributes, used to define their positiv
 - **vulnerabilities** (_list of strings, optional_): Identifiers of the vulnerabilities associated with the entity.
 
 Each entity must declare at least one **capability**, and may optionally include one or more **vulnerabilities**. These are referenced by their identifiers and must be declared separately in the specification.
+
+### 7.2. Declaring Entities
+
+In LaDeRR, entities can be declared in two different ways, depending on whether their classification into concrete types is known in advance or should be inferred automatically by [LaDeRR Engine](https://w3id.org/laderr/engine/git).
+
+The first approach is to declare the entity using the abstract class `Entity`. This allows the modeler to describe the entity’s label, capabilities, vulnerabilities, and relationships without asserting its specific role (e.g., whether it is an asset, a threat, or a control). When the Engine processes the specification, it will automatically determine the appropriate concrete classification(s) for the entity based on its context and interactions.
+
+The example below demonstrates this approach:
+
+```toml
+[Entity.zebra_herd]
+label = "Zebra Herd"
+description = "A social group of zebras that relies on coordinated movement and thermoregulation to survive in arid environments."
+capabilities = ["efficient_thermoregulation", "rapid_movement_coordination"]
+vulnerabilities = ["limited_water_access"]
+```
+<p align="left"><em>Declaration of an entity using the abstract class <code>Entity</code>. The engine will classify it during inference as <code>Asset</code>, <code>Control</code>, or <code>Threat</code>, depending on its role in the model.</em></p>
+
+Alternatively, if the entity’s role is already known, it can be declared directly using one or more of the concrete types—`Asset`, `Threat`, or `Control`.
+
+In the example below, the same entity is declared as both a control and an asset:
+
+```toml
+[Control.zebra_herd]
+[Asset.zebra_herd]
+label = "Zebra Herd"
+description = "A social group of zebras that relies on coordinated movement and thermoregulation to survive in arid environments."
+capabilities = ["efficient_thermoregulation", "rapid_movement_coordination"]
+vulnerabilities = ["limited_water_access"]
+```
+<p align="left"><em>Declaration of an entity using multiple concrete types. The roles of <code>Control</code> and <code>Asset</code> are asserted directly by the user.</em></p>
+
+Both declaration styles are valid and supported. The choice between them depends on whether the user prefers to rely on automated classification by the engine or to assert entity roles explicitly within the model.
 
 <!-- TODO: CONTINUE FROM HERE -->
 

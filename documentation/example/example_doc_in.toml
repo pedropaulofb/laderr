@@ -1,6 +1,7 @@
 baseURI = "https://savannahresilience.laderr#"
-createdBy = "Pedro Paulo F. Barcelos"
+createdBy = ["Pedro Paulo F. Barcelos", "Jane Example", "Fictional Institute of Modeling"]
 createdOn = "2025-03-28T12:00:00Z"
+modifiedOn = "2025-04-01T10:30:00Z"
 description = "A resilience model for animal survival in the savannah. Inspired by real-world ecological dynamics including predation, shelter-seeking, and thermal stress."
 title = "Savannah Animal Survival Resilience Model"
 version = "1.2"
