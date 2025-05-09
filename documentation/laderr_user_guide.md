@@ -724,89 +724,98 @@ vulnerabilities = ["limited_water_access"]
 
 Both declaration styles are valid and supported. The choice between them depends on whether the user prefers to rely on automated classification by the engine or to assert entity roles explicitly within the model.
 
-<!-- TODO: CONTINUE FROM HERE -->
+### 7.3. Assets
 
-### 7.2. Assets
-
-An **Asset** is an entity of value that is potentially exposed to risks and needs to be safeguarded. Assets may be targeted by threats and protected by controls. They can also have instances of **Resilience**, which preserve their capabilities despite the presence of vulnerabilities and threats.
+An **Asset** is an entity of value that is potentially exposed to risks and needs to be safeguarded. Assets may be targeted by threats and protected by controls. They can also be protected by `Resilience` instances, which preserve their capabilities despite the presence of vulnerabilities and threats.
 
 Examples of assets include a _regional power grid_, which ensures electricity supply but may be vulnerable to cyberattacks and infrastructure failures; a _hospital network_, which provides medical services but is susceptible to data breaches and equipment malfunctions; a _coral reef ecosystem_, which supports marine biodiversity but faces risks from ocean acidification and climate change; a _financial market system_, which enables global trade but is exposed to economic downturns and cyber fraud; and a _public transportation network_, which facilitates mobility but can be disrupted by mechanical failures and extreme weather events.
 
+In the savannah example, **Zebra Herd** and **Lion Pride** are treated as assets across different scenarios. Each holds valuable capabilities—such as coordinated movement or efficient thermoregulation—that are crucial for survival but may be compromised under certain vulnerabilities.
+
 Assets are defined by the following additional field:
 
-- **resiliences** (_list of strings, optional_): References to resilience instances associated with the asset. _(Automatically inferred when using LaDeRR Engine.)_
+- **resiliences** (_list of strings, optional_): References to resilience instances associated with the asset. _(Automatically inferred when using LaDeRR Engine, but may also be declared manually.)_
 
-> The LaDeRR Engine automatically computes resilience based on system conditions. Users may provide explicit resilience declarations, but they are not required.
+> **Note:** The LaDeRR Engine automatically computes the occurrence of resilience instances based on the system's elements and their relations in accordance with specific rules (see [Section #9]((#9-resilience)). Users may provide explicit resilience declarations, but this is not required when using the Engine.
 
 #### Example of an Asset Specification
 
 ```toml
-[Asset.power_grid]
-label = "Regional Power Grid"
-description = "A critical infrastructure providing electricity."
-capabilities = ["load_balancing", "fault_tolerance"]
-vulnerabilities = ["cyber_attack", "equipment_failure"]
-resiliences = ["distributed_generation"]
+[Asset.lion_pride]
+label = "Lion Pride"
+capabilities = ["adaptive_ambush_strategy", "high_frequency_hunting", "unregulated_territory_roaming"]
+vulnerabilities = ["prey_migration_barriers", "territory_dependency"]
+resiliences = "R17"
+protects = "lion_pride"
+threatens = ["lion_pride", "zebra_herd"]
+cannotDamage = "zebra_herd"
+negativeDamage = "zebra_herd"
+scenarios = ["heatwave_response", "dry_season"]
 ```
+<p align="left"><em>Definition of an asset representing the Lion Pride, including capabilities, vulnerabilities, and a declared resilience instance that supports the preservation of its functions.</em></p>
 
-### 7.3. Threats
+### 7.4. Threats
 
-A **Threat** is an entity that endangers assets by exploiting vulnerabilities. Its interaction with assets is scenario-dependent, and its effectiveness may vary depending on whether resilience or control mechanisms are in place.
+A **Threat** is an entity that endangers assets by exploiting vulnerabilities. Its impact may vary depending on the scenario situation—whether the conditions are operational (present uncertainty) or incident (past certainty)—and depending on whether controls or resiliences are in place.
 
 Examples of threats include a _cybercriminal group_, launching ransomware attacks to compromise data security; an _infectious disease outbreak_, spreading through populations and threatening public health infrastructure; an _oil spill_, contaminating marine ecosystems and disrupting local economies; a _social misinformation campaign_, influencing political outcomes and destabilizing trust in institutions; and an _earthquake_, damaging critical infrastructure and causing widespread economic losses.
 
-Additional fields for Threats include:
+In our savannah example, the **Poacher Group** is a clear example of a threat, possessing a harmful capability ("disruptive hunting influence") that targets the lion pride. In its scenarios, it cannot damage the lion pride due to protective mechanisms in place.
+
+Threats may contain the following additional fields:
 
 - **threatens** (_list of strings, required_): Assets that the threat targets. _(Automatically inferred.)_
 - **canDamage** / **cannotDamage** (_list of strings, optional_): Used when the scenario situation is `operational`. Indicates whether a threat has the potential to cause damage.
 - **damaged** / **notDamaged** (_list of strings, optional_): Used when the scenario situation is `incident`. Indicates whether a threat actually succeeded or failed in causing damage.
 
-> These outcome-specific relationships are automatically inferred by the LaDeRR Engine. Users may declare them manually for traceability, but they will be overwritten if inconsistent.
+> **Note:** These outcome-specific relationships are automatically inferred by the LaDeRR Engine. Manual declarations are permitted but may be overwritten when using the Engine.
 
 #### Rules Governing Threats
-<!-- TO BE UPDATED -->
 
-- **Rule 1: A Threat succeeds in damaging an Asset if it exploits an enabled vulnerability**
-  A threat is considered to have successfully damaged an asset if it possesses a capability that exploits a vulnerability in the asset, the vulnerability is enabled, and it exposes an essential capability of the asset.
+- **Rule: A threat entity threatens an asset if it has a capability that exploits a vulnerability within that asset.**
 
-**FOL Representation:**
-
-```
-\forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = ENABLED \land state(c2) = ENABLED ) ) \leftrightarrow succeededToDamage(o2, o1) )
-```
-
-- **Rule 2: A Threat fails to damage an Asset if the exploited vulnerability is disabled**
-  A threat fails to cause damage if the vulnerability it exploits is disabled, meaning the exploit does not lead to a loss of the asset’s essential capability.
+In other words, if a threat has a capability that is designed to target a specific vulnerability of an asset, that threat is considered to pose a danger to the asset. The relationship does not depend on the current state (enabled/disabled) of the vulnerability—it reflects the structural potential for harm.
 
 **FOL Representation:**
 
-```
-\forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = DISABLED \land state(c2) = ENABLED ) ) \leftrightarrow failedToDamage(o2, o1) )
-```
-
-- **Rule 3: A Threat threatens an Asset if it exploits a vulnerability**
-  A threat entity is said to threaten an asset if it has a capability that exploits a vulnerability within the asset.
-
-**FOL Representation:**
-
-```
+$$
 \forall o1, o3 ( Entity(o1) \land Entity(o3) \land ( \exists v1, c3 ( Vulnerability(v1) \land Capability(c3) \land vulnerabilities(o1, v1) \land capabilities(o3, c3) \land exploits(c3, v1) ) \leftrightarrow threatens(o3, o1) ) )
-```
+$$
+
+- **Rule: A threat fails to damage an asset if the vulnerability is disabled.**
+
+If a threat’s capability targets a vulnerability, but that vulnerability is currently disabled (e.g., neutralized by a control or no longer active), then the threat cannot succeed in causing damage. In this case, the model records a negative damage relation, meaning protection was successful.
+
+**FOL Representation:**
+
+$$
+\forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = DISABLED \land state(c2) = ENABLED ) ) \leftrightarrow negativeDamage(o2, o1) )
+$$
+
+- **Rule: A threat succeeds in damaging an asset if the vulnerability is enabled.**
+
+A threat causes positive damage when its capability exploits a vulnerability that is both enabled and actively exposes a critical capability of the asset. This condition implies that resilience or control mechanisms were not sufficient to stop the harmful interaction.
+
+**FOL Representation:**
+
+$$
+\forall o1, o2 ( ( Entity(o1) \land Entity(o2) \land \exists c1, v1, c2 ( Capability(c1) \land Vulnerability(v1) \land Capability(c2) \land capabilities(o1, c1) \land vulnerabilities(o1, v1) \land capabilities(o2, c2) \land exploits(c2, v1) \land exposes(v1, c1) \land state(v1) = ENABLED \land state(c2) = ENABLED ) ) \leftrightarrow positiveDamage(o2, o1) )
+$$
 
 #### Example of a Threat Specification
 
-[**Example 04:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/example)
-
 ```toml
-[Threat.hacker_group]
-label = "Advanced Persistent Threat Group"
-description = "A cybercriminal organization targeting infrastructure."
-capabilities = ["cyber_attack"]
-threatens = ["power_grid"]
-notDamaged = ["hospital_network"]
+[Threat.poacher_group]
+label = "Illegal Hunting Party"
+capabilities = "disruptive_hunting_influence"
+threatens = "lion_pride"
+cannotDamage = "lion_pride"
+negativeDamage = "lion_pride"
+scenarios = ["heatwave_response", "dry_season"]
 ```
+<p align="left"><em>Threat entity representing an illegal hunting party. It targets the lion pride but fails to cause damage due to the latter's resilience.</em></p>
 
-### 7.4. Controls
+### 7.5. Controls
 
 A **Control** is an entity designed to reduce risk by counteracting threats or protecting assets. It must establish at least one of the following relationships:
 
