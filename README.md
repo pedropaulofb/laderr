@@ -1,6 +1,6 @@
 # LaDeRR: **La**nguage for **De**scribing **R**isk and **R**esilience
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/resources/logo_laderr.png" width="500"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/images/laderr-visual-schema.png" width="750" alt="Diagram showing the relationship between ResiliOnt and LaDeRR, and the syntax layers: abstract, textual, and visual"></p>
 
 The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is an ontology-based textual domain-specific language (DSL) for resilience modeling. It was designed to specify resilience scenarios, in a standardized format, through the specification of the participating entities and the interplay between their capabilities and vulnerabilities.
 
@@ -41,15 +41,13 @@ LaDeRR is a *Domain-Specific Language (DSL)* designed to represent, analyze, and
 The language consists of two main components:
 
 1. **Abstract Syntax (UML + FOL):** Defines the conceptual model using UML class diagrams, complemented by First-Order Logic (FOL) rules to express derivations and constraints.
-2. **Textual Concrete Syntax (TOML):** Provides a machine-readable format for defining resilience models in practice.
+2. **Textual Concrete Syntax (TOML):** Provides a human-readable machine-readable format for defining resilience models in practice.
 
-A third component is planned for a future release:
-
-3. **Visual Concrete Syntax (Planned):** A future graphical representation intended to support intuitive modeling. This component will complement the textual syntax by offering a user-friendly graphical notation to manipulate LaDeRR constructs.
+> **Note:** A **Visual Concrete Syntax** is planned for a future release. It will be a graphical representation intended to support intuitive modeling. This component will complement the textual syntax by offering a user-friendly graphical notation to manipulate LaDeRR constructs.
 
 The following diagram illustrates the relationship between ResiliOnt and LaDeRR, highlighting the mapping process and different syntactic representations:
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/images/laderr-visual-schema.png" width="750"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/images/laderr-visual-schema.png" width="750" alt="Diagram showing the relationship between ResiliOnt and LaDeRR, and the syntax layers: abstract, textual, and visual"></p>
 
 To support computational reasoning over LaDeRR models, the **LaDeRR Engine** has been developed. It is a Python-based tool that enables the representation, analysis, and validation of resilience scenarios.
 The engine is available at the [LaDeRR Engine Repository](https://w3id.org/laderr/engine/git).
