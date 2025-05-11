@@ -1000,27 +1000,30 @@ They serve as the foundation for inference mechanisms that determine protection,
 
 ## 9. Resilience
 
-**Resilience** represents the mechanisms that enable entities to withstand adverse conditions, preserving capabilities, and mitigating the effects of threats. It serves as a fundamental aspect of maintaining system functionality against disruptions. Resilience mechanisms are associated with Assets, Capabilities, and Vulnerabilities, establishing structured ways to counteract risks and enhance stability.
+**Resilience** represents the mechanisms that enable an entity to preserve its capabilities despite vulnerabilities, even in the presence of threats. Resilience is not merely the absence of damage—it is the explicit preservation of function under adverse conditions. In LaDeRR, resilience is modeled as a dedicated scenario component, structurally linked to the capabilities it protects, the vulnerabilities it withstands, and the threats it counters.
 
-When using the **LaDeRR Engine**, explicit declarations of resilience mechanisms are unnecessary. The tool automatically infers resilience relationships based on the capabilities, vulnerabilities, and threats defined in the scenario, identifying and structuring resilience mechanisms accordingly.
+When using the **LaDeRR Engine**, explicit resilience declarations are optional. The engine automatically infers resilience instances when the necessary configuration of capabilities, vulnerabilities, and threats is detected in the model, following formal inference rules.
 
-The UML diagram below illustrates the Resilience ScenarioComponent and its relationships:
+The UML diagram below illustrates the structure of the `Resilience` class and its relationships:
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Resilience.png"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
 
-#### Fields of Resilience
+### 9.1. Fields of Resilience
 
-A Resilience** ScenarioComponent is defined by its relationships to other elements:
+A `Resilience` is defined through its connections to other components:
 
-- **preserves** (_list of strings, required_): The capabilities that are maintained by this resilience mechanism. _(Automatically inferred when using LaDeRR Engine.)_
-- **preservesAgainst** (_list of strings, required_): Threats that the resilience mechanism helps to counteract. _(Automatically inferred when using LaDeRR Engine.)_
-- **preservesDespite** (_list of strings, required_): Vulnerabilities that do not compromise the effectiveness of this resilience mechanism. _(Automatically inferred when using LaDeRR Engine.)_
+- **preserves** (_list of strings, required_): Capabilities maintained by the resilience mechanism. _(Automatically inferred when using LaDeRR Engine.)_
+- **preservesAgainst** (_list of strings, required_): Capabilities used by threats that this resilience counters. _(Automatically inferred when using LaDeRR Engine.)_
+- **preservesDespite** (_list of strings, required_): Vulnerabilities that expose the preserved capability and are exploited by threats, but that are neutralized within the configuration that gives rise to the resilience. _(Automatically inferred when using LaDeRR Engine.)_
 
-#### Rules Governing Resilience
+Note that all the specific Resilience fields can be inferred by the LaDeRR Engine, provided the related constructs are correctly defined and related.
+
+### 9.2. Rules Governing Resilience
 
 - **Rule 1: Resilience Emerges from a Specific Configuration of Entities and Dispositions**
+
   A resilience instance is created only if the following conditions hold:
 - An entity possesses a capability that is at risk due to a vulnerability.
 - A second entity has a capability that is **enabled** and mitigates the vulnerability.
@@ -1029,7 +1032,7 @@ A Resilience** ScenarioComponent is defined by its relationships to other elemen
 
 **FOL Representation:**
 
-```
+$$
 \forall o1, c1, v1, o2, c2, o3, c3 (
   Entity(o1) \land Entity(o2) \land Entity(o3) \land
   Capability(c1) \land Capability(c2) \land Capability(c3) \land Vulnerability(v1) \land
@@ -1040,7 +1043,7 @@ A Resilience** ScenarioComponent is defined by its relationships to other elemen
   \exists! r ( Resilience(r) \land resiliences(o1, r) \land preserves(r, c1) \land
   preservesAgainst(r, c3) \land preservesDespite(r, v1) \land sustains(c2, r) )
 )
-```
+$$
 
 - **Rule 2: Each Resilience is Defined by a Unique Combination of Elements**
   For each resilience instance, there exists exactly one configuration of an entity, three capabilities, and a vulnerability that justify its existence:
@@ -1051,7 +1054,7 @@ A Resilience** ScenarioComponent is defined by its relationships to other elemen
 
 **FOL Representation:**
 
-```
+$$
 \forall r ( Resilience(r) \rightarrow
   \exists! o1, \exists c1, v1, o2, c2, o3, c3 (
     resiliences(o1, r) \land preserves(r, c1) \land preservesAgainst(r, c3) \land
@@ -1063,157 +1066,40 @@ A Resilience** ScenarioComponent is defined by its relationships to other elemen
     exposes(v1, c1) \land exploits(c3, v1)
   )
 )
-```
+$$
 
-### Example of a Resilience Specification
+### 9.3. Example of a Resilience Specification
 
-[**Example 08:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
-
-```toml
-[Resilience.flood_protection]
-label = "Flood Protection Measures"
-description = "A set of structural and non-structural measures to prevent flood damage."
-preserves = ["housing_infrastructure"]
-preservesAgainst = ["river_overflow"]
-preservesDespite = ["weak_levees"]
-sustains = ["levee_reinforcement"]
-```
-
-## 5. LaDeRR Engine
-
-The **LaDeRR Engine** is a Python-based software tool that provides validation and inference capabilities for LaDeRR specifications. It consists of:
-
-- **A library** for programmatic use and integration into applications.
-- **A command-line script** for executing and processing LaDeRR models.
-
-The engine ensures that specifications comply with the metamodel rules and derives implicit knowledge based on logical inference. More details about the engine, including installation and usage instructions, can be found at [w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git).
-
-### 5.1. Writing a LaDeRR Specification with LaDeRR Engine
-
-The LaDeRR Engine allows users to write **simplified** specifications by omitting explicit declarations that can be **inferred** by the system. This reduces the effort needed to specify a resilience scenario while maintaining correctness.
-
-#### Automatic Inference
-
-The LaDeRR Engine infers various relationships and properties based on the formal rules defined in the LaDeRR framework. Some key inferences include:
-
-1. **Entity Types are Inferred**
-
-   - Users do not need to specify whether an entity is an **Asset, Threat, or Control**.
-   - The composition of **capabilities, vulnerabilities, and their interplay** determines the entity type.
-
-2. **Default Values are Assigned Automatically**
-
-   - Attributes with default values do not need to be explicitly written in the specification.
-   - For example, if a `scenario` attribute is missing, it defaults to `"operational"`.
-
-3. **Implicit Relationships are Derived**
-   - Many relations between ScenarioComponents are inferred instead of being explicitly defined by the user.
-   - Examples:
-     - **Protection**: If an entity has a capability that disables a vulnerability in another entity, the **protects** relation is inferred.
-     - **Threats**: If an entity has a capability that exploits a vulnerability, the **threatens** relation is inferred.
-
-4. **Resilience Mechanisms are Automatically Created**
-
-    - If an entity has a **capability** that is at risk due to a **threat exploiting a vulnerability**, and another **capability exists that can sustain resilience**, the **engine automatically introduces a resilience mechanism** to preserve the first capability.
-
-Since resilience inference is a key feature of the LaDeRR Engine, the next subsection describes the conditions under which resilience mechanisms are automatically generated.
-
-#### Automatic Resilience Generation
-
-A key feature of the LaDeRR Engine is its ability to **automatically generate resilience mechanisms** when conditions for resilience exist. Instead of requiring users to explicitly define resilience ScenarioComponents, the engine:
-
-- **Identifies** when a resilience ScenarioComponent should exist based on the interplay between vulnerabilities, capabilities, and threats.
-- **Instantiates** the resilience ScenarioComponent.
-- **Establishes the necessary relations**, such as `preserves`, `preservesDespite`, and `preservesAgainst`.
-
-For example, if an **Asset** has a **Capability** that is at risk due to a **Threat exploiting a Vulnerability**, and another **Capability exists that can sustain resilience**, the engine **automatically introduces a resilience mechanism**.
-
-This behavior is formally defined by the **Resilience Requirement Rule** in **Section (Resilience Rules)**, which states:
-
-> "If an entity has a **Capability** and a **Vulnerability**, and another entity has an **ENABLED Capability** that disables the Vulnerability, and the Vulnerability exposes the first entity’s Capability while being exploited by a third entity’s Capability, then there must exist exactly **one Resilience ScenarioComponent** that preserves the first Capability and is sustained by the second entity’s Capability."
-
-By leveraging this inference mechanism, users can **omit explicit resilience definitions** in their specifications, allowing the LaDeRR Engine to dynamically determine and instantiate them when applicable.
-
-#### Simplified Specification Example
-
-A **manually defined** LaDeRR specification might look like this:
-
-[**Example 09:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
+The example below is taken from the `heatwave_response` scenario of the Savannah model. It demonstrates a resilience mechanism that allows the lion pride to preserve its hunting capability (`high_frequency_hunting_heatwave_response`) despite the presence of prey migration barriers and under threat from illegal hunting.
 
 ```toml
-[Asset.bridge]
-label = "Main River Bridge"
-description = "A key infrastructure requiring protection."
-capabilities = ["structural_integrity"]
-vulnerabilities = ["material_fatigue"]
-
-[Capability.structural_integrity]
-label = "Structural Integrity"
-description = "Ability to withstand forces."
-disables = ["material_fatigue"]
-
-[Vulnerability.material_fatigue]
-label = "Material Fatigue"
-description = "Structural weakening due to repeated stress."
-
-[Threat.earthquake]
-label = "Earthquake"
-capabilities = ["seismic_force"]
-threatens = ["bridge"]
-
-[Capability.seismic_force]
-label = "Seismic Force"
-description = "High-intensity vibrations that stress structures."
-exploits = ["material_fatigue"]
-
-[Resilience.reinforced_design]
-label = "Reinforced Design"
-preserves = ["structural_integrity"]
-preservesDespite = ["material_fatigue"]
+[Resilience.R17]
+label = "R17"
+preserves = "high_frequency_hunting_heatwave_response"
+preservesAgainst = "disruptive_hunting_influence_heatwave_response"
+preservesDespite = "prey_migration_barriers_heatwave_response"
+scenarios = "heatwave_response"
 ```
 
-However, when using **LaDeRR Engine**, the user can omit explicitly defining inferred relations, such as `threatens` and `protects`, and even the **Resilience ScenarioComponent itself**, as the **engine** will infer and generate it when applicable.
+<p align="left"><em>Automatically inferred resilience (R17) that maintains lion pride's hunting performance in the face of poaching and movement barriers.</em></p>
 
-A **simplified version** of the specification:
-
-[**Example 10:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
+Another example is R1L, which illustrates a resilience construct preserving the zebra herd’s thermoregulation under heat stress conditions:
 
 ```toml
-[Asset.bridge]
-capabilities = ["structural_integrity"]
-vulnerabilities = ["material_fatigue"]
-
-[Capability.structural_integrity]
-disables = ["material_fatigue"]
-
-[Vulnerability.material_fatigue]
-
-[Threat.earthquake]
-capabilities = ["seismic_force"]
-
-[Capability.seismic_force]
-exploits = ["material_fatigue"]
+[Resilience.R1L]
+label = "R1L"
+preserves = "efficient_thermoregulation_heatwave_response"
+preservesAgainst = "high_frequency_hunting_heatwave_response"
+preservesDespite = "limited_water_access_heatwave_response"
+scenarios = "heatwave_response"
 ```
 
-In this version:
+<p align="left"><em>Resilience instance (R1L) preserving zebra herd's thermoregulation against the combined pressure of predatory behavior and water scarcity.</em></p>
 
-- **The resilience mechanism (`reinforced_design`) is omitted** because the engine can infer its existence.
-- **Unnecessary attributes** such as `label` and `description` are omitted.
-- **Relations like "threatens" and "protects" are inferred** automatically.
-- **Scenario resilience is evaluated dynamically**.
+Both examples were inferred by the LaDeRR Engine using only the constructs and relations explicitly declared in the specification.
 
-### 5.2. Engine Output and Inferred Model
 
-When processed by **LaDeRR Engine**, the missing relations and resilience mechanisms are inferred, producing an expanded version of the specification. The resulting enriched model includes:
-
-- **Threats are automatically linked to assets** (e.g., `threatens` relation is inferred between `earthquake` and `bridge`).
-- **Protection relations are established** (e.g., `structural_integrity` protecting `bridge`).
-- **Resilience mechanisms are instantiated** if the model meets the resilience conditions.
-- **Scenario resilience is evaluated**, determining if threats are effectively mitigated.
-
-This makes the **LaDeRR Engine** a powerful tool for simplifying specifications while ensuring correctness through logical inference.
-
-## 6. Complete Example
+## 10. Complete Example
 
 This section provides a complete LaDeRR specification example. The first version explicitly defines all relevant elements, while the second version demonstrates how the **LaDeRR Engine** infers implicit relationships and resilience mechanisms.
 
