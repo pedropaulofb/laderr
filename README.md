@@ -103,7 +103,7 @@ The following **W3ID redirects** provide access to LaDeRR's key artifacts:
 
 ### LaDeRR Engine
 
-- **Homepage:** [w3id.org/laderr/engine](https://w3id.org/laderr/engine)
+<!-- - **Homepage:** [w3id.org/laderr/engine](https://w3id.org/laderr/engine) -->
 - **Repository:** [w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git)
 - **Latest release:** [w3id.org/laderr/engine/latest](https://w3id.org/laderr/engine/latest)
 - **All releases:** [w3id.org/laderr/engine/releases](https://w3id.org/laderr/engine/releases)
