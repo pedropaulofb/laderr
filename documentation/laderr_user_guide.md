@@ -2,6 +2,7 @@
 
 **WORK IN PROGRESS: PLEASE BE AWARE THAT THIS DOCUMENT IS STILL UNDER DEVELOPMENT. USE IT CAREFULLY.**
 
+<!-- omit from toc -->
 ## Table of Contents
 
 - [1. Introduction](#1-introduction)
@@ -28,21 +29,22 @@
   - [6.2. Scenario-Specific Duplication in LaDeRR Engine](#62-scenario-specific-duplication-in-laderr-engine)
 - [7. Entities](#7-entities)
   - [7.1. Common Attributes of Entities](#71-common-attributes-of-entities)
-  - [7.2. Assets](#72-assets)
-  - [7.3. Threats](#73-threats)
-  - [7.4. Controls](#74-controls)
+  - [7.2. Declaring Entities](#72-declaring-entities)
+  - [7.3. Assets](#73-assets)
+  - [7.4. Threats](#74-threats)
+  - [7.5. Controls](#75-controls)
 - [8. Dispositions](#8-dispositions)
-  - [Capabilities](#capabilities)
-  - [Rules Governing Vulnerabilities](#rules-governing-vulnerabilities)
-- [6.3. Resilience](#63-resilience)
-  - [Example of a Resilience Specification](#example-of-a-resilience-specification)
-- [5. LaDeRR Engine](#5-laderr-engine)
-  - [5.1. Writing a LaDeRR Specification with LaDeRR Engine](#51-writing-a-laderr-specification-with-laderr-engine)
-  - [5.2. Engine Output and Inferred Model](#52-engine-output-and-inferred-model)
-- [6. Complete Example](#6-complete-example)
-  - [6.1. Explicit Specification](#61-explicit-specification)
-  - [6.2. Simplified Specification with LaDeRR Engine](#62-simplified-specification-with-laderr-engine)
-  - [6.3. Inferred Output by LaDeRR Engine](#63-inferred-output-by-laderr-engine)
+  - [8.1. Rules Governing Dispositions](#81-rules-governing-dispositions)
+  - [8.2. Capabilities](#82-capabilities)
+  - [8.3. Vulnerabilities](#83-vulnerabilities)
+- [9. Resilience](#9-resilience)
+  - [9.1. Fields of Resilience](#91-fields-of-resilience)
+  - [9.2. Rules Governing Resilience](#92-rules-governing-resilience)
+- [10. Complete Savannah Example](#10-complete-savannah-example)
+  - [10.1. Heatwave Response (Pre-Inference)](#101-heatwave-response-pre-inference)
+  - [10.2. Dry Season Survival (Pre-Inference)](#102-dry-season-survival-pre-inference)
+  - [10.3. Heatwave Response (Post-Inference)](#103-heatwave-response-post-inference)
+  - [10.4. Dry Season Survival (Post-Inference)](#104-dry-season-survival-post-inference)
 
 ## 1. Introduction
 
@@ -144,15 +146,15 @@ Here is how to interpret the visual elements:
 
 - **Multicolored Nodes**:
   - **Dispositions** (capability and vulnerability at the same time) appear with **green and red wedges**, indicating dual classification.
-  - **Entities** with multiple subtypes (e.g., both *Asset* and *Control*) use **striped fills** combining their respective colors. If an entity has all three subtypes (*Asset*, *Control*, and *Threat*), a three-way split is used.
+  - **Entities** with multiple subtypes (e.g., both _Asset_ and _Control_) use **striped fills** combining their respective colors. If an entity has all three subtypes (_Asset_, _Control_, and _Threat_), a three-way split is used.
 
 - **Edge Colors and Types**:
-  - **Blue Arrows**: Links between entities (*protects*, *inhibits*, *threatens*).
-  - **Orange Arrows**: Resilience relations (*preserves*, *preservesAgainst*, *preservesDespite*, *sustains*).
+  - **Blue Arrows**: Links between entities (_protects_, _inhibits_, _threatens_).
+  - **Orange Arrows**: Resilience relations (_preserves_, _preservesAgainst_, _preservesDespite_, _sustains_).
   - **Dark Red Arrows**: A capability disabling a vulnerability.
-  - **Black Arrows**: Causal relations (*exploits*, *exposes*).
-  - **Green Arrows**: Vulnerabilities that *did not* cause damage.
-  - **Red Arrows**: Vulnerabilities that *did* cause damage.
+  - **Black Arrows**: Causal relations (_exploits_, _exposes_).
+  - **Green Arrows**: Vulnerabilities that _did not_ cause damage.
+  - **Red Arrows**: Vulnerabilities that _did_ cause damage.
   - **Black Arrows with Diamond Tail**: Relations from entities to their capabilities, vulnerabilities, or resiliences.
 
 Refer back to this legend when reading visualizations throughout the guide to better understand the semantics encoded in the diagrams.
@@ -187,6 +189,7 @@ When writing a LaDeRR specification, users can choose between two approaches, de
   Alternatively, users can define only the essential structure of a scenario, leaving the rest to be automatically completed by the [LaDeRR Engine](https://w3id.org/laderr/engine/git). The engine applies reasoning, default values, and inference rules to generate a complete and semantically enriched version of the model. This saves time and reduces the learning curve, especially for new users or when modeling large (sets of) scenarios.
 
 To illustrate the difference:
+
 - A **minimal input specification** (92 lines): [`example_doc_in.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_in.toml)
 - The **fully completed version** generated after the minimal version by the engine (324 lines): [`example_doc_out_post.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post.toml)
 
@@ -239,7 +242,7 @@ It is important to note that a LaDeRR specification file is considered **valid**
 
 ### 3.1. Required Fields and Defaults
 
-The table below lists the metadata fields available in a LaDeRR specification, along with their types, cardinalities, and default values where applicable. Each metadata field is described using both an *Input Type* and a *Converted Type*. The *Input Type* refers to the format the user should adopt when writing the specification in TOML. The **Converted Type** indicates the internal representation used in the RDF graph generated by the LaDeRR Engine. This transformation enables more precise validation, as it allows the engine to detect malformed or inconsistent values that may otherwise go unnoticed if treated purely as free-form strings.
+The table below lists the metadata fields available in a LaDeRR specification, along with their types, cardinalities, and default values where applicable. Each metadata field is described using both an _Input Type_ and a _Converted Type_. The _Input Type_ refers to the format the user should adopt when writing the specification in TOML. The **Converted Type** indicates the internal representation used in the RDF graph generated by the LaDeRR Engine. This transformation enables more precise validation, as it allows the engine to detect malformed or inconsistent values that may otherwise go unnoticed if treated purely as free-form strings.
 
 | Field           | Input Type                       | Converted Type | Multiplicity | Required | Default Value            | Description                                                                                                                                                           |
 | --------------- | -------------------------------- | -------------- | ------------ | -------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -304,7 +307,7 @@ Note that, although `Specification` and its attributes are technically construct
 Constructs are used to express the aspects of a resilience scenario and are divided into `Scenario` and `ScenarioComponent` categories. These are further refined into more specific types, such as `Capability`, `Vulnerability`, `Asset`, `Threat`, `Control`, and `Resilience`. The full taxonomy of constructs is presented in the diagram below:
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/documentation/images/construct_taxonomy.png" 
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/documentation/images/construct_taxonomy.png"
 alt="LaDeRR Construct Taxonomy Diagram"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 </p>
@@ -323,7 +326,7 @@ Regardless of their specific type, all constructs share the same basic structure
 The UML class diagram below summarizes the definition of the `Construct` class, presenting its attributes, specializations, and its association with the class `Specification`.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Constructs.png" 
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Constructs.png"
 alt="LaDeRR Construct Class Diagram"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 </p>
@@ -373,15 +376,14 @@ All scenarios are defined as instances of the `Scenario` class and share the sam
 
 If these attributes are omitted from the specification, the default values are applied automatically—ensuring that the scenario is treated as operational and vulnerable unless stated otherwise.
 
-> **Note on Engine Behavior**
-> When using the [LaDeRR Engine](https://w3id.org/laderr/engine/git):
-> - It is **recommended** to explicitly define the `situation` attribute, as this affects how threats and outcomes are interpreted during inference.
-> - It is **not required** to specify the `status` attribute manually. The engine automatically computes and updates the scenario status during post-inference processing. Any user-defined value for `status` may be overwritten by this automated evaluation.
+> **Note on Engine Behavior**: When using the [LaDeRR Engine](https://w3id.org/laderr/engine/git):
+> It is **recommended** to explicitly define the `situation` attribute, as this affects how threats and outcomes are interpreted during inference.
+> It is **not required** to specify the `status` attribute manually. The engine automatically computes and updates the scenario status during post-inference processing. Any user-defined value for `status` may be overwritten by this automated evaluation.
 
 The UML diagram below presents the metamodel structure for Scenarios and their relationship with `ScenarioComponents`:
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/metamodel_images/Scenario.png" 
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/metamodel_images/Scenario.png"
 alt="Scenario Metamodel"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 <p align="center"><em>Metamodel of the <code>Scenario</code> class, showing its attributes, enumerations, and relation to scenario components.</em></p>
@@ -479,7 +481,7 @@ status = "vulnerable"
 
 #### B. Components Without Scenario Assignment
 
-In this example, scenario components are defined without specifying any associated scenario. They will automatically be considered part of **all** scenarios defined in the specification. This effect can be observed in the example below, where __zebra_herd__ is not linked to any scenario.
+In this example, scenario components are defined without specifying any associated scenario. They will automatically be considered part of **all** scenarios defined in the specification. This effect can be observed in the example below, where **zebra_herd** is not linked to any scenario.
 
 ```toml
 [Scenario.heatwave_response]
@@ -524,7 +526,7 @@ scenarios = "dry_season"
 
 <p align="left"><em>Example of processed specification without scenario assignment.</em></p>
 
-As can be seen, __zebra_herd__ was assigned to both scenarios contained in the specification. Additionally, note that, for scenario __dry_season__, as its attributes situation and status were not assigned, the default values were automatically attributed to it.
+As can be seen, **zebra_herd** was assigned to both scenarios contained in the specification. Additionally, note that, for scenario **dry_season**, as its attributes situation and status were not assigned, the default values were automatically attributed to it.
 
 See subsections [6.2](#62-scenario-specific-duplication-in-laderr-engine) for a better understanding about the duplication and automatically assignment.
 
@@ -563,9 +565,9 @@ In LaDeRR, the elements that describe the structure and dynamics of a scenario a
 
 All scenario components are instances of the abstract class `ScenarioComponent`, which does not define any attributes on its own but serves as a common superclass for the following three types:
 
-- [`Entity`](#61-entities): Represents a system participant (e.g., asset, threat, or control).
-- [`Disposition`](#62-dispositions): Represents an intrinsic property of an entity that manifests under specific conditions. It can be positive, as a capability that supports system functionality, or as a vulnerability that exposes the entity to potential harm.
-- [`Resilience`](#63-resilience): Represents the preservation of functions (capabilities) in the face of threats and vulnerabilities.
+- [`Entity`](#7-entities): Represents a system participant (e.g., asset, threat, or control).
+- [`Disposition`](#8-dispositions): Represents an intrinsic property of an entity that manifests under specific conditions. It can be positive, as a capability that supports system functionality, or as a vulnerability that exposes the entity to potential harm.
+- [`Resilience`](#9-resilience): Represents the preservation of functions (capabilities) in the face of threats and vulnerabilities.
 
 These elements are the core building blocks that determine the structure and behavior of the system being modeled.
 
@@ -587,6 +589,7 @@ Each scenario component—whether an entity, disposition, or resilience—must b
 There are two supported ways to establish this connection in a LaDeRR specification:
 
 #### A. Listing components inside the scenario definition
+
 You can explicitly list component identifiers under a scenario's `components` attribute:
 
 ```toml
@@ -600,6 +603,7 @@ components = ["y"]
 <p align="left"><em>Example of first option of scenario assignment.</em></p>
 
 #### B. Referencing scenarios from the component
+
 Alternatively, each scenario component can declare the scenarios to which it belongs by using the `scenarios` attribute:
 
 ```toml
@@ -690,8 +694,7 @@ Entities are characterized by their **capabilities** and, optionally, **vulnerab
 The UML diagram below presents the `Entity` class, its three subtypes, and their associations with other components of the language:
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/metamodel_images/Entities.png"
-style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/metamodel_images/Entities.png" alt="UML diagram of the Entity class in LaDeRR, showing its three subtypes—Asset, Threat, and Control—and their associations with Capabilities, Vulnerabilities, and Resilience." style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 </p>
 <p align="center"><em>UML metamodel of the <code>Entity</code> class and its subtypes, showing their associations with <code>Capability</code>, <code>Vulnerability</code>, and <code>Resilience</code>.</em></p>
 
@@ -834,7 +837,7 @@ scenarios = ["heatwave_response", "dry_season"]
 
 ### 7.5. Controls
 
-A **Control** is an entity designed to reduce risk by protecting assets or inhibiting threats. Controls typically act by **disabling vulnerabilities** or **inhibiting harmful capabilities** possessed by threats. 
+A **Control** is an entity designed to reduce risk by protecting assets or inhibiting threats. Controls typically act by **disabling vulnerabilities** or **inhibiting harmful capabilities** possessed by threats.
 
 Controls do not need to be defensive technologies—they can also represent social, biological, or ecological actors. In the savannah model, examples include:
 
@@ -901,7 +904,7 @@ scenarios = "heatwave_response"
 
 <p align="left"><em>Control entity representing shaded savannah shelters that protect the zebra herd by enabling dynamic heat refuge to counter limited water access.</em></p>
 
-Both controls participate in resilience strategies by either *sustaining capabilities*, *reducing threat influence*, or *blocking vulnerability activation*, creating systemic protection mechanisms across scenarios.
+Both controls participate in resilience strategies by either _sustaining capabilities_, _reducing threat influence_, or _blocking vulnerability activation_, creating systemic protection mechanisms across scenarios.
 
 ## 8. Dispositions
 
@@ -916,6 +919,8 @@ Each disposition has a **state**, which can be either `enabled` or `disabled`. B
 - **Rule: A Disposition that disables another must be enabled**
 
 A disposition can only disable another if it is enabled. Only active dispositions can influence the system's elements.
+
+> **Note:** At present, LaDeRR supports only _direct_, one-to-one relationships between dispositions. This means that a disposition (e.g., a vulnerability) is disabled by a **single enabled capability** and not by combinations or logical conditions involving multiple constructs. Complex expressions—such as "a vulnerability is only disabled if two capabilities are simultaneously active" or "a capability is enabled only when at least one supporting capability exists"—are currently not supported. Future versions may introduce composite or conditional logic patterns, but these are not expressible in the current language or engine.
 
 **FOL Representation:**
 
@@ -942,7 +947,7 @@ Examples of capabilities include **fire resistance in building materials**, whic
 - **exploits** (_list of strings, optional_): Vulnerabilities that this capability can exploit (if used by a threat).
 - **sustains** (_list of strings, optional_): Resilience instances that this capability supports. _(Inferred by the LaDeRR Engine.)_
 
-#### Example from the Savannah Specification
+#### Capability Example from the Savannah Specification
 
 The following capability, declared for the **shaded_shelter** in the `heatwave_response` scenario, contributes to resilience by disabling the vulnerability `"limited_water_access_heatwave_response"`:
 
@@ -980,7 +985,7 @@ $$
 \forall v, c ( Vulnerability(v) \land Capability(c) \land exposes(v, c) \rightarrow \exists! o ( Entity(o) \land vulnerabilities(o, v) \land capabilities(o, c) ) )
 $$
 
-#### Example from the Savannah Specification
+#### Vulnerability Example from the Savannah Specification
 
 The following vulnerability belongs to the zebra herd and exposes one of its capabilities. It is disabled in the `heatwave_response` scenario:
 
@@ -1007,7 +1012,7 @@ When using the **LaDeRR Engine**, explicit resilience declarations are optional.
 The UML diagram below illustrates the structure of the `Resilience` class and its relationships:
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Resilience.png"
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Resilience.png" alt="UML diagram of the Resilience class in LaDeRR, showing its associations with Capability and Vulnerability via the preserves, preservesDespite, preservesAgainst, and sustains relations." style="max-width: 600px; max-height: 350px; height: auto; width: auto;">
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
 
 ### 9.1. Fields of Resilience
@@ -1068,7 +1073,7 @@ $$
 )
 $$
 
-### 9.3. Example of a Resilience Specification
+#### Resilience Example from the Savannah Specification
 
 The example below is taken from the `heatwave_response` scenario of the Savannah model. It demonstrates a resilience mechanism that allows the lion pride to preserve its hunting capability (`high_frequency_hunting_heatwave_response`) despite the presence of prey migration barriers and under threat from illegal hunting.
 
@@ -1098,94 +1103,90 @@ scenarios = "heatwave_response"
 
 Both examples were inferred by the LaDeRR Engine using only the constructs and relations explicitly declared in the specification.
 
+## 10. Complete Savannah Example
 
-## 10. Complete Example
+This section consolidates and presents the complete Savannah model used throughout this guide. Rather than introducing new concepts, this section provides a comprehensive view of the example specification and how it evolves after inference using the [LaDeRR Engine](https://w3id.org/laderr/engine/git). Readers will find here:
 
-This section provides a complete LaDeRR specification example. The first version explicitly defines all relevant elements, while the second version demonstrates how the **LaDeRR Engine** infers implicit relationships and resilience mechanisms.
+- The **original input specification**, as authored manually by the user.
+- A **visual representation** of each scenario before inference (pre-inference).
+- The **post-inference version** of each scenario, showing how constructs and relationships are enriched by the engine.
+- A discussion of the key differences introduced during inference.
 
-### 6.1. Explicit Specification
+This section is useful for validating modeling choices, interpreting visual outputs, and understanding how LaDeRR formalizes and extends user-provided content. It also serves as a worked example of how to write and reason over LaDeRR models in practice.
 
-The following specification fully defines an **operational** scenario, explicitly declaring all relationships.
+You can download the full specification files here:
 
-[**Example 11:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
+- [Input Specification (example_doc_in.toml)](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_in.toml)
+- [Post-Inference Output (example_doc_out_post.toml)](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post.toml)
 
-```toml
-baseURI = "https://example.org#"
-createdBy = "Author Name"
-createdOn = "2025-02-10T14:30:00Z"
-description = "Example resilience model."
-scenario = "operational"
-title = "Example Model"
-version = "1.1"
+### 10.1. Heatwave Response (Pre-Inference)
 
-[Asset.city]
-capabilities = ["defense_system"]
-resiliences = ["resilience1"]
-vulnerabilities = ["cyber_attack"]
+<p align="center">
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/example/example_doc_out/example_doc_out_pre_heatwave_response.png" alt="Heatwave Response – Pre-Inference">
+</p>
+<p align="center"><em>Figure: Visual representation of the "Heatwave Response" scenario before reasoning. Vulnerabilities are active, and no resilience is yet defined.</em></p>
 
-[Capability.defense_system]
-disables = ["cyber_attack"]
-state = "enabled"
+This scenario models a high-temperature operational context where both the **Zebra Herd** and **Lion Pride** interact with elements such as the **Shaded Savannah Shelter**, **Poacher Group**, and **Meerkat Sentinels**.
 
-[Vulnerability.cyber_attack]
-exposes = ["defense_system"]
-state = "enabled"
+Key features before reasoning:
 
-[Threat.hacker_group]
-capabilities = ["hacking"]
-threatens = ["city"]
+- All capabilities and vulnerabilities are enabled.
+- Vulnerabilities (e.g., `Limited Water Access`, `Territory Dependency`, `Prey Migration Barriers`) are still active and exposed.
+- No resilience constructs are declared or inferred.
+- Several capabilities exploit vulnerabilities, suggesting potential damage scenarios.
+- Controls and threats are defined, but their protective or harmful effects have not yet been interpreted.
 
-[Capability.hacking]
-exploits = ["cyber_attack"]
+### 10.2. Dry Season Survival (Pre-Inference)
 
-[Resilience.resilience1]
-preserves = ["defense_system"]
-preservesDespite = ["cyber_attack"]
-preservesAgainst = ["hacker_group"]
-```
+<p align="center">
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/example/example_doc_out/example_doc_out_pre_dry_season.png" alt="Dry Season Survival – Pre-Inference">
+</p>
+<p align="center"><em>Figure: Visual representation of the "Dry Season Survival" scenario before reasoning. All relationships are explicitly declared; no inference has yet occurred.</em></p>
 
-### 6.2. Simplified Specification with LaDeRR Engine
+This scenario depicts prolonged drought conditions. Entities such as the **Zebra Herd**, **Lion Pride**, and **Poacher Group** coexist in a vulnerable ecosystem.
 
-Using the **LaDeRR Engine**, users can omit certain elements that are **automatically inferred**. The engine derives **threats, protections, and resilience mechanisms** based on the existing capabilities, vulnerabilities, and their interactions.
+Key observations:
 
-[**Example 12:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
+- No resilience components are defined at this point.
+- Threats like the **Poacher Group** exploit active vulnerabilities.
+- Some controls are in place (e.g., **Meerkat Sentinels**), but their effect has not been evaluated.
+- The overall structure suggests exposure to risk without a protection mechanism being computed.
 
-```toml
-baseURI = "https://example.org#"
-createdBy = "Author Name"
-createdOn = "2025-02-10T14:30:00Z"
-scenario = "operational"
-title = "Example Model"
-version = "1.1"
+### 10.3. Heatwave Response (Post-Inference)
 
-[Asset.city]
-capabilities = ["defense_system"]
-vulnerabilities = ["cyber_attack"]
+<p align="center">
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/example/example_doc_out/example_doc_out_post_heatwave_response.png" alt="Heatwave Response – Post-Inference">
+</p>
+<p align="center"><em>Figure: Visual representation of the "Heatwave Response" scenario after inference. Inferred resilience constructs now structure the scenario as resilient.</em></p>
 
-[Capability.defense_system]
-disables = ["cyber_attack"]
+After inference, the **Heatwave Response** scenario is classified as `resilient`.
 
-[Vulnerability.cyber_attack]
+Key changes introduced by inference:
 
-[Threat.hacker_group]
-capabilities = ["hacking"]
+- **Resilience R1L** and **R17** are automatically created, showing how combinations of capabilities, vulnerabilities, and threats give rise to resilience.
+- Vulnerabilities like `Limited Water Access` and `Prey Migration Barriers` are **disabled** by capabilities (`Dynamic Heat Refuge`, `Predator Detection Calls`).
+- The **Zebra Herd** and **Shaded Shelter** are recognized as **controls**, enabling resilience indirectly.
+- `preserves`, `preservesDespite`, and `preservesAgainst` links are clearly visible.
+- The **status** of the scenario is updated from its default (`vulnerable`) to `resilient` by the engine.
 
-[Capability.hacking]
-exploits = ["cyber_attack"]
-```
+This post-inference graph provides a complete, semantically enriched view of how threats are neutralized and vital functions are preserved.
 
-### 6.3. Inferred Output by LaDeRR Engine
+### 10.4. Dry Season Survival (Post-Inference)
 
-When processed by the **LaDeRR Engine**, the simplified specification is expanded, adding inferred relationships and resilience ScenarioComponents:
+<p align="center">
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/example/example_doc_out/example_doc_out_post_dry_season.png" alt="Dry Season Survival – Post-Inference">
+</p>
+<p align="center"><em>Figure: Visual representation of the "Dry Season Survival" scenario after inference. Although resilience is inferred (RE0), the scenario remains vulnerable.</em></p>
 
-- **Resilience mechanisms are created** when conditions for resilience are met.
-- **Threats are linked to their target assets** (e.g., `threatens` relation is inferred between `hacker_group` and `city`).
-- **Protection mechanisms are inferred** if a capability neutralizes a vulnerability.
-- **Scenario resilience is evaluated**.
+In this scenario, inference reveals partial protection mechanisms, but they are not enough to classify the scenario as resilient.
 
-The resulting expanded model ensures consistency with the LaDeRR framework while reducing manual specification effort.
+Key inference results:
 
-## X. Limitations
+- **Resilience RE0** is inferred to preserve the **Lion Pride’s** hunting capability against threats from the **Poacher Group** via protection from **Meerkat Sentinels**.
+- However, other vulnerabilities—especially those affecting the **Zebra Herd**—remain enabled and exploited.
+- The scenario’s **status** remains `vulnerable` because at least one asset capability is unprotected.
+- The **Zebra Herd** does not participate in any resilience pattern and remains exposed to threats.
 
-- does not represent complex relations between dispositions
-- future implementation of `views` instead of duplicating scenarios (LaDeRR Engine)
+This example illustrates how resilience is **context-specific** and how partial protection does not suffice to reclassify an entire scenario.
+
+This concludes the walkthrough of the Savannah Animal Survival Resilience Model. The progression from pre- to post-inference illustrates how LaDeRR enriches user-defined scenarios through rule-based reasoning, clarifies protection dynamics, and supports precise resilience classification. Users are encouraged to explore the full specification files and use the LaDeRR Engine to validate and extend their own models in similar fashion.
