@@ -272,6 +272,7 @@ Thanks to the default value assigned to the `baseURI` attribute, even a complete
 ```toml
 baseURI = "https://minimalexample.laderr#"
 ```
+
 <p align="left"><em>Minimal metadata block explicitly setting the base URI.</em></p>
 
 While such minimal files are valid, they are not useful in practice unless used for testing or incremental development.
@@ -291,6 +292,7 @@ title = "Savannah Animal Survival Resilience Model"
 description = "A resilience model for animal survival in the savannah. Inspired by real-world ecological dynamics including predation, shelter-seeking, and thermal stress."
 version = "1.2"
 ```
+
 <p align="left"><em>Complete metadata block with all supported fields.</em></p>
 
 ## 4. Specification Constructs
@@ -338,6 +340,7 @@ Below is an example of a scenario definition:
 label = "Dry Season Survival"
 description = "Models the challenges animals face during prolonged droughts, such as water scarcity, heat exposure, and increased territorial pressure."
 ```
+
 <p align="left"><em>Definition of a scenario with label and description.</em></p>
 
 Here, `dry_season` is the construct’s `id`. Since a `label` is explicitly provided, it will be used in place of the `id` in visualizations and reports. A `description` is also included for documentation purposes.
@@ -348,6 +351,7 @@ Minimal definitions are also allowed. The following snippet defines two entities
 [Entity.lion_pride]
 [Entity.zebra_herd]
 ```
+
 <p align="left"><em>Minimal definitions of two entities without labels or descriptions.</em></p>
 
 In this case, the `label` defaults to the same value as the `id`, and the `description` remains empty.
@@ -470,6 +474,7 @@ label = "Dry Season Survival"
 situation = "operational"
 status = "vulnerable"
 ```
+
 <p align="left"><em>Example of complete Scenario description.</em></p>
 
 #### B. Components Without Scenario Assignment
@@ -489,6 +494,7 @@ label = "Dry Season Survival"
 label = "Zebra Herd"
 # Other zebra_herd definitions
 ```
+
 <p align="left"><em>Example of unprocessed specification without scenario assignment.</em></p>
 
 After being processed by LaDeRR Engine, the result of this is:
@@ -515,6 +521,7 @@ scenarios = "heatwave_response"
 label = "Zebra Herd"
 scenarios = "dry_season"
 ```
+
 <p align="left"><em>Example of processed specification without scenario assignment.</em></p>
 
 As can be seen, __zebra_herd__ was assigned to both scenarios contained in the specification. Additionally, note that, for scenario __dry_season__, as its attributes situation and status were not assigned, the default values were automatically attributed to it.
@@ -530,6 +537,7 @@ This example shows a minimal case where no scenario is declared. A default scena
 label = "Zebra Herd"
 # Other zebra_herd definitions
 ```
+
 <p align="left"><em>Example of unprocessed specification without scenario definition.</em></p>
 
 After processing, we get the following:
@@ -546,6 +554,7 @@ label = "Zebra Herd"
 scenarios = ["SX01"]
 # Other zebra_herd definitions
 ```
+
 <p align="left"><em>Example of automatic creation of scenario from specification without scenario definition.</em></p>
 
 ## 6. Scenario Components
@@ -587,6 +596,7 @@ components = ["y"]
 [Entity.y]
 # component definition
 ```
+
 <p align="left"><em>Example of first option of scenario assignment.</em></p>
 
 #### B. Referencing scenarios from the component
@@ -600,6 +610,7 @@ Alternatively, each scenario component can declare the scenarios to which it bel
 scenarios = ["x"]
 # component definition
 ```
+
 <p align="left"><em>Example of second option of scenario assignment.</em></p>
 
 Both approaches are semantically equivalent and can be used interchangeably. When using the LaDeRR Engine, either method will correctly link the component to the intended scenario(s).
@@ -637,6 +648,7 @@ capabilities = ["efficient_thermoregulation", "rapid_movement_coordination"]
 vulnerabilities = ["limited_water_access"]
 scenarios = ["dry_season", "heatwave_response"]
 ```
+
 <p align="left"><em>Example of a scenario component (zebra_herd) associated with multiple scenarios.</em></p>
 
 The LaDeRR Engine generates the following post-inference output:
@@ -658,6 +670,7 @@ protects = "lion_pride_dry_season"
 label = "Zebra Herd"
 scenarios = "dry_season"
 ```
+
 <p align="left"><em>Example of post-inference duplication of a scenario component across two scenarios.</em></p>
 
 This approach ensures accurate scenario-based analysis and prevents the reasoning process from mistakenly treating scenario-specific components as if they were identical.
@@ -706,6 +719,7 @@ description = "A social group of zebras that relies on coordinated movement and 
 capabilities = ["efficient_thermoregulation", "rapid_movement_coordination"]
 vulnerabilities = ["limited_water_access"]
 ```
+
 <p align="left"><em>Declaration of an entity using the abstract class <code>Entity</code>. The engine will classify it during inference as <code>Asset</code>, <code>Control</code>, or <code>Threat</code>, depending on its role in the model.</em></p>
 
 Alternatively, if the entity’s role is already known, it can be declared directly using one or more of the concrete types—`Asset`, `Threat`, or `Control`.
@@ -720,6 +734,7 @@ description = "A social group of zebras that relies on coordinated movement and 
 capabilities = ["efficient_thermoregulation", "rapid_movement_coordination"]
 vulnerabilities = ["limited_water_access"]
 ```
+
 <p align="left"><em>Declaration of an entity using multiple concrete types. The roles of <code>Control</code> and <code>Asset</code> are asserted directly by the user.</em></p>
 
 Both declaration styles are valid and supported. The choice between them depends on whether the user prefers to rely on automated classification by the engine or to assert entity roles explicitly within the model.
@@ -752,6 +767,7 @@ cannotDamage = "zebra_herd"
 negativeDamage = "zebra_herd"
 scenarios = ["heatwave_response", "dry_season"]
 ```
+
 <p align="left"><em>Definition of an asset representing the Lion Pride, including capabilities, vulnerabilities, and a declared resilience instance that supports the preservation of its functions.</em></p>
 
 ### 7.4. Threats
@@ -813,6 +829,7 @@ cannotDamage = "lion_pride"
 negativeDamage = "lion_pride"
 scenarios = ["heatwave_response", "dry_season"]
 ```
+
 <p align="left"><em>Threat entity representing an illegal hunting party. It targets the lion pride but fails to cause damage due to the latter's resilience.</em></p>
 
 ### 7.5. Controls
@@ -860,7 +877,7 @@ These rules allow controls to exert influence over both threats and assets. By d
 
 The example below defines the **Meerkat Sentinels** as a control in the `heatwave_response` scenario. It protects the lion pride and inhibits the poacher group using a capability that disables a vulnerability in the pride.
 
-```
+```toml
 [Control.meerkat_sentinels_heatwave_response]
 capabilities = "predator_detection_calls_heatwave_response"
 inhibits = "poacher_group_heatwave_response"
@@ -868,11 +885,12 @@ protects = "lion_pride_heatwave_response"
 label = "Meerkat Sentinels"
 scenarios = "heatwave_response"
 ```
+
 <p align="left"><em>Control representing Meerkat Sentinels in the heatwave scenario. It uses predator detection calls to inhibit a poacher group and protect the lion pride.</em></p>
 
 Another example shows the **Shaded Savannah Shelter**, which protects the zebra herd by enabling a capability that disables the vulnerability `"limited_water_access_heatwave_response"`.
 
-```
+```toml
 [Control.shaded_shelter]
 capabilities = "dynamic_heat_refuge"
 inhibits = "lion_pride_heatwave_response"
@@ -880,6 +898,7 @@ protects = "zebra_herd_heatwave_response"
 label = "Shaded Savannah Shelter"
 scenarios = "heatwave_response"
 ```
+
 <p align="left"><em>Control entity representing shaded savannah shelters that protect the zebra herd by enabling dynamic heat refuge to counter limited water access.</em></p>
 
 Both controls participate in resilience strategies by either *sustaining capabilities*, *reducing threat influence*, or *blocking vulnerability activation*, creating systemic protection mechanisms across scenarios.
@@ -890,89 +909,96 @@ Dispositions represent the inherent properties of entities within a LaDeRR speci
 
 Each disposition has a **state**, which can be either `enabled` or `disabled`. By default, all dispositions are set to `enabled`, meaning they actively contribute to the resilience or vulnerability of an entity. The state of a disposition influences whether it can be exploited or used to protect against threats.
 
-- **state** (_string, optional, default: `"enabled"`_): Specifies whether the capability is active (`enabled`) and can perform its functions or inactive (`disabled`) and cannot affect its related elements.
+- **state** (_string, optional, default: `"enabled"`_): Specifies whether the disposition is active (`enabled`) and can affect the scenario, or inactive (`disabled`) and has no effect.
 
-#### Rules Governing Dispositions
+### 8.1. Rules Governing Dispositions
 
-- **Rule 1: A Disposition that disables another must be enabled**
-  A disposition can only disable another if it is enabled, ensuring that only active dispositions can influence the system's resilience.
+- **Rule: A Disposition that disables another must be enabled**
+
+A disposition can only disable another if it is enabled. Only active dispositions can influence the system's elements.
 
 **FOL Representation:**
 
-```
+$$
 \forall d1, d2 ( Disposition(d1) \land Disposition(d2) \land disables(d1, d2) \rightarrow state(d1) = ENABLED \land state(d2) = DISABLED )
-```
+$$
 
 The UML diagram below illustrates the **Disposition** metamodel and its relationships with other ScenarioComponents:
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Dispositions.png"
+<img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/metamodel_images/Dispositions.png" alt="Disposition UML Diagram"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
+<p align="center"><em>Disposition metamodel showing the structural relations between Capabilities, Vulnerabilities, and Resilience.</em></p>
 
-### Capabilities
+### 8.2. Capabilities
 
-A **Capability** is a positive disposition that enables an entity to perform specific functions that contribute to resilience. Capabilities can **sustain resilience mechanisms**, ensuring the stability of an entity under adverse conditions, and can **disable vulnerabilities**, preventing them from being exploited by threats.
+A **Capability** is a positive disposition that enables an entity to perform specific functions that contribute to resilience. Capabilities can disable vulnerabilities (thus protecting assets) and, consequently, sustain resiliences (ensuring the stability of an entity under adverse conditions). They may also be used by threats to exploit vulnerabilities.
 
 Examples of capabilities include **fire resistance in building materials**, which prevents the spread of flames during a fire; **immune response in living organisms**, which helps fight infections and maintain health; **automated failover in cloud computing**, which ensures system continuity in case of a server failure; **adaptive governance in socio-ecological systems**, which allows communities to respond to environmental changes; and **reinforced structural design in engineering**, which enhances resistance against natural disasters.
 
 #### Additional Fields of Capabilities
 
-- **exploits** (_list of strings, optional_): Active vulnerabilities. Defines an Entity as a Threat.
-- **disables** (_list of strings, optional_): Vulnerabilities that are mitigated by this capability.
-- **sustains** (_list of strings, optional_): References to resiliences supported by this capability. _(Automatically inferred when using LaDeRR Engine.)_
+- **disables** (_list of strings, optional_): Vulnerabilities that this capability neutralizes.
+- **exploits** (_list of strings, optional_): Vulnerabilities that this capability can exploit (if used by a threat).
+- **sustains** (_list of strings, optional_): Resilience instances that this capability supports. _(Inferred by the LaDeRR Engine.)_
 
-#### Example of a Capability Specification
+#### Example from the Savannah Specification
 
-[**Example 06:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
+The following capability, declared for the **shaded_shelter** in the `heatwave_response` scenario, contributes to resilience by disabling the vulnerability `"limited_water_access_heatwave_response"`:
 
 ```toml
-[Capability.fire_resistance]
-label = "Fire Resistance"
-description = "An advanced coating that protects against high temperatures."
+[Capability.dynamic_heat_refuge]
+description = "Provides adaptable shaded areas that reduce heat exposure during high-temperature events."
+disables = "limited_water_access"
+label = "Dynamic Heat Refuge"
+scenarios = "heatwave_response"
 state = "enabled"
-sustains = ["fire_safety_measures"]
-disables = ["flammable_material"]
+sustains = "R1L"
 ```
 
-#### Vulnerabilities
+<p align="left"><em>This capability is enabled, disables a vulnerability, and sustains a resilience instance.</em></p>
 
-A **Vulnerability** is a negative disposition that makes an entity susceptible to threats. Vulnerabilities can be **exploited by threats**, potentially leading to damage, and can **expose capabilities** within the same entity, increasing the likelihood of operational failure.
+### 8.3. Vulnerabilities
+
+A **Vulnerability** is a negative disposition that exposes an entity susceptible to threats. It may be exploited by threats' capabilities, and it exposes internal capabilities. If a vulnerability is disabled (e.g., via a Control), it cannot be exploited.
 
 Examples of vulnerabilities include **unpatched software**, which exposes systems to cyberattacks; **immune deficiencies in biological organisms**, making them susceptible to infections; **structural fatigue in engineering**, reducing the durability of infrastructure over time; **financial instability in economic systems**, making institutions vulnerable to market fluctuations; and **data breaches in digital networks**, leading to loss of sensitive information.
 
 #### Additional Fields of Vulnerabilities
 
-- **state** (_string, required, default: `"enabled"`_): Specifies whether the vulnerability is active (`enabled`) or has been mitigated (`disabled`).
-- **exposes** (_list of strings, required_): References to capabilities that are negatively affected by this vulnerability. A vulnerability can only expose capabilities within the same entity.
-- **exploits** (_list of strings, optional_): References to threats that exploit this vulnerability. _(Automatically inferred when using LaDeRR Engine.)_
+- **state** (_string, required, default: `"enabled"`_): Specifies whether the vulnerability is active (`enabled`) or not (`disabled`).
+- **exposes** (_list of strings, required_): Capabilities that are made vulnerable by this vulnerability. These capabilities must belong to the same entity.
+- **exploits** (_list of strings, optional_): Capabilities that exploit this vulnerability. _(Automatically inferred when using LaDeRR Engine.)_
 
-### Rules Governing Vulnerabilities
+#### Rule: A Vulnerability can only expose Capabilities of the same Entity
 
-- **Rule 2: A Vulnerability can only expose Capabilities of the same Entity**
-  A vulnerability must belong to the same entity as the capabilities it exposes, ensuring that resilience and threats are properly linked.
+This constraint ensures that vulnerabilities affect only their own host entity.
 
 **FOL Representation:**
 
-```
+$$
 \forall v, c ( Vulnerability(v) \land Capability(c) \land exposes(v, c) \rightarrow \exists! o ( Entity(o) \land vulnerabilities(o, v) \land capabilities(o, c) ) )
-```
+$$
 
-#### Example of a Vulnerability Specification
+#### Example from the Savannah Specification
 
-[**Example 07:**](https://github.com/pedropaulofb/laderr/tree/main/documentation/examples)
+The following vulnerability belongs to the zebra herd and exposes one of its capabilities. It is disabled in the `heatwave_response` scenario:
 
 ```toml
-[Vulnerability.unpatched_software]
-label = "Unpatched Software"
-description = "A known software vulnerability that can be exploited by attackers."
-state = "enabled"
-exposes = ["system_integrity"]
-exploits = ["malware"]
+[Vulnerability.limited_water_access]
+description = "Scarcity of water sources that increases physiological stress and drives risky movement patterns."
+exposes = "efficient_thermoregulation"
+label = "Limited Water Access"
+scenarios = "heatwave_response"
+state = "disabled"
 ```
 
-Capabilities and vulnerabilities define the operational characteristics of assets, influencing how resilience mechanisms interact with threats in a LaDeRR specification. The LaDeRR Engine automatically determines resilience relations, meaning explicit declarations of resilience-related attributes are optional when using the system.
+<p align="left"><em>This vulnerability targets a capability within the same entity and is currently disabled.</em></p>
 
-## 6.3. Resilience
+Capabilities and vulnerabilities define the operational characteristics of entities in a LaDeRR specification.
+They serve as the foundation for inference mechanisms that determine protection, damage, inhibition, and resilience. Explicit resilience declarations are optional, as they can be inferred by the LaDeRR Engine based on rules.
+
+## 9. Resilience
 
 **Resilience** represents the mechanisms that enable entities to withstand adverse conditions, preserving capabilities, and mitigating the effects of threats. It serves as a fundamental aspect of maintaining system functionality against disruptions. Resilience mechanisms are associated with Assets, Capabilities, and Vulnerabilities, establishing structured ways to counteract risks and enhance stability.
 
