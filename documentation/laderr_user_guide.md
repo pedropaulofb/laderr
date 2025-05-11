@@ -1,7 +1,5 @@
 # LaDeRR User Guide
 
-**WORK IN PROGRESS: PLEASE BE AWARE THAT THIS DOCUMENT IS STILL UNDER DEVELOPMENT. USE IT CAREFULLY.**
-
 <!-- omit from toc -->
 ## Table of Contents
 
