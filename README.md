@@ -4,10 +4,8 @@
 
 The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is an ontology-based textual domain-specific language (DSL) for resilience modeling. It was designed to specify resilience scenarios, in a standardized format, through the specification of the participating entities and the interplay between their capabilities and vulnerabilities.
 
-
+<!-- omit from toc -->
 ## Table of Contents
-
-<!-- TOC -->
 
 - [Introduction](#introduction)
 - [Writing a LaDeRR Specification](#writing-a-laderr-specification)
@@ -23,8 +21,6 @@ The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is 
 - [License](#license)
 - [How to Contribute](#how-to-contribute)
 - [Contributors](#contributors)
-
-<!-- /TOC -->
 
 ## Introduction
 
@@ -74,6 +70,7 @@ Although LaDeRR currently focuses on resilience scenarios, future developments w
 To facilitate the adoption and correct usage of LaDeRR, we provide a detailed guide on how to create specifications of resilience scenarios using the language.
 
 The guide includes:
+
 - A comprehensive overview of LaDeRR specifications, covering their essential components.
 - Instructions on defining Entities, Capabilities, Vulnerabilities, Threats, Controls, and Resilience.
 - Illustrative examples demonstrating complete LaDeRR specifications.
@@ -91,10 +88,12 @@ The following **W3ID redirects** provide access to LaDeRR's key artifacts:
 - **Git repository:** [w3id.org/laderr/git](https://w3id.org/laderr/git)
 
 #### Versioning & Releases
+
 - **Latest release:** [w3id.org/laderr/latest](https://w3id.org/laderr/latest)
 - **All releases:** [w3id.org/laderr/releases](https://w3id.org/laderr/releases)
 
 ### LaDeRR Vocabulary Resources
+
 - **Homepage:** [w3id.org/laderr](https://w3id.org/laderr)
 - **Vocabulary:** The generation of all formats was performed using RDFLib, with the TTL file serving as input.
   - **Turtle:** [w3id.org/laderr/format/ttl](https://w3id.org/laderr/format/ttl)
@@ -105,11 +104,11 @@ The following **W3ID redirects** provide access to LaDeRR's key artifacts:
   - **TriG:** [w3id.org/laderr/format/trig](https://w3id.org/laderr/format/trig)
 
 ### LaDeRR Engine
+
 - **Homepage:** [w3id.org/laderr/engine](https://w3id.org/laderr/engine)
 - **Repository:** [w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git)
 - **Latest release:** [w3id.org/laderr/engine/latest](https://w3id.org/laderr/engine/latest)
 - **All releases:** [w3id.org/laderr/engine/releases](https://w3id.org/laderr/engine/releases)
-
 
 ## Available Artifacts
 
@@ -118,14 +117,15 @@ The LaDeRR repository contains several artifacts that support the development, d
 ### LaDeRR Metamodel
 
 The **metamodel** of LaDeRR is provided in two formats:
+
 - **Editable Version (VPP File):** The **Visual Paradigm Project File (`laderr-metamodel-v*.vpp`)** allows further modifications and extensions of the metamodel.
 - **Images:** The **metamodel is available as images** in the `metamodel_images` folder, which contains individual diagrams for different aspects of LaDeRR, including constructs, specifications, resilience, dispositions, and entities.
 
 ### LaDeRR Rules
 
 The metamodel is complemented by logical rules that define constraints and derivations that cannot be fully expressed in UML class diagrams. These rules are available in the file:
-- `laderr-rules-v*.xlsx`: This file contains a structured set of logical rules, including derivations, constraints, and formal conditions that enhance the expressiveness of LaDeRR.
 
+- `laderr-rules-v*.xlsx`: This file contains a structured set of logical rules, including derivations, constraints, and formal conditions that enhance the expressiveness of LaDeRR.
 
 ### LaDeRR Vocabulary
 
@@ -150,27 +150,28 @@ You can access the vocabulary directly in specific formats using the links below
 ### SHACL Shapes for Data Validation
 
 To ensure that LaDeRR models conform to the defined vocabulary, **SHACL (Shapes Constraint Language) shapes** were created for validation. These are available in the `shapes` folder:
-- `laderr-shape-entity-v*.shacl`
-- `laderr-shape-resilience-v*.shacl`
-- `laderr-shape-scenariocomponent-v*.shacl`
-- `laderr-shape-scenario-v*.shacl`
-- `laderr-shape-specification-v*.shacl`
-- `laderr-shape-threat-v*.shacl`
-- `laderr-shape-vulnerability-v*.shacl`
+
 - `laderr-shape-asset-v*.shacl`
 - `laderr-shape-capability-v*.shacl`
 - `laderr-shape-construct-v*.shacl`
 - `laderr-shape-control-v*.shacl`
 - `laderr-shape-disposition-v*.shacl`
+- `laderr-shape-entity-v*.shacl`
+- `laderr-shape-resilience-v*.shacl`
+- `laderr-shape-scenario-v*.shacl`
+- `laderr-shape-scenariocomponent-v*.shacl`
+- `laderr-shape-specification-v*.shacl`
+- `laderr-shape-threat-v*.shacl`
+- `laderr-shape-vulnerability-v*.shacl`
 
 These SHACL files enable automated validation of LaDeRR models, ensuring that each instance adheres to the constraints defined in the vocabulary.
 
-
 ## License
+
 The **LaDeRR DSL** is released under the **[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)**, a **permissive open-source license** that allows free use, modification, and distribution of the specifications. This ensures that LaDeRR can be adopted, extended, and integrated into both academic and industrial applications, while maintaining intellectual property protections.
 
-
 ## How to Contribute
+
 Contributions to LaDeRR are **highly encouraged**! The language is an evolving project, and community input is essential for improving its expressiveness, usability, and computational support. You can contribute to this project in the following ways.
 
 1. **Report Issues:** If you find bugs, inconsistencies, or unclear documentation, please open an **[issue](https://github.com/pedropaulofb/laderr/issues)** in the GitHub repository.
@@ -180,7 +181,6 @@ Contributions to LaDeRR are **highly encouraged**! The language is an evolving p
 3. **Submit Pull Requests (PRs):** Contributions to the vocabulary, abstract syntax, or documentation are welcome via **[pull requests](https://github.com/pedropaulofb/laderr/pulls)**.
 
 Your feedback and contributions will help refine LaDeRR and expand its capabilities to better support risk and resilience specification.
-
 
 ## Contributors
 

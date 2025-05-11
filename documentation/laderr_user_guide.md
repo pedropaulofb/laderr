@@ -18,9 +18,9 @@
   - [4.1. Common Attributes of All Constructs](#41-common-attributes-of-all-constructs)
   - [4.2. Example of Construct Definition](#42-example-of-construct-definition)
 - [5. Scenarios](#5-scenarios)
-  - [5.1. Scenarios' Situations](#51-scenarios-situations)
+  - [5.1. Scenarios' Situation](#51-scenarios-situation)
   - [5.2. Scenarios' Status](#52-scenarios-status)
-  - [5.3. Scenarios' Rules](#53-scenarios-rules)
+  - [5.3. Rules Governing Scenarios](#53-rules-governing-scenarios)
   - [5.4. Examples of Scenario Definition](#54-examples-of-scenario-definition)
 - [6. Scenario Components](#6-scenario-components)
   - [6.1. Linking Scenario Components to Scenarios](#61-linking-scenario-components-to-scenarios)
@@ -191,7 +191,7 @@ To illustrate the difference:
 - A **minimal input specification** (92 lines): [`example_doc_in.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_in.toml)
 - The **fully completed version** generated after the minimal version by the engine (324 lines): [`example_doc_out_post.toml`](https://github.com/pedropaulofb/laderr/blob/main/documentation/example/example_doc_out/example_doc_out_post.toml)
 
-Throughout this guide, each language construct will be presented with examples showing **both styles**—the minimal form written by the user and the complete result produced by the LaDeRR Engine. This will help readers understand not only how to write a specification, but also what the engine adds during its processing.
+Throughout this guide, each language construct will be presented with examples showing **both styles**—the minimal form written by the user and the complete result produced by the engine. This will help readers understand not only how to write a specification, but also what the engine adds during its processing.
 
 ### 2.2. Validation Process
 
@@ -218,7 +218,7 @@ The figure below illustrates the typical processing flow of a simplified specifi
 <p align="center">
 <img src="https://raw.githubusercontent.com/pedropaulofb/laderr/refs/heads/main/documentation/images/processing_stages.png"  alt="LaDeRR Engine's Process"
 style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
-<p align="center"><em>Simplified view of the LaDeRR Engine’s processing stages, from a minimal user-defined specification to a fully enriched and validated model.</em></p>
+<p align="center"><em>Simplified view of LaDeRR Engine’s processing stages, from a minimal user-defined specification to a fully enriched and validated model.</em></p>
 
 ## 3. Specification Metadata
 
@@ -250,7 +250,7 @@ The table below lists the metadata fields available in a LaDeRR specification, a
 | **createdBy**   | string \| list[string]           | list[string]   | [0..*]       | No       | N/A                      | Names or identifiers of the author(s). A single string is automatically converted into a list.                                                                        |
 | **createdOn**   | datetime (TOML native) \| string | xsd:dateTime   | [0..1]       | No       | N/A                      | Timestamp of creation. Must follow the `xsd:dateTime` format. See [time format guide](https://github.com/pedropaulofb/laderr/blob/main/documentation/time_format.md). |
 | **modifiedOn**  | datetime (TOML native) \| string | xsd:dateTime   | [0..1]       | No       | N/A                      | Timestamp of the last known update. Must follow the `xsd:dateTime` format.                                                                                            |
-| **baseUri**     | string                           | URIRef         | [1]          | **Yes**  | `https://laderr.laderr#` | The base URI used to generate identifiers for all elements within the specification. Must be a valid URI string.                                                      |
+| **baseURI**     | string                           | URIRef         | [1]          | **Yes**  | `https://laderr.laderr#` | The base URI used to generate identifiers for all elements within the specification. Must be a valid URI string.                                                      |
 
 A dedicated [time format guide](https://github.com/pedropaulofb/laderr/blob/main/documentation/time_format.md) is available to help ensure `createdOn` and `modifiedOn` values are formatted correctly.
 
@@ -278,7 +278,7 @@ baseURI = "https://minimalexample.laderr#"
 
 While such minimal files are valid, they are not useful in practice unless used for testing or incremental development.
 
-> **Note:** When using the [LaDeRR Engine](https://w3id.org/laderr/engine/git), if no `Scenario` is explicitly defined in the specification, the engine will automatically create a default scenario and assign a generated identifier to it (e.g., `SX01`). However, since every scenario is required to include at least one scenario component, a blank or metadata-only file will result in a validation error. To avoid this, users should either define a scenario manually or include at least one construct (e.g., an entity) in addition to the metadata.
+> **Note:** When using the [LaDeRR Engine](https://w3id.org/laderr/engine/git), if no `Scenario` is explicitly defined in the specification, the engine will automatically create a default scenario and assign a generated identifier to it (e.g., `SX01`)(see [Section 5.4C](#c-no-scenario-declared)). However, since every scenario is required to include at least one scenario component, a blank or metadata-only file will result in a validation error. To avoid this, users should either define a scenario manually or include at least one construct (e.g., an entity) in addition to the metadata.
 
 #### Complete Example with All Supported Fields
 
@@ -374,9 +374,10 @@ All scenarios are defined as instances of the `Scenario` class and share the sam
 
 If these attributes are omitted from the specification, the default values are applied automatically—ensuring that the scenario is treated as operational and vulnerable unless stated otherwise.
 
-> **Note on Engine Behavior**: When using the [LaDeRR Engine](https://w3id.org/laderr/engine/git):
-> It is **recommended** to explicitly define the `situation` attribute, as this affects how threats and outcomes are interpreted during inference.
-> It is **not required** to specify the `status` attribute manually. The engine automatically computes and updates the scenario status during post-inference processing. Any user-defined value for `status` may be overwritten by this automated evaluation.
+> **Note:**: When using the [LaDeRR Engine](https://w3id.org/laderr/engine/git):
+>
+> - It is **recommended** to explicitly define the `situation` attribute, as this affects how threats and outcomes are interpreted during inference.
+> - It is **not required** to specify the `status` attribute manually. The engine automatically computes and updates the scenario status during post-inference processing. Any user-defined value for `status` may be overwritten by this automated evaluation.
 
 The UML diagram below presents the metamodel structure for Scenarios and their relationship with `ScenarioComponents`:
 
@@ -390,7 +391,7 @@ If a `ScenarioComponent` is not explicitly linked to any `Scenario`, it is autom
 
 Moreover, if no `Scenario` is explicitly declared in the specification, a default one is assumed to exist. In such cases, all scenario components are treated as part of this single, implicit scenario. When using the LaDeRR Engine, this default scenario is generated automatically, and a randomly generated identifier is assigned to it.
 
-### 5.1. Scenarios' Situations
+### 5.1. Scenario's Field Situation
 
 The `situation` attribute characterizes the temporal nature of the scenario. It accepts one of the following values:
 
@@ -400,7 +401,7 @@ The `situation` attribute characterizes the temporal nature of the scenario. It 
 
 This distinction is critical for interpreting the semantics of threats and resilience within the model.
 
-### 5.2. Scenarios' Status
+### 5.2. Scenario's Field Status
 
 The `status` attribute summarizes the overall condition of the scenario in terms of resilience. It can take one of two values:
 
@@ -412,7 +413,7 @@ The `status` attribute summarizes the overall condition of the scenario in terms
 
 These attributes together help define the scope and interpretation of each scenario within a LaDeRR specification.
 
-### 5.3. Scenarios' Rules
+### 5.3. Rules Governing Scenarios
 
 This section presents the formal rules that govern the behavior of scenarios in LaDeRR. These rules determine how scenarios are classified, how damages are interpreted based on the situation type, and how vulnerabilities influence a scenario’s overall resilience status. All rules are based on the LaDeRR ontology and implemented within the LaDeRR Engine.
 
@@ -492,7 +493,7 @@ label = "Dry Season Survival"
 
 [Entity.zebra_herd]
 label = "Zebra Herd"
-# Other zebra_herd definitions
+# Additional attributes or relations for zebra_herd (omitted here for brevity)
 ```
 
 <p align="left"><em>Example of unprocessed specification without scenario assignment.</em></p>
@@ -515,7 +516,7 @@ status = "vulnerable"
 [Entity.zebra_herd_heatwave_response]
 label = "Zebra Herd"
 scenarios = "heatwave_response"
-# Other zebra_herd definitions
+# Additional attributes or relations for zebra_herd (omitted here for brevity)
 
 [Asset.zebra_herd_dry_season]
 label = "Zebra Herd"
@@ -535,7 +536,7 @@ This example shows a minimal case where no scenario is declared. A default scena
 ```toml
 [Entity.zebra_herd]
 label = "Zebra Herd"
-# Other zebra_herd definitions
+# Additional attributes or relations for zebra_herd (omitted here for brevity)
 ```
 
 <p align="left"><em>Example of unprocessed specification without scenario definition.</em></p>
@@ -552,7 +553,7 @@ status = "vulnerable"
 [Entity.zebra_herd]
 label = "Zebra Herd"
 scenarios = ["SX01"]
-# Other zebra_herd definitions
+# Additional attributes or relations for zebra_herd (omitted here for brevity)
 ```
 
 <p align="left"><em>Example of automatic creation of scenario from specification without scenario definition.</em></p>
@@ -615,7 +616,7 @@ scenarios = ["x"]
 
 <p align="left"><em>Example of second option of scenario assignment.</em></p>
 
-Both approaches are semantically equivalent and can be used interchangeably. When using the LaDeRR Engine, either method will correctly link the component to the intended scenario(s).
+Both approaches are semantically equivalent and can be used interchangeably. When using the engine, either method will correctly link the component to the intended scenario(s).
 
 In addition, if a specification defines only one scenario, components do not need to explicitly declare the association—the LaDeRR Engine will assume all components belong to that scenario.
 
@@ -653,7 +654,7 @@ scenarios = ["dry_season", "heatwave_response"]
 
 <p align="left"><em>Example of a scenario component (zebra_herd) associated with multiple scenarios.</em></p>
 
-The LaDeRR Engine generates the following post-inference output:
+LaDeRR Engine generates the following post-inference output:
 
 ```toml
 [Asset.zebra_herd_heatwave_response]
@@ -709,7 +710,7 @@ Each entity must declare at least one **capability**, and may optionally include
 
 In LaDeRR, entities can be declared in two different ways, depending on whether their classification into concrete types is known in advance or should be inferred automatically by [LaDeRR Engine](https://w3id.org/laderr/engine/git).
 
-The first approach is to declare the entity using the abstract class `Entity`. This allows the modeler to describe the entity’s label, capabilities, vulnerabilities, and relationships without asserting its specific role (e.g., whether it is an asset, a threat, or a control). When the Engine processes the specification, it will automatically determine the appropriate concrete classification(s) for the entity based on its context and interactions.
+The first approach is to declare the entity using the abstract class `Entity`. This allows the modeler to describe the entity’s label, capabilities, vulnerabilities, and relationships without asserting its specific role (e.g., whether it is an asset, a threat, or a control). When the engine processes the specification, it will automatically determine the appropriate concrete classification(s) for the entity based on its context and interactions.
 
 The example below demonstrates this approach:
 
@@ -752,7 +753,7 @@ Assets are defined by the following additional field:
 
 - **resiliences** (_list of strings, optional_): References to resilience instances associated with the asset. _(Automatically inferred when using LaDeRR Engine, but may also be declared manually.)_
 
-> **Note:** The LaDeRR Engine automatically computes the occurrence of resilience instances based on the system's elements and their relations in accordance with specific rules (see [Section #9]((#9-resilience)). Users may provide explicit resilience declarations, but this is not required when using the Engine.
+> **Note:** The LaDeRR Engine automatically computes the occurrence of resilience instances based on the system's elements and their relations in accordance with specific rules (see [Section #9]((#9-resilience)). Users may provide explicit resilience declarations, but this is not required when using the engine.
 
 #### Example of an Asset Specification
 
@@ -785,7 +786,7 @@ Threats may contain the following additional fields:
 - **canDamage** / **cannotDamage** (_list of strings, optional_): Used when the scenario situation is `operational`. Indicates whether a threat has the potential to cause damage.
 - **damaged** / **notDamaged** (_list of strings, optional_): Used when the scenario situation is `incident`. Indicates whether a threat actually succeeded or failed in causing damage.
 
-> **Note:** These outcome-specific relationships are automatically inferred by the LaDeRR Engine. Manual declarations are permitted but may be overwritten when using the Engine.
+> **Note:** These outcome-specific relationships are automatically inferred by the LaDeRR Engine. Manual declarations are permitted but may be overwritten when using the engine.
 
 #### Rules Governing Threats
 
@@ -912,7 +913,7 @@ Each disposition has a **state**, which can be either `enabled` or `disabled`. B
 
 - **state** (_string, optional, default: `"enabled"`_): Specifies whether the disposition is active (`enabled`) and can affect the scenario, or inactive (`disabled`) and has no effect.
 
-### 8.1. Rules Governing Dispositions
+### 8.1. Rule Governing Dispositions
 
 - **Rule: A Disposition that disables another must be enabled**
 
