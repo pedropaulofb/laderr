@@ -882,7 +882,7 @@ scenarios = "heatwave_response"
 ```
 <p align="left"><em>Control entity representing shaded savannah shelters that protect the zebra herd by enabling dynamic heat refuge to counter limited water access.</em></p>
 
-Both controls participate in resilience strategies by either **sustaining capabilities**, **reducing threat influence**, or **blocking vulnerability activation**, creating systemic protection mechanisms across scenarios.
+Both controls participate in resilience strategies by either *sustaining capabilities*, *reducing threat influence*, or *blocking vulnerability activation*, creating systemic protection mechanisms across scenarios.
 
 ## 8. Dispositions
 
