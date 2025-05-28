@@ -1,6 +1,7 @@
 # LaDeRR: **La**nguage for **De**scribing **R**isk and **R**esilience
 
-<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/documentation/images/laderr-visual-schema.png" width="750" alt="Diagram showing the relationship between ResiliOnt and LaDeRR, and the syntax layers: abstract, textual, and visual"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/resources/logo_laderr.png" width="500" alt="LaDeRR project logo: Language for Describing Risk and Resilience"></p>
+
 
 The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is an ontology-based textual domain-specific language (DSL) for resilience modeling. It was designed to specify resilience scenarios, in a standardized format, through the specification of the participating entities and the interplay between their capabilities and vulnerabilities.
 
@@ -73,7 +74,7 @@ The guide includes:
 - Instructions on defining Entities, Capabilities, Vulnerabilities, Threats, Controls, and Resilience.
 - Illustrative examples demonstrating complete LaDeRR specifications.
 
-**(Under development) Access the full guide here:** [How to Write a LaDeRR Specification](https://github.com/pedropaulofb/laderr/blob/main/docs/how-to-write-laderr-spec.md)
+**(Under development) Access the full guide here:** [How to Write a LaDeRR Specification](https://github.com/pedropaulofb/laderr/blob/main/documentation/laderr_user_guide.md)
 
 ## Permanent URLs for LaDeRR Resources
 
@@ -103,7 +104,6 @@ The following **W3ID redirects** provide access to LaDeRR's key artifacts:
 
 ### LaDeRR Engine
 
-<!-- - **Homepage:** [w3id.org/laderr/engine](https://w3id.org/laderr/engine) -->
 - **Repository:** [w3id.org/laderr/engine/git](https://w3id.org/laderr/engine/git)
 - **Latest release:** [w3id.org/laderr/engine/latest](https://w3id.org/laderr/engine/latest)
 - **All releases:** [w3id.org/laderr/engine/releases](https://w3id.org/laderr/engine/releases)
