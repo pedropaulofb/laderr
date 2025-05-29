@@ -74,7 +74,7 @@ The guide includes:
 - Instructions on defining Entities, Capabilities, Vulnerabilities, Threats, Controls, and Resilience.
 - Illustrative examples demonstrating complete LaDeRR specifications.
 
-**(Under development) Access the full guide here:** [How to Write a LaDeRR Specification](https://github.com/pedropaulofb/laderr/blob/main/documentation/laderr_user_guide.md)
+**Access the full guide here:** [LaDeRR User Guide](https://github.com/pedropaulofb/laderr/blob/main/documentation/laderr_user_guide.md)
 
 ## Permanent URLs for LaDeRR Resources
 
