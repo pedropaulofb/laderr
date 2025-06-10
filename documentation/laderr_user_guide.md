@@ -109,7 +109,7 @@ The specification was processed using the [**LaDeRR Engine**](https://w3id.org/l
 
 Upon processing the specification, the engine performs the following tasks:
 
-- **OWL Graph Generation**: The TOML input is transformed into an RDF graph compliant with the [LaDeRR Vocabulary](https://w3id.org/laderr/vocabulary). This graph is exported in Turtle (`.ttl`) format.
+- **OWL Graph Generation**: The TOML input is transformed into an RDF graph compliant with the [LaDeRR Vocabulary](https://w3id.org/laderr). This graph is exported in Turtle (`.ttl`) format.
 
 - **Graph Visualizations**: Each scenario in the specification is rendered as a `.png` image using Graphviz, both **before** and **after** inference.
 
@@ -1105,7 +1105,7 @@ Both examples were inferred by the LaDeRR Engine using only the constructs and r
 
 ## 10. Mapping to ResiliOnt Ontology
 
-Each core domain construct in LaDeRR has been mapped to its corresponding ResiliOnt concept. The table below summarizes these mappings as declared in the [LaDeRR vocabulary](http://w3id.org/laderr/vocabulary) through `skos:note` annotations:
+Each core domain construct in LaDeRR has been mapped to its corresponding ResiliOnt concept. The table below summarizes these mappings as declared in the [LaDeRR vocabulary](http://w3id.org/laderr) through `skos:note` annotations:
 
 | LaDeRR Concept | ResiliOnt Concept   |
 |----------------|---------------------|

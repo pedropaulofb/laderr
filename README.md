@@ -93,7 +93,7 @@ The following **W3ID redirects** provide access to LaDeRR's key artifacts:
 
 ### LaDeRR Vocabulary Resources
 
-- **Homepage:** [w3id.org/laderr](https://w3id.org/laderr/vocabulary)
+- **Homepage:** [w3id.org/laderr](https://w3id.org/laderr)
 - **Vocabulary:** The generation of all formats was performed using RDFLib, with the TTL file serving as input.
   - **Turtle:** [w3id.org/laderr/format/ttl](https://w3id.org/laderr/format/ttl)
   - **RDF/XML (OWL):** [w3id.org/laderr/format/owl](https://w3id.org/laderr/format/owl)
