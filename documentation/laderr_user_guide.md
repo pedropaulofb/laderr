@@ -1118,7 +1118,6 @@ Each core domain construct in LaDeRR has been mapped to its corresponding Resili
 | Threat         | Threat Object       |
 | Vulnerability  | Vulnerability       |
 
-
 ## 11. Complete Savannah Example
 
 This section consolidates and presents the complete Savannah model used throughout this guide. Rather than introducing new concepts, this section provides a comprehensive view of the example specification and how it evolves after inference using the [LaDeRR Engine](https://w3id.org/laderr/engine/git). Readers will find here:

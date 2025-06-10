@@ -2,7 +2,6 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/pedropaulofb/laderr/main/resources/logo_laderr.png" width="500" alt="LaDeRR project logo: Language for Describing Risk and Resilience"></p>
 
-
 The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is an ontology-based textual domain-specific language (DSL) for resilience modeling. It was designed to specify resilience scenarios, in a standardized format, through the specification of the participating entities and the interplay between their capabilities and vulnerabilities.
 
 <!-- omit from toc -->
@@ -27,7 +26,7 @@ The **La**nguage for **De**scribing **R**isk and **R**esilience (**LaDeRR**) is 
 
 In an increasingly complex and interconnected world, resilience has become a fundamental concept in risk management. Organizations and systems must withstand, adapt to, and recover from disruptions caused by threats and vulnerabilities. Addressing these challenges requires precise modeling and representation of resilience-related concepts, which is essential for effective decision-making and risk assessment.
 
-To meet this need, researchers have developed [**ResiliOnt**](https://doi.org/10.1007/978-3-031-75872-0_21) (available [here](https://www.researchgate.net/publication/383658567_Ontological_Foundations_of_Resilience)), an OntoUML ontology that provides a rich semantic foundation for resilience modeling. However, using ontologies for practical applications in risk assessment and resilience analysis often requires a structured **domain-specific language (DSL)** that enables clear and precise descriptions of risk scenarios.
+To meet this need, researchers have developed [**ResiliOnt**](https://doi.org/10.1007/978-3-031-75872-0_21) ([available here](https://www.researchgate.net/publication/383658567_Ontological_Foundations_of_Resilience)), an OntoUML ontology that provides a rich semantic foundation for resilience modeling. However, using ontologies for practical applications in risk assessment and resilience analysis often requires a structured **domain-specific language (DSL)** that enables clear and precise descriptions of risk scenarios.
 
 While ontologies provide rigorous conceptual models, they often lack formal computational syntax that can be directly used in software tools. Similarly, traditional modeling languages, such as UML, are not expressive enough to represent all necessary logical constraints in resilience analysis. A well-defined DSL can bridge this gap by offering:
 
