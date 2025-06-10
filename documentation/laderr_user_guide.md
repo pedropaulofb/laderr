@@ -38,7 +38,8 @@
 - [9. Resilience](#9-resilience)
   - [9.1. Fields of Resilience](#91-fields-of-resilience)
   - [9.2. Rules Governing Resilience](#92-rules-governing-resilience)
-- [10. Complete Savannah Example](#10-complete-savannah-example)
+- [10. Mapping to ResiliOnt Ontology](#10-mapping-to-resiliont-ontology)
+- [11. Complete Savannah Example](#11-complete-savannah-example)
   - [10.1. Heatwave Response (Pre-Inference)](#101-heatwave-response-pre-inference)
   - [10.2. Dry Season Survival (Pre-Inference)](#102-dry-season-survival-pre-inference)
   - [10.3. Heatwave Response (Post-Inference)](#103-heatwave-response-post-inference)
@@ -108,7 +109,7 @@ The specification was processed using the [**LaDeRR Engine**](https://w3id.org/l
 
 Upon processing the specification, the engine performs the following tasks:
 
-- **OWL Graph Generation**: The TOML input is transformed into an RDF graph compliant with the [LaDeRR Vocabulary](https://w3id.org/laderr). This graph is exported in Turtle (`.ttl`) format.
+- **OWL Graph Generation**: The TOML input is transformed into an RDF graph compliant with the [LaDeRR Vocabulary](https://w3id.org/laderr/vocabulary). This graph is exported in Turtle (`.ttl`) format.
 
 - **Graph Visualizations**: Each scenario in the specification is rendered as a `.png` image using Graphviz, both **before** and **after** inference.
 
@@ -1102,7 +1103,23 @@ scenarios = "heatwave_response"
 
 Both examples were inferred by the LaDeRR Engine using only the constructs and relations explicitly declared in the specification.
 
-## 10. Complete Savannah Example
+## 10. Mapping to ResiliOnt Ontology
+
+Each core domain construct in LaDeRR has been mapped to its corresponding ResiliOnt concept. The table below summarizes these mappings as declared in the [LaDeRR vocabulary](http://w3id.org/laderr/vocabulary) through `skos:note` annotations:
+
+| LaDeRR Concept | ResiliOnt Concept   |
+|----------------|---------------------|
+| Asset          | Object at Risk      |
+| Capability     | Capability          |
+| Control        | Risk Inhibitor      |
+| Disposition    | Disposition         |
+| Entity         | Value Object        |
+| Resilience     | Resilience          |
+| Threat         | Threat Object       |
+| Vulnerability  | Vulnerability       |
+
+
+## 11. Complete Savannah Example
 
 This section consolidates and presents the complete Savannah model used throughout this guide. Rather than introducing new concepts, this section provides a comprehensive view of the example specification and how it evolves after inference using the [LaDeRR Engine](https://w3id.org/laderr/engine/git). Readers will find here:
 
