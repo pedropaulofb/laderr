@@ -135,12 +135,12 @@ style="max-width: 600px; max-height: 350px; height: auto; width: auto;"></p>
 Here is how to interpret the visual elements:
 
 - **Node Colors and Shapes**:
-  - **Light Green / Dark Green Circles**: Capabilities (enabled / disabled).
-  - **Light Red / Dark Red Circles**: Vulnerabilities (enabled / disabled).
-  - **Orange Ellipses**: Resilience instances.
+  - **Light Green / Dark Green Circles**: Capabilities (enabled / disabled, respectively).
+  - **Light Red / Dark Red Circles**: Vulnerabilities (enabled / disabled, respectively).
+  - **Orange Circles**: Resilience instances.
   - **Light Green Squares**: Assets.
-  - **Blue Squares**: Controls.
-  - **Pink Squares**: Threats.
+  - **Light Blue Squares**: Controls.
+  - **Light Red Squares**: Threats.
   - **Gray Squares**: Entities that are not typed as asset, control, or threat.
 
 - **Multicolored Nodes**:
